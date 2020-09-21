@@ -52,6 +52,32 @@ In the [add_variables.R](https://github.com/SinaMaria412/predictors_of_polling_e
 
 To run the folowiung script you need to subscribe to pollingreport.us and save your username and password in "usr_pwd.txt" (username:password). First you need to run the [downloadscript_senate1998_2018.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/downloadscript_senate1998_2018.R). The websites with senate polling results from 1998 to 2018 will be downloaded and stored separately for every year and state/group of states as html files. The folder structure is year/html/. In a next step, to convert these html files to txt for further processing run the [convert_txt_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/convert_txt_senate.R) script. Running this script will create the sub folder "txt" within every year folder (year/txt/) with one txt file per state. To extract the relevant information and combine all in one data frame run [extract_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/extract_senate.R). The files [helper_func_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/helper_func_senate.R) and [helper_func_subset_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/helper_func_subset_senate.R) include necessary functions to extract relevant information from the txt files and combine this information a data frame. This data frame includes information on:
 
+- state: state abbreviation
+- election_year: year, election took place
+- date: last date of field period
+- pollFirm: name of polling firm
+- n: sample size (if reported)
+- respondents: reported respondents, unformatted
+- dem_candidate: reported name of Rep. candidate
+- rep_candidate: reported name of Dem. candidate
+- rep_vote: Rep. poll vote share
+- dem_vote: Dem. poll vote share
+- undecided: share of respondents answerung being undecided (if reported)
+- refused: share of poll refusals (if reported)
+- other: share of other poll repsonses (if reported)
+- green_candidate: reported name of Green candidate
+- green_vote: Green poll vote share
+- lib_candidate: reported name of Lib. candidate
+- lib_vote: Lib. poll vote share
+- reform_candidate: reported name of Reform candidate
+- reform_vote: Reform poll vote share
+- ind_candidate: reported name of Green candidate
+- ind_vote: Green poll vote share
+- write_in_candidate: reported name of write in candidate
+- write_in_vote: write in poll vote share
+- MoE: reported margin of error
+- states_long: state name
+- resp_formated: formated respondents type: LV = likely voters, RV = registered voters, Statewide = statewide polls
 
 
 To add covariates to the senate scrapes you run the script [senate_covariates_wikipedia.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/senate_covariates_wikipedia.R). This script reads in tables from Wikipedia from all US Senate elections since 1998. These tables include information about final election results, name and number of candidates and incumbency. 
