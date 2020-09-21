@@ -3,8 +3,8 @@ The aim of this project is to develop a contextual understanding of polling erro
 
 This readme is structured as follows:
 
-1. [US President](https://github.com/SinaMaria412/predictors_of_polling_errors#us-president)
-  - Code and explanation for presidential elections
+[US President](https://github.com/SinaMaria412/predictors_of_polling_errors#us-president): Code and explanation for presidential elections
+  
 
 ## US President
 
@@ -52,32 +52,7 @@ In the [add_variables.R](https://github.com/SinaMaria412/predictors_of_polling_e
 
 To run the folowiung script you need to subscribe to pollingreport.us and save your username and password in "usr_pwd.txt" (username:password).
 
-- state: state abbreviation
-- election_year: year, election took place
-- date: last date of field period
-- pollFirm: name of polling firm
-- n: sample size (if reported)
-- respondents: reported respondents, unformatted
-- dem_candidate: reported name of Rep. candidate
-- rep_candidate: reported name of Dem. candidate
-- rep_vote: Rep. poll vote share
-- dem_vote: Dem. poll vote share
-- undecided: share of respondents answerung being undecided (if reported)
-- refused: share of poll refusals (if reported)
-- green_candidate: name of Green party candidate (if reported)
-- green_vote: Green poll vote share
-- lib_candidate: name of Lib. party candidate (if reported)
-- lib_vote: Lib. poll vote share
-- reform_candidate: name of Reform party candidate (if reported)
-- reform_vote: Reform poll vote share
-- ind_candidate: name of Ind. party candidate (if reported)
-- ind_vote: Ind. poll vote share
-- write_in_candidate: name of write in candidate (if reported)
-- write_in_vote: write in poll vote share
-- other: share of other poll repsonses (if reported)
-- MoE: reported margin of error
-- states_long: state name
-- resp_formated: formated respondents type: LV = likely voters, RV = registered voters, Statewide = statewide polls
+
 
 To add covariates to the senate scrapes you run the script [senate_covariates_wikipedia.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/senate_covariates_wikipedia.R). This script reads in tables from Wikipedia from all US Senate elections since 1998. These tables include information about final election results, name and number of candidates and incumbency. 
 
