@@ -61,6 +61,16 @@ First you need to run the [downloadscript_senate1998_2018.R](https://github.com/
 - dem_vote: Dem. poll vote share
 - undecided: share of respondents answerung being undecided (if reported)
 - refused: share of poll refusals (if reported)
+- green_candidate: name of Green party candidate (if reported)
+- green_vote: Green poll vote share
+- lib_candidate: name of Lib. party candidate (if reported)
+- lib_vote: Lib. poll vote share
+- reform_candidate: name of Reform party candidate (if reported)
+- reform_vote: Reform poll vote share
+- ind_candidate: name of Ind. party candidate (if reported)
+- ind_vote: Ind. poll vote share
+- write_in_candidate: name of write in candidate (if reported)
+- write_in_vote: write in poll vote share
 - other: share of other poll repsonses (if reported)
 - MoE: reported margin of error
 - states_long: state name
