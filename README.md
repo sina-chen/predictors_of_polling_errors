@@ -3,8 +3,8 @@ The aim of this project is to develop a contextual understanding of polling erro
 
 This readme is structured as follows:
 
-[US President](https://github.com/SinaMaria412/predictors_of_polling_errors#us-president): Code and explanation for presidential elections
-  
+- [US President](https://github.com/SinaMaria412/predictors_of_polling_errors#us-president): Code and explanation for presidential elections
+- [US Senate](https://github.com/SinaMaria412/predictors_of_polling_errors#us-senate): Code and explanation for senate elections
 
 ## US President
 
