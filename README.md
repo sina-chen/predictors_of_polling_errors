@@ -56,5 +56,12 @@ Data cleaning includes the removal of elections where more than one candidate fr
 
 One covariate of interest is gender, which is predicted with the [R-Package "gender"](https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html). Thereby the surnames from the Wikipedia Data are used.
 
-Finally the covariates are merged to the scraped polls and yield a dataset with:
+Finally the covariates are merged to the scraped polls and yield a dataset with the already described variables and:
 
+- dem_name: string with full name of democratic candidate
+- rep_name: string with full name of republican candidate
+- no_candidates: integer with the number of candidates which received votes in election
+- senator: name of incumbent
+- incumbency: dummy variable if incumbent runs for re-election
+- rep_gender: predicted gender of republican candidate
+- dem_gender: predicted gender of democratic candidate
