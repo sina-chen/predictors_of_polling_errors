@@ -34,6 +34,15 @@ First you need to run the [downloadscript_pres.R](https://github.com/SinaMaria41
 - diff_to_prev: differemnce in turnout to previous state-level election
 - to_mean: average state-level turnout from 2000 to 2016
 
+In the [add_variables.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_president/scrape/add_variables.R) file, additional information is added:
+
+- ev: number of electoral college votes
+- ev_sc: between 0 and 1 scaled eelctoral college votes
+- after_rep: dummy indicating whether the poll was conducted after (0) or before (1) the Rep. national convention
+- after_dem: dummy indicating whether the poll was conducted after (0) or before (1) the Dem. national convention
+- swing: dummy indicating swing states (1) and safe states (0)
+- dte_sc: between 0 and 1 scaled days to election (based on data up to 365 days before election)
+
 ## US Senate
 
 To run the folowiung script you need to subscribe to pollingreport.us and save your username and password in "usr_pwd.txt" (username:password).
