@@ -46,3 +46,15 @@ In the [add_variables.R](https://github.com/SinaMaria412/predictors_of_polling_e
 ## US Senate
 
 To run the folowiung script you need to subscribe to pollingreport.us and save your username and password in "usr_pwd.txt" (username:password).
+
+
+
+To add covariates to the senate scrapes you run the script [senate_covariates_wikipedia.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/senate_covariates_wikipedia.R). This script reads in tables from Wikipedia from all US Senate elections since 1998. These tables include information about final election results, name and number of candidates and incumbency. 
+
+In addition to merging the datasets into one and cleaning them, some manipulation is done.
+Data cleaning includes the removal of elections where more than one candidate from the two major parties runs for elections and ends up in the first three places in the election. This restriction is included, as the primary interest lies in the two party competition between Republicans and Democrats. Moreover, elections with two candidates from the same party on the final ballot are extremely rare due to election laws in the USA (except e.g. California).
+
+One covariate of interest is gender, which is predicted with the [R-Package "gender"](https://cran.r-project.org/web/packages/gender/vignettes/predicting-gender.html). Thereby the surnames from the Wikipedia Data are used.
+
+Finally the covariates are merged to the scraped polls and yield a dataset with:
+
