@@ -560,53 +560,6 @@ as.data.frame(unique(polls_enriched$rep_candidate.y)) %>%
 write_csv(dem_col, "democrat_senators.csv")
 write_csv(rep_col, "republican_senators.csv")
 
-# ### read in hand cleaned data set (only run this part if we want the names from 
-#     the scraped polls)
-# 
-# senate_polls_1998_2018_enriched_cleaned <- read_delim("senate_polls_1998_2018_enriched_cleaned.csv", 
-#                                                       ";", escape_double = FALSE, trim_ws = TRUE)
-# 
-# 
-# senate_polls_1998_2018_enriched_cleaned %>% 
-#   rename(rep_candidate_most_votes = rep_candidate.y,
-#          dem_candidate_most_votes = dem_candidate.y,
-#          rep_candidate = rep_candidate.x,
-#          dem_candidate = dem_candidate.x) %>%
-#   add_column(min_year = 1930, max_year = 1965) %>% 
-#   sep_function(dem_candidate) %>% 
-#   sep_function(rep_candidate) -> df_poll_names
-#   
-# 
-# # predict gender of poll names and join back to original df
-# 
-# rep_gender_poll <- predict_gender(df_poll_names, "rep") %>% 
-#   rename(rep_gender_poll = gender) %>% 
-#   select(rep_gender_poll, name)
-# 
-# dem_gender_poll <- predict_gender(df_poll_names, "dem") %>% 
-#   rename(dem_gender_poll = gender) %>% 
-#   select(dem_gender_poll, name)
-# 
-# # joining
-# 
-# df_poll_names %>% 
-#   left_join(rep_gender_poll, by = c("first_rep" = "name")) %>% 
-#   distinct() -> df_poll_names
-# 
-# df_poll_names %>% 
-#   left_join(dem_gender_poll, by = c("first_dem" = "name")) %>% 
-#   distinct() -> df_poll_names
-# 
-# 
-# # relocate/drop variables for better overview
-# df_poll_names %>% 
-#   select(-c(min_year, max_year)) %>% 
-#   rename(rep_gender_most_votes = rep_gender, 
-#          dem_gender_most_votes = dem_gender) %>% 
-#   relocate(rep_gender_poll, .after = rep_candidate) %>% 
-#   relocate(dem_gender_poll, .after = dem_candidate) -> df_poll_names
-# 
-# write_csv(df_poll_names, "senate_polls_1998_2018_covariates.csv")
 
 
 
@@ -615,11 +568,11 @@ write_csv(rep_col, "republican_senators.csv")
 
 polls_enriched %>%
   separate(dem_candidate.y,c("start","lastname"), sep="\\s+(?=\\S*$)") %>% 
-  select(start, lastname) -> dem_lname
+  select(start, lastname, state_long, election_year) -> dem_lname
 
 polls_enriched %>%
   separate(rep_candidate.y,c("start","lastname"), sep="\\s+(?=\\S*$)") %>% 
-  select(start, lastname) -> rep_lname
+  select(start, lastname, state_long, election_year) -> rep_lname
 
 
 # recode jr. to real last name for dems
@@ -637,9 +590,7 @@ rep_lname$lastname[rep_lname$start == "Thomas Kean"] <- "Kean"
 rep_lname$lastname[rep_lname$start == "Charles E. Summers,"] <- "Summers"
 
 
-write_csv(rep_lname, "republican_lastname.csv")
 
-write_csv(dem_lname, "democrat_lastname.csv")
 
 
 ### create full split with names
