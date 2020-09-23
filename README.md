@@ -17,6 +17,8 @@ This readme is structured as follows:
 
 ## US President
 
+### Data generation
+
 To run the folowiung script you need to subscribe to pollingreport.us and save your username and password in "usr_pwd.txt" (username:password).
 First you need to run the [downloadscript_pres.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_president/scrape/downloadscript_pres.R). The websites with polling results from will be downloaded and stored separately for every year and state/group of states as html files. The folder structure is year/html/. In a next step, to convert these html files to txt for further processing run the [convert_txt_pres.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_president/scrape/convert_txt_pres.R) script. Running this script will create the subfolder "txt" within every year folder (year/txt/) with ine txt file per state. To extract the relvant information and combina all in one data frame run [extract_pres.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_president/scrape/extract_pres.R). This data frame includes information on :
 
@@ -59,6 +61,8 @@ In the [add_variables.R](https://github.com/SinaMaria412/predictors_of_polling_e
 
 ## US Senate
 
+### Data Generation
+
 To run the folowiung script you need to subscribe to pollingreport.us and save your username and password in "usr_pwd.txt" (username:password). First you need to run the [downloadscript_senate1998_2018.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/downloadscript_senate1998_2018.R). The websites with senate polling results from 1998 to 2018 will be downloaded and stored separately for every year and state/group of states as html files. The folder structure is year/html/. In a next step, to convert these html files to txt for further processing run the [convert_txt_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/convert_txt_senate.R) script. Running this script will create the sub folder "txt" within every year folder (year/txt/) with one txt file per state. To extract the relevant information and combine all in one data frame run [extract_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/extract_senate.R). The files [helper_func_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/helper_func_senate.R) and [helper_func_subset_senate.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/scrape/helper_func_subset_senate.R) include necessary functions to extract relevant information from the txt files and combine this information a data frame. This data frame includes information on:
 
 
@@ -79,3 +83,11 @@ Finally the covariates are merged to the scraped polls and yield a dataset with 
 - incumbency: dummy variable if incumbent runs for re-election
 - rep_gender: predicted gender of republican candidate
 - dem_gender: predicted gender of democratic candidate
+
+### Analysis
+
+Excluded: 
+
+- elections with more than one candidate per party
+- elections with less than 4 polls?
+- special elections?
