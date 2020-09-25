@@ -34,10 +34,10 @@ source('helper_func_senate.R')
   polls_raw2006 <- extract_senate(paste0(senate_wd,'/year2006/txt'))
   polls_raw2008 <- extract_senate(paste0(senate_wd,'/year2008/txt'))
   polls_raw2010 <- extract_senate(paste0(senate_wd,'/year2010/txt'))
-  polls_raw2012 <- extract_senate(paste0(senate_wd,'/year2004/txt'))
-  polls_raw2014 <- extract_senate('~/Documents/Uni/PollingError/Scraping/code_github/senate/year2014/txt')
-  polls_raw2016 <- extract_senate('~/Documents/Uni/PollingError/Scraping/code_github/senate/year2016/txt')
-  polls_raw2018 <- extract_senate('~/Documents/Uni/PollingError/Scraping/code_github/senate/year2018/txt')
+  polls_raw2012 <- extract_senate(paste0(senate_wd,'/year2012/txt'))
+  polls_raw2014 <- extract_senate(paste0(senate_wd,'/year2014/txt'))
+  polls_raw2016 <- extract_senate(paste0(senate_wd,'/year2016/txt'))
+  polls_raw2018 <- extract_senate(paste0(senate_wd,'/year2018/txt'))
 }
 
 
@@ -144,15 +144,6 @@ polls_senate1998_2018 <- rbind(polls_senate1998, polls_senate2000,
                                  polls_senate2010, polls_senate2012,
                                  polls_senate2014, polls_senate2016,
                                polls_senate2018)
-
-#### Preprocess ####
-
-# State abbreviations
-polls_senate1998_2018$state <- state2abbr(polls_senate1998_2018$state_long)
-
-# Respondents
-polls_senate1998_2018$resp_formated <- 
-  sapply(polls_senate1998_2018$respondents, resp)
 
 # Save polls
 saveRDS(polls_senate1998_2018, paste0(senate_wd,"/polls_senate1998_2018.RDS"))
