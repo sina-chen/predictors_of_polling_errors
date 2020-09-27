@@ -109,8 +109,8 @@ polls_senate2012 <- polls_raw2012 %>%
 polls_senate2014 <- polls_raw2014 %>% 
   clean_split() %>% 
   lapply( rm_nonSenate) %>%
-  convert_to_dataframe(repC = '[()]R[)]|Republican', 
-                       demC = '[()]D[)]', 
+  convert_to_dataframe(repC = '[()]R[)]|Republican|Weld', 
+                       demC = '[()]D[)]|Democrat', 
                        year = 2014)
 
 #### 2016 ####
