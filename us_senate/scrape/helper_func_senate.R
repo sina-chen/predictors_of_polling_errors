@@ -415,7 +415,7 @@ convert_date <- function(date_raw,year){
     date_unformated <- str_replace_all(paste0(unlist(str_extract_all(date_raw,'[[:alpha:]]+[.] \\d+[-][[:alpha:]]+[.] \\d+[,] \\d+')), collapse =  ''),' ','')
     date_processed <- as.character(as.Date(date_unformated, '%b. %d-%b. %d, %Y'))
   } else if(grepl('[[:alpha:]]+ \\d+[-][[:alpha:]]+[.] \\d+[,] \\d+',date_raw) == T){
-    date_unformated <- str_replace_all(paste0(unlist(str_extract_all(date_raw,'[[:alpha:]] \\d+[-][[:alpha:]]+[.] \\d+[,] \\d+')), collapse =  ''),' ','')
+    date_unformated <- str_replace_all(paste0(unlist(str_extract_all(date_raw,'[[:alpha:]]+ \\d+[-][[:alpha:]]+[.] \\d+[,] \\d+')), collapse =  ''),' ','')
     date_processed <- as.character(as.Date(date_unformated, '%b %d -%b. %d,%Y'))
   } else if(grepl('[[:alpha:]]+[.] \\d+[-][[:alpha:]]+ \\d+[,] \\d+',date_raw) == T){
     date_unformated <- str_replace_all(paste0(unlist(str_extract_all(date_raw,'[[:alpha:]]+[.] \\d+[-][[:alpha:]]+ \\d+[,] \\d+')), collapse =  ''),' ','')
