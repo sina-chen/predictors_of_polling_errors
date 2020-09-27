@@ -66,12 +66,8 @@ polls_senate2002 <- polls_raw2002 %>%
 polls_senate2004 <- polls_raw2004 %>% 
   clean_split() %>% 
   lapply( rm_nonSenate) %>%
-  convert_to_dataframe(repC = '[()]R[)]|^Orchulli$|Repub- lican|Keyes|Scott|
-                       Grassely|Grassely|Bunning|Bond|Ziser|Mills|Voinovich|
-                       Thune|Nethercutt|Michels|Republican|Pipkin',
-                       demC = '[()]D[)]|^Dodd$|Obama|Bayh|Small|Mongiardo|
-                       Farmer|Reid|Schumer|Fingerhut|Daschle|Murray|
-                       Feingold|Mikulski',
+  convert_to_dataframe(repC = '[()]R[)]|^Orchulli$|Repub- lican|Keyes|Scott|Grassely|Grassley|Bunning|Bond|Ziser|Mills|Voinovich|Thune|Nethercutt|Michels|Republican|Pipkin',
+                       demC = '[()]D[)]|^Dodd$|Obama|Bayh|Small|Mongiardo|Farmer|Reid|Schumer|Fingerhut|Daschle|Murray|Feingold|Mikulski',
                        year = 2004)
 
 #### 2006 ####
