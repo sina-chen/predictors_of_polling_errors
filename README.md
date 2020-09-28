@@ -64,7 +64,7 @@ In the [add_variables.R](https://github.com/SinaMaria412/predictors_of_polling_e
 
 
 
-To add covariates to the senate scrapes you first run the script [preprocess_wiki_data.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/preprocess_wiki_data.R) and the afterwards the script [predict_gender_name.R] (https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/predict_gender_name.R). These scripts generate tables with covariates (including gender of candidates) to each senate election since 1998. For more details, see the readme file in the respective folder.
+To add covariates to the senate scrapes you first run the script [preprocess_wiki_data.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/preprocess_wiki_data.R) and the afterwards the script [predict_gender_name.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/predict_gender_name.R). These scripts generate tables with covariates (including gender of candidates) to each senate election since 1998. For more details, see the readme file in the respective folder.
 
 
 ### Analysis
