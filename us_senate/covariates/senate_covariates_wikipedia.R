@@ -1,33 +1,34 @@
-### purrr Senate Lists from Wikipedia ### 
+### file to read in wikipedia tables and perfom set data up for gender
+### prediction
+
+
+# packages ----------------------------------------------------------------
+
+
 
 install.packages("genderdata", repos = "http://packages.ropensci.org")
 install.packages("gender")
 install.packages("tidyverse")
-install.packages("visdat")
-install.packages("naniar")
+
 
 library(tidyverse)
 library(genderdata)
 library(gender)
-library(visdat)
-library(naniar)
 
 
+# read in files -----------------------------------------------------------
 
-# setwd("~/Documents/SEDS/Polling Error/Data") 
+# it is assumed that the wiki tables are stored in the working directory
 
 file_list <- list.files(pattern = "X")
 
-# read in files
+# efficiently read in all the files
 
 all_files_purr <- purrr::map(file_list, ~readr::read_csv(.x, skip = 1) %>% 
                                rename(State = 1) %>% 
                                select(-4)) %>% 
-  set_names(file_list)
+                               set_names(file_list)
 
-# path to scraped polls
-
-polls_senate1998_2018 <- readRDS("~/Documents/SEDS/Polling Error/Data/polls_senate1998_2018.RDS")
 
 # splitting the Candidates variable of each df in list
 
