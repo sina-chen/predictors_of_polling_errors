@@ -1,23 +1,12 @@
 ### gender prediction by name
 
+# read in data
+df_final <- read_csv("data/senate/wiki_results/wiki_senate_covariates.csv")
 
-# create variables with separate first name
 
-sep_function <- function(df, party_name){
-  
-  var_name <- deparse(substitute(party_name)) 
-  var_name <- str_split(var_name, pattern = "_")[[1]][1]
-  
-  print(var_name)
-  
-  df %>% 
-    separate({{party_name}}, into = c(paste("first", var_name, sep = "_"), 
-                                      paste("rest", var_name, sep = "_")),
-             remove = FALSE,
-             sep = "\\s", extra = "merge") -> df
-  return(df)
-  
-}
+# create variables with separate first name using the help function
+
+source(file = "us_senate/covariates/helper_function_predict_gender.R")
 
 df_final <- df_final %>% 
   sep_function(dem_candidate) %>% 
@@ -29,27 +18,11 @@ df_final <- df_final %>%
   add_column(min_year = 1930, max_year = 1965)
 
 
-# check how the separation worked
-
-
-
-# df_final %>% 
-#   select(starts_with("first_")) %>% 
-#   mutate_all(list(no_characters = ~ nchar(.))) %>% 
-#   arrange(first_rep_no_characters) %>% View()
 
 
 
 
-# predicting gender
-
-predict_gender <- function(df, party){
-  df %>% 
-    gender_df(name_col = paste("first", party, sep = "_"),
-              year_col = c("min_year", "max_year"),
-              method = "ssa") -> df_gender
-  return(df_gender)
-}
+### predicting gender
 
 
 # predict gender and join back to original df
@@ -72,3 +45,15 @@ df_final %>%
   left_join(dem_gender, by = c("first_dem" = "name")) %>% 
   distinct() -> df_final
 
+
+# prepare data to join with the scraped polls
+
+df_join <- df_final %>% 
+  select(ends_with("gender"), incumbency, dem_candidate, rep_candidate,
+         no_candidates, election_year, State, Senator) %>% 
+  rename(state_long = State, senator = Senator) %>% 
+  mutate(election_year = as.integer(election_year))
+
+# save data as csv for join
+
+write_csv(df_join, "data/senate/wiki_results/wikipedia_covariates_join.csv")
