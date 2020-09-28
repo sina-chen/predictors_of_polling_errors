@@ -1,1 +1,1 @@
-### Instructions for scraping senate püolls ###
+### Instructions for scraping senate polls ###
