@@ -1,377 +1,377 @@
-rep_gender,incumbency,dem_candidate,rep_candidate,no_candidates,election_year,state_long,senator
-male,TRUE,Clayton Suddith,Richard Shelby,2,1998,Alabama,Richard Shelby
-male,TRUE,Joe Sonneman,Frank Murkowski,4,1998,Alaska,Frank Murkowski
-male,TRUE,Ed Ranger,John McCain,4,1998,Arizona,John McCain
-female,FALSE,Blanche Lincoln,Fay Boozman,3,1998,Arkansas,Dale Bumpers
-male,TRUE,Barbara Boxer,Matt Fong,7,1998,California,Barbara Boxer
-male,TRUE,Dottie Lamm,Ben Nighthorse Campbell,7,1998,Colorado,Ben Nighthorse Campbell
-male,TRUE,Chris Dodd,Gary Franks,5,1998,Connecticut,Chris Dodd
-male,TRUE,Bob Graham,Charlie Crist,2,1998,Florida,Bob Graham
-male,TRUE,Michael Coles,Paul Coverdell,3,1998,Georgia,Paul Coverdell
-female,TRUE,Daniel Inouye,Crystal Young,3,1998,Hawaii,Daniel Inouye
-male,FALSE,Bill Mauk,Mike Crapo,3,1998,Idaho,Dirk Kempthorne
-male,TRUE,Carol Moseley Braun,Peter Fitzgerald,4,1998,Illinois,Carol Moseley Braun
-male,FALSE,Evan Bayh,Paul Helmke,3,1998,Indiana,Dan Coats
-male,TRUE,David Osterberg,Chuck Grassley,4,1998,Iowa,Chuck Grassley
-male,TRUE,Paul Feleciano Jr.,Sam Brownback,4,1998,Kansas,Sam Brownback
-male,FALSE,Scotty Baesler,Jim Bunning,3,1998,Kentucky,Wendell Ford
-male,TRUE,John Breaux,Jim Donelon,2,1998,Louisiana,John Breaux
-male,TRUE,Barbara Mikulski,Ross Pierpont,2,1998,Maryland,Barbara Mikulski
-male,TRUE,Jay Nixon,Kit Bond,5,1998,Missouri,Kit Bond
-male,TRUE,Harry Reid,John Ensign,4,1998,Nevada,Harry Reid
-male,TRUE,George Condodemetraky,Judd Gregg,4,1998,New Hampshire,Judd Gregg
-male,TRUE,Chuck Schumer,Al D'Amato,6,1998,New York,Al D'Amato
-NA,TRUE,John Edwards,Lauch Faircloth,3,1998,North Carolina,Lauch Faircloth
-female,TRUE,Byron Dorgan,Donna Nalewaja,3,1998,North Dakota,Byron Dorgan
-male,FALSE,Mary Boyle,George Voinovich,2,1998,Ohio,John Glenn
-male,TRUE,Don Carroll,Don Nickles,4,1998,Oklahoma,Don Nickles
-male,TRUE,Ron Wyden,John Lim,6,1998,Oregon,Ron Wyden
-male,TRUE,Bill Lloyd,Arlen Specter,4,1998,Pennsylvania,Arlen Specter
-male,TRUE,Ernest Hollings,Bob Inglis,3,1998,South Carolina,Ernest Hollings
-male,TRUE,Tom Daschle,Ron Schmidt,3,1998,South Dakota,Tom Daschle
-male,TRUE,Scott Leckman,Bob Bennett,3,1998,Utah,Bob Bennett
-male,TRUE,Patrick Leahy,Fred Tuttle,6,1998,Vermont,Patrick Leahy
-female,TRUE,Patty Murray,Linda Smith,2,1998,Washington,Patty Murray
-male,TRUE,Russ Feingold,Mark Neumann,5,1998,Wisconsin,Russ Feingold
-male,TRUE,NA,Jon Kyl,4,2000,Arizona,Jon Kyl
-male,TRUE,Dianne Feinstein,Tom Campbell,7,2000,California,Dianne Feinstein
-male,TRUE,Joe Lieberman,Philip Giordano,4,2000,Connecticut,Joe Lieberman
-male,TRUE,Tom Carper,William Roth,5,2000,Delaware,William Roth
-male,FALSE,Bill Nelson,Bill McCollum,8,2000,Florida,Connie Mack III
-male,TRUE,Daniel Akaka,John Carroll,5,2000,Hawaii,Daniel Akaka
-male,TRUE,David Johnson,Richard Lugar,3,2000,Indiana,Richard Lugar
-female,TRUE,Mark Lawrence,Olympia Snowe,2,2000,Maine,Olympia Snowe
-male,TRUE,Paul Sarbanes,Paul Rappaport,2,2000,Maryland,Paul Sarbanes
-male,TRUE,Ted Kennedy,Jack E. Robinson III,5,2000,Massachusetts,Ted Kennedy
-male,TRUE,Debbie Stabenow,Spencer Abraham,7,2000,Michigan,Spencer Abraham
-male,TRUE,Mark Dayton,Rod Grams,7,2000,Minnesota,Rod Grams
-male,TRUE,Troy Brown,Trent Lott,5,2000,Mississippi,Trent Lott
-male,TRUE,Mel Carnahan,John Ashcroft,6,2000,Missouri,John Ashcroft
-male,TRUE,Brian Schweitzer,Conrad Burns,3,2000,Montana,Conrad Burns
-male,FALSE,Ben Nelson,Don Stenberg,2,2000,Nebraska,Bob Kerrey
-male,FALSE,Edward M. Bernstein,John Ensign,6,2000,Nevada,Richard Bryan
-male,FALSE,Jon Corzine,Bob Franks,11,2000,New Jersey,Frank Lautenberg
-male,TRUE,Jeff Bingaman,William T. Redmond,2,2000,New Mexico,Jeff Bingaman
-male,FALSE,Hillary Clinton,Rick Lazio,8,2000,New York,Daniel Patrick Moynihan
-male,TRUE,Kent Conrad,Duane Sand,2,2000,North Dakota,Kent Conrad
-male,TRUE,Ted Celeste,Mike DeWine,4,2000,Ohio,Mike DeWine
-male,TRUE,Ron Klink,Rick Santorum,5,2000,Pennsylvania,Rick Santorum
-male,TRUE,Robert Weygand,Lincoln Chafee,4,2000,Rhode Island,Lincoln Chafee
-male,TRUE,Jeff Clark,Bill Frist,7,2000,Tennessee,Bill Frist
-female,TRUE,Gene Kelly,Kay Bailey Hutchison,4,2000,Texas,Kay Bailey Hutchison
-male,TRUE,Scott Howell,Orrin Hatch,4,2000,Utah,Orrin Hatch
-male,TRUE,Ed Flanagan,Jim Jeffords,7,2000,Vermont,Jim Jeffords
-male,TRUE,Chuck Robb,George Allen,2,2000,Virginia,Chuck Robb
-male,TRUE,Maria Cantwell,Slade Gorton,3,2000,Washington,Slade Gorton
-male,TRUE,Robert Byrd,David T. Gallaher,3,2000,West Virginia,Robert Byrd
-male,TRUE,Herb Kohl,John Gillespie,5,2000,Wisconsin,Herb Kohl
-male,TRUE,Mel Logan,Craig L. Thomas,3,2000,Wyoming,Craig L. Thomas
-male,TRUE,Susan Parker,Jeff Sessions,3,2002,Alabama,Jeff Sessions
-male,TRUE,Frank J. Vondersaar,Ted Stevens,5,2002,Alaska,Ted Stevens
-male,TRUE,Mark Pryor,Tim Hutchinson,2,2002,Arkansas,Tim Hutchinson
-male,TRUE,Tom Strickland,Wayne Allard,5,2002,Colorado,Wayne Allard
-male,TRUE,Joe Biden,Raymond J. Clatworthy,5,2002,Delaware,Joe Biden
-NA,TRUE,Max Cleland,Saxby Chambliss,3,2002,Georgia,Max Cleland
-male,TRUE,Alan Blinken,Larry Craig,3,2002,Idaho,Larry Craig
-male,TRUE,Dick Durbin,Jim Durkin,3,2002,Illinois,Dick Durbin
-male,TRUE,Tom Harkin,Greg Ganske,4,2002,Iowa,Tom Harkin
-female,TRUE,NA,Pat Roberts,3,2002,Kansas,Pat Roberts
-male,TRUE,Lois Combs Weinberg,Mitch McConnell,2,2002,Kentucky,Mitch McConnell
-female,TRUE,Mary Landrieu,Suzanne Haik Terrell,2,2002,Louisiana,Mary Landrieu
-female,TRUE,Chellie Pingree,Susan Collins,2,2002,Maine,Susan Collins
-NA,TRUE,John Kerry,NA,2,2002,Massachusetts,John Kerry
-male,TRUE,Carl Levin,Rocky Raczkowski,5,2002,Michigan,Carl Levin
-male,FALSE,Walter Mondale,Norm Coleman,6,2002,Minnesota,Dean Barkley
-male,TRUE,NA,Thad Cochran,2,2002,Mississippi,Thad Cochran
-male,TRUE,Max Baucus,Mike Taylor,4,2002,Montana,Max Baucus
-male,TRUE,Charlie A. Matulka,Chuck Hagel,4,2002,Nebraska,Chuck Hagel
-male,FALSE,Jeanne Shaheen,John E. Sununu,3,2002,New Hampshire,Bob Smith
-male,FALSE,Frank Lautenberg,Doug Forrester,6,2002,New Jersey,Robert Torricelli
-male,TRUE,Gloria Tristani,Pete Domenici,2,2002,New Mexico,Pete Domenici
-female,FALSE,Erskine Bowles,Elizabeth Dole,3,2002,North Carolina,Jesse Helms
-male,TRUE,David Walters,Jim Inhofe,3,2002,Oklahoma,Jim Inhofe
-male,TRUE,Bill Bradbury,Gordon H. Smith,4,2002,Oregon,Gordon H. Smith
-male,TRUE,Jack Reed,Robert Tingle,2,2002,Rhode Island,Jack Reed
-male,FALSE,Alex Sanders,Lindsey Graham,4,2002,South Carolina,Strom Thurmond
-male,TRUE,Tim Johnson,John Thune,3,2002,South Dakota,Tim Johnson
-male,FALSE,Bob Clement,Lamar Alexander,2,2002,Tennessee,Fred Thompson
-male,FALSE,Ron Kirk,John Cornyn,4,2002,Texas,Phil Gramm
-male,TRUE,NA,John Warner,3,2002,Virginia,John Warner
-male,TRUE,Jay Rockefeller,Jay Wolfe,2,2002,West Virginia,Jay Rockefeller
-male,TRUE,Joyce Jansa Corcoran,Mike Enzi,2,2002,Wyoming,Mike Enzi
-male,TRUE,Wayne Sowell,Richard Shelby,2,2004,Alabama,Richard Shelby
-female,TRUE,Tony Knowles,Lisa Murkowski,6,2004,Alaska,Lisa Murkowski
-male,TRUE,Stuart Starky,John McCain,3,2004,Arizona,John McCain
-male,TRUE,Blanche Lincoln,Jim Holt,2,2004,Arkansas,Blanche Lincoln
-male,TRUE,Barbara Boxer,Bill Jones,5,2004,California,Barbara Boxer
-male,FALSE,Ken Salazar,Pete Coors,6,2004,Colorado,Ben Nighthorse Campbell
-male,TRUE,Chris Dodd,Jack Orchulli,4,2004,Connecticut,Chris Dodd
-male,FALSE,Betty Castor,Mel Martinez,3,2004,Florida,Bob Graham
-male,FALSE,Denise Majette,Johnny Isakson,3,2004,Georgia,Zell Miller
-male,TRUE,Daniel Inouye,Campbell Cavasso,4,2004,Hawaii,Daniel Inouye
-male,TRUE,NA,Mike Crapo,2,2004,Idaho,Mike Crapo
-male,FALSE,Barack Obama,Alan Keyes,4,2004,Illinois,Peter Fitzgerald
-male,TRUE,Evan Bayh,Marvin Scott,3,2004,Indiana,Evan Bayh
-male,TRUE,Arthur Small,Chuck Grassley,5,2004,Iowa,Chuck Grassley
-male,TRUE,Lee Jones,Sam Brownback,4,2004,Kansas,Sam Brownback
-male,TRUE,Daniel Mongiardo,Jim Bunning,2,2004,Kentucky,Jim Bunning
-NA,TRUE,Barbara Mikulski,E. J. Pipkin,4,2004,Maryland,Barbara Mikulski
-male,TRUE,Nancy Farmer,Kit Bond,4,2004,Missouri,Kit Bond
-male,TRUE,Harry Reid,Richard Ziser,5,2004,Nevada,Harry Reid
-male,TRUE,Doris Haddock,Judd Gregg,2,2004,New Hampshire,Judd Gregg
-male,TRUE,Chuck Schumer,Howard Mills III,7,2004,New York,Chuck Schumer
-male,FALSE,Erskine Bowles,Richard Burr,3,2004,North Carolina,John Edwards
-male,TRUE,Byron Dorgan,Mike Liffrig,2,2004,North Dakota,Byron Dorgan
-male,TRUE,Eric Fingerhut,George Voinovich,2,2004,Ohio,George Voinovich
-male,FALSE,Brad Carson,Tom Coburn,3,2004,Oklahoma,Don Nickles
-male,TRUE,Ron Wyden,Al King,5,2004,Oregon,Ron Wyden
-male,TRUE,Joe Hoeffel,Arlen Specter,4,2004,Pennsylvania,Arlen Specter
-male,FALSE,Inez Tenenbaum,Jim DeMint,6,2004,South Carolina,Fritz Hollings
-male,TRUE,Tom Daschle,John Thune,2,2004,South Dakota,Tom Daschle
-male,TRUE,Paul Van Dam,Bob Bennett,4,2004,Utah,Bob Bennett
-male,TRUE,Patrick Leahy,John A. McMullen,6,2004,Vermont,Patrick Leahy
-male,TRUE,Patty Murray,George Nethercutt,4,2004,Washington,Patty Murray
-male,TRUE,Russ Feingold,Tim Michels,4,2004,Wisconsin,Russ Feingold
-male,TRUE,Jim Pederson,Jon Kyl,3,2006,Arizona,Jon Kyl
-male,TRUE,Dianne Feinstein,Dick Mountjoy,6,2006,California,Dianne Feinstein
-male,TRUE,Ned Lamont,Alan Schlesinger,5,2006,Connecticut,Joe Lieberman
-female,TRUE,Tom Carper,Jan Ting,4,2006,Delaware,Tom Carper
-female,TRUE,Bill Nelson,Katherine Harris,6,2006,Florida,Bill Nelson
-female,TRUE,Daniel Akaka,Cynthia Thielen,3,2006,Hawaii,Daniel Akaka
-male,TRUE,NA,Richard Lugar,2,2006,Indiana,Richard Lugar
-female,TRUE,Jean Hay Bright,Olympia Snowe,3,2006,Maine,Olympia Snowe
-male,FALSE,Ben Cardin,Michael Steele,3,2006,Maryland,Paul Sarbanes
-male,TRUE,Ted Kennedy,Kenneth Chase,2,2006,Massachusetts,Ted Kennedy
-male,TRUE,Debbie Stabenow,Mike Bouchard,5,2006,Michigan,Debbie Stabenow
-male,FALSE,Amy Klobuchar,Mark Kennedy,5,2006,Minnesota,Mark Dayton
-male,TRUE,Erik Fleming,Trent Lott,3,2006,Mississippi,Trent Lott
-male,TRUE,Claire McCaskill,Jim Talent,4,2006,Missouri,Jim Talent
-male,TRUE,Jon Tester,Conrad Burns,3,2006,Montana,Conrad Burns
-male,TRUE,Ben Nelson,Pete Ricketts,2,2006,Nebraska,Ben Nelson
-male,TRUE,Jack Carter,John Ensign,4,2006,Nevada,John Ensign
-male,TRUE,Bob Menendez,Thomas Kean Jr.,9,2006,New Jersey,Bob Menendez
-male,TRUE,Jeff Bingaman,Allen McCulloch,2,2006,New Mexico,Jeff Bingaman
-male,TRUE,Hillary Clinton,John Spencer,6,2006,New York,Hillary Clinton
-male,TRUE,Kent Conrad,Dwight Grotberg,4,2006,North Dakota,Kent Conrad
-male,TRUE,Sherrod Brown,Mike DeWine,2,2006,Ohio,Mike DeWine
-male,TRUE,Bob Casey Jr.,Rick Santorum,2,2006,Pennsylvania,Rick Santorum
-male,TRUE,Sheldon Whitehouse,Lincoln Chafee,2,2006,Rhode Island,Lincoln Chafee
-male,FALSE,Harold Ford Jr.,Bob Corker,7,2006,Tennessee,Bill Frist
-female,TRUE,Barbara Ann Radnofsky,Kay Bailey Hutchison,3,2006,Texas,Kay Bailey Hutchison
-male,TRUE,Pete Ashdown,Orrin Hatch,6,2006,Utah,Orrin Hatch
-male,FALSE,NA,Richard Tarrant,6,2006,Vermont,Jim Jeffords
-male,TRUE,Jim Webb,George Allen,3,2006,Virginia,George Allen
-male,TRUE,Maria Cantwell,Mike McGavick,5,2006,Washington,Maria Cantwell
-male,TRUE,Robert Byrd,John Raese,3,2006,West Virginia,Robert Byrd
-male,TRUE,Herb Kohl,Robert Lorge,4,2006,Wisconsin,Herb Kohl
-male,TRUE,Dale Groutage,Craig L. Thomas,2,2006,Wyoming,Craig L. Thomas
-male,TRUE,Vivian Davis Figures,Jeff Sessions,2,2008,Alabama,Jeff Sessions
-male,TRUE,Mark Begich,Ted Stevens,5,2008,Alaska,Ted Stevens
-NA,TRUE,Mark Pryor,NA,2,2008,Arkansas,Mark Pryor
-male,FALSE,Mark Udall,Bob Schaffer,4,2008,Colorado,Wayne Allard
-female,TRUE,Joe Biden,Christine O'Donnell,2,2008,Delaware,Joe Biden
-NA,TRUE,Jim Martin,Saxby Chambliss,3,2008,Georgia,Saxby Chambliss
-male,FALSE,Larry LaRocco,Jim Risch,5,2008,Idaho,Larry Craig
-male,TRUE,Dick Durbin,Steve Sauerberg,5,2008,Illinois,Dick Durbin
-male,TRUE,Tom Harkin,Christopher Reed,2,2008,Iowa,Tom Harkin
-female,TRUE,Jim Slattery,Pat Roberts,4,2008,Kansas,Pat Roberts
-male,TRUE,Bruce Lunsford,Mitch McConnell,2,2008,Kentucky,Mitch McConnell
-male,TRUE,Mary Landrieu,John Kennedy,5,2008,Louisiana,Mary Landrieu
-female,TRUE,Tom Allen,Susan Collins,2,2008,Maine,Susan Collins
-male,TRUE,John Kerry,Jeff Beatty,3,2008,Massachusetts,John Kerry
-male,TRUE,Carl Levin,Jack Hoogendyk,6,2008,Michigan,Carl Levin
-male,TRUE,Al Franken,Norm Coleman,5,2008,Minnesota,Norm Coleman
-male,TRUE,Erik Fleming,Thad Cochran,2,2008,Mississippi,Thad Cochran
-male,TRUE,Max Baucus,Bob Kelleher,2,2008,Montana,Max Baucus
-male,FALSE,Scott Kleeb,Mike Johanns,4,2008,Nebraska,Chuck Hagel
-male,TRUE,Jeanne Shaheen,John E. Sununu,3,2008,New Hampshire,John E. Sununu
-male,TRUE,Frank Lautenberg,Dick Zimmer,7,2008,New Jersey,Frank Lautenberg
-male,FALSE,Tom Udall,Steve Pearce,2,2008,New Mexico,Pete Domenici
-female,TRUE,Kay Hagan,Elizabeth Dole,3,2008,North Carolina,Elizabeth Dole
-male,TRUE,Andrew Rice,Jim Inhofe,3,2008,Oklahoma,Jim Inhofe
-male,TRUE,Jeff Merkley,Gordon H. Smith,3,2008,Oregon,Gordon H. Smith
-male,TRUE,Jack Reed,Robert Tingle,2,2008,Rhode Island,Jack Reed
-male,TRUE,Bob Conley,Lindsey Graham,2,2008,South Carolina,Lindsey Graham
-male,TRUE,Tim Johnson,Joel Dykstra,2,2008,South Dakota,Tim Johnson
-male,TRUE,Bob Tuke,Lamar Alexander,8,2008,Tennessee,Lamar Alexander
-male,TRUE,Rick Noriega,John Cornyn,3,2008,Texas,John Cornyn
-male,FALSE,Mark Warner,Jim Gilmore,4,2008,Virginia,John Warner
-male,TRUE,Jay Rockefeller,Jay Wolfe,2,2008,West Virginia,Jay Rockefeller
-male,TRUE,Chris Rothfuss,Mike Enzi,2,2008,Wyoming,Mike Enzi
-male,TRUE,William G. Barnes,Richard Shelby,2,2010,Alabama,Richard Shelby
-male,TRUE,Rodney Glassman,John McCain,4,2010,Arizona,John McCain
-male,TRUE,Blanche Lincoln,John Boozman,4,2010,Arkansas,Blanche Lincoln
-female,TRUE,Barbara Boxer,Carly Fiorina,6,2010,California,Barbara Boxer
-male,TRUE,Michael Bennet,Ken Buck,4,2010,Colorado,Michael Bennet
-female,FALSE,Richard Blumenthal,Linda McMahon,4,2010,Connecticut,Chris Dodd
-male,FALSE,Kendrick Meek,Marco Rubio,4,2010,Florida,George LeMieux
-male,TRUE,Michael Thurmond,Johnny Isakson,3,2010,Georgia,Johnny Isakson
-male,TRUE,Daniel Inouye,Campbell Cavasso,4,2010,Hawaii,Daniel Inouye
-male,TRUE,Tom Sullivan,Mike Crapo,3,2010,Idaho,Mike Crapo
-male,FALSE,Alexi Giannoulias,Mark Kirk,4,2010,Illinois,Roland Burris
-male,FALSE,Brad Ellsworth,Dan Coats,3,2010,Indiana,Evan Bayh
-male,TRUE,Roxanne Conlin,Chuck Grassley,3,2010,Iowa,Chuck Grassley
-male,FALSE,Lisa Johnston,Jerry Moran,4,2010,Kansas,Sam Brownback
-male,FALSE,Jack Conway,Rand Paul,2,2010,Kentucky,Jim Bunning
-male,TRUE,Charles Melancon,David Vitter,4,2010,Louisiana,David Vitter
-male,TRUE,Barbara Mikulski,Eric Wargotz,4,2010,Maryland,Barbara Mikulski
-male,FALSE,Robin Carnahan,Roy Blunt,4,2010,Missouri,Kit Bond
-female,TRUE,Harry Reid,Sharron Angle,3,2010,Nevada,Harry Reid
-female,FALSE,Paul Hodes,Kelly Ayotte,4,2010,New Hampshire,Judd Gregg
-male,TRUE,Chuck Schumer,Jay Townsend,4,2010,New York,Chuck Schumer
-male,TRUE,Elaine Marshall,Richard Burr,3,2010,North Carolina,Richard Burr
-male,FALSE,Tracy Potter,John Hoeven,3,2010,North Dakota,Byron Dorgan
-male,FALSE,Lee Fisher,Rob Portman,4,2010,Ohio,George Voinovich
-male,TRUE,Jim Rogers,Tom Coburn,4,2010,Oklahoma,Tom Coburn
-male,TRUE,Ron Wyden,Jim Huffman,5,2010,Oregon,Ron Wyden
-female,FALSE,Joe Sestak,Pat Toomey,2,2010,Pennsylvania,Arlen Specter
-male,TRUE,Alvin Greene,Jim DeMint,3,2010,South Carolina,Jim DeMint
-male,TRUE,NA,John Thune,1,2010,South Dakota,John Thune
-male,FALSE,Sam Granato,Mike Lee,3,2010,Utah,Bob Bennett
-male,TRUE,Patrick Leahy,Len Britton,5,2010,Vermont,Patrick Leahy
-male,TRUE,Patty Murray,Dino Rossi,2,2010,Washington,Patty Murray
-male,TRUE,Russ Feingold,Ron Johnson,3,2010,Wisconsin,Russ Feingold
-male,FALSE,Richard Carmona,Jeff Flake,3,2012,Arizona,Jon Kyl
-female,TRUE,Dianne Feinstein,Elizabeth Emken,2,2012,California,Dianne Feinstein
-female,FALSE,Chris Murphy,Linda McMahon,3,2012,Connecticut,Joe Lieberman
-male,TRUE,Tom Carper,Kevin Wade,4,2012,Delaware,Tom Carper
-female,TRUE,Bill Nelson,Connie Mack IV,4,2012,Florida,Bill Nelson
-female,FALSE,Mazie Hirono,Linda Lingle,2,2012,Hawaii,Daniel Akaka
-male,FALSE,Joe Donnelly,Richard Mourdock,3,2012,Indiana,Richard Lugar
-male,FALSE,Cynthia Dill,"Charles E. Summers, Jr.",5,2012,Maine,Olympia Snowe
-male,TRUE,Ben Cardin,Dan Bongino,4,2012,Maryland,Ben Cardin
-male,TRUE,Elizabeth Warren,Scott Brown,2,2012,Massachusetts,Scott Brown
-male,TRUE,Debbie Stabenow,Pete Hoekstra,6,2012,Michigan,Debbie Stabenow
-male,TRUE,Amy Klobuchar,Kurt Bills,5,2012,Minnesota,Amy Klobuchar
-male,TRUE,"Albert N. Gore, Jr.",Roger Wicker,4,2012,Mississippi,Roger Wicker
-male,TRUE,Claire McCaskill,Todd Akin,3,2012,Missouri,Claire McCaskill
-male,TRUE,Jon Tester,Denny Rehberg,3,2012,Montana,Jon Tester
-female,FALSE,Bob Kerrey,Deb Fischer,2,2012,Nebraska,Ben Nelson
-male,TRUE,Shelley Berkley,Dean Heller,3,2012,Nevada,Dean Heller
-male,TRUE,Bob Menendez,Joe Kyrillos,4,2012,New Jersey,Bob Menendez
-female,FALSE,Martin Heinrich,Heather Wilson,4,2012,New Mexico,Jeff Bingaman
-female,TRUE,Kirsten Gillibrand,Wendy E. Long,5,2012,New York,Kirsten Gillibrand
-male,FALSE,Heidi Heitkamp,Rick Berg,2,2012,North Dakota,Kent Conrad
-male,TRUE,Sherrod Brown,Josh Mandel,3,2012,Ohio,Sherrod Brown
-male,FALSE,"Bob Casey, Jr.",Tom Smith,3,2012,Pennsylvania,Bob Casey Jr.
-male,TRUE,Sheldon Whitehouse,Barry Hinckley,2,2012,Rhode Island,Sheldon Whitehouse
-male,TRUE,Mark Clayton,Bob Corker,5,2012,Tennessee,Bob Corker
-male,FALSE,Paul Sadler,Ted Cruz,4,2012,Texas,Kay Bailey Hutchison
-male,TRUE,Scott Howell,Orrin Hatch,3,2012,Utah,Orrin Hatch
-male,TRUE,NA,John MacGovern,6,2012,Vermont,Bernie Sanders
-male,FALSE,Tim Kaine,George Allen,2,2012,Virginia,Jim Webb
-male,TRUE,Maria Cantwell,Michael Baumgartner,2,2012,Washington,Maria Cantwell
-male,TRUE,Joe Manchin,John Raese,3,2012,West Virginia,Joe Manchin
-male,FALSE,Tammy Baldwin,Tommy Thompson,4,2012,Wisconsin,Herb Kohl
-male,TRUE,Tim Chesnut,John Barrasso,3,2012,Wyoming,John Barrasso
-male,TRUE,NA,Jeff Sessions,1,2014,Alabama,Jeff Sessions
-male,FALSE,Mark Begich,Dan Sullivan,4,2014,Alaska,Mark Begich
-male,FALSE,Mark Pryor,Tom Cotton,4,2014,Arkansas,Mark Pryor
-male,FALSE,Mark Udall,Cory Gardner,6,2014,Colorado,Mark Udall
-male,TRUE,Chris Coons,Kevin Wade,3,2014,Delaware,Chris Coons
-male,FALSE,Michelle Nunn,David Perdue,3,2014,Georgia,Saxby Chambliss
-male,TRUE,Nels Mitchell,Jim Risch,2,2014,Idaho,Jim Risch
-male,TRUE,Dick Durbin,Jim Oberweis,3,2014,Illinois,Dick Durbin
-female,FALSE,Bruce Braley,Joni Ernst,6,2014,Iowa,Tom Harkin
-female,TRUE,NA,Pat Roberts,3,2014,Kansas,Pat Roberts
-male,TRUE,Alison Lundergan Grimes,Mitch McConnell,3,2014,Kentucky,Mitch McConnell
-male,FALSE,Mary Landrieu,Bill Cassidy,2,2014,Louisiana,Mary Landrieu
-female,TRUE,Shenna Bellows,Susan Collins,2,2014,Maine,Susan Collins
-male,TRUE,Ed Markey,Brian Herr,2,2014,Massachusetts,Ed Markey
-female,FALSE,Gary Peters,Terri Lynn Land,5,2014,Michigan,Carl Levin
-male,TRUE,Al Franken,Mike McFadden,4,2014,Minnesota,Al Franken
-male,TRUE,Travis Childers,Thad Cochran,3,2014,Mississippi,Thad Cochran
-male,FALSE,Amanda Curtis,Steve Daines,3,2014,Montana,John Walsh
-male,FALSE,David Domina,Ben Sasse,4,2014,Nebraska,Mike Johanns
-male,TRUE,Jeanne Shaheen,Scott Brown,2,2014,New Hampshire,Jeanne Shaheen
-male,TRUE,Cory Booker,Jeff Bell,7,2014,New Jersey,Cory Booker
-male,TRUE,Tom Udall,Allen Weh,2,2014,New Mexico,Tom Udall
-male,FALSE,Kay Hagan,Thom Tillis,3,2014,North Carolina,Kay Hagan
-male,TRUE,Matt Silverstein,Jim Inhofe,5,2014,Oklahoma,Jim Inhofe
-female,TRUE,Jeff Merkley,Monica Wehby,5,2014,Oregon,Jeff Merkley
-male,TRUE,Jack Reed,Mark Zaccaria,2,2014,Rhode Island,Jack Reed
-male,TRUE,Brad Hutto,Lindsey Graham,4,2014,South Carolina,Lindsey Graham
-male,FALSE,Rick Weiland,Mike Rounds,4,2014,South Dakota,Tim Johnson
-male,TRUE,Gordon Ball,Lamar Alexander,12,2014,Tennessee,Lamar Alexander
-male,TRUE,David Alameel,John Cornyn,4,2014,Texas,John Cornyn
-male,TRUE,Mark Warner,Ed Gillespie,3,2014,Virginia,Mark Warner
-female,FALSE,Natalie Tennant,Shelley Moore Capito,5,2014,West Virginia,Jay Rockefeller
-male,TRUE,Charlie Hardy,Mike Enzi,4,2014,Wyoming,Mike Enzi
-male,TRUE,Ron Crumpton,Richard Shelby,3,2016,Alabama,Richard Shelby
-female,TRUE,NA,Lisa Murkowski,4,2016,Alaska,Lisa Murkowski
-male,TRUE,Ann Kirkpatrick,John McCain,3,2016,Arizona,John McCain
-male,TRUE,Conner Eldridge,John Boozman,3,2016,Arkansas,John Boozman
-male,TRUE,Michael Bennet,Darryl Glenn,4,2016,Colorado,Michael Bennet
-male,TRUE,Richard Blumenthal,Dan Carter,4,2016,Connecticut,Richard Blumenthal
-male,TRUE,Patrick Murphy,Marco Rubio,3,2016,Florida,Marco Rubio
-male,TRUE,Jim Barksdale,Johnny Isakson,3,2016,Georgia,Johnny Isakson
-male,TRUE,Brian Schatz,John Carroll,2,2016,Hawaii,Brian Schatz
-male,TRUE,Jerry Sturgill,Mike Crapo,3,2016,Idaho,Mike Crapo
-male,TRUE,Tammy Duckworth,Mark Kirk,4,2016,Illinois,Mark Kirk
-male,FALSE,Evan Bayh,Todd Young,3,2016,Indiana,Dan Coats
-male,TRUE,Patty Judge,Chuck Grassley,3,2016,Iowa,Chuck Grassley
-male,TRUE,Patrick Wiesner,Jerry Moran,3,2016,Kansas,Jerry Moran
-male,TRUE,Jim Gray,Rand Paul,2,2016,Kentucky,Rand Paul
-male,FALSE,Foster Campbell,John Kennedy,2,2016,Louisiana,David Vitter
-female,FALSE,Chris Van Hollen,Kathy Szeliga,3,2016,Maryland,Barbara Mikulski
-male,TRUE,Jason Kander,Roy Blunt,3,2016,Missouri,Roy Blunt
-male,FALSE,Catherine Cortez Masto,Joe Heck,5,2016,Nevada,Harry Reid
-female,FALSE,Maggie Hassan,Kelly Ayotte,3,2016,New Hampshire,Kelly Ayotte
-female,TRUE,Chuck Schumer,Wendy Long,4,2016,New York,Chuck Schumer
-male,TRUE,Deborah Ross,Richard Burr,3,2016,North Carolina,Richard Burr
-male,TRUE,Eliot Glassheim,John Hoeven,3,2016,North Dakota,John Hoeven
-male,TRUE,Ted Strickland,Rob Portman,3,2016,Ohio,Rob Portman
-male,TRUE,Mike Workman,James Lankford,3,2016,Oklahoma,James Lankford
-male,TRUE,Ron Wyden,Mark Callahan,4,2016,Oregon,Ron Wyden
-female,TRUE,Katie McGinty,Pat Toomey,3,2016,Pennsylvania,Pat Toomey
-male,TRUE,Thomas Dixon,Tim Scott,3,2016,South Carolina,Tim Scott
-male,TRUE,Jay Williams,John Thune,2,2016,South Dakota,John Thune
-male,TRUE,Misty K. Snow,Mike Lee,4,2016,Utah,Mike Lee
-male,TRUE,Patrick Leahy,Scott Milne,5,2016,Vermont,Patrick Leahy
-male,TRUE,Patty Murray,Chris Vance,2,2016,Washington,Patty Murray
-male,TRUE,Russ Feingold,Ron Johnson,3,2016,Wisconsin,Ron Johnson
-female,FALSE,Kyrsten Sinema,Martha McSally,3,2018,Arizona,Jeff Flake
-male,TRUE,Chris Murphy,Matthew Corey,4,2018,Connecticut,Chris Murphy
-male,TRUE,Tom Carper,Robert Arlett,4,2018,Delaware,Tom Carper
-male,TRUE,Bill Nelson,Rick Scott,2,2018,Florida,Bill Nelson
-male,TRUE,Mazie Hirono,Ron Curtis,2,2018,Hawaii,Mazie Hirono
-male,TRUE,Joe Donnelly,Mike Braun,3,2018,Indiana,Joe Donnelly
-male,TRUE,Zak Ringelstein,Eric Brakey,3,2018,Maine,Angus King
-male,TRUE,Ben Cardin,Tony Campbell,5,2018,Maryland,Ben Cardin
-male,TRUE,Elizabeth Warren,Geoff Diehl,3,2018,Massachusetts,Elizabeth Warren
-male,TRUE,Debbie Stabenow,John James,4,2018,Michigan,Debbie Stabenow
-male,TRUE,Amy Klobuchar,Jim Newberger,4,2018,Minnesota,Amy Klobuchar
-male,TRUE,David Baria,Roger Wicker,4,2018,Mississippi,Roger Wicker
-male,TRUE,Claire McCaskill,Josh Hawley,5,2018,Missouri,Claire McCaskill
-male,TRUE,Jon Tester,Matt Rosendale,3,2018,Montana,Jon Tester
-female,TRUE,Jane Raybould,Deb Fischer,3,2018,Nebraska,Deb Fischer
-male,TRUE,Jacky Rosen,Dean Heller,5,2018,Nevada,Dean Heller
-male,TRUE,Bob Menendez,Bob Hugin,8,2018,New Jersey,Bob Menendez
-male,TRUE,Martin Heinrich,Mick Rich,3,2018,New Mexico,Martin Heinrich
-female,TRUE,Kirsten Gillibrand,Chele Chiavacci Farley,2,2018,New York,Kirsten Gillibrand
-male,TRUE,Heidi Heitkamp,Kevin Cramer,2,2018,North Dakota,Heidi Heitkamp
-male,TRUE,Sherrod Brown,Jim Renacci,2,2018,Ohio,Sherrod Brown
-female,TRUE,Bob Casey Jr.,Lou Barletta,4,2018,Pennsylvania,Bob Casey Jr.
-male,TRUE,Sheldon Whitehouse,Robert Flanders,2,2018,Rhode Island,Sheldon Whitehouse
-female,FALSE,Phil Bredesen,Marsha Blackburn,8,2018,Tennessee,Bob Corker
-male,TRUE,Beto O'Rourke,Ted Cruz,3,2018,Texas,Ted Cruz
-NA,FALSE,Jenny Wilson,Mitt Romney,5,2018,Utah,Orrin Hatch
-male,TRUE,NA,Lawrence Zupan,2,2018,Vermont,Bernie Sanders
-male,TRUE,Tim Kaine,Corey Stewart,3,2018,Virginia,Tim Kaine
-female,TRUE,Maria Cantwell,Susan Hutchison,2,2018,Washington,Maria Cantwell
-male,TRUE,Joe Manchin,Patrick Morrisey,3,2018,West Virginia,Joe Manchin
-female,TRUE,Tammy Baldwin,Leah Vukmir,2,2018,Wisconsin,Tammy Baldwin
-male,TRUE,Gary Trauner,John Barrasso,3,2018,Wyoming,John Barrasso
-male,TRUE,Zell Miller,Mack Mattingly,2,2000,Georgia,Zell Miller
-male,TRUE,Jean Carnahan,Jim Talent,4,2002,Missouri,Jean Carnahan
-male,TRUE,Ronnie Musgrove,Roger Wicker,2,2008,Mississippi,Roger Wicker
-male,TRUE,Nick Carter,John Barrasso,2,2008,Wyoming,John Barrasso
-male,FALSE,Martha Coakley,Scott Brown,3,2010,Massachusetts,Paul G. Kirk
-female,FALSE,Chris Coons,Christine O'Donnell,4,2010,Delaware,Ted Kaufman
-male,TRUE,Kirsten Gillibrand,Joseph DioGuardi,4,2010,New York,Kirsten Gillibrand
-male,FALSE,Joe Manchin,John Raese,4,2010,West Virginia,Carte Goodwin
-male,TRUE,Brian Schatz,Campbell Cavasso,3,2014,Hawaii,Brian Schatz
-male,FALSE,Connie Johnson,James Lankford,3,2014,Oklahoma,Tom Coburn
-male,TRUE,Joyce Dickerson,Tim Scott,3,2014,South Carolina,Tim Scott
-female,TRUE,Tina Smith,Karin Housley,4,2018,Minnesota,Tina Smith
-female,TRUE,Mike Espy,Cindy Hyde-Smith,2,2018,Mississippi,Cindy Hyde-Smith
+dem_gender,rep_gender,incumbency,dem_candidate,rep_candidate,no_candidates,election_year,state_long,senator
+male,male,TRUE,Clayton Suddith,Richard Shelby,2,1998,Alabama,Richard Shelby
+male,male,TRUE,Joe Sonneman,Frank Murkowski,4,1998,Alaska,Frank Murkowski
+male,male,TRUE,Ed Ranger,John McCain,4,1998,Arizona,John McCain
+female,female,FALSE,Blanche Lincoln,Fay Boozman,3,1998,Arkansas,Dale Bumpers
+female,male,TRUE,Barbara Boxer,Matt Fong,7,1998,California,Barbara Boxer
+female,male,TRUE,Dottie Lamm,Ben Nighthorse Campbell,7,1998,Colorado,Ben Nighthorse Campbell
+male,male,TRUE,Chris Dodd,Gary Franks,5,1998,Connecticut,Chris Dodd
+male,male,TRUE,Bob Graham,Charlie Crist,2,1998,Florida,Bob Graham
+male,male,TRUE,Michael Coles,Paul Coverdell,3,1998,Georgia,Paul Coverdell
+male,female,TRUE,Daniel Inouye,Crystal Young,3,1998,Hawaii,Daniel Inouye
+male,male,FALSE,Bill Mauk,Mike Crapo,3,1998,Idaho,Dirk Kempthorne
+female,male,TRUE,Carol Moseley Braun,Peter Fitzgerald,4,1998,Illinois,Carol Moseley Braun
+male,male,FALSE,Evan Bayh,Paul Helmke,3,1998,Indiana,Dan Coats
+male,male,TRUE,David Osterberg,Chuck Grassley,4,1998,Iowa,Chuck Grassley
+male,male,TRUE,Paul Feleciano Jr.,Sam Brownback,4,1998,Kansas,Sam Brownback
+male,male,FALSE,Scotty Baesler,Jim Bunning,3,1998,Kentucky,Wendell Ford
+male,male,TRUE,John Breaux,Jim Donelon,2,1998,Louisiana,John Breaux
+female,male,TRUE,Barbara Mikulski,Ross Pierpont,2,1998,Maryland,Barbara Mikulski
+male,male,TRUE,Jay Nixon,Kit Bond,5,1998,Missouri,Kit Bond
+male,male,TRUE,Harry Reid,John Ensign,4,1998,Nevada,Harry Reid
+male,male,TRUE,George Condodemetraky,Judd Gregg,4,1998,New Hampshire,Judd Gregg
+male,male,TRUE,Chuck Schumer,Al D'Amato,6,1998,New York,Al D'Amato
+male,NA,TRUE,John Edwards,Lauch Faircloth,3,1998,North Carolina,Lauch Faircloth
+male,female,TRUE,Byron Dorgan,Donna Nalewaja,3,1998,North Dakota,Byron Dorgan
+female,male,FALSE,Mary Boyle,George Voinovich,2,1998,Ohio,John Glenn
+male,male,TRUE,Don Carroll,Don Nickles,4,1998,Oklahoma,Don Nickles
+male,male,TRUE,Ron Wyden,John Lim,6,1998,Oregon,Ron Wyden
+male,male,TRUE,Bill Lloyd,Arlen Specter,4,1998,Pennsylvania,Arlen Specter
+male,male,TRUE,Ernest Hollings,Bob Inglis,3,1998,South Carolina,Ernest Hollings
+male,male,TRUE,Tom Daschle,Ron Schmidt,3,1998,South Dakota,Tom Daschle
+male,male,TRUE,Scott Leckman,Bob Bennett,3,1998,Utah,Bob Bennett
+male,male,TRUE,Patrick Leahy,Fred Tuttle,6,1998,Vermont,Patrick Leahy
+female,female,TRUE,Patty Murray,Linda Smith,2,1998,Washington,Patty Murray
+male,male,TRUE,Russ Feingold,Mark Neumann,5,1998,Wisconsin,Russ Feingold
+NA,male,TRUE,NA,Jon Kyl,4,2000,Arizona,Jon Kyl
+female,male,TRUE,Dianne Feinstein,Tom Campbell,7,2000,California,Dianne Feinstein
+male,male,TRUE,Joe Lieberman,Philip Giordano,4,2000,Connecticut,Joe Lieberman
+male,male,TRUE,Tom Carper,William Roth,5,2000,Delaware,William Roth
+male,male,FALSE,Bill Nelson,Bill McCollum,8,2000,Florida,Connie Mack III
+male,male,TRUE,Daniel Akaka,John Carroll,5,2000,Hawaii,Daniel Akaka
+male,male,TRUE,David Johnson,Richard Lugar,3,2000,Indiana,Richard Lugar
+male,female,TRUE,Mark Lawrence,Olympia Snowe,2,2000,Maine,Olympia Snowe
+male,male,TRUE,Paul Sarbanes,Paul Rappaport,2,2000,Maryland,Paul Sarbanes
+male,male,TRUE,Ted Kennedy,Jack E. Robinson III,5,2000,Massachusetts,Ted Kennedy
+female,male,TRUE,Debbie Stabenow,Spencer Abraham,7,2000,Michigan,Spencer Abraham
+male,male,TRUE,Mark Dayton,Rod Grams,7,2000,Minnesota,Rod Grams
+male,male,TRUE,Troy Brown,Trent Lott,5,2000,Mississippi,Trent Lott
+male,male,TRUE,Mel Carnahan,John Ashcroft,6,2000,Missouri,John Ashcroft
+male,male,TRUE,Brian Schweitzer,Conrad Burns,3,2000,Montana,Conrad Burns
+male,male,FALSE,Ben Nelson,Don Stenberg,2,2000,Nebraska,Bob Kerrey
+male,male,FALSE,Edward M. Bernstein,John Ensign,6,2000,Nevada,Richard Bryan
+male,male,FALSE,Jon Corzine,Bob Franks,11,2000,New Jersey,Frank Lautenberg
+male,male,TRUE,Jeff Bingaman,William T. Redmond,2,2000,New Mexico,Jeff Bingaman
+female,male,FALSE,Hillary Clinton,Rick Lazio,8,2000,New York,Daniel Patrick Moynihan
+male,male,TRUE,Kent Conrad,Duane Sand,2,2000,North Dakota,Kent Conrad
+male,male,TRUE,Ted Celeste,Mike DeWine,4,2000,Ohio,Mike DeWine
+male,male,TRUE,Ron Klink,Rick Santorum,5,2000,Pennsylvania,Rick Santorum
+male,male,TRUE,Robert Weygand,Lincoln Chafee,4,2000,Rhode Island,Lincoln Chafee
+male,male,TRUE,Jeff Clark,Bill Frist,7,2000,Tennessee,Bill Frist
+male,female,TRUE,Gene Kelly,Kay Bailey Hutchison,4,2000,Texas,Kay Bailey Hutchison
+male,male,TRUE,Scott Howell,Orrin Hatch,4,2000,Utah,Orrin Hatch
+male,male,TRUE,Ed Flanagan,Jim Jeffords,7,2000,Vermont,Jim Jeffords
+male,male,TRUE,Chuck Robb,George Allen,2,2000,Virginia,Chuck Robb
+female,male,TRUE,Maria Cantwell,Slade Gorton,3,2000,Washington,Slade Gorton
+male,male,TRUE,Robert Byrd,David T. Gallaher,3,2000,West Virginia,Robert Byrd
+male,male,TRUE,Herb Kohl,John Gillespie,5,2000,Wisconsin,Herb Kohl
+male,male,TRUE,Mel Logan,Craig L. Thomas,3,2000,Wyoming,Craig L. Thomas
+female,male,TRUE,Susan Parker,Jeff Sessions,3,2002,Alabama,Jeff Sessions
+male,male,TRUE,Frank J. Vondersaar,Ted Stevens,5,2002,Alaska,Ted Stevens
+male,male,TRUE,Mark Pryor,Tim Hutchinson,2,2002,Arkansas,Tim Hutchinson
+male,male,TRUE,Tom Strickland,Wayne Allard,5,2002,Colorado,Wayne Allard
+male,male,TRUE,Joe Biden,Raymond J. Clatworthy,5,2002,Delaware,Joe Biden
+male,NA,TRUE,Max Cleland,Saxby Chambliss,3,2002,Georgia,Max Cleland
+male,male,TRUE,Alan Blinken,Larry Craig,3,2002,Idaho,Larry Craig
+male,male,TRUE,Dick Durbin,Jim Durkin,3,2002,Illinois,Dick Durbin
+male,male,TRUE,Tom Harkin,Greg Ganske,4,2002,Iowa,Tom Harkin
+NA,female,TRUE,NA,Pat Roberts,3,2002,Kansas,Pat Roberts
+female,male,TRUE,Lois Combs Weinberg,Mitch McConnell,2,2002,Kentucky,Mitch McConnell
+female,female,TRUE,Mary Landrieu,Suzanne Haik Terrell,2,2002,Louisiana,Mary Landrieu
+female,female,TRUE,Chellie Pingree,Susan Collins,2,2002,Maine,Susan Collins
+male,NA,TRUE,John Kerry,NA,2,2002,Massachusetts,John Kerry
+male,male,TRUE,Carl Levin,Rocky Raczkowski,5,2002,Michigan,Carl Levin
+male,male,FALSE,Walter Mondale,Norm Coleman,6,2002,Minnesota,Dean Barkley
+NA,male,TRUE,NA,Thad Cochran,2,2002,Mississippi,Thad Cochran
+male,male,TRUE,Max Baucus,Mike Taylor,4,2002,Montana,Max Baucus
+male,male,TRUE,Charlie A. Matulka,Chuck Hagel,4,2002,Nebraska,Chuck Hagel
+female,male,FALSE,Jeanne Shaheen,John E. Sununu,3,2002,New Hampshire,Bob Smith
+male,male,FALSE,Frank Lautenberg,Doug Forrester,6,2002,New Jersey,Robert Torricelli
+female,male,TRUE,Gloria Tristani,Pete Domenici,2,2002,New Mexico,Pete Domenici
+male,female,FALSE,Erskine Bowles,Elizabeth Dole,3,2002,North Carolina,Jesse Helms
+male,male,TRUE,David Walters,Jim Inhofe,3,2002,Oklahoma,Jim Inhofe
+male,male,TRUE,Bill Bradbury,Gordon H. Smith,4,2002,Oregon,Gordon H. Smith
+male,male,TRUE,Jack Reed,Robert Tingle,2,2002,Rhode Island,Jack Reed
+male,male,FALSE,Alex Sanders,Lindsey Graham,4,2002,South Carolina,Strom Thurmond
+male,male,TRUE,Tim Johnson,John Thune,3,2002,South Dakota,Tim Johnson
+male,male,FALSE,Bob Clement,Lamar Alexander,2,2002,Tennessee,Fred Thompson
+male,male,FALSE,Ron Kirk,John Cornyn,4,2002,Texas,Phil Gramm
+NA,male,TRUE,NA,John Warner,3,2002,Virginia,John Warner
+male,male,TRUE,Jay Rockefeller,Jay Wolfe,2,2002,West Virginia,Jay Rockefeller
+female,male,TRUE,Joyce Jansa Corcoran,Mike Enzi,2,2002,Wyoming,Mike Enzi
+male,male,TRUE,Wayne Sowell,Richard Shelby,2,2004,Alabama,Richard Shelby
+male,female,TRUE,Tony Knowles,Lisa Murkowski,6,2004,Alaska,Lisa Murkowski
+male,male,TRUE,Stuart Starky,John McCain,3,2004,Arizona,John McCain
+female,male,TRUE,Blanche Lincoln,Jim Holt,2,2004,Arkansas,Blanche Lincoln
+female,male,TRUE,Barbara Boxer,Bill Jones,5,2004,California,Barbara Boxer
+male,male,FALSE,Ken Salazar,Pete Coors,6,2004,Colorado,Ben Nighthorse Campbell
+male,male,TRUE,Chris Dodd,Jack Orchulli,4,2004,Connecticut,Chris Dodd
+female,male,FALSE,Betty Castor,Mel Martinez,3,2004,Florida,Bob Graham
+female,male,FALSE,Denise Majette,Johnny Isakson,3,2004,Georgia,Zell Miller
+male,male,TRUE,Daniel Inouye,Campbell Cavasso,4,2004,Hawaii,Daniel Inouye
+NA,male,TRUE,NA,Mike Crapo,2,2004,Idaho,Mike Crapo
+NA,male,FALSE,Barack Obama,Alan Keyes,4,2004,Illinois,Peter Fitzgerald
+male,male,TRUE,Evan Bayh,Marvin Scott,3,2004,Indiana,Evan Bayh
+male,male,TRUE,Arthur Small,Chuck Grassley,5,2004,Iowa,Chuck Grassley
+male,male,TRUE,Lee Jones,Sam Brownback,4,2004,Kansas,Sam Brownback
+male,male,TRUE,Daniel Mongiardo,Jim Bunning,2,2004,Kentucky,Jim Bunning
+female,NA,TRUE,Barbara Mikulski,E. J. Pipkin,4,2004,Maryland,Barbara Mikulski
+female,male,TRUE,Nancy Farmer,Kit Bond,4,2004,Missouri,Kit Bond
+male,male,TRUE,Harry Reid,Richard Ziser,5,2004,Nevada,Harry Reid
+female,male,TRUE,Doris Haddock,Judd Gregg,2,2004,New Hampshire,Judd Gregg
+male,male,TRUE,Chuck Schumer,Howard Mills III,7,2004,New York,Chuck Schumer
+male,male,FALSE,Erskine Bowles,Richard Burr,3,2004,North Carolina,John Edwards
+male,male,TRUE,Byron Dorgan,Mike Liffrig,2,2004,North Dakota,Byron Dorgan
+male,male,TRUE,Eric Fingerhut,George Voinovich,2,2004,Ohio,George Voinovich
+male,male,FALSE,Brad Carson,Tom Coburn,3,2004,Oklahoma,Don Nickles
+male,male,TRUE,Ron Wyden,Al King,5,2004,Oregon,Ron Wyden
+male,male,TRUE,Joe Hoeffel,Arlen Specter,4,2004,Pennsylvania,Arlen Specter
+female,male,FALSE,Inez Tenenbaum,Jim DeMint,6,2004,South Carolina,Fritz Hollings
+male,male,TRUE,Tom Daschle,John Thune,2,2004,South Dakota,Tom Daschle
+male,male,TRUE,Paul Van Dam,Bob Bennett,4,2004,Utah,Bob Bennett
+male,male,TRUE,Patrick Leahy,John A. McMullen,6,2004,Vermont,Patrick Leahy
+female,male,TRUE,Patty Murray,George Nethercutt,4,2004,Washington,Patty Murray
+male,male,TRUE,Russ Feingold,Tim Michels,4,2004,Wisconsin,Russ Feingold
+male,male,TRUE,Jim Pederson,Jon Kyl,3,2006,Arizona,Jon Kyl
+female,male,TRUE,Dianne Feinstein,Dick Mountjoy,6,2006,California,Dianne Feinstein
+male,male,TRUE,Ned Lamont,Alan Schlesinger,5,2006,Connecticut,Joe Lieberman
+male,female,TRUE,Tom Carper,Jan Ting,4,2006,Delaware,Tom Carper
+male,female,TRUE,Bill Nelson,Katherine Harris,6,2006,Florida,Bill Nelson
+male,female,TRUE,Daniel Akaka,Cynthia Thielen,3,2006,Hawaii,Daniel Akaka
+NA,male,TRUE,NA,Richard Lugar,2,2006,Indiana,Richard Lugar
+female,female,TRUE,Jean Hay Bright,Olympia Snowe,3,2006,Maine,Olympia Snowe
+male,male,FALSE,Ben Cardin,Michael Steele,3,2006,Maryland,Paul Sarbanes
+male,male,TRUE,Ted Kennedy,Kenneth Chase,2,2006,Massachusetts,Ted Kennedy
+female,male,TRUE,Debbie Stabenow,Mike Bouchard,5,2006,Michigan,Debbie Stabenow
+female,male,FALSE,Amy Klobuchar,Mark Kennedy,5,2006,Minnesota,Mark Dayton
+male,male,TRUE,Erik Fleming,Trent Lott,3,2006,Mississippi,Trent Lott
+female,male,TRUE,Claire McCaskill,Jim Talent,4,2006,Missouri,Jim Talent
+male,male,TRUE,Jon Tester,Conrad Burns,3,2006,Montana,Conrad Burns
+male,male,TRUE,Ben Nelson,Pete Ricketts,2,2006,Nebraska,Ben Nelson
+male,male,TRUE,Jack Carter,John Ensign,4,2006,Nevada,John Ensign
+male,male,TRUE,Bob Menendez,Thomas Kean Jr.,9,2006,New Jersey,Bob Menendez
+male,male,TRUE,Jeff Bingaman,Allen McCulloch,2,2006,New Mexico,Jeff Bingaman
+female,male,TRUE,Hillary Clinton,John Spencer,6,2006,New York,Hillary Clinton
+male,male,TRUE,Kent Conrad,Dwight Grotberg,4,2006,North Dakota,Kent Conrad
+male,male,TRUE,Sherrod Brown,Mike DeWine,2,2006,Ohio,Mike DeWine
+male,male,TRUE,Bob Casey Jr.,Rick Santorum,2,2006,Pennsylvania,Rick Santorum
+male,male,TRUE,Sheldon Whitehouse,Lincoln Chafee,2,2006,Rhode Island,Lincoln Chafee
+male,male,FALSE,Harold Ford Jr.,Bob Corker,7,2006,Tennessee,Bill Frist
+female,female,TRUE,Barbara Ann Radnofsky,Kay Bailey Hutchison,3,2006,Texas,Kay Bailey Hutchison
+male,male,TRUE,Pete Ashdown,Orrin Hatch,6,2006,Utah,Orrin Hatch
+NA,male,FALSE,NA,Richard Tarrant,6,2006,Vermont,Jim Jeffords
+male,male,TRUE,Jim Webb,George Allen,3,2006,Virginia,George Allen
+female,male,TRUE,Maria Cantwell,Mike McGavick,5,2006,Washington,Maria Cantwell
+male,male,TRUE,Robert Byrd,John Raese,3,2006,West Virginia,Robert Byrd
+male,male,TRUE,Herb Kohl,Robert Lorge,4,2006,Wisconsin,Herb Kohl
+male,male,TRUE,Dale Groutage,Craig L. Thomas,2,2006,Wyoming,Craig L. Thomas
+female,male,TRUE,Vivian Davis Figures,Jeff Sessions,2,2008,Alabama,Jeff Sessions
+male,male,TRUE,Mark Begich,Ted Stevens,5,2008,Alaska,Ted Stevens
+male,NA,TRUE,Mark Pryor,NA,2,2008,Arkansas,Mark Pryor
+male,male,FALSE,Mark Udall,Bob Schaffer,4,2008,Colorado,Wayne Allard
+male,female,TRUE,Joe Biden,Christine O'Donnell,2,2008,Delaware,Joe Biden
+male,NA,TRUE,Jim Martin,Saxby Chambliss,3,2008,Georgia,Saxby Chambliss
+male,male,FALSE,Larry LaRocco,Jim Risch,5,2008,Idaho,Larry Craig
+male,male,TRUE,Dick Durbin,Steve Sauerberg,5,2008,Illinois,Dick Durbin
+male,male,TRUE,Tom Harkin,Christopher Reed,2,2008,Iowa,Tom Harkin
+male,female,TRUE,Jim Slattery,Pat Roberts,4,2008,Kansas,Pat Roberts
+male,male,TRUE,Bruce Lunsford,Mitch McConnell,2,2008,Kentucky,Mitch McConnell
+female,male,TRUE,Mary Landrieu,John Kennedy,5,2008,Louisiana,Mary Landrieu
+male,female,TRUE,Tom Allen,Susan Collins,2,2008,Maine,Susan Collins
+male,male,TRUE,John Kerry,Jeff Beatty,3,2008,Massachusetts,John Kerry
+male,male,TRUE,Carl Levin,Jack Hoogendyk,6,2008,Michigan,Carl Levin
+male,male,TRUE,Al Franken,Norm Coleman,5,2008,Minnesota,Norm Coleman
+male,male,TRUE,Erik Fleming,Thad Cochran,2,2008,Mississippi,Thad Cochran
+male,male,TRUE,Max Baucus,Bob Kelleher,2,2008,Montana,Max Baucus
+male,male,FALSE,Scott Kleeb,Mike Johanns,4,2008,Nebraska,Chuck Hagel
+female,male,TRUE,Jeanne Shaheen,John E. Sununu,3,2008,New Hampshire,John E. Sununu
+male,male,TRUE,Frank Lautenberg,Dick Zimmer,7,2008,New Jersey,Frank Lautenberg
+male,male,FALSE,Tom Udall,Steve Pearce,2,2008,New Mexico,Pete Domenici
+female,female,TRUE,Kay Hagan,Elizabeth Dole,3,2008,North Carolina,Elizabeth Dole
+male,male,TRUE,Andrew Rice,Jim Inhofe,3,2008,Oklahoma,Jim Inhofe
+male,male,TRUE,Jeff Merkley,Gordon H. Smith,3,2008,Oregon,Gordon H. Smith
+male,male,TRUE,Jack Reed,Robert Tingle,2,2008,Rhode Island,Jack Reed
+male,male,TRUE,Bob Conley,Lindsey Graham,2,2008,South Carolina,Lindsey Graham
+male,male,TRUE,Tim Johnson,Joel Dykstra,2,2008,South Dakota,Tim Johnson
+male,male,TRUE,Bob Tuke,Lamar Alexander,8,2008,Tennessee,Lamar Alexander
+male,male,TRUE,Rick Noriega,John Cornyn,3,2008,Texas,John Cornyn
+male,male,FALSE,Mark Warner,Jim Gilmore,4,2008,Virginia,John Warner
+male,male,TRUE,Jay Rockefeller,Jay Wolfe,2,2008,West Virginia,Jay Rockefeller
+male,male,TRUE,Chris Rothfuss,Mike Enzi,2,2008,Wyoming,Mike Enzi
+male,male,TRUE,William G. Barnes,Richard Shelby,2,2010,Alabama,Richard Shelby
+male,male,TRUE,Rodney Glassman,John McCain,4,2010,Arizona,John McCain
+female,male,TRUE,Blanche Lincoln,John Boozman,4,2010,Arkansas,Blanche Lincoln
+female,female,TRUE,Barbara Boxer,Carly Fiorina,6,2010,California,Barbara Boxer
+male,male,TRUE,Michael Bennet,Ken Buck,4,2010,Colorado,Michael Bennet
+male,female,FALSE,Richard Blumenthal,Linda McMahon,4,2010,Connecticut,Chris Dodd
+male,male,FALSE,Kendrick Meek,Marco Rubio,4,2010,Florida,George LeMieux
+male,male,TRUE,Michael Thurmond,Johnny Isakson,3,2010,Georgia,Johnny Isakson
+male,male,TRUE,Daniel Inouye,Campbell Cavasso,4,2010,Hawaii,Daniel Inouye
+male,male,TRUE,Tom Sullivan,Mike Crapo,3,2010,Idaho,Mike Crapo
+male,male,FALSE,Alexi Giannoulias,Mark Kirk,4,2010,Illinois,Roland Burris
+male,male,FALSE,Brad Ellsworth,Dan Coats,3,2010,Indiana,Evan Bayh
+female,male,TRUE,Roxanne Conlin,Chuck Grassley,3,2010,Iowa,Chuck Grassley
+female,male,FALSE,Lisa Johnston,Jerry Moran,4,2010,Kansas,Sam Brownback
+male,male,FALSE,Jack Conway,Rand Paul,2,2010,Kentucky,Jim Bunning
+male,male,TRUE,Charles Melancon,David Vitter,4,2010,Louisiana,David Vitter
+female,male,TRUE,Barbara Mikulski,Eric Wargotz,4,2010,Maryland,Barbara Mikulski
+female,male,FALSE,Robin Carnahan,Roy Blunt,4,2010,Missouri,Kit Bond
+male,female,TRUE,Harry Reid,Sharron Angle,3,2010,Nevada,Harry Reid
+male,female,FALSE,Paul Hodes,Kelly Ayotte,4,2010,New Hampshire,Judd Gregg
+male,male,TRUE,Chuck Schumer,Jay Townsend,4,2010,New York,Chuck Schumer
+female,male,TRUE,Elaine Marshall,Richard Burr,3,2010,North Carolina,Richard Burr
+female,male,FALSE,Tracy Potter,John Hoeven,3,2010,North Dakota,Byron Dorgan
+male,male,FALSE,Lee Fisher,Rob Portman,4,2010,Ohio,George Voinovich
+male,male,TRUE,Jim Rogers,Tom Coburn,4,2010,Oklahoma,Tom Coburn
+male,male,TRUE,Ron Wyden,Jim Huffman,5,2010,Oregon,Ron Wyden
+male,female,FALSE,Joe Sestak,Pat Toomey,2,2010,Pennsylvania,Arlen Specter
+male,male,TRUE,Alvin Greene,Jim DeMint,3,2010,South Carolina,Jim DeMint
+NA,male,TRUE,NA,John Thune,1,2010,South Dakota,John Thune
+male,male,FALSE,Sam Granato,Mike Lee,3,2010,Utah,Bob Bennett
+male,male,TRUE,Patrick Leahy,Len Britton,5,2010,Vermont,Patrick Leahy
+female,male,TRUE,Patty Murray,Dino Rossi,2,2010,Washington,Patty Murray
+male,male,TRUE,Russ Feingold,Ron Johnson,3,2010,Wisconsin,Russ Feingold
+male,male,FALSE,Richard Carmona,Jeff Flake,3,2012,Arizona,Jon Kyl
+female,female,TRUE,Dianne Feinstein,Elizabeth Emken,2,2012,California,Dianne Feinstein
+male,female,FALSE,Chris Murphy,Linda McMahon,3,2012,Connecticut,Joe Lieberman
+male,male,TRUE,Tom Carper,Kevin Wade,4,2012,Delaware,Tom Carper
+male,female,TRUE,Bill Nelson,Connie Mack IV,4,2012,Florida,Bill Nelson
+female,female,FALSE,Mazie Hirono,Linda Lingle,2,2012,Hawaii,Daniel Akaka
+male,male,FALSE,Joe Donnelly,Richard Mourdock,3,2012,Indiana,Richard Lugar
+female,male,FALSE,Cynthia Dill,"Charles E. Summers, Jr.",5,2012,Maine,Olympia Snowe
+male,male,TRUE,Ben Cardin,Dan Bongino,4,2012,Maryland,Ben Cardin
+female,male,TRUE,Elizabeth Warren,Scott Brown,2,2012,Massachusetts,Scott Brown
+female,male,TRUE,Debbie Stabenow,Pete Hoekstra,6,2012,Michigan,Debbie Stabenow
+female,male,TRUE,Amy Klobuchar,Kurt Bills,5,2012,Minnesota,Amy Klobuchar
+male,male,TRUE,"Albert N. Gore, Jr.",Roger Wicker,4,2012,Mississippi,Roger Wicker
+female,male,TRUE,Claire McCaskill,Todd Akin,3,2012,Missouri,Claire McCaskill
+male,male,TRUE,Jon Tester,Denny Rehberg,3,2012,Montana,Jon Tester
+male,female,FALSE,Bob Kerrey,Deb Fischer,2,2012,Nebraska,Ben Nelson
+female,male,TRUE,Shelley Berkley,Dean Heller,3,2012,Nevada,Dean Heller
+male,male,TRUE,Bob Menendez,Joe Kyrillos,4,2012,New Jersey,Bob Menendez
+male,female,FALSE,Martin Heinrich,Heather Wilson,4,2012,New Mexico,Jeff Bingaman
+female,female,TRUE,Kirsten Gillibrand,Wendy E. Long,5,2012,New York,Kirsten Gillibrand
+female,male,FALSE,Heidi Heitkamp,Rick Berg,2,2012,North Dakota,Kent Conrad
+male,male,TRUE,Sherrod Brown,Josh Mandel,3,2012,Ohio,Sherrod Brown
+male,male,FALSE,"Bob Casey, Jr.",Tom Smith,3,2012,Pennsylvania,Bob Casey Jr.
+male,male,TRUE,Sheldon Whitehouse,Barry Hinckley,2,2012,Rhode Island,Sheldon Whitehouse
+male,male,TRUE,Mark Clayton,Bob Corker,5,2012,Tennessee,Bob Corker
+male,male,FALSE,Paul Sadler,Ted Cruz,4,2012,Texas,Kay Bailey Hutchison
+male,male,TRUE,Scott Howell,Orrin Hatch,3,2012,Utah,Orrin Hatch
+NA,male,TRUE,NA,John MacGovern,6,2012,Vermont,Bernie Sanders
+male,male,FALSE,Tim Kaine,George Allen,2,2012,Virginia,Jim Webb
+female,male,TRUE,Maria Cantwell,Michael Baumgartner,2,2012,Washington,Maria Cantwell
+male,male,TRUE,Joe Manchin,John Raese,3,2012,West Virginia,Joe Manchin
+female,male,FALSE,Tammy Baldwin,Tommy Thompson,4,2012,Wisconsin,Herb Kohl
+male,male,TRUE,Tim Chesnut,John Barrasso,3,2012,Wyoming,John Barrasso
+NA,male,TRUE,NA,Jeff Sessions,1,2014,Alabama,Jeff Sessions
+male,male,FALSE,Mark Begich,Dan Sullivan,4,2014,Alaska,Mark Begich
+male,male,FALSE,Mark Pryor,Tom Cotton,4,2014,Arkansas,Mark Pryor
+male,male,FALSE,Mark Udall,Cory Gardner,6,2014,Colorado,Mark Udall
+male,male,TRUE,Chris Coons,Kevin Wade,3,2014,Delaware,Chris Coons
+female,male,FALSE,Michelle Nunn,David Perdue,3,2014,Georgia,Saxby Chambliss
+male,male,TRUE,Nels Mitchell,Jim Risch,2,2014,Idaho,Jim Risch
+male,male,TRUE,Dick Durbin,Jim Oberweis,3,2014,Illinois,Dick Durbin
+male,female,FALSE,Bruce Braley,Joni Ernst,6,2014,Iowa,Tom Harkin
+NA,female,TRUE,NA,Pat Roberts,3,2014,Kansas,Pat Roberts
+female,male,TRUE,Alison Lundergan Grimes,Mitch McConnell,3,2014,Kentucky,Mitch McConnell
+female,male,FALSE,Mary Landrieu,Bill Cassidy,2,2014,Louisiana,Mary Landrieu
+female,female,TRUE,Shenna Bellows,Susan Collins,2,2014,Maine,Susan Collins
+male,male,TRUE,Ed Markey,Brian Herr,2,2014,Massachusetts,Ed Markey
+male,female,FALSE,Gary Peters,Terri Lynn Land,5,2014,Michigan,Carl Levin
+male,male,TRUE,Al Franken,Mike McFadden,4,2014,Minnesota,Al Franken
+male,male,TRUE,Travis Childers,Thad Cochran,3,2014,Mississippi,Thad Cochran
+female,male,FALSE,Amanda Curtis,Steve Daines,3,2014,Montana,John Walsh
+male,male,FALSE,David Domina,Ben Sasse,4,2014,Nebraska,Mike Johanns
+female,male,TRUE,Jeanne Shaheen,Scott Brown,2,2014,New Hampshire,Jeanne Shaheen
+male,male,TRUE,Cory Booker,Jeff Bell,7,2014,New Jersey,Cory Booker
+male,male,TRUE,Tom Udall,Allen Weh,2,2014,New Mexico,Tom Udall
+female,male,FALSE,Kay Hagan,Thom Tillis,3,2014,North Carolina,Kay Hagan
+male,male,TRUE,Matt Silverstein,Jim Inhofe,5,2014,Oklahoma,Jim Inhofe
+male,female,TRUE,Jeff Merkley,Monica Wehby,5,2014,Oregon,Jeff Merkley
+male,male,TRUE,Jack Reed,Mark Zaccaria,2,2014,Rhode Island,Jack Reed
+male,male,TRUE,Brad Hutto,Lindsey Graham,4,2014,South Carolina,Lindsey Graham
+male,male,FALSE,Rick Weiland,Mike Rounds,4,2014,South Dakota,Tim Johnson
+male,male,TRUE,Gordon Ball,Lamar Alexander,12,2014,Tennessee,Lamar Alexander
+male,male,TRUE,David Alameel,John Cornyn,4,2014,Texas,John Cornyn
+male,male,TRUE,Mark Warner,Ed Gillespie,3,2014,Virginia,Mark Warner
+female,female,FALSE,Natalie Tennant,Shelley Moore Capito,5,2014,West Virginia,Jay Rockefeller
+male,male,TRUE,Charlie Hardy,Mike Enzi,4,2014,Wyoming,Mike Enzi
+male,male,TRUE,Ron Crumpton,Richard Shelby,3,2016,Alabama,Richard Shelby
+NA,female,TRUE,NA,Lisa Murkowski,4,2016,Alaska,Lisa Murkowski
+female,male,TRUE,Ann Kirkpatrick,John McCain,3,2016,Arizona,John McCain
+male,male,TRUE,Conner Eldridge,John Boozman,3,2016,Arkansas,John Boozman
+male,male,TRUE,Michael Bennet,Darryl Glenn,4,2016,Colorado,Michael Bennet
+male,male,TRUE,Richard Blumenthal,Dan Carter,4,2016,Connecticut,Richard Blumenthal
+male,male,TRUE,Patrick Murphy,Marco Rubio,3,2016,Florida,Marco Rubio
+male,male,TRUE,Jim Barksdale,Johnny Isakson,3,2016,Georgia,Johnny Isakson
+male,male,TRUE,Brian Schatz,John Carroll,2,2016,Hawaii,Brian Schatz
+male,male,TRUE,Jerry Sturgill,Mike Crapo,3,2016,Idaho,Mike Crapo
+female,male,TRUE,Tammy Duckworth,Mark Kirk,4,2016,Illinois,Mark Kirk
+male,male,FALSE,Evan Bayh,Todd Young,3,2016,Indiana,Dan Coats
+female,male,TRUE,Patty Judge,Chuck Grassley,3,2016,Iowa,Chuck Grassley
+male,male,TRUE,Patrick Wiesner,Jerry Moran,3,2016,Kansas,Jerry Moran
+male,male,TRUE,Jim Gray,Rand Paul,2,2016,Kentucky,Rand Paul
+male,male,FALSE,Foster Campbell,John Kennedy,2,2016,Louisiana,David Vitter
+male,female,FALSE,Chris Van Hollen,Kathy Szeliga,3,2016,Maryland,Barbara Mikulski
+male,male,TRUE,Jason Kander,Roy Blunt,3,2016,Missouri,Roy Blunt
+female,male,FALSE,Catherine Cortez Masto,Joe Heck,5,2016,Nevada,Harry Reid
+female,female,FALSE,Maggie Hassan,Kelly Ayotte,3,2016,New Hampshire,Kelly Ayotte
+male,female,TRUE,Chuck Schumer,Wendy Long,4,2016,New York,Chuck Schumer
+female,male,TRUE,Deborah Ross,Richard Burr,3,2016,North Carolina,Richard Burr
+male,male,TRUE,Eliot Glassheim,John Hoeven,3,2016,North Dakota,John Hoeven
+male,male,TRUE,Ted Strickland,Rob Portman,3,2016,Ohio,Rob Portman
+male,male,TRUE,Mike Workman,James Lankford,3,2016,Oklahoma,James Lankford
+male,male,TRUE,Ron Wyden,Mark Callahan,4,2016,Oregon,Ron Wyden
+female,female,TRUE,Katie McGinty,Pat Toomey,3,2016,Pennsylvania,Pat Toomey
+male,male,TRUE,Thomas Dixon,Tim Scott,3,2016,South Carolina,Tim Scott
+male,male,TRUE,Jay Williams,John Thune,2,2016,South Dakota,John Thune
+female,male,TRUE,Misty K. Snow,Mike Lee,4,2016,Utah,Mike Lee
+male,male,TRUE,Patrick Leahy,Scott Milne,5,2016,Vermont,Patrick Leahy
+female,male,TRUE,Patty Murray,Chris Vance,2,2016,Washington,Patty Murray
+male,male,TRUE,Russ Feingold,Ron Johnson,3,2016,Wisconsin,Ron Johnson
+female,female,FALSE,Kyrsten Sinema,Martha McSally,3,2018,Arizona,Jeff Flake
+male,male,TRUE,Chris Murphy,Matthew Corey,4,2018,Connecticut,Chris Murphy
+male,male,TRUE,Tom Carper,Robert Arlett,4,2018,Delaware,Tom Carper
+male,male,TRUE,Bill Nelson,Rick Scott,2,2018,Florida,Bill Nelson
+female,male,TRUE,Mazie Hirono,Ron Curtis,2,2018,Hawaii,Mazie Hirono
+male,male,TRUE,Joe Donnelly,Mike Braun,3,2018,Indiana,Joe Donnelly
+male,male,TRUE,Zak Ringelstein,Eric Brakey,3,2018,Maine,Angus King
+male,male,TRUE,Ben Cardin,Tony Campbell,5,2018,Maryland,Ben Cardin
+female,male,TRUE,Elizabeth Warren,Geoff Diehl,3,2018,Massachusetts,Elizabeth Warren
+female,male,TRUE,Debbie Stabenow,John James,4,2018,Michigan,Debbie Stabenow
+female,male,TRUE,Amy Klobuchar,Jim Newberger,4,2018,Minnesota,Amy Klobuchar
+male,male,TRUE,David Baria,Roger Wicker,4,2018,Mississippi,Roger Wicker
+female,male,TRUE,Claire McCaskill,Josh Hawley,5,2018,Missouri,Claire McCaskill
+male,male,TRUE,Jon Tester,Matt Rosendale,3,2018,Montana,Jon Tester
+female,female,TRUE,Jane Raybould,Deb Fischer,3,2018,Nebraska,Deb Fischer
+male,male,TRUE,Jacky Rosen,Dean Heller,5,2018,Nevada,Dean Heller
+male,male,TRUE,Bob Menendez,Bob Hugin,8,2018,New Jersey,Bob Menendez
+male,male,TRUE,Martin Heinrich,Mick Rich,3,2018,New Mexico,Martin Heinrich
+female,female,TRUE,Kirsten Gillibrand,Chele Chiavacci Farley,2,2018,New York,Kirsten Gillibrand
+female,male,TRUE,Heidi Heitkamp,Kevin Cramer,2,2018,North Dakota,Heidi Heitkamp
+male,male,TRUE,Sherrod Brown,Jim Renacci,2,2018,Ohio,Sherrod Brown
+male,female,TRUE,Bob Casey Jr.,Lou Barletta,4,2018,Pennsylvania,Bob Casey Jr.
+male,male,TRUE,Sheldon Whitehouse,Robert Flanders,2,2018,Rhode Island,Sheldon Whitehouse
+male,female,FALSE,Phil Bredesen,Marsha Blackburn,8,2018,Tennessee,Bob Corker
+male,male,TRUE,Beto O'Rourke,Ted Cruz,3,2018,Texas,Ted Cruz
+female,NA,FALSE,Jenny Wilson,Mitt Romney,5,2018,Utah,Orrin Hatch
+NA,male,TRUE,NA,Lawrence Zupan,2,2018,Vermont,Bernie Sanders
+male,male,TRUE,Tim Kaine,Corey Stewart,3,2018,Virginia,Tim Kaine
+female,female,TRUE,Maria Cantwell,Susan Hutchison,2,2018,Washington,Maria Cantwell
+male,male,TRUE,Joe Manchin,Patrick Morrisey,3,2018,West Virginia,Joe Manchin
+female,female,TRUE,Tammy Baldwin,Leah Vukmir,2,2018,Wisconsin,Tammy Baldwin
+male,male,TRUE,Gary Trauner,John Barrasso,3,2018,Wyoming,John Barrasso
+female,male,TRUE,Zell Miller,Mack Mattingly,2,2000,Georgia,Zell Miller
+female,male,TRUE,Jean Carnahan,Jim Talent,4,2002,Missouri,Jean Carnahan
+male,male,TRUE,Ronnie Musgrove,Roger Wicker,2,2008,Mississippi,Roger Wicker
+male,male,TRUE,Nick Carter,John Barrasso,2,2008,Wyoming,John Barrasso
+female,male,FALSE,Martha Coakley,Scott Brown,3,2010,Massachusetts,Paul G. Kirk
+male,female,FALSE,Chris Coons,Christine O'Donnell,4,2010,Delaware,Ted Kaufman
+female,male,TRUE,Kirsten Gillibrand,Joseph DioGuardi,4,2010,New York,Kirsten Gillibrand
+male,male,FALSE,Joe Manchin,John Raese,4,2010,West Virginia,Carte Goodwin
+male,male,TRUE,Brian Schatz,Campbell Cavasso,3,2014,Hawaii,Brian Schatz
+female,male,FALSE,Connie Johnson,James Lankford,3,2014,Oklahoma,Tom Coburn
+female,male,TRUE,Joyce Dickerson,Tim Scott,3,2014,South Carolina,Tim Scott
+female,female,TRUE,Tina Smith,Karin Housley,4,2018,Minnesota,Tina Smith
+male,female,TRUE,Mike Espy,Cindy Hyde-Smith,2,2018,Mississippi,Cindy Hyde-Smith
