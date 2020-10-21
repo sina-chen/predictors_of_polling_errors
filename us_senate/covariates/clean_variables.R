@@ -106,3 +106,8 @@ df_final %>%
 df_final <- df_final[grep("c(", df_final$dem_candidate, invert = TRUE, fixed = TRUE) , ]
 
 df_final <- df_final[grep("c(", df_final$rep_candidate, invert = TRUE, fixed = TRUE) , ]
+
+# recode one observation with diverging names
+
+recode(df_final$dem_candidate, 
+       `Bob Casey, Jr.` = "Bob Casey Jr.") -> df_final$dem_candidate
