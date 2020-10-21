@@ -6,7 +6,7 @@ library(tidyverse)
 
 # --------------------------------------------------------------------------- #
 
-polls <- read.csv('senate_polls_1998_2018_enriched.csv')
+polls <- read.csv('senate_wiki_merged.csv')
 faces <- read.csv('clarifai_race.csv')
 
 # --------------------------------------------------------------------------- #
