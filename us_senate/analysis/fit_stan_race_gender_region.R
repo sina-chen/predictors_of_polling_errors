@@ -15,13 +15,42 @@ library(shinystan)
 
 #### Data ####
 
-data_senate <-read_csv("~/Documents/Uni/PollingError/senate/data/senate_polls_merged.csv")
+data_senate <-read_csv("predictors_of_polling_errors/data/senate/senate_polls_merged_refactored.csv")
 
 # senate results
-senate_results <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_results.RDS")
+senate_results <- read_csv("predictors_of_polling_errors/data/senate/senate_results_phil.csv")
 
 # merge data
 data_senate <- merge(data_senate, senate_results, by = c('election_year', 'state'), all.x = T )
+
+
+# fix gender / race data
+data_senate <- data_senate %>%
+  mutate(clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Alan Schlesinger', 'white'),
+         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Dan Bongino', 'hispanic'),
+         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Jim Huffman', 'white'),
+         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Linda Smith', 'white'),
+         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Lou Barletta', 'white'),
+         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Philip Giordano', 'white'),
+         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Rick Lazio', 'white'),
+         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Robert Lorge', 'hispanic')) %>%
+  as.data.frame()
+
+data_senate <- data_senate %>%
+  mutate(clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Barbara Boxer', 'white'),
+         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Bob Menendez', 'white'),
+         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Catherine Cortez Masto', 'white'),
+         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Harold Ford Jr.', 'black'),
+         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Ken Salazar', 'white'),
+         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Paul Hodes', 'white'),
+         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Rick Noriega', 'white'),
+         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Sam Granato', 'white')) %>%
+  as.data.frame()
+
+data_senate <- data_senate %>%
+  mutate(clarifai_gender_dem = replace(clarifai_gender_dem, clarifai_gender_dem == 'Misty K. Snow', 'feminine'),
+         clarifai_gender_rep = replace(clarifai_gender_rep, clarifai_gender_rep == 'Slade Gorton', 'masculine')) %>%
+  as.data.frame()
 
 # compute days until election, gender and race dummy, incumbency dummy, two-party vote share
 data_senate <- data_senate %>%
@@ -136,13 +165,13 @@ sapply(stan_dat, range)
 
 #### Fit stan model ####
 
-resStan_race <- stan(file = "stan_ml/ml_senate_race_region.stan", data = stan_dat,
-                         chains = 4, iter = 5000,
+resStan_race <- stan(file = "predictors_of_polling_errors/us_senate/analysis/stan_ml/ml_senate_race_region.stan", data = stan_dat,
+                         chains = 4, iter = 10000,
                          control = list(adapt_delta = 0.95)
 ) 
 
-resStan_gender <- stan(file = "stan_ml/ml_senate_gender_region.stan", data = stan_dat,
-                     chains = 4, iter = 5000,
+resStan_gender <- stan(file = "predictors_of_polling_errors/us_senate/analysis/stan_ml/ml_senate_gender_region.stan", data = stan_dat,
+                     chains = 4, iter = 10000,
                      control = list(adapt_delta = 0.95)
 ) 
 
