@@ -43,6 +43,17 @@ join_dem_split %>%
   filter(matched == TRUE) %>% 
   select(-c(first_rep, second_rep, rest_rep, matched)) -> senate_wiki_merged
 
+# remove double variables and rename
+
+senate_wiki_merged %>%
+  rename(election_year = election_year.x,
+         state_long = state_long.x,
+         rep_candidate = rep_candidate.y,
+         dem_candidate = dem_candidate.y) %>%
+  subset(select = -c(election_year.y, 
+                     state_long.y, 
+                     rep_candidate.x, 
+                     dem_candidate.x)) -> senate_wiki_merged  
 
 # write final merged and enriched data-set
 write_csv(senate_wiki_merged, "senate_wiki_merged.csv")
