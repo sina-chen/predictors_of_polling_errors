@@ -43,7 +43,7 @@ data_raw <- data_raw %>%
 
 # Add election vote share and two-party vote share
 
-senate_results <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_results.RDS")
+senate_results <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_election_results.RDS")
 
 data_results <- merge (data_raw, senate_results, 
                        by = c('state', 'election_year'), all.x = T) # election results for speciale elections are not included
