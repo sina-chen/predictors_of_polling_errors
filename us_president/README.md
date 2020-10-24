@@ -1,1 +1,1 @@
-# INstruction on scraping processing and analysing US presidential election polls
+# Instruction on scraping processing and analysing US presidential election polls
