@@ -16,8 +16,7 @@ This repositors is structured as follows:
 
 
 
-- [US President](https://github.com/SinaMaria412/predictors_of_polling_errors#us-president): Code and explanation for presidential elections
-- [US Senate](https://github.com/SinaMaria412/predictors_of_polling_errors#us-senate): Code and explanation for senate elections
+
 
 
 
