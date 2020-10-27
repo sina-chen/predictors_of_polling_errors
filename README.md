@@ -1,25 +1,24 @@
 # predictors_of_poling_errors
 The aim of this project is to develop a contextual understanding of polling errors and their triggers. Unlike most previous studies, we take a cross-election comparative perspective and put the theoretical focus on characteristics of the electoral contest which may encourage polling errors.
 
-**Important**: Run scripts in following order:
+This repositors is structured as follows:
+
+- All data files are in the [data](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/data) folder. 
+- The [us_president](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_president) contains code for
+  -   - scraping US presidental polls from 2000 to 2016 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_president/scrape) folder
+
+- The [us_senate](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate) folder contains code for:
+  - scraping US senate polls from 1998 to 2018 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/scrape) folder
+  - cleaning the scraped polls and merging additional covariates in the [covariates](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/covariates) folder
+  - a hierarchical bayesian model for analysing us senate polls [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/analysis).
+  
 
 
 
-
-
-It is assumed that THIS is your working directory.
-
-
-This readme is structured as follows:
 
 - [US President](https://github.com/SinaMaria412/predictors_of_polling_errors#us-president): Code and explanation for presidential elections
 - [US Senate](https://github.com/SinaMaria412/predictors_of_polling_errors#us-senate): Code and explanation for senate elections
 
-## US President
-
-
-
-## US Senate
 
 
 
