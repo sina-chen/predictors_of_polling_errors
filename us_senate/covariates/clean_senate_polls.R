@@ -43,7 +43,7 @@ data_raw <- data_raw %>%
 
 
 # Add election vote share and two-party vote share
-senate_results <- read.csv("~/Documents/Uni/PollingError/predictors_of_polling_errors/data/senate/senate_election_results.csv")
+senate_results <- read.csv("predictors_of_polling_errors/data/senate/senate_election_results.csv")
 
 data_results <- merge (data_raw, senate_results, 
                        by = c('state', 'election_year')) # election results for speciale elections are not included
