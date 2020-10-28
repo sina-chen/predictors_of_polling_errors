@@ -19,7 +19,7 @@ library(openintro)
 
 #### Directory ####
 
-senate_wd <- 'working directory with downloaded and converted files'
+senate_wd <- 'your working directory'
 setwd(senate_wd)
 
 source('helper_func_subset_senate.R')
@@ -74,8 +74,7 @@ polls_senate2004 <- polls_raw2004 %>%
 polls_senate2006 <- polls_raw2006 %>% 
   clean_split() %>% 
   lapply( rm_nonSenate) %>%
-  convert_to_dataframe(repC = '[()]R[)]|Republican|Lugar|Dubie|Rainville|
-                       Capito', 
+  convert_to_dataframe(repC = '[()]R[)]|Republican|Lugar|Dubie|Rainville|Capito', 
                        demC = '[()]D[)]|Democratic|Roemer|Byrd', 
                        indC = '[(]I[)]|Independent|Ind.|Sanders',
                        year = 2006)

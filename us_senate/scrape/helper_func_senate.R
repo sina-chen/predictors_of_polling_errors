@@ -148,6 +148,15 @@ split_pct <- function(dt){
       
       list_dt[i] <- list(split_data)
     }
+    
+    rm_position <- lapply(list_dt, 
+                          function(x) 
+                            isTRUE(str_detect(x[4,3],'With Leaners, Undecideds Allocated'))) %>% 
+      unlist() %>% 
+      which()          
+    
+    list_dt <- list_dt[-rm_position]
+    
   } else {
     list_dt <- list(dt)
   }  
@@ -277,7 +286,7 @@ rm_resp <- function(dt){
                           grepl('Northern', dt[pos_pct-1,]) == T |
                           grepl('Blacks', dt[pos_pct-1,]) == T | # 2002
                           grepl('White ', dt[pos_pct-1,]) == T & 
-                    grepl('Bill', dt[pos_pct-1,]) == F | # 2002
+                          grepl('Bill', dt[pos_pct-1,]) == F | # 2002
                           grepl('Chicago', dt[pos_pct-1,]) == T | # 2002
                           grepl('Collar Counties', dt[pos_pct-1,]) == T | # 2002
                           grepl('Down- state', dt[pos_pct-1,]) == T | # 2002
@@ -316,7 +325,7 @@ clean_split <- function(list_states){
 
 rm_nonSenate <- function(list_states){
   
-  rm_id1 <- which(lapply(list_states, function(x) any(str_detect(as.matrix(x), pattern = 'Favorability|Job|job|Favor- able|positive|replace &! race to replace him|like to see someone else|Someone new deserves a change|your opinion of|concerned|needs|experience|approve|deserves|Probably|Time |prefer a change|White Voters Only|thermometer|tax| Primary |primary|Favorable|elected senator|or would you rather see someone else|performance|Vote-To-Reelect|favorable|Kerry were elected president|best Republican candidate|appoint someone|best Democratic candidate|oppose|First choice|Against|Yes|Agree|nominate someone else|policies|[(]D[)] &![(]R[)]|[(]R[)] &! [(]D[)]|Likely|Too|legislative initiatives|chance|direction|run for president|appropriate|fair|appeal|lawsuit|someone new|would you like to personally see|age|satisfied|a number of Democratic candidates|health care|in touch|honest|should|run for &! reelection|inclined|favorably|consider|Without leaners|Less likely|vacant seat|Preference for Republican Senate Nominee|election to choose the Republican candidate|approve|Republican Runoff Trial Heat|good thing|opponent|Consider|deserve|replace|Depends who runs|special election|Preference for Republican Nominee|remain governor|political beliefs|a Democrat were to win|not at all likely|Vote to reelect Schumer|aware|involved|worse|guilty|closely|bribery|prosecutors|Would vote to reelect|Have heard of|not seek reelection|extreme|NOT LIKE to see him run|confident'))) == T)
+  rm_id1 <- which(lapply(list_states, function(x) any(str_detect(as.matrix(x), pattern = 'Favorability|Job|job|Favor- able|positive|replace &! race to replace him|like to see someone else|Someone new deserves a change|your opinion of|concerned|needs|experience|approve|deserves|Probably|Time |prefer a change|White Voters Only|thermometer|tax| Primary |primary|Favorable|elected senator|or would you rather see someone else|performance|Vote-To-Reelect|favorable|Kerry were elected president|best Republican candidate|appoint someone|best Democratic candidate|oppose|First choice|Against|Yes|Agree|nominate someone else|policies|[(]D[)] &![(]R[)]|[(]R[)] &! [(]D[)]|Likely|Too|legislative initiatives|chance|direction|run for president|appropriate|fair|appeal|lawsuit|someone new|would you like to personally see|age|satisfied|a number of Democratic candidates|health care|in touch|honest|should|run for &! reelection|inclined|favorably|consider|Without leaners|Less likely|vacant seat|Preference for Republican Senate Nominee|election to choose the Republican candidate|approve|Republican Runoff Trial Heat|good thing|opponent|Consider|deserve|replace|Depends who runs|special election|Preference for Republican Nominee|remain governor|political beliefs|a Democrat were to win|not at all likely|Vote to reelect Schumer|aware|involved|worse|guilty|closely|bribery|prosecutors|Would vote to reelect|Have heard of|not seek reelection|extreme|NOT LIKE to see him run|confident|won|could vote again'))) == T)
   
   rm_id2 <- sapply(list_states, function(x) 
     all(any(str_detect(as.matrix(x), "[(]D[)]")) &!
@@ -455,9 +464,9 @@ convert_date <- function(date_raw,year){
     date_processed <- as.character(as.Date(date_unformated, '%d/%m-%m/%y'))
   }  else if(grepl('[[:alpha:]]+[.] \\d+[-]\\d+[,] \\d+',date_raw) == T){
     date_unformated <- str_replace_all(paste0(unlist(str_extract_all(date_raw,'[[:alpha:]]+[.] \\d+[-]\\d+[,] \\d+')), collapse =  ''),' ','')
-    date_unformated <- str_replace(date_unformated,'Sept.','Sep.')
     date_processed <- as.character(as.Date(date_unformated, '%b. %d-%d,%Y'))
-  } else if(grepl('[1][0-2][/][0-9]$|1[0-9]$|2[0-9]$|3[0-1]$',date_raw) == T){
+  } else if(grepl('[1][0-2][/][0-9]$|[1][0-2][/]1[0-9]$|[1][0-2][/]2[0-9]$|[1][0-2][/]3[0-1]$',date_raw) == T &
+            grepl('12[/]15$',date_raw) == F){
     date_unformated <- paste0(year,'/',unlist(str_extract_all(date_raw,'\\d+[/]\\d+')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%Y/%m/%d'))
   } else if(grepl('[[:alpha:]]+ \\d+[-][[:alpha:]]+ \\d+[,] \\d+',date_raw) == T){
@@ -528,6 +537,9 @@ reshape_to_row <- function(dt, repC, demC,
       grepl('General Election Trial Heat', dt[2,2]) == T) {
     dt <- rbind(dt[1:2,], c(rep('',length(dt))),dt[3:nrow(dt),])
     dt[3,3:length(dt)] <-'%'
+  } else if (any(grepl('%',dt)) == F & grepl(candidates, dt[3,2]) == T) {
+    dt <- rbind(dt[1:2,], c(rep('', length(dt))),dt[3:nrow(dt),])
+    dt[3,3] <-'%'
   } else if (any(grepl('%', dt[,3])) == F & grepl(candidates, dt[5,3]) == F) {
     dt <- rbind(dt[1:3,], c(rep('', length(dt))),dt[4:nrow(dt),])
     dt[4,3:length(dt)] <-'%'
