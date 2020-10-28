@@ -2,6 +2,7 @@
 # Cleaning: Senat Polls  from 1998 to 2018 
 # Author: Sina Chen
 #
+# note: running this script removes special and runoff elections
 ################################################################################
 
 #### Libraries ####
@@ -42,14 +43,12 @@ data_raw <- data_raw %>%
 
 
 # Add election vote share and two-party vote share
-
-senate_results <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_election_results.RDS")
+senate_results <- read.csv("predictors_of_polling_errors/data/senate/senate_election_results.csv")
 
 data_results <- merge (data_raw, senate_results, 
-                       by = c('state', 'election_year'), all.x = T) # election results for speciale elections are not included
+                       by = c('state', 'election_year')) # election results for speciale elections are not included
 
 # Compute days until election
-
 data_results <- data_results %>%
   mutate(t = case_when(
     election_year == '1998' ~ difftime(as.Date('11/03/1998','%m/%d/%Y'), date),
@@ -64,18 +63,12 @@ data_results <- data_results %>%
     election_year == '2016' ~ difftime(as.Date('11/08/2016','%m/%d/%Y'), date),
     election_year == '2018' ~ difftime(as.Date('11/06/2018','%m/%d/%Y'), date)))
 
+# Remove runoff elections (t < 0; 15 obs.)
+data_results <- data_results %>%
+  subset(t >= 0)
+
 # Remove white spaces in full state names ('state_long')
 data_results$state_long <- str_remove_all(data_results$state_long,' ')
-
-# Create special election dummy (1 = special election, 0 = regular election)
-data_results <- data_results %>%
-  mutate(special = if_else(election_year == 2000 & state == 'GA'|
-                             election_year == 2002 & state == 'MO'|
-                             election_year == 2008 & state == 'MS'|
-                             election_year == 2010 & state == 'DE'|
-                             election_year == 2010 & state == 'MA'|
-                             election_year == 2010 & state == 'WV'|
-                             election_year == 2010 & state == 'TX', 1, 0)) # Texas 2010 potential special election
 
 # Clean senator names
 data_results <- data_results %>%
