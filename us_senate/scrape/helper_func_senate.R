@@ -153,10 +153,12 @@ split_pct <- function(dt){
                           function(x) 
                             isTRUE(str_detect(x[4,3],'With Leaners, Undecideds Allocated'))) %>% 
       unlist() %>% 
-      which()          
-    
-    list_dt <- list_dt[-rm_position]
-    
+      which()    
+
+    if(length(rm_position) > 0){
+      list_dt <- list_dt[-rm_position]
+    }
+
   } else {
     list_dt <- list(dt)
   }  
@@ -294,6 +296,14 @@ rm_resp <- function(dt){
                           grepl('Men$', dt[pos_pct-1,]) == T
   )
   
+  rm_col2 <- which(grepl('^Chicago$', dt[pos_pct-2,]) == T | # 2002
+                     grepl('Cook County Suburbs', dt[pos_pct-2,]) == T | # 2002
+                     grepl('Down- state', dt[pos_pct-2,]) == T | # 2002
+                     grepl('Collar Counties', dt[pos_pct-2,]) == T 
+  )
+
+  rm_col <- c(rm_col, rm_col2)
+
   if(length(rm_col)>0) {
     dt <- dt[,-c(rm_col)]
   }
@@ -314,8 +324,8 @@ clean_split <- function(list_states){
   states_cand <- lapply(states_pct, function(x) 
     lapply(x, split_cand)) %>%
     lapply(unlist, recursive = F)
-  
-  states_rm <- lapply(states_cand, function(x) lapply(x, rm_resp))
+  states_rm <- lapply(states_cand, function(x) 
+    lapply(x, rm_resp))
   return(states_rm)
 }
 
@@ -507,7 +517,7 @@ convert_date <- function(date_raw,year){
     date_unformated <- paste0('1/',unlist(str_extract_all(date_raw,'\\d+[/]\\d+')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%d/%m/%y'))
   } else {
-    print('Date not processed')
+    # print('Date not processed')
     date_processed <- date_raw
   }
   return(date_processed)
