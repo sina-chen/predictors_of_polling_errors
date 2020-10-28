@@ -19,7 +19,7 @@ library(openintro)
 
 #### Directory ####
 
-senate_wd <- 'your working directory'
+senate_wd <- 'working directory with downloaded and converted files'
 setwd(senate_wd)
 
 source('helper_func_subset_senate.R')
