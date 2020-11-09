@@ -1,4 +1,4 @@
-# Instructions to merge/generate additional covariates
+### Instructions to merge/generate additional covariates
 
 Run the add_variables.R script to merge/generate additional covariates:
 

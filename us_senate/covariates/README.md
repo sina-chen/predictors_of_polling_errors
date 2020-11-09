@@ -1,5 +1,10 @@
 # Instructions for cleaning polls and merging covariates on gender and ethnicity
 
+**Important**: Run scripts in the outlined order.
+
+It is assumed that THIS is your working directory.
+
+
 ## Detailed description of wikipedia covariate code
 
 In addition to merging the datasets into one and cleaning them, some manipulation is done.
