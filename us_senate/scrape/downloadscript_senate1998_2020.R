@@ -53,21 +53,21 @@ handle <- getCurlHandle(cookiejar="",
 
 get_state_urls <- function(year){
   if(year != 1998){
-    url <- paste0('http://www.pollingreport.us/sub/',year,'.htm')
+    url <- paste0('https://www.pollingreport.us/sub/',year,'.htm')
     url <- getURL(url, userpwd = usr_pwd, followlocation=TRUE, curl=handle)
     url_parsed <- htmlParse(url)
     links <- xpathSApply(url_parsed,path = "//a",xmlGetAttr,"href")
     links_year <- links[which(grepl(paste0('[[:alpha:]]+',year),links) |
                                 grepl(paste0(year, '[[:alpha:]]+'),links) & grepl('#',links)==F)]
-    links_comp <- as.list(stri_c("http://www.pollingreport.us/sub/",links_year))
+    links_comp <- as.list(stri_c("https://www.pollingreport.us/sub/",links_year))
     return(links_comp)
   } else {
-    url <- paste0('http://www.pollingreport.us/sub/','Campaign_Update','.htm')
+    url <- paste0('https://www.pollingreport.us/sub/','Campaign_Update','.htm')
     url <- getURL(url, userpwd = usr_pwd, followlocation=TRUE, curl=handle)
     url_parsed <- htmlParse(url)
     links <- xpathSApply(url_parsed,path = "//a",xmlGetAttr,"href")
     links_year <- links[which(unlist(lapply(links,function(x) str_detect(x,'\\d+|index|issues|Harris|pollingreport', negate = T))))]
-    links_comp <- as.list(stri_c("http://www.pollingreport.us/sub/",links_year))
+    links_comp <- as.list(stri_c("https://www.pollingreport.us/sub/",links_year))
     return(links_comp)
     
   }
@@ -100,16 +100,20 @@ dl_polls <-function(url_list,write_dir){
   urllist2002 <- get_state_urls(2002)
   urllist2004 <- get_state_urls(2004)
   urllist2006 <- get_state_urls(2006)
-  urllist2006 <- c(list('http://www.pollingreport.us/sub/2006a.htm'),urllist2006) # 2006a is stored differentely
+  urllist2006 <- c('https://www.pollingreport.us/sub/2006a.htm',
+                   urllist2006) # 2006a is stored differentely
   urllist2008 <- get_state_urls(2008)
+  urllist2008 <- c(urllist2008[1:10],
+                   'https://www.pollingreport.us/sub/2008c.htm', #2008c is stored differently
+                   urllist2008[11:30])
   urllist2010 <- get_state_urls(2010)
   urllist2012 <- get_state_urls(2012)
   urllist2014 <- get_state_urls(2014)
   urllist2016 <- get_state_urls(2016)  
   urllist2018 <- get_state_urls(2018)
+  urllist2020 <- get_state_urls(2020)
 }
 
- 
 # Download & write 
 
 {
@@ -124,6 +128,7 @@ dl_polls <-function(url_list,write_dir){
   dl_polls(urllist2014,'year2014/html/')
   dl_polls(urllist2016,'year2016/html/') 
   dl_polls(urllist2018,'year2018/html/') 
+  dl_polls(urllist2020,'year2020/html/') 
 }
 
 
@@ -133,12 +138,13 @@ length(list.files("year1998/html/")) # 6
 length(list.files("year2000/html/")) # 48
 length(list.files("year2002/html/")) # 47
 length(list.files("year2004/html/")) # 50
-length(list.files("year2006/html/")) # 27
-length(list.files("year2008/html/")) # 30
+length(list.files("year2006/html/")) # 28
+length(list.files("year2008/html/")) # 31
 length(list.files("year2010/html/")) # 23
 length(list.files("year2012/html/")) # 23
 length(list.files("year2014/html/")) # 14
 length(list.files("year2016/html/")) # 12 
 length(list.files("year2018/html/")) # 5  
+length(list.files("year2020/html/")) # 7  
 
 

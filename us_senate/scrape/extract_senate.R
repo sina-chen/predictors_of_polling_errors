@@ -38,6 +38,7 @@ source('helper_func_senate.R')
   polls_raw2014 <- extract_senate(paste0(senate_wd,'/year2014/txt'))
   polls_raw2016 <- extract_senate(paste0(senate_wd,'/year2016/txt'))
   polls_raw2018 <- extract_senate(paste0(senate_wd,'/year2018/txt'))
+  polls_raw2020 <- extract_senate(paste0(senate_wd,'/year2020/txt'))
 }
 
 
@@ -129,17 +130,25 @@ polls_senate2018 <- polls_raw2018 %>%
                        demC = '[()]D[)]', 
                        year = 2018)
 
+#### 2020 ####
+polls_senate2020 <- polls_raw2020 %>% 
+  clean_split() %>% 
+  lapply( rm_nonSenate) %>%
+  convert_to_dataframe(repC = '[()]R[)]|Republican', 
+                       demC = '[()]D[)]|Gross|Democratic',
+                       indC = '[(]I[)]|Independent|Ind.|[(]AI[)]', 
+                       year = 2020)
+
 
 
 #### All senate polls ####
 
-polls_senate1998_2018 <- rbind(polls_senate1998, polls_senate2000,
-                                 polls_senate2002, polls_senate2004, 
-                                 polls_senate2006, polls_senate2008,
-                                 polls_senate2010, polls_senate2012,
-                                 polls_senate2014, polls_senate2016,
-                               polls_senate2018)
+polls_senate1998_2020 <- rbind(polls_senate1998, polls_senate2000,
+                               polls_senate2002, polls_senate2004, 
+                               polls_senate2006, polls_senate2008,
+                               polls_senate2010, polls_senate2012,
+                               polls_senate2014, polls_senate2016,
+                               polls_senate2018, polls_senate2020)
 
 # Save polls
-saveRDS(polls_senate1998_2018, paste0(senate_wd,"/polls_senate1998_2018.RDS"))
-
+saveRDS(polls_senate1998_2020, paste0(senate_wd,"/polls_senate1998_2020.RDS"))
