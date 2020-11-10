@@ -1388,4 +1388,50 @@ setwd(paste0(scr_dir,'/year2018/txt'))
 
 rm(list=ls(pattern="^pres_"))
 
+#### 2020 ####
+
+# read html
+setwd(paste0(scr_dir,'/year2020/html'))
+
+files2020 <- dir(paste0(scr_dir,'/year2020/html'))
+states2020 <- sapply(files2020, htmlParse)
+
+{
+  pres_tables_al_hi <- xpathSApply(doc = states2020$`1.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_il_ia <- xpathSApply(doc = states2020$`2.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_ks_nv <- xpathSApply(doc = states2020$`3.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_nh <- xpathSApply(doc = states2020$`4.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_nj_nd <- xpathSApply(doc = states2020$`5.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_oh_va <- xpathSApply(doc = states2020$`6.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_wa_wy <- xpathSApply(doc = states2020$`7.html`, path ="//table[@dir='ltr']//child::table")
+}
+
+# write txt
+setwd(paste0(scr_dir,'/year2020/txt'))
+
+{
+  sink("Alabama_Hawaii2020.txt")
+  print(pres_tables_al_hi)
+  sink()
+  sink("Illinois_Iowa2020.txt")
+  print(pres_tables_il_ia)
+  sink()
+  sink("Kansas_Nevada2020.txt")
+  print(pres_tables_ks_nv)
+  sink()
+  sink("NewHampshire2020.txt")
+  print(pres_tables_nh)
+  sink()
+  sink("NewJersey_NorthDakota2020.txt")
+  print(pres_tables_nj_nd)
+  sink()
+  sink("Ohio_Virginia2020.txt")
+  print(pres_tables_oh_va)
+  sink()
+  sink("Washington_Wyoming2020.txt")
+  print(pres_tables_wa_wy)
+  sink()
+}
+
+rm(list=ls(pattern="^pres_"))
 
