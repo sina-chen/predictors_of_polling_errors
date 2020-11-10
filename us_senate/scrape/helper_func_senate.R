@@ -458,6 +458,9 @@ convert_date <- function(date_raw,year){
   } else if(grepl('\\d+[/]\\d+[-]\\d+[/]\\d+',date_raw) == T){
     date_unformated <- paste0(unlist(str_extract_all(date_raw,'[[:digit:]]|[/]|[-]')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%m/%d-%d/%y'))
+  }  else if(grepl('\\d+[/]\\d+[-] \\d+[/]\\d+',date_raw) == T){
+    date_unformated <- paste0(year, '/', unlist(str_extract_all(date_raw,'\\d+[/]\\d+[-] \\d+[/]\\d+')), collapse = '')
+    date_processed <- as.character(as.Date(date_unformated, '%Y/%m/%d- %m/%d'))
   } else if(grepl('\\d+[/]\\d+[-]\\d+[,] \\d+[/]\\d+',date_raw) == T){
     date_unformated <- paste0(unlist(str_extract_all(date_raw,'\\d+[/]\\d+[-]\\d+[,] \\d+[/]\\d+')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%m/%d-%d,%d/%y'))
@@ -480,6 +483,9 @@ convert_date <- function(date_raw,year){
             grepl('12[/]15$',date_raw) == F){
     date_unformated <- paste0(year,'/',unlist(str_extract_all(date_raw,'\\d+[/]\\d+')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%Y/%m/%d'))
+  } else if(grepl('[9][/][1][2]|[9][/][1][5]',date_raw) == T & year == 2000){
+    date_unformated <- paste0(year, '/', unlist(str_extract_all(date_raw,'\\d+[/]\\d+')), collapse = '')
+    date_processed <- as.character(as.Date(date_unformated, '%Y/%m/%d'))
   } else if(grepl('[[:alpha:]]+ \\d+[-][[:alpha:]]+ \\d+[,] \\d+',date_raw) == T){
     date_unformated <- paste0(unlist(str_extract_all(date_raw,'[[:alpha:]]+ \\d+[-][[:alpha:]]+ \\d+[,] \\d+')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%b %d-%b %d, %Y'))
@@ -488,7 +494,6 @@ convert_date <- function(date_raw,year){
     date_processed <- as.character(as.Date(date_unformated, '%b. %d-%d & %d-%d, %Y'))
   } else if(grepl('[[:alpha:]]+[.] \\d+[-]\\d+ [&] \\d+[-]\\d+[,] \\d+',date_raw) == T){
     date_unformated <- paste0(unlist(str_extract_all(date_raw,'[[:alpha:]]+[.] \\d+[-]\\d+ [&] \\d+[-]\\d+[,] \\d+')), collapse = '')
-    date_unformated <- str_replace(date_unformated,'Sept.','Sep.')
     date_processed <- as.character(as.Date(date_unformated, '%b. %d - %d & %d - %d, %Y'))
   } else if(grepl(paste('[[:alpha:]]+[.]',year),date_raw) == T){
     date_unformated <- paste0('01.',unlist(str_extract_all(date_raw,paste('[[:alpha:]]+[.]',year))), collapse = '')
@@ -514,6 +519,9 @@ convert_date <- function(date_raw,year){
   } else if(grepl('[[:alpha:]]+ \\d+[,] \\d+[.]',date_raw) == T){
     date_unformated <- paste0(unlist(str_extract_all(date_raw,'[[:alpha:]]+ \\d+[,] \\d+[.]')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%b %d, %Y'))
+  } else if(grepl('\\d+[/]\\d+[-]\\d+ [&] \\d+$',date_raw) == T){
+    date_unformated <- paste0(year,'/',unlist(str_extract_all(date_raw,'\\d+[/]\\d+[-]\\d+ [&] \\d+')), collapse = '')
+    date_processed <- as.character(as.Date(date_unformated, '%Y/%m/%d-%d & %d'))
   } else if(grepl('\\d+[/]\\d+',date_raw) == T){
     date_unformated <- paste0('1/',unlist(str_extract_all(date_raw,'\\d+[/]\\d+')), collapse = '')
     date_processed <- as.character(as.Date(date_unformated, '%d/%m/%y'))
