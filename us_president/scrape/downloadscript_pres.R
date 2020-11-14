@@ -41,7 +41,7 @@ handle <- getCurlHandle(cookiejar="",
 # Get list of states by year
 
 get_state_urls <- function(year){
-  url <- paste0('http://www.pollingreport.us/sub/',year,'.htm')
+  url <- paste0('https://www.pollingreport.us/sub/',year,'.htm')
   url <- getURL(url, userpwd = usr_pwd, followlocation = TRUE, curl = handle)
   url_parsed <- htmlParse(url)
   links <- xpathSApply(url_parsed,path = "//a", xmlGetAttr, "href")
@@ -49,14 +49,14 @@ get_state_urls <- function(year){
     str_detect(x, pattern = paste0('[[:alpha:]]+', year, '|', 
                                    year, '[[:alpha:]]+[.]htm$|',
                                    year,'c[.]htm#Maine$')))==T)]
-  links_comp <- as.list(stri_c("http://www.pollingreport.us/sub/", links_year))
+  links_comp <- as.list(stri_c("https://www.pollingreport.us/sub/", links_year))
   return(links_comp)
 }
 
 # Dowload and write polls for each state and year
 
 dl_polls <-function(url_list, write_dir){
-  dir.create(write_dir)
+  dir.create(write_dir, recursive = T)
   urls <- lapply(url_list, getURL, userpwd = usr_pwd,
                  followlocation=TRUE, curl=handle)
   i <- 1
@@ -80,6 +80,7 @@ dl_polls <-function(url_list, write_dir){
   urllist2008 <- get_state_urls(2008)
   urllist2012 <- get_state_urls(2012)
   urllist2016 <- get_state_urls(2016)  
+  urllist2020 <- get_state_urls(2020)  
 }
 
 # Download & write (need to create yearxxxx in working directory beforehand)
@@ -89,7 +90,8 @@ dl_polls <-function(url_list, write_dir){
   dl_polls(urllist2004, 'year2004/html/')
   dl_polls(urllist2008, 'year2008/html/')
   dl_polls(urllist2012, 'year2012/html/')
-  dl_polls(urllist2016, 'year2016/html/') 
+  dl_polls(urllist2016, 'year2016/html/')
+  dl_polls(urllist2020, 'year2020/html/')
 }
 
 
@@ -100,6 +102,7 @@ length(list.files("year2004/html/")) # 50
 length(list.files("year2008/html/")) # 31
 length(list.files("year2012/html/")) # 23
 length(list.files("year2016/html/")) # 12 
+length(list.files("year2020/html/")) # 7 
 
 
 
