@@ -74,6 +74,20 @@ clean <- function(dt){
     dt <- dt[-c(pos_digit[pos_date]),]
   }
   
+  # adjust date position
+  for(i in 4:nrow(dt)){
+    if(!is.na(dt[i,2]) & 
+       #!is.na(dt[i,3]) & 
+       !is.na(dt[(i + 1),2]) &
+      str_detect(dt[i,2], '\\d+/\\d+[-]\\d+/\\d+|\\d+/\\d+ [-] \\d+/\\d+/\\d+') == T &
+       #str_detect(dt[i,3], '\\d+/\\d+[-]\\d+/\\d+|\\d+/\\d+ [-] \\d+/\\d+/\\d+') == T &
+       str_detect(dt[(i + 1),2],'ALL') == T){
+      dt[(i + 1),2] <- dt[i,2]
+      dt <- dt[-i,]
+    }
+  }
+  
+  
   return(dt)
 }
 
@@ -124,7 +138,19 @@ split_df <- function(dt){
 split_polls <- function(dt){
   
   # split based on first column enries
-  split <- which(dt[,1] != '')
+  split <- which(dt[,1] != '' & 
+                   dt[,1] != '"Former vice president Joe Biden"' & 
+                   dt[,1] != '"Vermont Senator Bernie Sanders"' & 
+                   dt[,1] != '"California Senator Kamala Harris"' & 
+                   dt[,1] != '"Massachusetts Senator Elizabeth Warren"' & 
+                   dt[,1] != '"New Jersey Senator Cory Booker"'  & 
+                   dt[,1] != '"Former Texas congressman Beto O\'Rourke"'  & 
+                   dt[,1] != '"Minnesota Senator Amy Klobuchar"'  & 
+                   dt[,1] != '"Former U.S. secretary of Housing and Urban Development Julian Castro"'  & 
+                   dt[,1] != '"Mayor of South Bend Indiana, Pete Buttigieg"'  & 
+                   dt[,1] != '"New York Senator Kirsten Gillibrand"' & 
+                   dt[,1] != '"Former Colorado Governor John Hickenlooper"' & 
+                   dt[,1] != '"Washington Governor Jay Inslee"')
   split[length(split) + 1] <- nrow(dt)
   
   if(length(split) > 3) {
@@ -298,7 +324,7 @@ rm_resp <- function(dt){
   
   pos_pct <- which(grepl('%', dt[,3]))
   # remove polls among subgroups
-  rem_row <- which(str_detect(dt[-c(1:4),2], 'Democrats|Republicans|Independents|Independent|None/Minor|Men|Women|Black|Blacks|Cubans/Hispanics|No party|Whites|Hispanics|1st CD|2nd CD|3rd CD|Union households|None/Minor parties|party affiliation|Unaffiliated|San Diego/Orange|L.A. County|Central Valley|White, non-Hispanic|S.F. Bay Area|Latino|Non-union households|Calif[.]|Nonpartisan/Other|Current Results|Jersey|Other')) + 4
+  rem_row <- which(str_detect(dt[-c(1:4),2], 'Democrats|Republicans|Independents|Independent|None/Minor|Men|Women|Black|Blacks|Cubans/Hispanics|No party|Whites|Hispanics|1st CD|2nd CD|3rd CD|Union households|None/Minor parties|party affiliation|Unaffiliated|San Diego/Orange|L.A. County|Central Valley|White, non-Hispanic|S.F. Bay Area|Latino|Non-union households|Calif[.]|Nonpartisan/Other|Current Results|Jersey|Other|turnout|CD')) + 4
   
   rem_row2 <- which(str_detect(dt[-c(1:4),2], 'STATEWIDE') == T &
                       str_detect(dt[-c(1:4),3], 'STATEWIDE') == T |
@@ -328,7 +354,7 @@ rm_resp <- function(dt){
   }
 
   rem_col <- which(str_detect(
-    as.matrix(dt[pos_pct - 1,]),'Rep[.]|Dem[.]|Ind[.]|Suburbs|Upstate|Men|Women|Most likely voters'))
+    as.matrix(dt[pos_pct - 1,]),'Rep[.]|Dem[.]|Ind[.]|Suburbs|Upstate|Men|Women|Most likely voters|^Republicans|^Democrats'))
   
   if(length(rem_col) > 0) {
     dt <- dt[,-c(rem_col)]
@@ -363,7 +389,7 @@ clean_split <- function(list_states){
 rm_other <- function(state){
   rm_id <-  which(state %>% 
                     lapply(function(x) 
-                      any(str_detect(as.matrix(x),'Favorability|Job|job|Approve|Favor- able|direction|primary|Primary|favorable|Not Inclined|deserve|run for the Senate|Support|performance|Preference for Democratic Nominee|track|military force|definitely|against| Against|worth|like to see the Democrats nominate|potential Democratic candidates|replace|might run for|excellent|Excellent|wrong|or not|Yes|caucus|definite|Caucus|issues|following Democrats|another term|issue|nine|Vote-To-Reelect|effect|conservative|better|active Democratic voters|Certain|become the Democratic presidential nominee|certain|positive|satisfied|become the Democratic|like to be nominated|select a|feel|like to see the Republicans nominate|recalculated|possible|Among Democratic voters|Among Republican voters|success|would you like to see run|Republican Presidential Preference|Democratic Presidential Preference|Preference for Republican Nominee|Track|like to see the Democratic Party nominate|rather see as|presidential nomination|candidates are you planning to support|number of Democratic candidates|number of Republican candidates|Direction|Asked of respondents who|best for the nation|oppose|election for the Republican nomination|candidate for vice president|candidate for vice president|Preference for Republican nominee|much more likely|opponent|time to have someone else|prefer someone else|approve|prefer to see run as the Republican candidate|first choice for to be the Republican nominee|allocated|idea|potential candidates|stay|good|Asked of Republicans|oppose|Who is that candidate|difference|Republican presidential preference|Democrats will vote|Republicans will vote|likely Republican voters|Preferences, including leaners|list of candidates for the Democratic nomination|prospective candidates for the Republican nomination|temperament|who are Republican or lean Republican|Asked of Democrats|like to see as the Democratic presidential candidate|like to see as the Republican presidential candidate|like to see as the Republican candidate'))) == T)
+                      any(str_detect(as.matrix(x),'Favorability|Job|job|Approve|Favor- able|direction|primary|Primary|favorable|Not Inclined|deserve|run for the Senate|Support|performance|Preference for Democratic Nominee|track|military force| definitely|against| Against|worth|like to see the Democrats nominate|potential Democratic candidates|replace|might run for|excellent|Excellent|wrong|or not|Yes|caucus| definite|Caucus|issues|following Democrats|another term|issue|nine|Vote-To-Reelect|effect|conservative|better|active Democratic voters|Certain|become the Democratic presidential nominee|certain|positive|satisfied|become the Democratic|like to be nominated|select a|feel|like to see the Republicans nominate|recalculated|possible|Among Democratic voters|Among Republican voters|success|would you like to see run|Republican Presidential Preference|Democratic Presidential Preference|Preference for Republican Nominee|Track|like to see the Democratic Party nominate|rather see as|presidential nomination|candidates are you planning to support|number of Democratic candidates|number of Republican candidates|Direction|Asked of respondents who|best for the nation|oppose|election for the Republican nomination|candidate for vice president|candidate for vice president|Preference for Republican nominee|much more likely|opponent|time to have someone else|prefer someone else|approve|prefer to see run as the Republican candidate|first choice for to be the Republican nominee|allocated|idea|potential candidates|stay|good|Asked of Republicans|oppose|Who is that candidate|difference|Republican presidential preference|Democrats will vote|Republicans will vote|likely Republican voters|Preferences, including leaners|list of candidates for the Democratic nomination|prospective candidates for the Republican nomination|temperament|who are Republican or lean Republican|Asked of Democrats|like to see as the Democratic presidential candidate|like to see as the Republican presidential candidate|like to see as the Republican candidate|mask |impeach|removed from office|justice|grade|Will you vote to reelect Donald Trump as president, or will you vote for someone else to be president|likely or unlikely|Donald Trump versus|identify|whistleblower|like to see run|New York politicians|continue|controlled|improper|acceptable|Obama - lean|like to be the next Democratic presidential nominee|like to see as the Democratic candidate|following Republicans|Just tell me the name'))) == T)
   
   if(length(rm_id) > 0) {
     state <- state[-rm_id]
@@ -568,8 +594,7 @@ reshape_to_row <- function(dt, repC, demC, thirdC, year){
   if(identical(dt[,2],dt[,3]) == T) {
     dt <- dt[,-3]
   }
-  #print(details$pf)
-  
+
   dt <- dt %>% 
     mutate_at(vars(names(dt)), na_if, '') %>% 
     filter_all(any_vars(!is.na(.))) 
@@ -676,7 +701,7 @@ reshape_to_row <- function(dt, repC, demC, thirdC, year){
      ### Candidate names in column ###
    } else if(any(grepl(candidates, dt[-c(1:pos_pct),2])) == T) {
      
-     if(isTRUE(str_detect(dt[3,2],'Among likely voters'))) {
+     if(isTRUE(str_detect(dt[3,2],'Among likely voters|Likely voters'))) {
        dt[3,2] <- NA
      }
 
@@ -700,12 +725,22 @@ reshape_to_row <- function(dt, repC, demC, thirdC, year){
        other <- 0
        
        for(l in 3:nrow(dt)) {
-         if(grepl(repC,dt[l,2]) == T)
-         { rep <- dt[l,2] 
-           repV <- dt[l,k]
-         } else if(any(grepl(demC,dt[l,2])) == T) {
-           dem <- dt[l,2] 
-           demV <- dt[l,k]
+         if(grepl(repC,dt[l,2]) == T){ 
+           if(rep == 0 & repV ==0){
+             rep <- dt[l,2] 
+             repV <- dt[l,k]
+           } else {
+             rep <- 'Several Rep. candidates'
+             repV <- as.numeric(repV) + as.numeric(dt[l,k])
+           }
+         } else if(any(grepl(demC,dt[l,2])) == T){
+           if(dem == 0 & demV ==0){
+             dem <- dt[l,2] 
+             demV <- dt[l,k]
+           } else {
+             dem <- 'Several Dem. candidates'
+             demV <- as.numeric(demV) + as.numeric(dt[l,k])
+           }
          } else if(grepl(undecided_pattern, dt[l,2]) == T) {
            undecided_vote  <- suppressWarnings(as.numeric(dt[l,k]))
            undecided_vote <- ifelse(is.na(undecided_vote), 0, undecided_vote)
