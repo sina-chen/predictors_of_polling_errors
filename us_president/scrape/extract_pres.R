@@ -105,6 +105,7 @@ source('helper_func_pres.R')
   
 }
 
+# Combine election years
 pres_polls2000_2020 <- rbind(pres_polls2000, 
                             pres_polls2004, 
                             pres_polls2008, 
@@ -113,60 +114,10 @@ pres_polls2000_2020 <- rbind(pres_polls2000,
                             pres_polls2020)
 
 
-#### Add variables ####
 
-# Add state abbreviation
-pres_polls2000_2020$state <- state2abbr(pres_polls2000_2020$states_long)
-
-# Create "Days to election"
-pres_polls2000_2020 <- pres_polls2000_2020 %>% mutate(
-  dte = case_when(
-    election_year == '2000' ~ difftime(as.Date('11/07/2000', '%m/%d/%Y'), 
-                                       as.Date(date), units = 'days'),
-    election_year == '2004' ~ difftime(as.Date('11/02/2004', '%m/%d/%Y'), 
-                                       as.Date(date), units = 'days'),
-    election_year == '2008' ~ difftime(as.Date('11/04/2008', '%m/%d/%Y'), 
-                                       as.Date(date), units = 'days'),
-    election_year == '2012' ~ difftime(as.Date('11/06/2012', '%m/%d/%Y'), 
-                                       as.Date(date), units = 'days'),
-    election_year == '2016' ~ difftime(as.Date('11/08/2016', '%m/%d/%Y'), 
-                                       as.Date(date), units = 'days'),
-    election_year == '2020' ~ difftime(as.Date('11/03/2020', '%m/%d/%Y'), 
-                                       as.Date(date), units = 'days')
-  ),
-  state_year = paste0(state, election_year)
-)
-
-
-
-# Add election results (source: Wikipedia)
-election_result <- readRDS('election_result.RDS')
-
-pres_polls2000_2020 <- merge(pres_polls2000_2020, election_result, 
-                             by = c('election_year', 'state'))
-
-# Scale poll to percentage & compute two-party vote share
-pres_polls2000_2020 <- pres_polls2000_2020 %>%
-  mutate(rep_poll = as.numeric(rep_poll)/100,
-         dem_poll = as.numeric(dem_poll)/100,
-         refused = as.numeric(refused)/100,
-         undecided = as.numeric(undecided)/100,
-         third_party = as.numeric(third_party)/100,
-         other <- as.numeric(other)/100,
-         rep_result2 = rep_result/(rep_result + dem_result),
-         dem_result2 = dem_result/(rep_result + dem_result),
-         rep_poll2 = rep_poll/(rep_poll + dem_poll),
-         dem_poll2 = dem_poll/(rep_poll + dem_poll))
-
-# Format respondents
-pres_polls2000_2020$resp_formated <- sapply(pres_polls2000_2020$respondents, resp)
-
-# Add turnout (source: Wikipedia)
-turnout <- readRDS('turnout.RDS')
-pres_polls2000_2020 <- merge(pres_polls2000_2020, turnout, by = c('state', 'election_year'))
 
 # Set missing unformation on sample size to NA
-pres_polls2000_2020$n <- na_if(pres_polls2000_2016$n, '-')
+pres_polls2000_2020$n <- na_if(pres_polls2000_2020$n, '-')
 
 # Save data
 saveRDS(pres_polls2000_2020, 'pres_polls2000_2020.RDS')
