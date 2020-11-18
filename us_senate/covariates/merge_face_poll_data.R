@@ -7,17 +7,19 @@ library(tidyverse)
 # --------------------------------------------------------------------------- #
 
 polls <- read.csv('senate_wiki_merged.csv')
-faces <- read.csv('clarifai_race.csv')
+faces <- read.csv('race_gender_checked.csv')
 
 # --------------------------------------------------------------------------- #
 
+polls$dem_candidate <- str_remove_all(polls$dem_candidate, ',')
+
 faces <- faces %>% 
-  select(candidate, clarifai_gender, clarifai_race)
+  select(candidate, gender_checked, race_checked)
 
 # dem_candidate
 faces <- rename(faces, dem_candidate = candidate, 
-                clarifai_gender_dem = clarifai_gender, 
-                clarifai_race_dem = clarifai_race)
+                clarifai_gender_dem = gender_checked, 
+                clarifai_race_dem = race_checked)
 
 polls <- merge(x = polls, y = faces, by = "dem_candidate", all.x = TRUE)
 
@@ -28,4 +30,4 @@ faces <- rename(faces, rep_candidate = dem_candidate,
 
 polls <- merge(x = polls, y = faces, by = "rep_candidate", all.x = TRUE)
 
-# write.csv(polls, 'senate_polls_merged.csv')
+#write.csv(polls, 'senate_polls_merged.csv')
