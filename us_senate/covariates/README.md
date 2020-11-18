@@ -20,3 +20,5 @@ One covariate of interest is gender, which is predicted with the [R-Package "gen
 - incumbency: dummy variable if incumbent runs for re-election
 - rep_gender: predicted gender of republican candidate
 - dem_gender: predicted gender of democratic candidate
+
+To add covariates to the senate scrapes you first run the script [preprocess_wiki_data.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/preprocess_wiki_data.R) and the afterwards the script [predict_gender_name.R](https://github.com/SinaMaria412/predictors_of_polling_errors/blob/master/us_senate/covariates/predict_gender_name.R). These scripts generate tables with covariates (including gender of candidates) to each senate election since 1998. For more details, see the readme file in the respective folder.
