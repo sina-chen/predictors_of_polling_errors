@@ -3,7 +3,7 @@ The aim of this project is to develop a contextual understanding of polling erro
 
 This repository is structured as follows:
 
-- All data files are in the [data](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/data) folder. 
+- All data files are in the [data](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/data) folder. There is one subfolder for each election type investigated.
 - The [us_president](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_president) folder contains code for
   - scraping US presidential polls from 2000 to 2016 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_president/scrape) folder
   - adding covariates in the [covariates](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_president/covariates) folder
