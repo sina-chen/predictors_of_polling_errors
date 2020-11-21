@@ -25,6 +25,8 @@ file_list <- list.files(path = "data/wikipedia/senate", pattern = "X")
 
 # efficiently read in all the files
 
+setwd("data/wikipedia/senate")
+
 all_files_purr <- purrr::map(file_list, ~readr::read_csv(.x, skip = 1) %>% 
                                rename(State = 1) %>% 
                                select(-4)) %>% 
@@ -41,6 +43,7 @@ map(all_files_purr, ~.x[["Candidates"]] %>%
 
 
 # extract candidate name, party and voting percentage with helper function
+setwd("./../..")
 
 source(file = "us_senate/covariates/helper_function_candidate_info.R")
 
