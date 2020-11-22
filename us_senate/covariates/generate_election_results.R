@@ -1,7 +1,13 @@
-# point to your specific path
-load("~/Nextcloud/PollingError/Data/senate/1976-2018-senate.RData")
+################################################################################
+# Generate tidy senate election results (1998-2018) 
+# Author: Philipp Bosch
+#
+# note: It is assumed, your working directory is set to the root folder of this 
+#       github repo
+################################################################################
+load("data/senate/1976-2018-senate.RData")
 
-# assign results
+# limit to elections of interest
 senate_results <- x[,c('year', 'state_po', 'party', 'candidatevotes', 'totalvotes','special')] %>% 
   subset(str_detect(party,'republican') == T & year >= 1998 |
            str_detect(party,'democrat') == T & year >= 1998) 
@@ -10,7 +16,7 @@ senate_results$party <-  unlist(str_extract_all(senate_results$party,
                                                 'republican|democrat'), 
                                 recursive = F)
 
-
+# create two party voteshare
 senate_results %>% 
   filter(special == FALSE) %>% 
   select(-special) %>% 
@@ -37,8 +43,8 @@ reshaped_results %>%
   mutate(rep_result2 = rep_result/(rep_result + dem_result),
          dem_result2 = dem_result/(rep_result + dem_result)) -> senate_results_final
 
-
-write_csv(senate_results_final, "senate_results.csv")
+# save tidy election results
+write_csv(senate_results_final, "data/senate/senate_results.csv")
 
 
 

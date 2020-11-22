@@ -5,15 +5,11 @@
 # packages ----------------------------------------------------------------
 
 
-
-install.packages("genderdata", repos = "http://packages.ropensci.org")
-install.packages("gender")
 install.packages("tidyverse")
 
 
 library(tidyverse)
-library(genderdata)
-library(gender)
+
 
 
 # read in files -----------------------------------------------------------
@@ -43,9 +39,10 @@ map(all_files_purr, ~.x[["Candidates"]] %>%
 
 
 # extract candidate name, party and voting percentage with helper function
-setwd("./../..")
 
-source(file = "us_senate/covariates/helper_function_candidate_info.R")
+setwd("./../../..") # set working directory to root folder again
+
+source(file = "us_senate/covariates/helper_functions/helper_function_candidate_info.R")
 
 # apply function to list of candidate names to get list of tidy dataframes
 
@@ -64,7 +61,7 @@ map(all_files_purr, ~.x[["Senator"]]) -> list_of_senators
 
 ### use helper function to connect single election years with name of state and senators
 
-source(file = "us_senate/covariates/helper_function_reshape_elections.R")
+source(file = "us_senate/covariates/helper_functions/helper_function_reshape_elections.R")
 
 
 ## general elections
@@ -142,12 +139,15 @@ df_special$State <- gsub("\\([^()]*\\)", "", df_special$State)
 ### bind general and special elections together
 bind_rows(df_general, df_special) -> df_final
 
+### clear environment again
 
+rm(list = ls(pattern = "^general"))
+rm(list = ls(pattern = "^special"))
 
 # cleaning of variables ---------------------------------------------------
 
 
-source(file = "us_senate/covariates/clean_variables.R")
+source(file = "us_senate/covariates/helper_functions/clean_variables.R")
 
 
 
