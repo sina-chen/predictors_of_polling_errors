@@ -56,4 +56,4 @@ df_join <- df_final %>%
 
 # save data as csv for join
 
-write_csv(df_join, "data/senate/wiki_results/wikipedia_covariates_join.csv")
+write_csv(df_join, "data/senate/wiki_results/wikipedia_covariates_gender_by_name.csv")

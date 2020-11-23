@@ -1,5 +1,8 @@
-### file to read in wikipedia tables and set data up for gender
-### prediction
+################################################################################
+# Preprocess raw wikipedia tables about senate elections
+# Author: Philipp Bosch
+# Note: set your working directory to root folder of github repo
+################################################################################
 
 
 # packages ----------------------------------------------------------------
@@ -149,11 +152,15 @@ rm(list = ls(pattern = "^special"))
 
 source(file = "us_senate/covariates/helper_functions/clean_variables.R")
 
-
+df_join <- df_final %>% 
+  select(incumbency, dem_candidate, rep_candidate,
+         no_candidates, election_year, State, Senator) %>% 
+  rename(state_long = State, senator = Senator) %>% 
+  mutate(election_year = as.integer(election_year))
 
 # save file for gender prediction -----------------------------------------
 
-write_csv(df_final, "data/senate/wiki_results/wiki_senate_covariates.csv")
+write_csv(df_join, "data/senate/wiki_results/wiki_senate_covariates.csv")
 
 
 
