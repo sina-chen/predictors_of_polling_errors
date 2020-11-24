@@ -6,7 +6,7 @@ df_final <- read_csv("data/senate/wiki_results/wiki_senate_covariates.csv")
 
 # create variables with separate first name using the help function
 
-source(file = "us_senate/covariates/helper_function_predict_gender.R")
+source(file = "us_senate/covariates/helper_functions/helper_function_predict_gender.R")
 
 df_final <- df_final %>% 
   sep_function(dem_candidate) %>% 
@@ -56,4 +56,4 @@ df_join <- df_final %>%
 
 # save data as csv for join
 
-write_csv(df_join, "data/senate/wiki_results/wikipedia_covariates_join.csv")
+write_csv(df_join, "data/senate/wiki_results/wikipedia_covariates_gender_by_name.csv")

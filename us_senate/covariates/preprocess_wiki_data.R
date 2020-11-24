@@ -1,19 +1,18 @@
-### file to read in wikipedia tables and set data up for gender
-### prediction
+################################################################################
+# Preprocess raw wikipedia tables about senate elections
+# Author: Philipp Bosch
+# Note: set your working directory to root folder of github repo
+################################################################################
 
 
 # packages ----------------------------------------------------------------
 
 
-
-install.packages("genderdata", repos = "http://packages.ropensci.org")
-install.packages("gender")
 install.packages("tidyverse")
 
 
 library(tidyverse)
-library(genderdata)
-library(gender)
+
 
 
 # read in files -----------------------------------------------------------
@@ -24,6 +23,8 @@ library(gender)
 file_list <- list.files(path = "data/wikipedia/senate", pattern = "X")
 
 # efficiently read in all the files
+
+setwd("data/wikipedia/senate")
 
 all_files_purr <- purrr::map(file_list, ~readr::read_csv(.x, skip = 1) %>% 
                                rename(State = 1) %>% 
@@ -42,7 +43,9 @@ map(all_files_purr, ~.x[["Candidates"]] %>%
 
 # extract candidate name, party and voting percentage with helper function
 
-source(file = "us_senate/covariates/helper_function_candidate_info.R")
+setwd("./../../..") # set working directory to root folder again
+
+source(file = "us_senate/covariates/helper_functions/helper_function_candidate_info.R")
 
 # apply function to list of candidate names to get list of tidy dataframes
 
@@ -61,7 +64,7 @@ map(all_files_purr, ~.x[["Senator"]]) -> list_of_senators
 
 ### use helper function to connect single election years with name of state and senators
 
-source(file = "us_senate/covariates/helper_function_reshape_elections.R")
+source(file = "us_senate/covariates/helper_functions/helper_function_reshape_elections.R")
 
 
 ## general elections
@@ -139,18 +142,25 @@ df_special$State <- gsub("\\([^()]*\\)", "", df_special$State)
 ### bind general and special elections together
 bind_rows(df_general, df_special) -> df_final
 
+### clear environment again
 
+rm(list = ls(pattern = "^general"))
+rm(list = ls(pattern = "^special"))
 
 # cleaning of variables ---------------------------------------------------
 
 
-source(file = "us_senate/covariates/clean_variables.R")
+source(file = "us_senate/covariates/helper_functions/clean_variables.R")
 
-
+df_join <- df_final %>% 
+  select(incumbency, dem_candidate, rep_candidate,
+         no_candidates, election_year, State, Senator) %>% 
+  rename(state_long = State, senator = Senator) %>% 
+  mutate(election_year = as.integer(election_year))
 
 # save file for gender prediction -----------------------------------------
 
-write_csv(df_final, "data/senate/wiki_results/wiki_senate_covariates.csv")
+write_csv(df_join, "data/senate/wiki_results/wiki_senate_covariates.csv")
 
 
 

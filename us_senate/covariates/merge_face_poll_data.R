@@ -6,8 +6,8 @@ library(tidyverse)
 
 # --------------------------------------------------------------------------- #
 
-polls <- read.csv('senate_wiki_merged.csv')
-faces <- read.csv('race_gender_checked.csv')
+polls <- read.csv('data/senate/senate_wiki_merged.csv')
+faces <- read.csv('data/senate/race_gender_checked.csv')
 
 # --------------------------------------------------------------------------- #
 
@@ -29,5 +29,7 @@ faces <- rename(faces, rep_candidate = dem_candidate,
                 clarifai_race_rep = clarifai_race_dem)
 
 polls <- merge(x = polls, y = faces, by = "rep_candidate", all.x = TRUE)
+
+# save data (commented out as poll data can't be shared on github)
 
 #write.csv(polls, 'senate_polls_merged.csv')

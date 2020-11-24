@@ -13,15 +13,16 @@ library(stringr)
 
 #### Directory ####
 
-setwd('your_wd')
+setwd('your_wd') # root folder of this github repo 
 
 #### Load data ####
 
-data_raw <- readRDS('polls_senate1998_2020.RDS')
+#read in data which was generated from the scrape of pollingreport.com
+data_raw <- readRDS('polls_senate1998_2020.RDS') 
 
 #### Helper functions ####
 
-source('helper_func_senate.R')
+source('us_senate/scrape/helper_func_senate.R')
 
 
 #### Clean ####
@@ -43,8 +44,8 @@ data_raw <- data_raw %>%
 
 
 # Add election vote share and two-party vote share
-senate_results <- read.csv("predictors_of_polling_errors/data/senate/senate_election_results.csv")
-senate_results2020 <- readRDS("predictors_of_polling_errors/data/senate/senate_election_results2020.RDS")
+senate_results <- read.csv("data/senate/senate_election_results.csv")
+senate_results2020 <- readRDS("data/senate/senate_election_results2020.RDS")
 senate_results1998_2020 <- rbind(senate_results,senate_results2020)
 
 data_results <- merge (data_raw, senate_results1998_2020, 

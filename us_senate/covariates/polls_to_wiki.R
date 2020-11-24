@@ -1,9 +1,14 @@
-##### join poll data to wiki data
+################################################################################
+# Join Wikipedia Data with scraped polls from pollingreport.com
+# Author: Philipp Bosch
+# Note: set your working directory to root folder of github repo
+################################################################################
+
 
 # read in data from different folders (git & nextcloud)
-wikipedia_covariates_join <- read_csv("predictors_of_polling_errors/data/senate/wiki_results/wikipedia_covariates_join.csv")
+wikipedia_covariates_join <- read_csv("data/senate/wiki_results/wiki_senate_covariates.csv")
 
-polls_senate1998_2018_clean <- readRDS("~/Nextcloud/PollingError/Data/senate/polls_senate1998_2018_clean.RDS")
+polls_senate1998_2018_clean <- readRDS("path_to_scraped_polls")
 
 # ready to merge
 str_replace_all(string = wikipedia_covariates_join$state_long,
@@ -55,5 +60,7 @@ senate_wiki_merged %>%
                      rep_candidate.x, 
                      dem_candidate.x)) -> senate_wiki_merged  
 
-# write final merged and enriched data-set
-write_csv(senate_wiki_merged, "senate_wiki_merged.csv")
+# write final merged and enriched data-set (commented out, as the poll data 
+# can't be shared on github)
+
+# write_csv(senate_wiki_merged, "data/senate/senate_wiki_merged.csv")
