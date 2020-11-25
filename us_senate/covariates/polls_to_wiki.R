@@ -6,7 +6,7 @@
 
 
 # read in data from different folders (git & nextcloud)
-wikipedia_covariates_join <- read_csv("data/senate/wiki_results/wiki_senate_covariates.csv")
+wikipedia_covariates_join <- read_csv("data/us_senate/wiki_results/wiki_senate_covariates.csv")
 
 polls_senate1998_2018_clean <- readRDS("path_to_scraped_polls")
 

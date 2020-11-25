@@ -20,11 +20,11 @@ library(tidyverse)
 # it is assumed that the working directory is set to the root folder of this github repo
 # (predictors_of_polling_errors)
 
-file_list <- list.files(path = "data/wikipedia/senate", pattern = "X")
+file_list <- list.files(path = "data/us_senate/wikipedia/senate", pattern = "X")
 
 # efficiently read in all the files
 
-setwd("data/wikipedia/senate")
+setwd("data/us_senate/wikipedia/senate")
 
 all_files_purr <- purrr::map(file_list, ~readr::read_csv(.x, skip = 1) %>% 
                                rename(State = 1) %>% 
@@ -160,7 +160,7 @@ df_join <- df_final %>%
 
 # save file for gender prediction -----------------------------------------
 
-write_csv(df_join, "data/senate/wiki_results/wiki_senate_covariates.csv")
+write_csv(df_join, "data/us_senate/wiki_results/wiki_senate_covariates.csv")
 
 
 

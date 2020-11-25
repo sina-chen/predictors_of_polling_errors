@@ -41,4 +41,4 @@ df <- df %>%
 # merge --------------------------------------------------------------------- #
 
 sen_faces <- merge(x = sen_faces, y = df, by = "jpg", all.x = TRUE)
-write.csv(sen_faces, 'predictors_of_polling_errors/data/senate/clarifai_race.csv')
+write.csv(sen_faces, 'predictors_of_polling_errors/data/us_senate/clarifai_race.csv')

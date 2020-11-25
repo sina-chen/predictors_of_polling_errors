@@ -4,8 +4,8 @@
 
 library(tidyverse)
 
-sen_faces_clarifai <- read.csv('data/senate/clarifai_race.csv')
-sen_faces_john <- read.csv('data/senate/manually_race_gender_john.csv', sep = ';')
+sen_faces_clarifai <- read.csv('data/us_senate/clarifai_race.csv')
+sen_faces_john <- read.csv('data/us_senate/manually_race_gender_john.csv', sep = ';')
 
 # --------------------------------------------------------------------------- #
 sen_faces_clarifai <- sen_faces_clarifai %>%
@@ -35,6 +35,6 @@ sen_faces_clarifai <- sen_faces_clarifai %>%
 sen_faces_clarifai <- sen_faces_clarifai %>%
   rename(gender_checked = clarifai_gender, race_checked = clarifai_race)
 
-write.csv(sen_faces_clarifai, "data/senate/race_gender_checked.csv")
+write.csv(sen_faces_clarifai, "data/us_senate/race_gender_checked.csv")
 
 # --------------------------------------------------------------------------- #
