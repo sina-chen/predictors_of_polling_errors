@@ -67,85 +67,47 @@ map(all_files_purr, ~.x[["Senator"]]) -> list_of_senators
 source(file = "us_senate/covariates/helper_functions/helper_function_reshape_elections.R")
 
 
-## general elections
+### loop over regular and special elections
 
-reshape_states(clean_candidate_info[["X1998_senate.csv"]], 1998) %>% 
-  mutate_all(as.character) -> general_1998
-
-reshape_states(clean_candidate_info[["X2000_senate.csv"]], 2000) %>% 
-  mutate_all(as.character) -> general_2000
-
-reshape_states(clean_candidate_info[["X2002_senate.csv"]], 2002) %>% 
-  mutate_all(as.character)-> general_2002
-
-reshape_states(clean_candidate_info[["X2004_senate.csv"]], 2004) %>% 
-  mutate_all(as.character)-> general_2004
-
-reshape_states(clean_candidate_info[["X2006_senate.csv"]], 2006) %>% 
-  mutate_all(as.character)-> general_2006
-
-reshape_states(clean_candidate_info[["X2008_senate.csv"]], 2008) %>% 
-  mutate_all(as.character)-> general_2008
-
-reshape_states(clean_candidate_info[["X2010_senate.csv"]], 2010) %>% 
-  mutate_all(as.character)-> general_2010
-
-reshape_states(clean_candidate_info[["X2012_senate.csv"]], 2012) %>% 
-  mutate_all(as.character)-> general_2012
-
-reshape_states(clean_candidate_info[["X2014_senate.csv"]], 2014) %>% 
-  mutate_all(as.character)-> general_2014
-
-reshape_states(clean_candidate_info[["X2016_senate.csv"]], 2016) %>% 
-  mutate_all(as.character)-> general_2016
-
-reshape_states(clean_candidate_info[["X2018_senate.csv"]], 2018) %>% 
-  mutate_all(as.character)-> general_2018
+# create separate lists for regular and special elections
+list_of_general <- clean_candidate_info[!grepl("special", names(clean_candidate_info))] 
+list_of_special <- clean_candidate_info[grepl("special", names(clean_candidate_info))]
 
 
+# apply function to each regular election in list
+for (i in seq_along(list_of_general)) {
+  
+  tmp <- (substr(names(list_of_general[i]), start = 2, stop = 5))
+  
+  list_of_general[[i]] <- reshape_states(list_of_general[[i]], tmp) %>% 
+    mutate_all(as.character)
+  
+}
 
-## special elections
+# apply function to each special election in list
+for (i in seq_along(list_of_special)) {
+  
+  tmp <- (substr(names(list_of_special[i]), start = 2, stop = 5))
+  
+  list_of_special[[i]] <- reshape_states_special(list_of_special[[i]], tmp) %>% 
+    mutate_all(as.character)
+  
+}
 
+### create data frames from nested list objects
+bind_rows(list_of_general) -> df_general
 
-reshape_states_special(clean_candidate_info[["X2000_senate_special.csv"]], 2000) %>% 
-  mutate_all(as.character)-> special_2000
-
-reshape_states_special(clean_candidate_info[["X2002_senate_special.csv"]], 2002) %>% 
-  mutate_all(as.character)-> special_2002
-
-reshape_states_special(clean_candidate_info[["X2008_senate_special.csv"]], 2008) %>% 
-  mutate_all(as.character)-> special_2008
-
-reshape_states_special(clean_candidate_info[["X2010_senate_special.csv"]], 2010) %>% 
-  mutate_all(as.character)-> special_2010
-
-reshape_states_special(clean_candidate_info[["X2014_senate_special.csv"]], 2014) %>% 
-  mutate_all(as.character)-> special_2014
-
-reshape_states_special(clean_candidate_info[["X2018_senate_special.csv"]], 2018) %>% 
-  mutate_all(as.character)-> special_2018
-
-
-bind_rows(general_1998, general_2000, general_2002, general_2004, general_2006,
-          general_2008, general_2010, general_2012, general_2014, general_2016,
-          general_2018) -> df_general
-
-bind_rows(special_2000, special_2002, special_2008, special_2010, special_2014,
-          special_2018) -> df_special
+bind_rows(list_of_special) -> df_special
 
 ### clean state names in special elections
 
 df_special$State <- gsub("\\([^()]*\\)", "", df_special$State) 
-  
+
 
 
 ### bind general and special elections together
 bind_rows(df_general, df_special) -> df_final
 
-### clear environment again
-
-rm(list = ls(pattern = "^general"))
-rm(list = ls(pattern = "^special"))
 
 # cleaning of variables ---------------------------------------------------
 
