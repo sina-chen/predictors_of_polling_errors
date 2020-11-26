@@ -1,4 +1,4 @@
-### Code for scraping, processing and analysing US presidential election polls
+### Code for scraping, processing and analysing US Presidential election polls
 
 This folder provides resources for analysing the association between contextual factors and poll acuracy in US presidential elections.
 
