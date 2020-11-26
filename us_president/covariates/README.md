@@ -1,4 +1,4 @@
-### Instructions to merge/generate additional covariates
+### Code to merge/generate additional covariates
 
 Run the add_variables.R script to merge/generate additional covariates used in the analysis. Note that 2020 is not included in the analysis as of yet. Hence, information on several covariates is only included up to 2016 (see below for more information).    
 Running this script will create the following variables:
