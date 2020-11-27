@@ -43,7 +43,7 @@ map(all_files_purr, ~.x[["Candidates"]] %>%
 
 # extract candidate name, party and voting percentage with helper function
 
-setwd("./../../..") # set working directory to root folder again
+setwd("../../../..") # set working directory to root folder again
 
 source(file = "us_senate/covariates/helper_functions/helper_function_candidate_info.R")
 
