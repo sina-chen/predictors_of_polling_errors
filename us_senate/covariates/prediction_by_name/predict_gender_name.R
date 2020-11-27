@@ -1,59 +1,55 @@
-### gender prediction by name
+################################################################################
+# Predict gender by name
+# Author: Philipp Bosch
+#
+# note: It is assumed, your working directory is set to the root folder of this 
+#       github repo
+################################################################################
 
-# read in data
-df_final <- read_csv("data/senate/wiki_results/wiki_senate_covariates.csv")
-
-
-# create variables with separate first name using the help function
-
-source(file = "us_senate/covariates/helper_functions/helper_function_predict_gender.R")
-
-df_final <- df_final %>% 
-  sep_function(dem_candidate) %>% 
-  sep_function(lib_candidate) %>% 
-  sep_function(ind_candidate) %>% 
-  sep_function(rep_candidate) %>% 
-  sep_function(green_candidate) %>% 
-  sep_function(other_candidate) %>% 
-  add_column(min_year = 1930, max_year = 1965)
+### packages
+library("devtools")
+install_github("eamoncaddigan/GenderGuesser")
+library(tidyverse)
+library("GenderGuesser")
+library(reticulate)
 
 
+### read in data
+wiki_senate_covariates <- read_csv("data/us_senate/wiki_results/wiki_senate_covariates.csv")
 
 
+### reshape data and clean last names
+wiki_senate_covariates %>% 
+  pivot_longer(cols = ends_with("candidate"), 
+               names_to = "party", 
+               values_to = "name") %>%
+  drop_na() %>% 
+  select(state_long, party, name, election_year) %>% 
+  separate(name, 
+           into = c("first_name", "rest_name"),
+           remove = FALSE,
+           sep = "\\s", extra = "merge") %>%
+  mutate(rest_name = str_remove_all(rest_name, c("Jr.|,|III"))) %>% 
+  mutate(rest_name = str_trim(rest_name)) %>% 
+  mutate(rest_name = word(rest_name, -1)) -> predict_df
+
+### save file as csv
+write_csv(predict_df, "data/us_senate/predict_df_by_name.csv")
+
+### guess gender
+guessGender(predict_df$first_name, countryCode = "US") 
 
 
-### predicting gender
+### guess race
+use_virtualenv("r-reticulate")
+py_install("ethnicolr", pip = TRUE)
+py_install("pandas")
+virtualenv_install("r-reticulate", "ethnicolr")
+virtualenv_install(envname = "r-reticulate", "ethnicolr")
 
+### source python file
+source_python("us_senate/covariates/helper_functions/ethnicolr_function.py")
 
-# predict gender and join back to original df
+### call python function
+predict_race_census("data/us_senate/predict_df_by_name.csv")
 
-rep_gender <- predict_gender(df_final, "rep") %>% 
-  rename(rep_gender = gender) %>% 
-  select(rep_gender, name)
-
-dem_gender <- predict_gender(df_final, "dem") %>% 
-  rename(dem_gender = gender) %>% 
-  select(dem_gender, name)
-
-# joining
-
-df_final %>% 
-  left_join(rep_gender, by = c("first_rep" = "name")) %>% 
-  distinct() -> df_final
-
-df_final %>% 
-  left_join(dem_gender, by = c("first_dem" = "name")) %>% 
-  distinct() -> df_final
-
-
-# prepare data to join with the scraped polls
-
-df_join <- df_final %>% 
-  select(ends_with("gender"), incumbency, dem_candidate, rep_candidate,
-         no_candidates, election_year, State, Senator) %>% 
-  rename(state_long = State, senator = Senator) %>% 
-  mutate(election_year = as.integer(election_year))
-
-# save data as csv for join
-
-write_csv(df_join, "data/senate/wiki_results/wikipedia_covariates_gender_by_name.csv")
