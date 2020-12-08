@@ -30,9 +30,9 @@ The created data frame includes information on:
 - ind_vote: Ind. poll vote share (if reported)
 - write_in_candidate: reported name of write-in candidate (if reported)
 - write_in_vote: Write-in candidate poll vote share (if reported)
-- undecided: share of respondents answerung being undecided (if reported)
+- undecided: share of respondents answering being undecided (if reported)
 - refused: share of poll refusals (if reported)
-- other: share of other poll repsonses (if reported)
+- other: share of other poll responses (if reported)
 - MoE: reported margin of error
 - states_long: full state name
 
