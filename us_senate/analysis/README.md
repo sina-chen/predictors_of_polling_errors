@@ -1,6 +1,6 @@
 ### Code for analysing US Senate election polls
 
-This folder contains code for fitting and running a hierarchical Bayesian model utilising R and RStan. It is structures as follows:
+This folder contains code for fitting and running a hierarchical Bayesian model utilising R and RStan. It is structured as follows:
 
 - [desc](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/analysis/desc): code for descriptive statistics
 - [fit_stan](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/analysis/fit_stan): code for fitting stan models
