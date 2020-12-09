@@ -44,8 +44,8 @@ data_raw <- data_raw %>%
 
 
 # Add election vote share and two-party vote share
-senate_results <- read.csv("data/senate/senate_election_results.csv")
-senate_results2020 <- readRDS("data/senate/senate_election_results2020.RDS")
+senate_results <- read.csv("data/us_senate/senate_election_results.csv")
+senate_results2020 <- readRDS("data/us_senate/senate_election_results2020.RDS")
 senate_results1998_2020 <- rbind(senate_results,senate_results2020)
 
 data_results <- merge (data_raw, senate_results1998_2020, 

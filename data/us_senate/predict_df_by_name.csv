@@ -1,0 +1,740 @@
+state_long,party,name,first_name,rest_name,election_year
+Alabama,dem_candidate,Clayton Suddith,Clayton,Suddith,1998
+Alabama,rep_candidate,Richard Shelby,Richard,Shelby,1998
+Alaska,dem_candidate,Joe Sonneman,Joe,Sonneman,1998
+Alaska,rep_candidate,Frank Murkowski,Frank,Murkowski,1998
+Arizona,dem_candidate,Ed Ranger,Ed,Ranger,1998
+Arizona,rep_candidate,John McCain,John,McCain,1998
+Arkansas,dem_candidate,Blanche Lincoln,Blanche,Lincoln,1998
+Arkansas,rep_candidate,Fay Boozman,Fay,Boozman,1998
+California,dem_candidate,Barbara Boxer,Barbara,Boxer,1998
+California,rep_candidate,Matt Fong,Matt,Fong,1998
+Colorado,dem_candidate,Dottie Lamm,Dottie,Lamm,1998
+Colorado,rep_candidate,Ben Nighthorse Campbell,Ben,Campbell,1998
+Connecticut,dem_candidate,Chris Dodd,Chris,Dodd,1998
+Connecticut,rep_candidate,Gary Franks,Gary,Franks,1998
+Florida,dem_candidate,Bob Graham,Bob,Graham,1998
+Florida,rep_candidate,Charlie Crist,Charlie,Crist,1998
+Georgia,dem_candidate,Michael Coles,Michael,Coles,1998
+Georgia,rep_candidate,Paul Coverdell,Paul,Coverdell,1998
+Hawaii,dem_candidate,Daniel Inouye,Daniel,Inouye,1998
+Hawaii,rep_candidate,Crystal Young,Crystal,Young,1998
+Idaho,dem_candidate,Bill Mauk,Bill,Mauk,1998
+Idaho,rep_candidate,Mike Crapo,Mike,Crapo,1998
+Illinois,dem_candidate,Carol Moseley Braun,Carol,Braun,1998
+Illinois,rep_candidate,Peter Fitzgerald,Peter,Fitzgerald,1998
+Indiana,dem_candidate,Evan Bayh,Evan,Bayh,1998
+Indiana,rep_candidate,Paul Helmke,Paul,Helmke,1998
+Iowa,dem_candidate,David Osterberg,David,Osterberg,1998
+Iowa,rep_candidate,Chuck Grassley,Chuck,Grassley,1998
+Kansas,dem_candidate,Paul Feleciano Jr.,Paul,Feleciano,1998
+Kansas,rep_candidate,Sam Brownback,Sam,Brownback,1998
+Kentucky,dem_candidate,Scotty Baesler,Scotty,Baesler,1998
+Kentucky,rep_candidate,Jim Bunning,Jim,Bunning,1998
+Louisiana,dem_candidate,John Breaux,John,Breaux,1998
+Louisiana,rep_candidate,Jim Donelon,Jim,Donelon,1998
+Maryland,dem_candidate,Barbara Mikulski,Barbara,Mikulski,1998
+Maryland,rep_candidate,Ross Pierpont,Ross,Pierpont,1998
+Missouri,dem_candidate,Jay Nixon,Jay,Nixon,1998
+Missouri,rep_candidate,Kit Bond,Kit,Bond,1998
+Nevada,dem_candidate,Harry Reid,Harry,Reid,1998
+Nevada,rep_candidate,John Ensign,John,Ensign,1998
+New Hampshire,dem_candidate,George Condodemetraky,George,Condodemetraky,1998
+New Hampshire,rep_candidate,Judd Gregg,Judd,Gregg,1998
+New York,dem_candidate,Chuck Schumer,Chuck,Schumer,1998
+New York,rep_candidate,Al D'Amato,Al,D'Amato,1998
+North Carolina,dem_candidate,John Edwards,John,Edwards,1998
+North Carolina,rep_candidate,Lauch Faircloth,Lauch,Faircloth,1998
+North Dakota,dem_candidate,Byron Dorgan,Byron,Dorgan,1998
+North Dakota,rep_candidate,Donna Nalewaja,Donna,Nalewaja,1998
+Ohio,dem_candidate,Mary Boyle,Mary,Boyle,1998
+Ohio,rep_candidate,George Voinovich,George,Voinovich,1998
+Oklahoma,dem_candidate,Don Carroll,Don,Carroll,1998
+Oklahoma,rep_candidate,Don Nickles,Don,Nickles,1998
+Oregon,dem_candidate,Ron Wyden,Ron,Wyden,1998
+Oregon,rep_candidate,John Lim,John,Lim,1998
+Pennsylvania,dem_candidate,Bill Lloyd,Bill,Lloyd,1998
+Pennsylvania,rep_candidate,Arlen Specter,Arlen,Specter,1998
+South Carolina,dem_candidate,Ernest Hollings,Ernest,Hollings,1998
+South Carolina,rep_candidate,Bob Inglis,Bob,Inglis,1998
+South Dakota,dem_candidate,Tom Daschle,Tom,Daschle,1998
+South Dakota,rep_candidate,Ron Schmidt,Ron,Schmidt,1998
+Utah,dem_candidate,Scott Leckman,Scott,Leckman,1998
+Utah,rep_candidate,Bob Bennett,Bob,Bennett,1998
+Vermont,dem_candidate,Patrick Leahy,Patrick,Leahy,1998
+Vermont,rep_candidate,Fred Tuttle,Fred,Tuttle,1998
+Washington,dem_candidate,Patty Murray,Patty,Murray,1998
+Washington,rep_candidate,Linda Smith,Linda,Smith,1998
+Wisconsin,dem_candidate,Russ Feingold,Russ,Feingold,1998
+Wisconsin,rep_candidate,Mark Neumann,Mark,Neumann,1998
+Arizona,rep_candidate,Jon Kyl,Jon,Kyl,2000
+California,dem_candidate,Dianne Feinstein,Dianne,Feinstein,2000
+California,rep_candidate,Tom Campbell,Tom,Campbell,2000
+Connecticut,dem_candidate,Joe Lieberman,Joe,Lieberman,2000
+Connecticut,rep_candidate,Philip Giordano,Philip,Giordano,2000
+Delaware,dem_candidate,Tom Carper,Tom,Carper,2000
+Delaware,rep_candidate,William Roth,William,Roth,2000
+Florida,dem_candidate,Bill Nelson,Bill,Nelson,2000
+Florida,rep_candidate,Bill McCollum,Bill,McCollum,2000
+Hawaii,dem_candidate,Daniel Akaka,Daniel,Akaka,2000
+Hawaii,rep_candidate,John Carroll,John,Carroll,2000
+Indiana,dem_candidate,David Johnson,David,Johnson,2000
+Indiana,rep_candidate,Richard Lugar,Richard,Lugar,2000
+Maine,dem_candidate,Mark Lawrence,Mark,Lawrence,2000
+Maine,rep_candidate,Olympia Snowe,Olympia,Snowe,2000
+Maryland,dem_candidate,Paul Sarbanes,Paul,Sarbanes,2000
+Maryland,rep_candidate,Paul Rappaport,Paul,Rappaport,2000
+Massachusetts,dem_candidate,Ted Kennedy,Ted,Kennedy,2000
+Massachusetts,rep_candidate,Jack E. Robinson III,Jack,Robinson,2000
+Michigan,dem_candidate,Debbie Stabenow,Debbie,Stabenow,2000
+Michigan,rep_candidate,Spencer Abraham,Spencer,Abraham,2000
+Minnesota,dem_candidate,Mark Dayton,Mark,Dayton,2000
+Minnesota,rep_candidate,Rod Grams,Rod,Grams,2000
+Mississippi,dem_candidate,Troy Brown,Troy,Brown,2000
+Mississippi,rep_candidate,Trent Lott,Trent,Lott,2000
+Missouri,dem_candidate,Mel Carnahan,Mel,Carnahan,2000
+Missouri,rep_candidate,John Ashcroft,John,Ashcroft,2000
+Montana,dem_candidate,Brian Schweitzer,Brian,Schweitzer,2000
+Montana,rep_candidate,Conrad Burns,Conrad,Burns,2000
+Nebraska,dem_candidate,Ben Nelson,Ben,Nelson,2000
+Nebraska,rep_candidate,Don Stenberg,Don,Stenberg,2000
+Nevada,dem_candidate,Edward M. Bernstein,Edward,Bernstein,2000
+Nevada,rep_candidate,John Ensign,John,Ensign,2000
+New Jersey,dem_candidate,Jon Corzine,Jon,Corzine,2000
+New Jersey,rep_candidate,Bob Franks,Bob,Franks,2000
+New Mexico,dem_candidate,Jeff Bingaman,Jeff,Bingaman,2000
+New Mexico,rep_candidate,William T. Redmond,William,Redmond,2000
+New York,dem_candidate,Hillary Clinton,Hillary,Clinton,2000
+New York,rep_candidate,Rick Lazio,Rick,Lazio,2000
+North Dakota,dem_candidate,Kent Conrad,Kent,Conrad,2000
+North Dakota,rep_candidate,Duane Sand,Duane,Sand,2000
+Ohio,dem_candidate,Ted Celeste,Ted,Celeste,2000
+Ohio,rep_candidate,Mike DeWine,Mike,DeWine,2000
+Pennsylvania,dem_candidate,Ron Klink,Ron,Klink,2000
+Pennsylvania,rep_candidate,Rick Santorum,Rick,Santorum,2000
+Rhode Island,dem_candidate,Robert Weygand,Robert,Weygand,2000
+Rhode Island,rep_candidate,Lincoln Chafee,Lincoln,Chafee,2000
+Tennessee,dem_candidate,Jeff Clark,Jeff,Clark,2000
+Tennessee,rep_candidate,Bill Frist,Bill,Frist,2000
+Texas,dem_candidate,Gene Kelly,Gene,Kelly,2000
+Texas,rep_candidate,Kay Bailey Hutchison,Kay,Hutchison,2000
+Utah,dem_candidate,Scott Howell,Scott,Howell,2000
+Utah,rep_candidate,Orrin Hatch,Orrin,Hatch,2000
+Vermont,dem_candidate,Ed Flanagan,Ed,Flanagan,2000
+Vermont,rep_candidate,Jim Jeffords,Jim,Jeffords,2000
+Virginia,dem_candidate,Chuck Robb,Chuck,Robb,2000
+Virginia,rep_candidate,George Allen,George,Allen,2000
+Washington,dem_candidate,Maria Cantwell,Maria,Cantwell,2000
+Washington,rep_candidate,Slade Gorton,Slade,Gorton,2000
+West Virginia,dem_candidate,Robert Byrd,Robert,Byrd,2000
+West Virginia,rep_candidate,David T. Gallaher,David,Gallaher,2000
+Wisconsin,dem_candidate,Herb Kohl,Herb,Kohl,2000
+Wisconsin,rep_candidate,John Gillespie,John,Gillespie,2000
+Wyoming,dem_candidate,Mel Logan,Mel,Logan,2000
+Wyoming,rep_candidate,Craig L. Thomas,Craig,Thomas,2000
+Alabama,dem_candidate,Susan Parker,Susan,Parker,2002
+Alabama,rep_candidate,Jeff Sessions,Jeff,Sessions,2002
+Alaska,dem_candidate,Frank J. Vondersaar,Frank,Vondersaar,2002
+Alaska,rep_candidate,Ted Stevens,Ted,Stevens,2002
+Arkansas,dem_candidate,Mark Pryor,Mark,Pryor,2002
+Arkansas,rep_candidate,Tim Hutchinson,Tim,Hutchinson,2002
+Colorado,dem_candidate,Tom Strickland,Tom,Strickland,2002
+Colorado,rep_candidate,Wayne Allard,Wayne,Allard,2002
+Delaware,dem_candidate,Joe Biden,Joe,Biden,2002
+Delaware,rep_candidate,Raymond J. Clatworthy,Raymond,Clatworthy,2002
+Georgia,dem_candidate,Max Cleland,Max,Cleland,2002
+Georgia,rep_candidate,Saxby Chambliss,Saxby,Chambliss,2002
+Idaho,dem_candidate,Alan Blinken,Alan,Blinken,2002
+Idaho,rep_candidate,Larry Craig,Larry,Craig,2002
+Illinois,dem_candidate,Dick Durbin,Dick,Durbin,2002
+Illinois,rep_candidate,Jim Durkin,Jim,Durkin,2002
+Iowa,dem_candidate,Tom Harkin,Tom,Harkin,2002
+Iowa,rep_candidate,Greg Ganske,Greg,Ganske,2002
+Kansas,rep_candidate,Pat Roberts,Pat,Roberts,2002
+Kentucky,dem_candidate,Lois Combs Weinberg,Lois,Weinberg,2002
+Kentucky,rep_candidate,Mitch McConnell,Mitch,McConnell,2002
+Louisiana,dem_candidate,Mary Landrieu,Mary,Landrieu,2002
+Louisiana,rep_candidate,Suzanne Haik Terrell,Suzanne,Terrell,2002
+Maine,dem_candidate,Chellie Pingree,Chellie,Pingree,2002
+Maine,rep_candidate,Susan Collins,Susan,Collins,2002
+Massachusetts,dem_candidate,John Kerry,John,Kerry,2002
+Michigan,dem_candidate,Carl Levin,Carl,Levin,2002
+Michigan,rep_candidate,Rocky Raczkowski,Rocky,Raczkowski,2002
+Minnesota,dem_candidate,Walter Mondale,Walter,Mondale,2002
+Minnesota,rep_candidate,Norm Coleman,Norm,Coleman,2002
+Mississippi,rep_candidate,Thad Cochran,Thad,Cochran,2002
+Montana,dem_candidate,Max Baucus,Max,Baucus,2002
+Montana,rep_candidate,Mike Taylor,Mike,Taylor,2002
+Nebraska,dem_candidate,Charlie A. Matulka,Charlie,Matulka,2002
+Nebraska,rep_candidate,Chuck Hagel,Chuck,Hagel,2002
+New Hampshire,dem_candidate,Jeanne Shaheen,Jeanne,Shaheen,2002
+New Hampshire,rep_candidate,John E. Sununu,John,Sununu,2002
+New Jersey,dem_candidate,Frank Lautenberg,Frank,Lautenberg,2002
+New Jersey,rep_candidate,Doug Forrester,Doug,Forrester,2002
+New Mexico,dem_candidate,Gloria Tristani,Gloria,Tristani,2002
+New Mexico,rep_candidate,Pete Domenici,Pete,Domenici,2002
+North Carolina,dem_candidate,Erskine Bowles,Erskine,Bowles,2002
+North Carolina,rep_candidate,Elizabeth Dole,Elizabeth,Dole,2002
+Oklahoma,dem_candidate,David Walters,David,Walters,2002
+Oklahoma,rep_candidate,Jim Inhofe,Jim,Inhofe,2002
+Oregon,dem_candidate,Bill Bradbury,Bill,Bradbury,2002
+Oregon,rep_candidate,Gordon H. Smith,Gordon,Smith,2002
+Rhode Island,dem_candidate,Jack Reed,Jack,Reed,2002
+Rhode Island,rep_candidate,Robert Tingle,Robert,Tingle,2002
+South Carolina,dem_candidate,Alex Sanders,Alex,Sanders,2002
+South Carolina,rep_candidate,Lindsey Graham,Lindsey,Graham,2002
+South Dakota,dem_candidate,Tim Johnson,Tim,Johnson,2002
+South Dakota,rep_candidate,John Thune,John,Thune,2002
+Tennessee,dem_candidate,Bob Clement,Bob,Clement,2002
+Tennessee,rep_candidate,Lamar Alexander,Lamar,Alexander,2002
+Texas,dem_candidate,Ron Kirk,Ron,Kirk,2002
+Texas,rep_candidate,John Cornyn,John,Cornyn,2002
+Virginia,rep_candidate,John Warner,John,Warner,2002
+West Virginia,dem_candidate,Jay Rockefeller,Jay,Rockefeller,2002
+West Virginia,rep_candidate,Jay Wolfe,Jay,Wolfe,2002
+Wyoming,dem_candidate,Joyce Jansa Corcoran,Joyce,Corcoran,2002
+Wyoming,rep_candidate,Mike Enzi,Mike,Enzi,2002
+Alabama,dem_candidate,Wayne Sowell,Wayne,Sowell,2004
+Alabama,rep_candidate,Richard Shelby,Richard,Shelby,2004
+Alaska,dem_candidate,Tony Knowles,Tony,Knowles,2004
+Alaska,rep_candidate,Lisa Murkowski,Lisa,Murkowski,2004
+Arizona,dem_candidate,Stuart Starky,Stuart,Starky,2004
+Arizona,rep_candidate,John McCain,John,McCain,2004
+Arkansas,dem_candidate,Blanche Lincoln,Blanche,Lincoln,2004
+Arkansas,rep_candidate,Jim Holt,Jim,Holt,2004
+California,dem_candidate,Barbara Boxer,Barbara,Boxer,2004
+California,rep_candidate,Bill Jones,Bill,Jones,2004
+Colorado,dem_candidate,Ken Salazar,Ken,Salazar,2004
+Colorado,rep_candidate,Pete Coors,Pete,Coors,2004
+Connecticut,dem_candidate,Chris Dodd,Chris,Dodd,2004
+Connecticut,rep_candidate,Jack Orchulli,Jack,Orchulli,2004
+Florida,dem_candidate,Betty Castor,Betty,Castor,2004
+Florida,rep_candidate,Mel Martinez,Mel,Martinez,2004
+Georgia,dem_candidate,Denise Majette,Denise,Majette,2004
+Georgia,rep_candidate,Johnny Isakson,Johnny,Isakson,2004
+Hawaii,dem_candidate,Daniel Inouye,Daniel,Inouye,2004
+Hawaii,rep_candidate,Campbell Cavasso,Campbell,Cavasso,2004
+Idaho,rep_candidate,Mike Crapo,Mike,Crapo,2004
+Illinois,dem_candidate,Barack Obama,Barack,Obama,2004
+Illinois,rep_candidate,Alan Keyes,Alan,Keyes,2004
+Indiana,dem_candidate,Evan Bayh,Evan,Bayh,2004
+Indiana,rep_candidate,Marvin Scott,Marvin,Scott,2004
+Iowa,dem_candidate,Arthur Small,Arthur,Small,2004
+Iowa,rep_candidate,Chuck Grassley,Chuck,Grassley,2004
+Kansas,dem_candidate,Lee Jones,Lee,Jones,2004
+Kansas,rep_candidate,Sam Brownback,Sam,Brownback,2004
+Kentucky,dem_candidate,Daniel Mongiardo,Daniel,Mongiardo,2004
+Kentucky,rep_candidate,Jim Bunning,Jim,Bunning,2004
+Maryland,dem_candidate,Barbara Mikulski,Barbara,Mikulski,2004
+Maryland,rep_candidate,E. J. Pipkin,E.,Pipkin,2004
+Missouri,dem_candidate,Nancy Farmer,Nancy,Farmer,2004
+Missouri,rep_candidate,Kit Bond,Kit,Bond,2004
+Nevada,dem_candidate,Harry Reid,Harry,Reid,2004
+Nevada,rep_candidate,Richard Ziser,Richard,Ziser,2004
+New Hampshire,dem_candidate,Doris Haddock,Doris,Haddock,2004
+New Hampshire,rep_candidate,Judd Gregg,Judd,Gregg,2004
+New York,dem_candidate,Chuck Schumer,Chuck,Schumer,2004
+New York,rep_candidate,Howard Mills III,Howard,Mills,2004
+North Carolina,dem_candidate,Erskine Bowles,Erskine,Bowles,2004
+North Carolina,rep_candidate,Richard Burr,Richard,Burr,2004
+North Dakota,dem_candidate,Byron Dorgan,Byron,Dorgan,2004
+North Dakota,rep_candidate,Mike Liffrig,Mike,Liffrig,2004
+Ohio,dem_candidate,Eric Fingerhut,Eric,Fingerhut,2004
+Ohio,rep_candidate,George Voinovich,George,Voinovich,2004
+Oklahoma,dem_candidate,Brad Carson,Brad,Carson,2004
+Oklahoma,rep_candidate,Tom Coburn,Tom,Coburn,2004
+Oregon,dem_candidate,Ron Wyden,Ron,Wyden,2004
+Oregon,rep_candidate,Al King,Al,King,2004
+Pennsylvania,dem_candidate,Joe Hoeffel,Joe,Hoeffel,2004
+Pennsylvania,rep_candidate,Arlen Specter,Arlen,Specter,2004
+South Carolina,dem_candidate,Inez Tenenbaum,Inez,Tenenbaum,2004
+South Carolina,rep_candidate,Jim DeMint,Jim,DeMint,2004
+South Dakota,dem_candidate,Tom Daschle,Tom,Daschle,2004
+South Dakota,rep_candidate,John Thune,John,Thune,2004
+Utah,dem_candidate,Paul Van Dam,Paul,Dam,2004
+Utah,rep_candidate,Bob Bennett,Bob,Bennett,2004
+Vermont,dem_candidate,Patrick Leahy,Patrick,Leahy,2004
+Vermont,rep_candidate,John A. McMullen,John,McMullen,2004
+Washington,dem_candidate,Patty Murray,Patty,Murray,2004
+Washington,rep_candidate,George Nethercutt,George,Nethercutt,2004
+Wisconsin,dem_candidate,Russ Feingold,Russ,Feingold,2004
+Wisconsin,rep_candidate,Tim Michels,Tim,Michels,2004
+Arizona,dem_candidate,Jim Pederson,Jim,Pederson,2006
+Arizona,rep_candidate,Jon Kyl,Jon,Kyl,2006
+California,dem_candidate,Dianne Feinstein,Dianne,Feinstein,2006
+California,rep_candidate,Dick Mountjoy,Dick,Mountjoy,2006
+Connecticut,dem_candidate,Ned Lamont,Ned,Lamont,2006
+Connecticut,rep_candidate,Alan Schlesinger,Alan,Schlesinger,2006
+Delaware,dem_candidate,Tom Carper,Tom,Carper,2006
+Delaware,rep_candidate,Jan Ting,Jan,Ting,2006
+Florida,dem_candidate,Bill Nelson,Bill,Nelson,2006
+Florida,rep_candidate,Katherine Harris,Katherine,Harris,2006
+Hawaii,dem_candidate,Daniel Akaka,Daniel,Akaka,2006
+Hawaii,rep_candidate,Cynthia Thielen,Cynthia,Thielen,2006
+Indiana,rep_candidate,Richard Lugar,Richard,Lugar,2006
+Maine,dem_candidate,Jean Hay Bright,Jean,Bright,2006
+Maine,rep_candidate,Olympia Snowe,Olympia,Snowe,2006
+Maryland,dem_candidate,Ben Cardin,Ben,Cardin,2006
+Maryland,rep_candidate,Michael Steele,Michael,Steele,2006
+Massachusetts,dem_candidate,Ted Kennedy,Ted,Kennedy,2006
+Massachusetts,rep_candidate,Kenneth Chase,Kenneth,Chase,2006
+Michigan,dem_candidate,Debbie Stabenow,Debbie,Stabenow,2006
+Michigan,rep_candidate,Mike Bouchard,Mike,Bouchard,2006
+Minnesota,dem_candidate,Amy Klobuchar,Amy,Klobuchar,2006
+Minnesota,rep_candidate,Mark Kennedy,Mark,Kennedy,2006
+Mississippi,dem_candidate,Erik Fleming,Erik,Fleming,2006
+Mississippi,rep_candidate,Trent Lott,Trent,Lott,2006
+Missouri,dem_candidate,Claire McCaskill,Claire,McCaskill,2006
+Missouri,rep_candidate,Jim Talent,Jim,Talent,2006
+Montana,dem_candidate,Jon Tester,Jon,Tester,2006
+Montana,rep_candidate,Conrad Burns,Conrad,Burns,2006
+Nebraska,dem_candidate,Ben Nelson,Ben,Nelson,2006
+Nebraska,rep_candidate,Pete Ricketts,Pete,Ricketts,2006
+Nevada,dem_candidate,Jack Carter,Jack,Carter,2006
+Nevada,rep_candidate,John Ensign,John,Ensign,2006
+New Jersey,dem_candidate,Bob Menendez,Bob,Menendez,2006
+New Jersey,rep_candidate,Thomas Kean Jr.,Thomas,Kean,2006
+New Mexico,dem_candidate,Jeff Bingaman,Jeff,Bingaman,2006
+New Mexico,rep_candidate,Allen McCulloch,Allen,McCulloch,2006
+New York,dem_candidate,Hillary Clinton,Hillary,Clinton,2006
+New York,rep_candidate,John Spencer,John,Spencer,2006
+North Dakota,dem_candidate,Kent Conrad,Kent,Conrad,2006
+North Dakota,rep_candidate,Dwight Grotberg,Dwight,Grotberg,2006
+Ohio,dem_candidate,Sherrod Brown,Sherrod,Brown,2006
+Ohio,rep_candidate,Mike DeWine,Mike,DeWine,2006
+Pennsylvania,dem_candidate,Bob Casey Jr.,Bob,Casey,2006
+Pennsylvania,rep_candidate,Rick Santorum,Rick,Santorum,2006
+Rhode Island,dem_candidate,Sheldon Whitehouse,Sheldon,Whitehouse,2006
+Rhode Island,rep_candidate,Lincoln Chafee,Lincoln,Chafee,2006
+Tennessee,dem_candidate,Harold Ford Jr.,Harold,Ford,2006
+Tennessee,rep_candidate,Bob Corker,Bob,Corker,2006
+Texas,dem_candidate,Barbara Ann Radnofsky,Barbara,Radnofsky,2006
+Texas,rep_candidate,Kay Bailey Hutchison,Kay,Hutchison,2006
+Utah,dem_candidate,Pete Ashdown,Pete,Ashdown,2006
+Utah,rep_candidate,Orrin Hatch,Orrin,Hatch,2006
+Vermont,rep_candidate,Richard Tarrant,Richard,Tarrant,2006
+Virginia,dem_candidate,Jim Webb,Jim,Webb,2006
+Virginia,rep_candidate,George Allen,George,Allen,2006
+Washington,dem_candidate,Maria Cantwell,Maria,Cantwell,2006
+Washington,rep_candidate,Mike McGavick,Mike,McGavick,2006
+West Virginia,dem_candidate,Robert Byrd,Robert,Byrd,2006
+West Virginia,rep_candidate,John Raese,John,Raese,2006
+Wisconsin,dem_candidate,Herb Kohl,Herb,Kohl,2006
+Wisconsin,rep_candidate,Robert Lorge,Robert,Lorge,2006
+Wyoming,dem_candidate,Dale Groutage,Dale,Groutage,2006
+Wyoming,rep_candidate,Craig L. Thomas,Craig,Thomas,2006
+Alabama,dem_candidate,Vivian Davis Figures,Vivian,Figures,2008
+Alabama,rep_candidate,Jeff Sessions,Jeff,Sessions,2008
+Alaska,dem_candidate,Mark Begich,Mark,Begich,2008
+Alaska,rep_candidate,Ted Stevens,Ted,Stevens,2008
+Arkansas,dem_candidate,Mark Pryor,Mark,Pryor,2008
+Colorado,dem_candidate,Mark Udall,Mark,Udall,2008
+Colorado,rep_candidate,Bob Schaffer,Bob,Schaffer,2008
+Delaware,dem_candidate,Joe Biden,Joe,Biden,2008
+Delaware,rep_candidate,Christine O'Donnell,Christine,O'Donnell,2008
+Georgia,dem_candidate,Jim Martin,Jim,Martin,2008
+Georgia,rep_candidate,Saxby Chambliss,Saxby,Chambliss,2008
+Idaho,dem_candidate,Larry LaRocco,Larry,LaRocco,2008
+Idaho,rep_candidate,Jim Risch,Jim,Risch,2008
+Illinois,dem_candidate,Dick Durbin,Dick,Durbin,2008
+Illinois,rep_candidate,Steve Sauerberg,Steve,Sauerberg,2008
+Iowa,dem_candidate,Tom Harkin,Tom,Harkin,2008
+Iowa,rep_candidate,Christopher Reed,Christopher,Reed,2008
+Kansas,dem_candidate,Jim Slattery,Jim,Slattery,2008
+Kansas,rep_candidate,Pat Roberts,Pat,Roberts,2008
+Kentucky,dem_candidate,Bruce Lunsford,Bruce,Lunsford,2008
+Kentucky,rep_candidate,Mitch McConnell,Mitch,McConnell,2008
+Louisiana,dem_candidate,Mary Landrieu,Mary,Landrieu,2008
+Louisiana,rep_candidate,John Kennedy,John,Kennedy,2008
+Maine,dem_candidate,Tom Allen,Tom,Allen,2008
+Maine,rep_candidate,Susan Collins,Susan,Collins,2008
+Massachusetts,dem_candidate,John Kerry,John,Kerry,2008
+Massachusetts,rep_candidate,Jeff Beatty,Jeff,Beatty,2008
+Michigan,dem_candidate,Carl Levin,Carl,Levin,2008
+Michigan,rep_candidate,Jack Hoogendyk,Jack,Hoogendyk,2008
+Minnesota,dem_candidate,Al Franken,Al,Franken,2008
+Minnesota,rep_candidate,Norm Coleman,Norm,Coleman,2008
+Mississippi,dem_candidate,Erik Fleming,Erik,Fleming,2008
+Mississippi,rep_candidate,Thad Cochran,Thad,Cochran,2008
+Montana,dem_candidate,Max Baucus,Max,Baucus,2008
+Montana,rep_candidate,Bob Kelleher,Bob,Kelleher,2008
+Nebraska,dem_candidate,Scott Kleeb,Scott,Kleeb,2008
+Nebraska,rep_candidate,Mike Johanns,Mike,Johanns,2008
+New Hampshire,dem_candidate,Jeanne Shaheen,Jeanne,Shaheen,2008
+New Hampshire,rep_candidate,John E. Sununu,John,Sununu,2008
+New Jersey,dem_candidate,Frank Lautenberg,Frank,Lautenberg,2008
+New Jersey,rep_candidate,Dick Zimmer,Dick,Zimmer,2008
+New Mexico,dem_candidate,Tom Udall,Tom,Udall,2008
+New Mexico,rep_candidate,Steve Pearce,Steve,Pearce,2008
+North Carolina,dem_candidate,Kay Hagan,Kay,Hagan,2008
+North Carolina,rep_candidate,Elizabeth Dole,Elizabeth,Dole,2008
+Oklahoma,dem_candidate,Andrew Rice,Andrew,Rice,2008
+Oklahoma,rep_candidate,Jim Inhofe,Jim,Inhofe,2008
+Oregon,dem_candidate,Jeff Merkley,Jeff,Merkley,2008
+Oregon,rep_candidate,Gordon H. Smith,Gordon,Smith,2008
+Rhode Island,dem_candidate,Jack Reed,Jack,Reed,2008
+Rhode Island,rep_candidate,Robert Tingle,Robert,Tingle,2008
+South Carolina,dem_candidate,Bob Conley,Bob,Conley,2008
+South Carolina,rep_candidate,Lindsey Graham,Lindsey,Graham,2008
+South Dakota,dem_candidate,Tim Johnson,Tim,Johnson,2008
+South Dakota,rep_candidate,Joel Dykstra,Joel,Dykstra,2008
+Tennessee,dem_candidate,Bob Tuke,Bob,Tuke,2008
+Tennessee,rep_candidate,Lamar Alexander,Lamar,Alexander,2008
+Texas,dem_candidate,Rick Noriega,Rick,Noriega,2008
+Texas,rep_candidate,John Cornyn,John,Cornyn,2008
+Virginia,dem_candidate,Mark Warner,Mark,Warner,2008
+Virginia,rep_candidate,Jim Gilmore,Jim,Gilmore,2008
+West Virginia,dem_candidate,Jay Rockefeller,Jay,Rockefeller,2008
+West Virginia,rep_candidate,Jay Wolfe,Jay,Wolfe,2008
+Wyoming,dem_candidate,Chris Rothfuss,Chris,Rothfuss,2008
+Wyoming,rep_candidate,Mike Enzi,Mike,Enzi,2008
+Alabama,dem_candidate,William G. Barnes,William,Barnes,2010
+Alabama,rep_candidate,Richard Shelby,Richard,Shelby,2010
+Arizona,dem_candidate,Rodney Glassman,Rodney,Glassman,2010
+Arizona,rep_candidate,John McCain,John,McCain,2010
+Arkansas,dem_candidate,Blanche Lincoln,Blanche,Lincoln,2010
+Arkansas,rep_candidate,John Boozman,John,Boozman,2010
+California,dem_candidate,Barbara Boxer,Barbara,Boxer,2010
+California,rep_candidate,Carly Fiorina,Carly,Fiorina,2010
+Colorado,dem_candidate,Michael Bennet,Michael,Bennet,2010
+Colorado,rep_candidate,Ken Buck,Ken,Buck,2010
+Connecticut,dem_candidate,Richard Blumenthal,Richard,Blumenthal,2010
+Connecticut,rep_candidate,Linda McMahon,Linda,McMahon,2010
+Florida,dem_candidate,Kendrick Meek,Kendrick,Meek,2010
+Florida,rep_candidate,Marco Rubio,Marco,Rubio,2010
+Georgia,dem_candidate,Michael Thurmond,Michael,Thurmond,2010
+Georgia,rep_candidate,Johnny Isakson,Johnny,Isakson,2010
+Hawaii,dem_candidate,Daniel Inouye,Daniel,Inouye,2010
+Hawaii,rep_candidate,Campbell Cavasso,Campbell,Cavasso,2010
+Idaho,dem_candidate,Tom Sullivan,Tom,Sullivan,2010
+Idaho,rep_candidate,Mike Crapo,Mike,Crapo,2010
+Illinois,dem_candidate,Alexi Giannoulias,Alexi,Giannoulias,2010
+Illinois,rep_candidate,Mark Kirk,Mark,Kirk,2010
+Indiana,dem_candidate,Brad Ellsworth,Brad,Ellsworth,2010
+Indiana,rep_candidate,Dan Coats,Dan,Coats,2010
+Iowa,dem_candidate,Roxanne Conlin,Roxanne,Conlin,2010
+Iowa,rep_candidate,Chuck Grassley,Chuck,Grassley,2010
+Kansas,dem_candidate,Lisa Johnston,Lisa,Johnston,2010
+Kansas,rep_candidate,Jerry Moran,Jerry,Moran,2010
+Kentucky,dem_candidate,Jack Conway,Jack,Conway,2010
+Kentucky,rep_candidate,Rand Paul,Rand,Paul,2010
+Louisiana,dem_candidate,Charles Melancon,Charles,Melancon,2010
+Louisiana,rep_candidate,David Vitter,David,Vitter,2010
+Maryland,dem_candidate,Barbara Mikulski,Barbara,Mikulski,2010
+Maryland,rep_candidate,Eric Wargotz,Eric,Wargotz,2010
+Missouri,dem_candidate,Robin Carnahan,Robin,Carnahan,2010
+Missouri,rep_candidate,Roy Blunt,Roy,Blunt,2010
+Nevada,dem_candidate,Harry Reid,Harry,Reid,2010
+Nevada,rep_candidate,Sharron Angle,Sharron,Angle,2010
+New Hampshire,dem_candidate,Paul Hodes,Paul,Hodes,2010
+New Hampshire,rep_candidate,Kelly Ayotte,Kelly,Ayotte,2010
+New York,dem_candidate,Chuck Schumer,Chuck,Schumer,2010
+New York,rep_candidate,Jay Townsend,Jay,Townsend,2010
+North Carolina,dem_candidate,Elaine Marshall,Elaine,Marshall,2010
+North Carolina,rep_candidate,Richard Burr,Richard,Burr,2010
+North Dakota,dem_candidate,Tracy Potter,Tracy,Potter,2010
+North Dakota,rep_candidate,John Hoeven,John,Hoeven,2010
+Ohio,dem_candidate,Lee Fisher,Lee,Fisher,2010
+Ohio,rep_candidate,Rob Portman,Rob,Portman,2010
+Oklahoma,dem_candidate,Jim Rogers,Jim,Rogers,2010
+Oklahoma,rep_candidate,Tom Coburn,Tom,Coburn,2010
+Oregon,dem_candidate,Ron Wyden,Ron,Wyden,2010
+Oregon,rep_candidate,Jim Huffman,Jim,Huffman,2010
+Pennsylvania,dem_candidate,Joe Sestak,Joe,Sestak,2010
+Pennsylvania,rep_candidate,Pat Toomey,Pat,Toomey,2010
+South Carolina,dem_candidate,Alvin Greene,Alvin,Greene,2010
+South Carolina,rep_candidate,Jim DeMint,Jim,DeMint,2010
+South Dakota,rep_candidate,John Thune,John,Thune,2010
+Utah,dem_candidate,Sam Granato,Sam,Granato,2010
+Utah,rep_candidate,Mike Lee,Mike,Lee,2010
+Vermont,dem_candidate,Patrick Leahy,Patrick,Leahy,2010
+Vermont,rep_candidate,Len Britton,Len,Britton,2010
+Washington,dem_candidate,Patty Murray,Patty,Murray,2010
+Washington,rep_candidate,Dino Rossi,Dino,Rossi,2010
+Wisconsin,dem_candidate,Russ Feingold,Russ,Feingold,2010
+Wisconsin,rep_candidate,Ron Johnson,Ron,Johnson,2010
+Arizona,dem_candidate,Richard Carmona,Richard,Carmona,2012
+Arizona,rep_candidate,Jeff Flake,Jeff,Flake,2012
+California,dem_candidate,Dianne Feinstein,Dianne,Feinstein,2012
+California,rep_candidate,Elizabeth Emken,Elizabeth,Emken,2012
+Connecticut,dem_candidate,Chris Murphy,Chris,Murphy,2012
+Connecticut,rep_candidate,Linda McMahon,Linda,McMahon,2012
+Delaware,dem_candidate,Tom Carper,Tom,Carper,2012
+Delaware,rep_candidate,Kevin Wade,Kevin,Wade,2012
+Florida,dem_candidate,Bill Nelson,Bill,Nelson,2012
+Florida,rep_candidate,Connie Mack IV,Connie,IV,2012
+Hawaii,dem_candidate,Mazie Hirono,Mazie,Hirono,2012
+Hawaii,rep_candidate,Linda Lingle,Linda,Lingle,2012
+Indiana,dem_candidate,Joe Donnelly,Joe,Donnelly,2012
+Indiana,rep_candidate,Richard Mourdock,Richard,Mourdock,2012
+Maine,dem_candidate,Cynthia Dill,Cynthia,Dill,2012
+Maine,rep_candidate,"Charles E. Summers, Jr.",Charles,Summers,2012
+Maryland,dem_candidate,Ben Cardin,Ben,Cardin,2012
+Maryland,rep_candidate,Dan Bongino,Dan,Bongino,2012
+Massachusetts,dem_candidate,Elizabeth Warren,Elizabeth,Warren,2012
+Massachusetts,rep_candidate,Scott Brown,Scott,Brown,2012
+Michigan,dem_candidate,Debbie Stabenow,Debbie,Stabenow,2012
+Michigan,rep_candidate,Pete Hoekstra,Pete,Hoekstra,2012
+Minnesota,dem_candidate,Amy Klobuchar,Amy,Klobuchar,2012
+Minnesota,rep_candidate,Kurt Bills,Kurt,Bills,2012
+Mississippi,dem_candidate,"Albert N. Gore, Jr.",Albert,Gore,2012
+Mississippi,rep_candidate,Roger Wicker,Roger,Wicker,2012
+Missouri,dem_candidate,Claire McCaskill,Claire,McCaskill,2012
+Missouri,rep_candidate,Todd Akin,Todd,Akin,2012
+Montana,dem_candidate,Jon Tester,Jon,Tester,2012
+Montana,rep_candidate,Denny Rehberg,Denny,Rehberg,2012
+Nebraska,dem_candidate,Bob Kerrey,Bob,Kerrey,2012
+Nebraska,rep_candidate,Deb Fischer,Deb,Fischer,2012
+Nevada,dem_candidate,Shelley Berkley,Shelley,Berkley,2012
+Nevada,rep_candidate,Dean Heller,Dean,Heller,2012
+New Jersey,dem_candidate,Bob Menendez,Bob,Menendez,2012
+New Jersey,rep_candidate,Joe Kyrillos,Joe,Kyrillos,2012
+New Mexico,dem_candidate,Martin Heinrich,Martin,Heinrich,2012
+New Mexico,rep_candidate,Heather Wilson,Heather,Wilson,2012
+New York,dem_candidate,Kirsten Gillibrand,Kirsten,Gillibrand,2012
+New York,rep_candidate,Wendy E. Long,Wendy,Long,2012
+North Dakota,dem_candidate,Heidi Heitkamp,Heidi,Heitkamp,2012
+North Dakota,rep_candidate,Rick Berg,Rick,Berg,2012
+Ohio,dem_candidate,Sherrod Brown,Sherrod,Brown,2012
+Ohio,rep_candidate,Josh Mandel,Josh,Mandel,2012
+Pennsylvania,dem_candidate,Bob Casey Jr.,Bob,Casey,2012
+Pennsylvania,rep_candidate,Tom Smith,Tom,Smith,2012
+Rhode Island,dem_candidate,Sheldon Whitehouse,Sheldon,Whitehouse,2012
+Rhode Island,rep_candidate,Barry Hinckley,Barry,Hinckley,2012
+Tennessee,dem_candidate,Mark Clayton,Mark,Clayton,2012
+Tennessee,rep_candidate,Bob Corker,Bob,Corker,2012
+Texas,dem_candidate,Paul Sadler,Paul,Sadler,2012
+Texas,rep_candidate,Ted Cruz,Ted,Cruz,2012
+Utah,dem_candidate,Scott Howell,Scott,Howell,2012
+Utah,rep_candidate,Orrin Hatch,Orrin,Hatch,2012
+Vermont,rep_candidate,John MacGovern,John,MacGovern,2012
+Virginia,dem_candidate,Tim Kaine,Tim,Kaine,2012
+Virginia,rep_candidate,George Allen,George,Allen,2012
+Washington,dem_candidate,Maria Cantwell,Maria,Cantwell,2012
+Washington,rep_candidate,Michael Baumgartner,Michael,Baumgartner,2012
+West Virginia,dem_candidate,Joe Manchin,Joe,Manchin,2012
+West Virginia,rep_candidate,John Raese,John,Raese,2012
+Wisconsin,dem_candidate,Tammy Baldwin,Tammy,Baldwin,2012
+Wisconsin,rep_candidate,Tommy Thompson,Tommy,Thompson,2012
+Wyoming,dem_candidate,Tim Chesnut,Tim,Chesnut,2012
+Wyoming,rep_candidate,John Barrasso,John,Barrasso,2012
+Alabama,rep_candidate,Jeff Sessions,Jeff,Sessions,2014
+Alaska,dem_candidate,Mark Begich,Mark,Begich,2014
+Alaska,rep_candidate,Dan Sullivan,Dan,Sullivan,2014
+Arkansas,dem_candidate,Mark Pryor,Mark,Pryor,2014
+Arkansas,rep_candidate,Tom Cotton,Tom,Cotton,2014
+Colorado,dem_candidate,Mark Udall,Mark,Udall,2014
+Colorado,rep_candidate,Cory Gardner,Cory,Gardner,2014
+Delaware,dem_candidate,Chris Coons,Chris,Coons,2014
+Delaware,rep_candidate,Kevin Wade,Kevin,Wade,2014
+Georgia,dem_candidate,Michelle Nunn,Michelle,Nunn,2014
+Georgia,rep_candidate,David Perdue,David,Perdue,2014
+Idaho,dem_candidate,Nels Mitchell,Nels,Mitchell,2014
+Idaho,rep_candidate,Jim Risch,Jim,Risch,2014
+Illinois,dem_candidate,Dick Durbin,Dick,Durbin,2014
+Illinois,rep_candidate,Jim Oberweis,Jim,Oberweis,2014
+Iowa,dem_candidate,Bruce Braley,Bruce,Braley,2014
+Iowa,rep_candidate,Joni Ernst,Joni,Ernst,2014
+Kansas,rep_candidate,Pat Roberts,Pat,Roberts,2014
+Kentucky,dem_candidate,Alison Lundergan Grimes,Alison,Grimes,2014
+Kentucky,rep_candidate,Mitch McConnell,Mitch,McConnell,2014
+Louisiana,dem_candidate,Mary Landrieu,Mary,Landrieu,2014
+Louisiana,rep_candidate,Bill Cassidy,Bill,Cassidy,2014
+Maine,dem_candidate,Shenna Bellows,Shenna,Bellows,2014
+Maine,rep_candidate,Susan Collins,Susan,Collins,2014
+Massachusetts,dem_candidate,Ed Markey,Ed,Markey,2014
+Massachusetts,rep_candidate,Brian Herr,Brian,Herr,2014
+Michigan,dem_candidate,Gary Peters,Gary,Peters,2014
+Michigan,rep_candidate,Terri Lynn Land,Terri,Land,2014
+Minnesota,dem_candidate,Al Franken,Al,Franken,2014
+Minnesota,rep_candidate,Mike McFadden,Mike,McFadden,2014
+Mississippi,dem_candidate,Travis Childers,Travis,Childers,2014
+Mississippi,rep_candidate,Thad Cochran,Thad,Cochran,2014
+Montana,dem_candidate,Amanda Curtis,Amanda,Curtis,2014
+Montana,rep_candidate,Steve Daines,Steve,Daines,2014
+Nebraska,dem_candidate,David Domina,David,Domina,2014
+Nebraska,rep_candidate,Ben Sasse,Ben,Sasse,2014
+New Hampshire,dem_candidate,Jeanne Shaheen,Jeanne,Shaheen,2014
+New Hampshire,rep_candidate,Scott Brown,Scott,Brown,2014
+New Jersey,dem_candidate,Cory Booker,Cory,Booker,2014
+New Jersey,rep_candidate,Jeff Bell,Jeff,Bell,2014
+New Mexico,dem_candidate,Tom Udall,Tom,Udall,2014
+New Mexico,rep_candidate,Allen Weh,Allen,Weh,2014
+North Carolina,dem_candidate,Kay Hagan,Kay,Hagan,2014
+North Carolina,rep_candidate,Thom Tillis,Thom,Tillis,2014
+Oklahoma,dem_candidate,Matt Silverstein,Matt,Silverstein,2014
+Oklahoma,rep_candidate,Jim Inhofe,Jim,Inhofe,2014
+Oregon,dem_candidate,Jeff Merkley,Jeff,Merkley,2014
+Oregon,rep_candidate,Monica Wehby,Monica,Wehby,2014
+Rhode Island,dem_candidate,Jack Reed,Jack,Reed,2014
+Rhode Island,rep_candidate,Mark Zaccaria,Mark,Zaccaria,2014
+South Carolina,dem_candidate,Brad Hutto,Brad,Hutto,2014
+South Carolina,rep_candidate,Lindsey Graham,Lindsey,Graham,2014
+South Dakota,dem_candidate,Rick Weiland,Rick,Weiland,2014
+South Dakota,rep_candidate,Mike Rounds,Mike,Rounds,2014
+Tennessee,dem_candidate,Gordon Ball,Gordon,Ball,2014
+Tennessee,rep_candidate,Lamar Alexander,Lamar,Alexander,2014
+Texas,dem_candidate,David Alameel,David,Alameel,2014
+Texas,rep_candidate,John Cornyn,John,Cornyn,2014
+Virginia,dem_candidate,Mark Warner,Mark,Warner,2014
+Virginia,rep_candidate,Ed Gillespie,Ed,Gillespie,2014
+West Virginia,dem_candidate,Natalie Tennant,Natalie,Tennant,2014
+West Virginia,rep_candidate,Shelley Moore Capito,Shelley,Capito,2014
+Wyoming,dem_candidate,Charlie Hardy,Charlie,Hardy,2014
+Wyoming,rep_candidate,Mike Enzi,Mike,Enzi,2014
+Alabama,dem_candidate,Ron Crumpton,Ron,Crumpton,2016
+Alabama,rep_candidate,Richard Shelby,Richard,Shelby,2016
+Alaska,rep_candidate,Lisa Murkowski,Lisa,Murkowski,2016
+Arizona,dem_candidate,Ann Kirkpatrick,Ann,Kirkpatrick,2016
+Arizona,rep_candidate,John McCain,John,McCain,2016
+Arkansas,dem_candidate,Conner Eldridge,Conner,Eldridge,2016
+Arkansas,rep_candidate,John Boozman,John,Boozman,2016
+Colorado,dem_candidate,Michael Bennet,Michael,Bennet,2016
+Colorado,rep_candidate,Darryl Glenn,Darryl,Glenn,2016
+Connecticut,dem_candidate,Richard Blumenthal,Richard,Blumenthal,2016
+Connecticut,rep_candidate,Dan Carter,Dan,Carter,2016
+Florida,dem_candidate,Patrick Murphy,Patrick,Murphy,2016
+Florida,rep_candidate,Marco Rubio,Marco,Rubio,2016
+Georgia,dem_candidate,Jim Barksdale,Jim,Barksdale,2016
+Georgia,rep_candidate,Johnny Isakson,Johnny,Isakson,2016
+Hawaii,dem_candidate,Brian Schatz,Brian,Schatz,2016
+Hawaii,rep_candidate,John Carroll,John,Carroll,2016
+Idaho,dem_candidate,Jerry Sturgill,Jerry,Sturgill,2016
+Idaho,rep_candidate,Mike Crapo,Mike,Crapo,2016
+Illinois,dem_candidate,Tammy Duckworth,Tammy,Duckworth,2016
+Illinois,rep_candidate,Mark Kirk,Mark,Kirk,2016
+Indiana,dem_candidate,Evan Bayh,Evan,Bayh,2016
+Indiana,rep_candidate,Todd Young,Todd,Young,2016
+Iowa,dem_candidate,Patty Judge,Patty,Judge,2016
+Iowa,rep_candidate,Chuck Grassley,Chuck,Grassley,2016
+Kansas,dem_candidate,Patrick Wiesner,Patrick,Wiesner,2016
+Kansas,rep_candidate,Jerry Moran,Jerry,Moran,2016
+Kentucky,dem_candidate,Jim Gray,Jim,Gray,2016
+Kentucky,rep_candidate,Rand Paul,Rand,Paul,2016
+Louisiana,dem_candidate,Foster Campbell,Foster,Campbell,2016
+Louisiana,rep_candidate,John Kennedy,John,Kennedy,2016
+Maryland,dem_candidate,Chris Van Hollen,Chris,Hollen,2016
+Maryland,rep_candidate,Kathy Szeliga,Kathy,Szeliga,2016
+Missouri,dem_candidate,Jason Kander,Jason,Kander,2016
+Missouri,rep_candidate,Roy Blunt,Roy,Blunt,2016
+Nevada,dem_candidate,Catherine Cortez Masto,Catherine,Masto,2016
+Nevada,rep_candidate,Joe Heck,Joe,Heck,2016
+New Hampshire,dem_candidate,Maggie Hassan,Maggie,Hassan,2016
+New Hampshire,rep_candidate,Kelly Ayotte,Kelly,Ayotte,2016
+New York,dem_candidate,Chuck Schumer,Chuck,Schumer,2016
+New York,rep_candidate,Wendy Long,Wendy,Long,2016
+North Carolina,dem_candidate,Deborah Ross,Deborah,Ross,2016
+North Carolina,rep_candidate,Richard Burr,Richard,Burr,2016
+North Dakota,dem_candidate,Eliot Glassheim,Eliot,Glassheim,2016
+North Dakota,rep_candidate,John Hoeven,John,Hoeven,2016
+Ohio,dem_candidate,Ted Strickland,Ted,Strickland,2016
+Ohio,rep_candidate,Rob Portman,Rob,Portman,2016
+Oklahoma,dem_candidate,Mike Workman,Mike,Workman,2016
+Oklahoma,rep_candidate,James Lankford,James,Lankford,2016
+Oregon,dem_candidate,Ron Wyden,Ron,Wyden,2016
+Oregon,rep_candidate,Mark Callahan,Mark,Callahan,2016
+Pennsylvania,dem_candidate,Katie McGinty,Katie,McGinty,2016
+Pennsylvania,rep_candidate,Pat Toomey,Pat,Toomey,2016
+South Carolina,dem_candidate,Thomas Dixon,Thomas,Dixon,2016
+South Carolina,rep_candidate,Tim Scott,Tim,Scott,2016
+South Dakota,dem_candidate,Jay Williams,Jay,Williams,2016
+South Dakota,rep_candidate,John Thune,John,Thune,2016
+Utah,dem_candidate,Misty K. Snow,Misty,Snow,2016
+Utah,rep_candidate,Mike Lee,Mike,Lee,2016
+Vermont,dem_candidate,Patrick Leahy,Patrick,Leahy,2016
+Vermont,rep_candidate,Scott Milne,Scott,Milne,2016
+Washington,dem_candidate,Patty Murray,Patty,Murray,2016
+Washington,rep_candidate,Chris Vance,Chris,Vance,2016
+Wisconsin,dem_candidate,Russ Feingold,Russ,Feingold,2016
+Wisconsin,rep_candidate,Ron Johnson,Ron,Johnson,2016
+Arizona,dem_candidate,Kyrsten Sinema,Kyrsten,Sinema,2018
+Arizona,rep_candidate,Martha McSally,Martha,McSally,2018
+Connecticut,dem_candidate,Chris Murphy,Chris,Murphy,2018
+Connecticut,rep_candidate,Matthew Corey,Matthew,Corey,2018
+Delaware,dem_candidate,Tom Carper,Tom,Carper,2018
+Delaware,rep_candidate,Robert Arlett,Robert,Arlett,2018
+Florida,dem_candidate,Bill Nelson,Bill,Nelson,2018
+Florida,rep_candidate,Rick Scott,Rick,Scott,2018
+Hawaii,dem_candidate,Mazie Hirono,Mazie,Hirono,2018
+Hawaii,rep_candidate,Ron Curtis,Ron,Curtis,2018
+Indiana,dem_candidate,Joe Donnelly,Joe,Donnelly,2018
+Indiana,rep_candidate,Mike Braun,Mike,Braun,2018
+Maine,dem_candidate,Zak Ringelstein,Zak,Ringelstein,2018
+Maine,rep_candidate,Eric Brakey,Eric,Brakey,2018
+Maryland,dem_candidate,Ben Cardin,Ben,Cardin,2018
+Maryland,rep_candidate,Tony Campbell,Tony,Campbell,2018
+Massachusetts,dem_candidate,Elizabeth Warren,Elizabeth,Warren,2018
+Massachusetts,rep_candidate,Geoff Diehl,Geoff,Diehl,2018
+Michigan,dem_candidate,Debbie Stabenow,Debbie,Stabenow,2018
+Michigan,rep_candidate,John James,John,James,2018
+Minnesota,dem_candidate,Amy Klobuchar,Amy,Klobuchar,2018
+Minnesota,rep_candidate,Jim Newberger,Jim,Newberger,2018
+Mississippi,dem_candidate,David Baria,David,Baria,2018
+Mississippi,rep_candidate,Roger Wicker,Roger,Wicker,2018
+Missouri,dem_candidate,Claire McCaskill,Claire,McCaskill,2018
+Missouri,rep_candidate,Josh Hawley,Josh,Hawley,2018
+Montana,dem_candidate,Jon Tester,Jon,Tester,2018
+Montana,rep_candidate,Matt Rosendale,Matt,Rosendale,2018
+Nebraska,dem_candidate,Jane Raybould,Jane,Raybould,2018
+Nebraska,rep_candidate,Deb Fischer,Deb,Fischer,2018
+Nevada,dem_candidate,Jacky Rosen,Jacky,Rosen,2018
+Nevada,rep_candidate,Dean Heller,Dean,Heller,2018
+New Jersey,dem_candidate,Bob Menendez,Bob,Menendez,2018
+New Jersey,rep_candidate,Bob Hugin,Bob,Hugin,2018
+New Mexico,dem_candidate,Martin Heinrich,Martin,Heinrich,2018
+New Mexico,rep_candidate,Mick Rich,Mick,Rich,2018
+New York,dem_candidate,Kirsten Gillibrand,Kirsten,Gillibrand,2018
+New York,rep_candidate,Chele Chiavacci Farley,Chele,Farley,2018
+North Dakota,dem_candidate,Heidi Heitkamp,Heidi,Heitkamp,2018
+North Dakota,rep_candidate,Kevin Cramer,Kevin,Cramer,2018
+Ohio,dem_candidate,Sherrod Brown,Sherrod,Brown,2018
+Ohio,rep_candidate,Jim Renacci,Jim,Renacci,2018
+Pennsylvania,dem_candidate,Bob Casey Jr.,Bob,Casey,2018
+Pennsylvania,rep_candidate,Lou Barletta,Lou,Barletta,2018
+Rhode Island,dem_candidate,Sheldon Whitehouse,Sheldon,Whitehouse,2018
+Rhode Island,rep_candidate,Robert Flanders,Robert,Flanders,2018
+Tennessee,dem_candidate,Phil Bredesen,Phil,Bredesen,2018
+Tennessee,rep_candidate,Marsha Blackburn,Marsha,Blackburn,2018
+Texas,dem_candidate,Beto O'Rourke,Beto,O'Rourke,2018
+Texas,rep_candidate,Ted Cruz,Ted,Cruz,2018
+Utah,dem_candidate,Jenny Wilson,Jenny,Wilson,2018
+Utah,rep_candidate,Mitt Romney,Mitt,Romney,2018
+Vermont,rep_candidate,Lawrence Zupan,Lawrence,Zupan,2018
+Virginia,dem_candidate,Tim Kaine,Tim,Kaine,2018
+Virginia,rep_candidate,Corey Stewart,Corey,Stewart,2018
+Washington,dem_candidate,Maria Cantwell,Maria,Cantwell,2018
+Washington,rep_candidate,Susan Hutchison,Susan,Hutchison,2018
+West Virginia,dem_candidate,Joe Manchin,Joe,Manchin,2018
+West Virginia,rep_candidate,Patrick Morrisey,Patrick,Morrisey,2018
+Wisconsin,dem_candidate,Tammy Baldwin,Tammy,Baldwin,2018
+Wisconsin,rep_candidate,Leah Vukmir,Leah,Vukmir,2018
+Wyoming,dem_candidate,Gary Trauner,Gary,Trauner,2018
+Wyoming,rep_candidate,John Barrasso,John,Barrasso,2018
+Georgia,dem_candidate,Zell Miller,Zell,Miller,2000
+Georgia,rep_candidate,Mack Mattingly,Mack,Mattingly,2000
+Missouri,dem_candidate,Jean Carnahan,Jean,Carnahan,2002
+Missouri,rep_candidate,Jim Talent,Jim,Talent,2002
+Mississippi,dem_candidate,Ronnie Musgrove,Ronnie,Musgrove,2008
+Mississippi,rep_candidate,Roger Wicker,Roger,Wicker,2008
+Wyoming,dem_candidate,Nick Carter,Nick,Carter,2008
+Wyoming,rep_candidate,John Barrasso,John,Barrasso,2008
+Massachusetts,dem_candidate,Martha Coakley,Martha,Coakley,2010
+Massachusetts,rep_candidate,Scott Brown,Scott,Brown,2010
+Delaware,dem_candidate,Chris Coons,Chris,Coons,2010
+Delaware,rep_candidate,Christine O'Donnell,Christine,O'Donnell,2010
+Illinois,dem_candidate,Alexi Giannoulias,Alexi,Giannoulias,2010
+Illinois,rep_candidate,Mark Kirk,Mark,Kirk,2010
+New York,dem_candidate,Kirsten Gillibrand,Kirsten,Gillibrand,2010
+New York,rep_candidate,Joseph DioGuardi,Joseph,DioGuardi,2010
+West Virginia,dem_candidate,Joe Manchin,Joe,Manchin,2010
+West Virginia,rep_candidate,John Raese,John,Raese,2010
+Hawaii,dem_candidate,Brian Schatz,Brian,Schatz,2014
+Hawaii,rep_candidate,Campbell Cavasso,Campbell,Cavasso,2014
+Oklahoma,dem_candidate,Connie Johnson,Connie,Johnson,2014
+Oklahoma,rep_candidate,James Lankford,James,Lankford,2014
+South Carolina,dem_candidate,Joyce Dickerson,Joyce,Dickerson,2014
+South Carolina,rep_candidate,Tim Scott,Tim,Scott,2014
+Minnesota,dem_candidate,Tina Smith,Tina,Smith,2018
+Minnesota,rep_candidate,Karin Housley,Karin,Housley,2018
+Mississippi,dem_candidate,Mike Espy,Mike,Espy,2018
+Mississippi,rep_candidate,Cindy Hyde-Smith,Cindy,Hyde-Smith,2018

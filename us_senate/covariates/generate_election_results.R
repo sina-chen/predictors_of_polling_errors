@@ -5,7 +5,7 @@
 # note: It is assumed, your working directory is set to the root folder of this 
 #       github repo
 ################################################################################
-load("data/senate/1976-2018-senate.RData")
+load("data/us_senate/1976-2018-senate.RData")
 
 # limit to elections of interest
 senate_results <- x[,c('year', 'state_po', 'party', 'candidatevotes', 'totalvotes','special')] %>% 
@@ -44,7 +44,7 @@ reshaped_results %>%
          dem_result2 = dem_result/(rep_result + dem_result)) -> senate_results_final
 
 # save tidy election results
-write_csv(senate_results_final, "data/senate/senate_results.csv")
+write_csv(senate_results_final, "data/us_senate/senate_election_results.csv")
 
 
 

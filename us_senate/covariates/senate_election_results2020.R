@@ -32,5 +32,5 @@ senate_results2020 <- senate_results2020 %>%
          dem_result2 = dem_result/(rep_result + dem_result),
          election_year = 2020)
 
-saveRDS(subset(senate_results2020,select = -c(RPT.)),'senate_election_results2020.RDS')
+saveRDS(subset(senate_results2020,select = -c(RPT.)),'data/us_senate/senate_election_results2020.RDS')
   

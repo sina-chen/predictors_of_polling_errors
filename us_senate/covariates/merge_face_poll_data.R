@@ -6,8 +6,9 @@ library(tidyverse)
 
 # --------------------------------------------------------------------------- #
 
-polls <- read.csv('data/senate/senate_wiki_merged.csv')
-faces <- read.csv('data/senate/race_gender_checked.csv')
+# polls are not part of github as they are fee-based
+polls <- read.csv('data/us_senate/senate_wiki_merged.csv') 
+faces <- read.csv('data/us_senate/race_gender_checked.csv')
 
 # --------------------------------------------------------------------------- #
 
