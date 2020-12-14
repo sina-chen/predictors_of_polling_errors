@@ -15,7 +15,7 @@ library(wiqid)
 
 #### Data ####
 
-polls <- readRDS("senate_polls1998_2018_score_new.RDS")
+polls <- readRDS("senate_polls1998_2018_score.RDS")
 
 
 #------------------------------------------------------------------------------#
@@ -66,6 +66,19 @@ score_long_cf_st <- election %>%
 
 score_long_st <- rbind(score_long_rf_st, score_long_cf_st)
 
+# Year mean cf-score by party
+year_mean_cf <- election %>%
+  group_by(election_year) %>%
+  summarise_at(vars(cf_score_rep, cf_score_dem), mean, na.rm = T) %>% 
+  melt(id.vars = c('election_year'), variable.name = 'party', value.name = 'cf_score')
+
+year_mean_rf <- election %>%
+  group_by(election_year) %>%
+  summarise_at(vars(rf_score_rep, rf_score_dem), mean, na.rm = T) %>% 
+  melt(id.vars = c('election_year'), variable.name = 'party', 
+       value.name = 'rf_score')
+
+
 
 #------------------------------------------------------------------------------#
 
@@ -86,3 +99,17 @@ ggplot(score_long, aes(x = score_value, color = score_type)) +
                                 'CF scoe Rep.', 'CF scoe Dem.'), 
                      values = c('darkred', 'darkblue', 'red', 'blue')) +
   labs(x = 'Score')
+
+# Year mean cf score by party 
+ggplot(year_mean_cf, aes(x = election_year, y = cf_score, color = party)) +
+geom_line() +
+  geom_point() +
+  scale_color_discrete(name = 'Party', labels = c('Rep.', 'Dem.')) +
+  labs(x = 'Year', y = 'Year mean CF Score') 
+
+# Year mean rf score by party 
+ggplot(year_mean_rf, aes(x = election_year, y = rf_score, color = party)) +
+  geom_line() +
+  geom_point() +
+  scale_color_discrete(name = 'Party', labels = c('Rep.', 'Dem.')) +
+  labs(x = 'Year', y = 'Year mean RF Score') 
