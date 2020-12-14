@@ -117,6 +117,7 @@ name_fec_id <- name_fec_id %>%
                                      str_detect(first_name.y, 'james') == T & str_detect(first_name.x, 'jim') == T |
                                      str_detect(first_name.y, 'richard') == T & str_detect(first_name.x, 'rick|dick') == T|
                                      str_detect(first_name.y, 'robert') == T & str_detect(first_name.x, 'bob') == T|
+                                     str_detect(first_name.y, 'rob') == T & str_detect(first_name.x, 'robert') == T|
                                      str_detect(first_name.y, 'christopher') == T & str_detect(first_name.x, 'kit') == T|
                                      str_detect(first_name.y, 'michael') == T & str_detect(first_name.x, 'mike') == T|
                                      str_detect(first_name.y, 'leonard') == T & str_detect(first_name.x, 'len') == T|
