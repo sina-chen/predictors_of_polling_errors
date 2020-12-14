@@ -13,7 +13,7 @@ library(reshape2)
 
 #### Data ####
 
-polls <- readRDS("~senate_polls1998_2018_score_new.RDS")
+polls <- readRDS("~senate_polls1998_2018_score.RDS")
 
 
 #-------------------------------------------------------------------------------
