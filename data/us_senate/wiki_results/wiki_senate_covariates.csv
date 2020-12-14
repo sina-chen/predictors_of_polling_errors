@@ -253,7 +253,7 @@ FALSE,Martin Heinrich,Heather Wilson,4,2012,New Mexico,Jeff Bingaman
 TRUE,Kirsten Gillibrand,Wendy E. Long,5,2012,New York,Kirsten Gillibrand
 FALSE,Heidi Heitkamp,Rick Berg,2,2012,North Dakota,Kent Conrad
 TRUE,Sherrod Brown,Josh Mandel,3,2012,Ohio,Sherrod Brown
-FALSE,Bob Casey Jr.,Tom Smith,3,2012,Pennsylvania,Bob Casey Jr.
+TRUE,Bob Casey Jr.,Tom Smith,3,2012,Pennsylvania,Bob Casey Jr.
 TRUE,Sheldon Whitehouse,Barry Hinckley,2,2012,Rhode Island,Sheldon Whitehouse
 TRUE,Mark Clayton,Bob Corker,5,2012,Tennessee,Bob Corker
 FALSE,Paul Sadler,Ted Cruz,4,2012,Texas,Kay Bailey Hutchison
@@ -265,9 +265,9 @@ TRUE,Joe Manchin,John Raese,3,2012,West Virginia,Joe Manchin
 FALSE,Tammy Baldwin,Tommy Thompson,4,2012,Wisconsin,Herb Kohl
 TRUE,Tim Chesnut,John Barrasso,3,2012,Wyoming,John Barrasso
 TRUE,NA,Jeff Sessions,1,2014,Alabama,Jeff Sessions
-FALSE,Mark Begich,Dan Sullivan,4,2014,Alaska,Mark Begich
-FALSE,Mark Pryor,Tom Cotton,4,2014,Arkansas,Mark Pryor
-FALSE,Mark Udall,Cory Gardner,6,2014,Colorado,Mark Udall
+TRUE,Mark Begich,Dan Sullivan,4,2014,Alaska,Mark Begich
+TRUE,Mark Pryor,Tom Cotton,4,2014,Arkansas,Mark Pryor
+TRUE,Mark Udall,Cory Gardner,6,2014,Colorado,Mark Udall
 TRUE,Chris Coons,Kevin Wade,3,2014,Delaware,Chris Coons
 FALSE,Michelle Nunn,David Perdue,3,2014,Georgia,Saxby Chambliss
 TRUE,Nels Mitchell,Jim Risch,2,2014,Idaho,Jim Risch
@@ -275,7 +275,7 @@ TRUE,Dick Durbin,Jim Oberweis,3,2014,Illinois,Dick Durbin
 FALSE,Bruce Braley,Joni Ernst,6,2014,Iowa,Tom Harkin
 TRUE,NA,Pat Roberts,3,2014,Kansas,Pat Roberts
 TRUE,Alison Lundergan Grimes,Mitch McConnell,3,2014,Kentucky,Mitch McConnell
-FALSE,Mary Landrieu,Bill Cassidy,2,2014,Louisiana,Mary Landrieu
+TRUE,Mary Landrieu,Bill Cassidy,2,2014,Louisiana,Mary Landrieu
 TRUE,Shenna Bellows,Susan Collins,2,2014,Maine,Susan Collins
 TRUE,Ed Markey,Brian Herr,2,2014,Massachusetts,Ed Markey
 FALSE,Gary Peters,Terri Lynn Land,5,2014,Michigan,Carl Levin
@@ -286,7 +286,7 @@ FALSE,David Domina,Ben Sasse,4,2014,Nebraska,Mike Johanns
 TRUE,Jeanne Shaheen,Scott Brown,2,2014,New Hampshire,Jeanne Shaheen
 TRUE,Cory Booker,Jeff Bell,7,2014,New Jersey,Cory Booker
 TRUE,Tom Udall,Allen Weh,2,2014,New Mexico,Tom Udall
-FALSE,Kay Hagan,Thom Tillis,3,2014,North Carolina,Kay Hagan
+TRUE,Kay Hagan,Thom Tillis,3,2014,North Carolina,Kay Hagan
 TRUE,Matt Silverstein,Jim Inhofe,5,2014,Oklahoma,Jim Inhofe
 TRUE,Jeff Merkley,Monica Wehby,5,2014,Oregon,Jeff Merkley
 TRUE,Jack Reed,Mark Zaccaria,2,2014,Rhode Island,Jack Reed
@@ -316,7 +316,7 @@ FALSE,Foster Campbell,John Kennedy,2,2016,Louisiana,David Vitter
 FALSE,Chris Van Hollen,Kathy Szeliga,3,2016,Maryland,Barbara Mikulski
 TRUE,Jason Kander,Roy Blunt,3,2016,Missouri,Roy Blunt
 FALSE,Catherine Cortez Masto,Joe Heck,5,2016,Nevada,Harry Reid
-FALSE,Maggie Hassan,Kelly Ayotte,3,2016,New Hampshire,Kelly Ayotte
+TRUE,Maggie Hassan,Kelly Ayotte,3,2016,New Hampshire,Kelly Ayotte
 TRUE,Chuck Schumer,Wendy Long,4,2016,New York,Chuck Schumer
 TRUE,Deborah Ross,Richard Burr,3,2016,North Carolina,Richard Burr
 TRUE,Eliot Glassheim,John Hoeven,3,2016,North Dakota,John Hoeven
