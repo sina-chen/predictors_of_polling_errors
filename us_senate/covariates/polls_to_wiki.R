@@ -8,14 +8,14 @@
 # read in data from different folders (git & nextcloud)
 wikipedia_covariates_join <- read_csv("data/us_senate/wiki_results/wiki_senate_covariates.csv")
 
-polls_senate1998_2018_clean <- readRDS("path_to_scraped_polls")
+polls_senate1998_2020_clean <- readRDS("path_to_scraped_polls")
 
 # ready to merge
 str_replace_all(string = wikipedia_covariates_join$state_long,
                 pattern=" ", repl="") -> wikipedia_covariates_join$state_long
 
 # merge poll data with wiki data
-polls_senate1998_2018_clean %>% 
+polls_senate1998_2020_clean %>% 
   left_join(wikipedia_covariates_join, 
             by = c("election_year", "state_long"),
             keep = TRUE) %>% distinct() -> join_df
