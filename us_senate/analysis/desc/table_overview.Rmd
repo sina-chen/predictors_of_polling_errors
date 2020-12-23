@@ -9,16 +9,13 @@ library(knitr)
 library(formattable)
 library(tidyverse)
 
-setwd('/Users/john/Documents/polling-errors/predictors_of_polling_errors/')
-df_polls <- read_csv("data/senate/senate_polls_merged_refactored.csv")
-df_results <- read_csv("data/senate/senate_results_phil.csv")
 
 # merge data
-data_senate <- merge(df_polls, df_results, by = c('election_year', 'state'), all.x = T )
+polls <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_polls1998_2018_score.RDS")
 
 
 # fix gender / race data
-data_senate <- data_senate %>%
+polls <- polls %>%
   mutate(clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Alan Schlesinger', 'white'),
          clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Dan Bongino', 'hispanic'),
          clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Jim Huffman', 'white'),
@@ -29,7 +26,7 @@ data_senate <- data_senate %>%
          clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Robert Lorge', 'hispanic')) %>%
   as.data.frame()
 
-data_senate <- data_senate %>%
+polls <- polls %>%
   mutate(clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Barbara Boxer', 'white'),
          clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Bob Menendez', 'white'),
          clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Catherine Cortez Masto', 'white'),
@@ -40,111 +37,51 @@ data_senate <- data_senate %>%
          clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Sam Granato', 'white')) %>%
   as.data.frame()
 
-data_senate <- data_senate %>%
+polls <- polls %>%
   mutate(clarifai_gender_dem = replace(clarifai_gender_dem, clarifai_gender_dem == 'Misty K. Snow', 'feminine'),
          clarifai_gender_rep = replace(clarifai_gender_rep, clarifai_gender_rep == 'Slade Gorton', 'masculine')) %>%
   as.data.frame()
 
-
-# compute days until election, gender and race dummy, incumbency dummy, two-party vote share
-data_senate <- data_senate %>%
+# compute gender, race and incumbency dummy
+polls <- polls %>%
   mutate(gender_rep_dummy = if_else(clarifai_gender_rep == 'feminine', 1, 0),
          gender_dem_dummy = if_else(clarifai_gender_dem == 'feminine', 1, 0),
          race_rep_dummy = if_else(clarifai_race_rep != 'white', 1, 0),
          race_dem_dummy = if_else(clarifai_race_dem != 'white', 1, 0),
-         state_year = paste0(election_year, '_', state),
-         rep_poll2 = rep_vote/(rep_vote + dem_vote)
+         inc_rep_dummy = if_else(rep_candidate == senator, 1, 0),
+         inc_dem_dummy = if_else(dem_candidate == senator, 1, 0),
+         state_year = paste0(election_year, '_', state)
   )
 
-
-# Subset complete cases
-data_senate <- data_senate %>% 
+# subset complete cases
+polls <- polls %>% 
   subset(!is.na(gender_rep_dummy) &
            !is.na(gender_dem_dummy) &
            !is.na(race_rep_dummy) &
            !is.na(race_dem_dummy) &
-           !is.na(rep_poll2) &
-           !is.na(rep_result2) &
            !is.na(n))
 
-df <- data_senate %>% 
-  select(election_year, state, rep_result2, rep_poll2, # rep_poll2_av, bias, region_group4
-         gender_rep_dummy, gender_dem_dummy, race_rep_dummy, race_dem_dummy)
+variables_table <- polls %>%
+  select(election_year, state, rep_result2, rep_poll2, 
+         gender_rep_dummy, gender_dem_dummy, race_rep_dummy, race_dem_dummy,
+         inc_rep_dummy, inc_dem_dummy)
 
-# aggregate
-df <- df %>% 
-  group_by(election_year, state) %>% 
-  summarise(rep_poll2_av = mean(rep_poll2, na.rm = T),
-            rep_result2 = mean(rep_result2, na.rm = T),
-            gender_rep = mean(gender_rep_dummy, na.rm = T), 
-            gender_dem= mean(gender_dem_dummy, na.rm = T), 
-            race_rep = mean(race_rep_dummy, na.rm = T), 
-            race_dem = mean(race_dem_dummy, na.rm = T),
-            n_polls = n())
+# aggregate election-level data
+election <- variables_table %>% 
+  group_by(election_year, state, gender_rep_dummy, gender_dem_dummy, 
+           race_rep_dummy, race_dem_dummy, inc_rep_dummy, inc_dem_dummy) %>% 
+  summarise(n_polls = n(),
+            bias_poll = round(mean(rep_poll2 - rep_result2), 5),
+            var_poll = round(var(rep_poll2, na.rm = T), 5)) %>% 
+  relocate(election_year, state, bias_poll, var_poll)
 
-# Add groups (source: https://en.wikipedia.org/wiki/United_States_Census_Bureau)
-df <- df %>%
-  mutate(region_group4 = case_when(state == 'CT'|
-                                     state == 'ME'|
-                                     state == 'MA'|
-                                     state == 'NH'|
-                                     state == 'NJ'|
-                                     state == 'NY'|
-                                     state == 'PA'|
-                                     state == 'RI'|
-                                     state == 'VT' ~ 'Northeast',
-                                   state == 'IL'|
-                                     state == 'IN'|
-                                     state == 'IA'|
-                                     state == 'KS'|
-                                     state == 'MI'|
-                                     state == 'MN'|
-                                     state == 'MO'|
-                                     state == 'NE'|
-                                     state == 'ND'|
-                                     state == 'OH'|
-                                     state == 'SD'|
-                                     state == 'WI' ~ 'Midwest',
-                                   state == 'AL'|
-                                     state == 'AR'|
-                                     state == 'DE'|
-                                     state == 'FL'|
-                                     state == 'GA'|
-                                     state == 'KY'|
-                                     state == 'LA'|
-                                     state == 'MD'|
-                                     state == 'MS'|
-                                     state == 'NC'|
-                                     state == 'OK'|
-                                     state == 'SC'|
-                                     state == 'TN'|
-                                     state == 'TX'|
-                                     state == 'VA'|
-                                     state == 'WV' ~ 'South',
-                                   state == 'AZ'|
-                                     state == 'AK'|
-                                     state == 'CA'|
-                                     state == 'CO'|
-                                     state == 'HI'|
-                                     state == 'ID'|
-                                     state == 'MT'|
-                                     state == 'NV'|
-                                     state == 'NM'|
-                                     state == 'UT'|
-                                     state == 'OR'|
-                                     state == 'WA'|
-                                     state == 'WY' ~ 'West'))
 
-df$bias <- round(df$rep_poll2_av - df$rep_result2, digits = 2)
-
-df <- df %>% 
-  select(election_year, state, region_group4, rep_result2, rep_poll2_av, bias, 
-         gender_rep, gender_dem, race_rep, race_dem, n_polls)
 ```
 
 Overview by Election:
 
 ```{r table, echo=FALSE}
+
 # formattable(df)
 
 color_tile2 <- function (...) {
@@ -156,12 +93,15 @@ color_tile2 <- function (...) {
                                                byrow=TRUE, dimnames=list(c("red","green","blue"), NULL), nrow=3)))
   })}
 
-formattable(df, list(
-  bias = color_tile2(c("red", "white", "green")),
-  gender_rep = color_tile("white", "cornflowerblue"),
-  gender_dem = color_tile("white", "cornflowerblue"),
-  race_rep = color_tile("white", "cornflowerblue"),
-  race_dem = color_tile("white", "cornflowerblue")
+formattable(election, list(
+  bias_poll = color_tile2(c("red", "white", "green")),
+  var_poll = color_tile("white", "red"),
+  gender_rep_dummy = color_tile("white", "cornflowerblue"),
+  gender_dem_dummy = color_tile("white", "cornflowerblue"),
+  race_rep_dummy = color_tile("white", "cornflowerblue"),
+  race_dem_dummy = color_tile("white", "cornflowerblue"),
+  inc_rep_dummy = color_tile("white", "cornflowerblue"),
+  inc_dem_dummy = color_tile("white", "cornflowerblue")
   )
 )
 ```
