@@ -54,22 +54,23 @@ polls <- polls %>%
   )
 
 # subset complete cases
-polls <- polls %>% 
-  subset(!is.na(gender_rep_dummy) &
-           !is.na(gender_dem_dummy) &
-           !is.na(race_rep_dummy) &
-           !is.na(race_dem_dummy) &
-           !is.na(n))
+# polls <- polls %>% 
+#   subset(!is.na(gender_rep_dummy) &
+#            !is.na(gender_dem_dummy) &
+#            !is.na(race_rep_dummy) &
+#            !is.na(race_dem_dummy) &
+#            !is.na(n))
 
 variables_table <- polls %>%
   select(election_year, state, rep_result2, rep_poll2, 
          gender_rep_dummy, gender_dem_dummy, race_rep_dummy, race_dem_dummy,
-         inc_rep_dummy, inc_dem_dummy)
+         inc_rep_dummy, inc_dem_dummy, cf_score_rep, cf_score_dem)
 
 # aggregate election-level data
 election <- variables_table %>% 
   group_by(election_year, state, gender_rep_dummy, gender_dem_dummy, 
-           race_rep_dummy, race_dem_dummy, inc_rep_dummy, inc_dem_dummy) %>% 
+           race_rep_dummy, race_dem_dummy, inc_rep_dummy, inc_dem_dummy, 
+           cf_score_rep, cf_score_dem) %>% 
   summarise(n_polls = n(),
             bias_poll = round(mean(rep_poll2 - rep_result2), 5),
             var_poll = round(var(rep_poll2, na.rm = T), 5)) %>% 
@@ -101,7 +102,9 @@ formattable(election, list(
   race_rep_dummy = color_tile("white", "cornflowerblue"),
   race_dem_dummy = color_tile("white", "cornflowerblue"),
   inc_rep_dummy = color_tile("white", "cornflowerblue"),
-  inc_dem_dummy = color_tile("white", "cornflowerblue")
+  inc_dem_dummy = color_tile("white", "cornflowerblue"),
+  cf_score_rep = color_tile("white", "red"),
+  cf_score_dem = color_tile("cornflowerblue", "white")
   )
 )
 ```
