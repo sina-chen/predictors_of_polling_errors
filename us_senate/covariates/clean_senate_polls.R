@@ -51,6 +51,13 @@ senate_results1998_2020 <- rbind(senate_results,senate_results2020)
 data_results <- merge (data_raw, senate_results1998_2020, 
                        by = c('state', 'election_year')) # election results for speciale elections are not included
 
+# Remove special election in MS 2008
+data_results <- data_results[-which(data_results$election_year == 2008 &
+                                      data_results$state == 'MS' &
+                                      str_detect(data_results$rep_candidate, 
+                                                 'Wicker') == T),]
+
+
 # Compute days until election
 data_results <- data_results %>%
   mutate(
@@ -68,6 +75,14 @@ data_results <- data_results %>%
     election_year == '2016' ~ difftime(as.Date('11/08/2016','%m/%d/%Y'), date),
     election_year == '2018' ~ difftime(as.Date('11/06/2018','%m/%d/%Y'), date),
     election_year == '2020' ~ difftime(as.Date('11/03/2020','%m/%d/%Y'), date)))
+
+# Compute dummmy indicating wether a special election took place simultaneously
+data_results <- data_results %>% 
+  mutate(sim_special = if_else(state == 'WY' & election_year == 2008 |
+                                 state == 'SC' & election_year == 2014 |
+                                 state == 'MN' & election_year == 2018 |
+                                 state == 'MS' & election_year == 2018, 1, 0))
+
 
 # Remove runoff elections (t < 0; 13 obs.)
 data_results <- data_results %>%
