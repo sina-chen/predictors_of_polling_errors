@@ -74,7 +74,9 @@ election <- variables_table %>%
   summarise(n_polls = n(),
             bias_poll = round(mean(rep_poll2 - rep_result2), 5),
             var_poll = round(var(rep_poll2, na.rm = T), 5)) %>% 
-  relocate(election_year, state, bias_poll, var_poll)
+  relocate(election_year, state, bias_poll, var_poll) %>% 
+  arrange(bias_poll)
+  
 
 
 ```
@@ -82,8 +84,6 @@ election <- variables_table %>%
 Overview by Election:
 
 ```{r table, echo=FALSE}
-
-# formattable(df)
 
 color_tile2 <- function (...) {
   formatter("span", style = function(x) {
