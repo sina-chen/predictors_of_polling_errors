@@ -4,6 +4,8 @@
 # read file
 file_list <- list.files(path = "data/us_senate/wikipedia/senate", pattern = "X2020")
 
+
+senate_election_results2020 <- readRDS("/data/us_senate/senate_election_results2020.RDS")
 setwd("data/us_senate/wikipedia/senate")
 
 all_files_purr <- purrr::map(file_list, ~readr::read_csv(.x, skip = 1) %>% 
@@ -88,8 +90,14 @@ df_2020_states <- df_2020_states %>%
   rowwise() %>% 
   mutate(incumbency = Democratic %in% incumbent | Republican %in% incumbent) 
 
+
+### merge with election results
 df_2020_states %>% 
   left_join(senate_election_results2020, by = c("state_short" = "state")) %>% 
   filter(!state_short == "GA", !state_short == "AR") %>% 
   select(-election_year.y) %>% 
   rename(election_year = "election_year.x")-> df_join
+
+### write file to data folder
+
+write_csv(df_join, "data/us_senate/wiki_results_2020.csv")
