@@ -77,27 +77,45 @@ df_senate_2020_final %>%
   select(-state_number) %>% 
   rename(state_long = 5, incumbent = 6) -> df_2020
 
-abbrevations_states <- read_delim("~/Downloads/abbrevations_states.csv",
-                                  ";", escape_double = FALSE, trim_ws = TRUE) %>% 
-  select(X2, X3) %>% mutate(X2 = tolower(X2))
+### append to existing wikipedia data and write to wik_senate_covariates.csv
+
+wiki_senate_covariates <- read_csv("data/us_senate/wiki_results/wiki_senate_covariates.csv")
 
 df_2020 %>% 
-  mutate(state_long = tolower(state_long)) %>% 
-  left_join(abbrevations_states, by = c("state_long" = "X2")) %>% 
-  rename(state_short = X3) -> df_2020_states
-
-df_2020_states <- df_2020_states %>% 
+  rename(rep_candidate = "Republican", dem_candidate = "Democratic",
+         senator = "incumbent") %>% 
   rowwise() %>% 
-  mutate(incumbency = Democratic %in% incumbent | Republican %in% incumbent) 
+  mutate(incumbency = dem_candidate %in% senator | rep_candidate %in% senator) -> df_2020
+
+wiki_senate_covariates %>% 
+  bind_rows(df_2020) %>% 
+  write_csv("data/us_senate/wiki_results/wiki_senate_covariates.csv")
+
+
+
+### merge with results
+#abbrevations_states <- read_delim("~/Downloads/abbrevations_states.csv",
+#                                  ";", escape_double = FALSE, trim_ws = TRUE) %>% 
+#  select(X2, X3) %>% mutate(X2 = tolower(X2))
+
+#df_2020 %>% 
+#  mutate(state_long = tolower(state_long)) %>% 
+#  left_join(abbrevations_states, by = c("state_long" = "X2")) %>% 
+# rename(state_short = X3) -> df_2020_states
+
+#df_2020_states <- df_2020_states %>% 
+#  rowwise() %>% 
+#  mutate(incumbency = Democratic %in% incumbent | Republican %in% incumbent) 
+
 
 
 ### merge with election results
-df_2020_states %>% 
-  left_join(senate_election_results2020, by = c("state_short" = "state")) %>% 
-  filter(!state_short == "GA", !state_short == "AR") %>% 
-  select(-election_year.y) %>% 
-  rename(election_year = "election_year.x")-> df_join
+#df_2020_states %>% 
+#  left_join(senate_election_results2020, by = c("state_short" = "state")) %>% 
+#  filter(!state_short == "GA", !state_short == "AR") %>% 
+#  select(-election_year.y) %>% 
+#  rename(election_year = "election_year.x")-> df_join
 
 ### write file to data folder
 
-write_csv(df_join, "data/us_senate/wiki_results_2020.csv")
+# write_csv(df_join, "data/us_senate/wiki_results_2020.csv")
