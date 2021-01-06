@@ -13,6 +13,7 @@ faces <- read.csv('data/us_senate/race_gender_checked.csv')
 # --------------------------------------------------------------------------- #
 
 polls$dem_candidate <- str_remove_all(polls$dem_candidate, ',')
+polls$dem_candidate <- str_replace_all(polls$dem_candidate, 'á', 'a')
 
 faces <- faces %>% 
   select(candidate, gender_checked, race_checked)

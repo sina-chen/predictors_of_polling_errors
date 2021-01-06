@@ -87,6 +87,16 @@ df_final$other_candidate <- coalesce(!!!other_parties)
 df_final$lib_candidate <- df_final$Libertarian
 
 
+# again remove white space
+
+df_final %>% 
+  mutate(across(where(is.character), trimws, "left")) -> df_final
+
+# recode one observation with diverging names
+
+recode(df_final$dem_candidate, 
+       `Bob Casey, Jr.` = "Bob Casey Jr.") -> df_final$dem_candidate
+
 # create dummy variable if incumbent runs for re-election
 
 df_final <- df_final %>% 
@@ -95,10 +105,7 @@ df_final <- df_final %>%
            lib_candidate %in% Senator | green_candidate %in% Senator |
            ind_candidate %in% Senator | other_candidate %in% Senator) 
 
-# again remove white space
 
-df_final %>% 
-  mutate(across(where(is.character), trimws, "left")) -> df_final
 
 
 # remove elections where more than one candidate from the major parties runs for office
@@ -107,7 +114,4 @@ df_final <- df_final[grep("c(", df_final$dem_candidate, invert = TRUE, fixed = T
 
 df_final <- df_final[grep("c(", df_final$rep_candidate, invert = TRUE, fixed = TRUE) , ]
 
-# recode one observation with diverging names
 
-recode(df_final$dem_candidate, 
-       `Bob Casey, Jr.` = "Bob Casey Jr.") -> df_final$dem_candidate

@@ -164,8 +164,10 @@ fec_id_rep <- name_fec_id %>%
 
 poll_fec <- merge(poll_fec, fec_id_rep, 
               by = c('rep_candidate', 'state'), all.x = T)  %>% 
+
   relocate(state, election_year, date, rep_candidate, dem_candidate) %>% 
   select(-X1)
+
 
 
 #saveRDS(poll_fec, 'senate_polls_fec_id.RDS')

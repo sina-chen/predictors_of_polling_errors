@@ -113,3 +113,26 @@ ggplot(year_mean_rf, aes(x = election_year, y = rf_score, color = party)) +
   geom_point() +
   scale_color_discrete(name = 'Party', labels = c('Rep.', 'Dem.')) +
   labs(x = 'Year', y = 'Year mean RF Score') 
+
+# Scatterplot score comparison
+ggplot(election, aes(x = election_year)) +
+  geom_point(aes(y = cf_score_rep, color = 'CF score')) +
+  geom_point(aes(y = rf_score_rep, color = 'RF score')) +
+  facet_wrap(~state, ncol = 10) +
+  labs(x = 'Year', y = 'Score Rep. candidate') +
+  scale_color_manual(values = c('CF score' = 'orange', 'RF score' = 'green4'),
+                     name = '') +
+  ggtitle('CF vs. RF score Rep. candidate') + 
+  theme(axis.text.x = element_text(angle = 45)) +
+  scale_x_continuous(breaks=seq(1998, 2018, 4))
+
+ggplot(election, aes(x = election_year)) +
+  geom_point(aes(y = cf_score_dem, color = 'CF score')) +
+  geom_point(aes(y = rf_score_dem, color = 'RF score')) +
+  facet_wrap(~state, ncol = 10) +
+  labs(x = 'Year', y = 'Score Dem. candidate') +
+  scale_color_manual(values = c('CF score' = 'orange', 'RF score' = 'green4'),
+                     name = '') +
+  ggtitle('CF vs. RF score Dem. candidate') + 
+  theme(axis.text.x = element_text(angle = 45)) +
+  scale_x_continuous(breaks=seq(1998, 2018, 4))
