@@ -41,10 +41,12 @@ senate_polls_merged <- read_csv("senate_polls_merged.csv")
 cn_senate <- cn %>% 
   subset(CAND_OFFICE == 'S' & CAND_PTY_AFFILIATION == 'REP' |
            CAND_OFFICE == 'S' & CAND_PTY_AFFILIATION == 'DEM'|
-           CAND_OFFICE == 'S' & CAND_PTY_AFFILIATION == 'DFL') %>%
+           CAND_OFFICE == 'S' & CAND_PTY_AFFILIATION == 'DFL'|
+           CAND_OFFICE == 'S' & CAND_PTY_AFFILIATION == 'IND' & CAND_ID == 'S0AK00196') %>% # ind. candidate was Dem. nominee
   select(CAND_ID, CAND_NAME, CAND_PTY_AFFILIATION, CAND_ELECTION_YR, 
          CAND_OFFICE_ST, CAND_PCC) %>%
-  distinct()
+  distinct() %>% 
+  subset(str_detect(CAND_ID, '^H') == F)
 
 # split name into first name and last name
 cn_senate <- cn_senate$CAND_NAME %>%
@@ -55,6 +57,7 @@ cn_senate <- cn_senate$CAND_NAME %>%
   mutate(last_name = tolower(last_name),
          first_name = str_remove_all(tolower(first_name), 
                                      '^[a-z] | [a-z]$| dr| jr| senator| iii')) %>% 
+  mutate(last_name = str_replace_all(last_name, 'ben david', 'ben-david')) %>% 
   cbind(cn_senate) %>%
   rename(state = CAND_OFFICE_ST, 
          election_year = CAND_ELECTION_YR)
@@ -62,12 +65,12 @@ cn_senate <- cn_senate$CAND_NAME %>%
 ### Polls ###
 
 # subset candidates, election_year and state &
-# remove double entries &
-# reshape to long format &
+  # remove double entries &
+  # reshape to long format &
 poll_name <- senate_polls_merged %>%
   select(rep_candidate, dem_candidate, state, election_year) %>% 
   distinct() %>%
-  melt(id.vars = c('state', 'election_year')) %>% 
+  reshape2::melt(id.vars = c('state', 'election_year')) %>% 
   rename(party = variable,
          name = value) %>%
   mutate(party = if_else(party == 'rep_candidate', 'REP', 'DEM'))
@@ -82,8 +85,6 @@ poll_name <- str_split_fixed(str_remove_all(poll_name$name, ' Jr.| III|,'),
          first_name = str_remove_all(tolower(first_name), ' [a-z][.]$')) %>%
   cbind(poll_name)
 
-
-#### Merge ####
 
 #-------------------------------------------------------------------------------
 #### Merge ####
@@ -162,7 +163,10 @@ fec_id_rep <- name_fec_id %>%
   distinct() 
 
 poll_fec <- merge(poll_fec, fec_id_rep, 
-              by = c('rep_candidate', 'state'), all.x = T)
+              by = c('rep_candidate', 'state'), all.x = T)  %>% 
+  relocate(state, election_year, date, rep_candidate, dem_candidate) %>% 
+  select(-X1)
 
 
 #saveRDS(poll_fec, 'senate_polls_fec_id.RDS')
+
