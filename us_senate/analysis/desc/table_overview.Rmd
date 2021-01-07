@@ -11,7 +11,7 @@ library(tidyverse)
 
 
 # merge data
-polls <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_polls1998_2020_score.RDS")
+polls <- readRDS("senate_polls1998_2020_score.RDS")
 
 # compute gender, race and incumbency dummy
 polls <- polls %>%
