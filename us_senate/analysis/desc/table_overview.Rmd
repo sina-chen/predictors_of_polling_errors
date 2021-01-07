@@ -11,36 +11,7 @@ library(tidyverse)
 
 
 # merge data
-polls <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_polls1998_2018_score.RDS")
-
-
-# fix gender / race data
-polls <- polls %>%
-  mutate(clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Alan Schlesinger', 'white'),
-         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Dan Bongino', 'hispanic'),
-         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Jim Huffman', 'white'),
-         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Linda Smith', 'white'),
-         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Lou Barletta', 'white'),
-         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Philip Giordano', 'white'),
-         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Rick Lazio', 'white'),
-         clarifai_race_rep = replace(clarifai_race_rep, clarifai_race_rep == 'Robert Lorge', 'hispanic')) %>%
-  as.data.frame()
-
-polls <- polls %>%
-  mutate(clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Barbara Boxer', 'white'),
-         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Bob Menendez', 'white'),
-         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Catherine Cortez Masto', 'white'),
-         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Harold Ford Jr.', 'black'),
-         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Ken Salazar', 'white'),
-         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Paul Hodes', 'white'),
-         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Rick Noriega', 'white'),
-         clarifai_race_dem = replace(clarifai_race_dem, clarifai_race_dem == 'Sam Granato', 'white')) %>%
-  as.data.frame()
-
-polls <- polls %>%
-  mutate(clarifai_gender_dem = replace(clarifai_gender_dem, clarifai_gender_dem == 'Misty K. Snow', 'feminine'),
-         clarifai_gender_rep = replace(clarifai_gender_rep, clarifai_gender_rep == 'Slade Gorton', 'masculine')) %>%
-  as.data.frame()
+polls <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_polls1998_2020_score.RDS")
 
 # compute gender, race and incumbency dummy
 polls <- polls %>%
