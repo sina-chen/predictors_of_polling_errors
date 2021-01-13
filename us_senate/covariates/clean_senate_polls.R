@@ -93,7 +93,7 @@ data_results$state_long <- str_remove_all(data_results$state_long,' ')
 
 # Clean senator names
 data_results <- data_results %>%
-  mutate_at(vars(ends_with('candidate')), list(~ sub("- ", "\\1", .)))
+  mutate_at(vars(ends_with('candidate')), list(~ sub("- |-", "\\1", .)))
 
 # Save polls
 saveRDS(data_results, "polls_senate1998_2020_clean.RDS")
