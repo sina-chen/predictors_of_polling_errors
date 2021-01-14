@@ -65,6 +65,6 @@ sen_faces_checked <- sen_faces_checked %>%
          race_checked = replace(race_checked, candidate == 'Spencer Abraham', 'White')) %>%
   as.data.frame()
 
-write.csv(sen_faces, 'predictors_of_polling_errors/data/us_senate/race_gender_checked.csv')
+write.csv(sen_faces_checked, 'predictors_of_polling_errors/data/us_senate/race_gender_checked.csv')
 
 # --------------------------------------------------------------------------- #
