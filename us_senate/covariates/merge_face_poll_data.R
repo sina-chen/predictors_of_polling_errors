@@ -16,12 +16,12 @@ polls$dem_candidate <- str_remove_all(polls$dem_candidate, ',')
 polls$dem_candidate <- str_replace_all(polls$dem_candidate, 'á', 'a')
 
 faces <- faces %>% 
-  select(candidate, gender_checked, race_checked)
+  select(candidate, gender, race)
 
 # dem_candidate
 faces <- rename(faces, dem_candidate = candidate, 
-                clarifai_gender_dem = gender_checked, 
-                clarifai_race_dem = race_checked)
+                clarifai_gender_dem = gender, 
+                clarifai_race_dem = race)
 
 polls <- merge(x = polls, y = faces, by = "dem_candidate", all.x = TRUE)
 
