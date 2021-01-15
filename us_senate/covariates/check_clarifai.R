@@ -69,3 +69,19 @@ sen_faces_checked <- sen_faces_checked %>%
 write.csv(sen_faces_checked, 'predictors_of_polling_errors/data/us_senate/race_gender_checked.csv')
 
 # --------------------------------------------------------------------------- #
+
+# overview
+
+unique(sen_faces_checked$race_checked)
+
+sen_faces_checked <- sen_faces_checked %>% 
+  select(candidate, party, race_checked, gender_checked)
+
+sen_faces_checked[sen_faces_checked$race_checked == "White", ]
+sen_faces_checked[sen_faces_checked$race_checked == "Black", ]
+sen_faces_checked[sen_faces_checked$race_checked == "Latino_Hispanic", ]
+sen_faces_checked[sen_faces_checked$race_checked == "Cuban", ]
+sen_faces_checked[sen_faces_checked$race_checked == "Italian", ]
+sen_faces_checked[sen_faces_checked$race_checked == "East Asian", ]
+sen_faces_checked[sen_faces_checked$race_checked == "Southeast Asian", ]
+
