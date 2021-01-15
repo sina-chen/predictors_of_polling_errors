@@ -11,37 +11,40 @@ library(tidyverse)
 
 
 # merge data
-polls <- readRDS("senate_polls1998_2020_score.RDS")
+polls <- readRDS("~/Documents/Uni/PollingError/senate/data/senate_polls1998_2020_score.RDS")
 
 # compute gender, race and incumbency dummy
 polls <- polls %>%
-  mutate(gender_rep_dummy = if_else(clarifai_gender_rep == 'feminine', 1, 0),
-         gender_dem_dummy = if_else(clarifai_gender_dem == 'feminine', 1, 0),
-         race_rep_dummy = if_else(clarifai_race_rep != 'white', 1, 0),
-         race_dem_dummy = if_else(clarifai_race_dem != 'white', 1, 0),
+  mutate(gender_rep_dummy = if_else(clarifai_gender_rep == 'Feminine', 1, 0),
+         gender_dem_dummy = if_else(clarifai_gender_dem == 'Feminine', 1, 0),
+         race_rep_dummy = if_else(clarifai_race_rep != 'White', 1, 0),
+         race_dem_dummy = if_else(clarifai_race_dem != 'White', 1, 0),
          inc_rep_dummy = if_else(rep_candidate == senator, 1, 0),
          inc_dem_dummy = if_else(dem_candidate == senator, 1, 0),
-         state_year = paste0(election_year, '_', state)
+         state_year = paste0(election_year, '_', state),
+         race_rep_cat = if_else(clarifai_race_rep == 'East Asian' |
+                                  clarifai_race_rep == 'Southeast Asian', 
+                                'Asian', clarifai_race_rep),
+         race_dem_cat = if_else(clarifai_race_dem == 'East Asian' |
+                                  clarifai_race_dem == 'Southeast Asian', 
+                                'Asian', clarifai_race_dem)
   )
 
 # subset complete cases
-# polls <- polls %>% 
-#   subset(!is.na(gender_rep_dummy) &
-#            !is.na(gender_dem_dummy) &
-#            !is.na(race_rep_dummy) &
-#            !is.na(race_dem_dummy) &
-#            !is.na(n))
+polls <- polls %>% 
+  subset(!is.na(n))
 
 variables_table <- polls %>%
   select(election_year, state, rep_result2, rep_poll2, 
          gender_rep_dummy, gender_dem_dummy, race_rep_dummy, race_dem_dummy,
-         inc_rep_dummy, inc_dem_dummy, cf_score_rep, cf_score_dem)
+         inc_rep_dummy, inc_dem_dummy, cf_score_rep, cf_score_dem, 
+         race_rep_cat, race_dem_cat)
 
 # aggregate election-level data
 election <- variables_table %>% 
   group_by(election_year, state, gender_rep_dummy, gender_dem_dummy, 
            race_rep_dummy, race_dem_dummy, inc_rep_dummy, inc_dem_dummy, 
-           cf_score_rep, cf_score_dem) %>% 
+           cf_score_rep, cf_score_dem, race_rep_cat, race_dem_cat) %>% 
   summarise(n_polls = n(),
             bias_poll = round(mean(rep_poll2 - rep_result2), 5),
             var_poll = round(var(rep_poll2, na.rm = T), 5)) %>% 
@@ -64,6 +67,7 @@ color_tile2 <- function (...) {
           `background-color` = csscolor(matrix(as.integer(colorRamp(...)(normalize(as.numeric(x)))), 
                                                byrow=TRUE, dimnames=list(c("red","green","blue"), NULL), nrow=3)))
   })}
+
 
 formattable(election, list(
   bias_poll = color_tile2(c("red", "white", "green")),
