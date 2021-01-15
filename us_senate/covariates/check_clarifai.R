@@ -62,7 +62,8 @@ sen_faces_checked <- sen_faces_checked %>%
          race_checked = replace(race_checked, candidate == 'Mark Ronchetti', 'Italian'),
          race_checked = replace(race_checked, candidate == 'Pete Domenici', 'Italian'),
          race_checked = replace(race_checked, candidate == 'Gloria Tristani', 'Latino_Hispanic'),
-         race_checked = replace(race_checked, candidate == 'Spencer Abraham', 'White')) %>%
+         race_checked = replace(race_checked, candidate == 'Spencer Abraham', 'White'),
+         race_checked = replace(race_checked, candidate == 'Sara Gideon', 'Indian')) %>%
   as.data.frame()
 
 write.csv(sen_faces_checked, 'predictors_of_polling_errors/data/us_senate/race_gender_checked.csv')
