@@ -10,9 +10,13 @@ This repository is structured as follows:
   - a hierarchical bayesian model for analysing us presidential polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_president/analysis) folder.
 
 - The [us_senate](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate) folder contains code for:
-  - scraping US senate polls from 1998 to 2018 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/scrape) folder
+  - scraping US senate polls from 1998 to 2020 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/scrape) folder
   - cleaning the scraped polls and merging additional covariates in the [covariates](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/covariates) folder
   - a hierarchical bayesian model for analysing us senate polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/analysis) folder.
+  
+- The [german_bundestag](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag) folder contains code for:
+  - scraping German Bundestag's polls from 1998 to 2021 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
+
   
 Detailed descriptions for all code files can be found in the respective folders. 
 
