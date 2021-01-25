@@ -21,7 +21,7 @@ library(htmltab)
 library(zoo)
 library(data.table)
 
-source('code/scrape_wahlrecht_helper.R')
+source('scrape/scrape_wahlrecht_helper.R')
 
 
 #-------------------------------------------------------------------------------
@@ -82,9 +82,11 @@ df_clean[which(str_detect(df_clean$forecast, '[[:alpha:]]')),] <- df_clean[which
 # set empty cells to NA
 df_clean[df_clean == ""] <- NA
 
-# convert date 
+# convert date and add exact date dummy
 df_clean <- df_clean %>% 
-  mutate(date = as.Date(str_replace_all(date_raw, '[?][?]', '01'), '%d.%m.%Y'))
+  mutate(date = as.Date(str_replace_all(date_raw, '[?][?]', '01'), '%d.%m.%Y'),
+         exact_date = if_else(is.na(date) == F & 
+                                str_detect(date_raw, '[?]') == F, 1, 0))
 
 # fill missing dates with field period information
 df_clean <- df_clean %>% 
@@ -133,7 +135,7 @@ df_clean <- df_clean %>%
 
 # add results
 df_result <- add_results(df_clean, results) %>% 
-  relocate(election, date, institute, sample_size, period, party, sonst_parties,  forecast, result)
+  relocate(election, date, exact_date, institute, sample_size, period, party, sonst_parties,  forecast, result)
 
 # save result
 #saveRDS(df_result, 'data/bundestag_polls_1998_2021.RDS')
