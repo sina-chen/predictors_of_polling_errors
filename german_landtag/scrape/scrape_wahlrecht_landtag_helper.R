@@ -37,7 +37,16 @@ subset_polls <- function(raw_poll){
   res_pos <- which(str_detect(raw_poll[,1], 'Landtag') |
                      str_detect(raw_poll[,1], 'Abgeordnetenhauswahl')|
                      str_detect(raw_poll[,1], 'BÃ¼rgerschaftswahl')|
-                     str_detect(raw_poll[,3], 'Nachwahl')
+                     str_detect(raw_poll[,3], 'Nachwahl')|
+                     str_detect(raw_poll[,3], 'Werte')|
+                     str_detect(raw_poll[,5], 'â€“')|
+                     str_detect(raw_poll[,5], '[?]') |
+                     str_detect(raw_poll[,6], '[?]') |
+                     str_detect(raw_poll[,7], '[?]') |
+                     is.na(raw_poll[,5]) == T |
+                     is.na(raw_poll[,6]) == T |
+                     is.na(raw_poll[,7]) == T |
+                     is.na(raw_poll[,8]) == T
                     )
   
   sonstige_pos <- which(colnames(raw_poll) %in% c('Sonstige', 'Sonstige.1', 'FW',
@@ -71,9 +80,15 @@ subset_polls <- function(raw_poll){
                                         'sample_size', 'date'),
                      value.name = 'support',
                      variable.name = 'party') %>% 
-    mutate(support = str_remove_all(support, '%') %>% 
-             str_replace_all(',', '.') %>% 
-             as.numeric,
+    mutate(support = if_else(str_detect(support, '[[:digit:]]+\\,*[[:digit:]]*\\s[%][[:digit:]]+\\,*[[:digit:]]*\\s[%][*][*]') == T,
+                             str_replace_all(support, ',', '.') %>% 
+                               str_extract_all('[[:digit:]]+\\.*[[:digit:]]*') %>% 
+                               lapply(function(x) as.numeric(x)) %>% 
+                               lapply(function(x) sum(x)) %>% 
+                               unlist(), 
+                             str_remove_all(support, '%|[,][?]') %>% 
+                               str_replace_all(',', '.') %>% 
+                               as.numeric),
            date = as.Date(date, '%d.%m.%Y'),
            party = fct_recode(party, cdu = 'CDU',
                                        cdu = 'CSU',
@@ -146,17 +161,26 @@ clean_sample_size <- function(poll){
 
 # add election year 
 
-polls_election_long <- function(polls_state_list){
+add_election <- function(polls_state_list){
   
   # rbind each state
   polls_state_long <- lapply(polls_state_list,
                              function(x) do.call(what =  "rbind", x))
   
+  # reshape to wide
+  polls_state_wide <- lapply(polls_state_long, 
+                             function(x) reshape2::dcast(x, state +
+                                                           date + sample_size + 
+                                                           institute + client +
+                                                           rowid(party) ~ party, 
+                                                         value.var = 'support'))
+  
   # rbind all states
-  polls_long <- do.call(what = rbind, polls_state_long)
+  polls_wide <- do.call(what = rbind, polls_state_wide) %>% 
+    select(-'rowid(party)')
   
   # add election year
-  polls_long <- polls_long %>%
+  polls_wide <- polls_wide %>%
     mutate(election_year = case_when(state == 'baden-wuerttemberg' &
                                        date <= as.Date('24.03.1996', '%d.%m.%Y') ~ 1996,
                                      state == 'baden-wuerttemberg' &
@@ -202,7 +226,7 @@ polls_election_long <- function(polls_state_list){
                                        date <= as.Date('17.09.2006 ', '%d.%m.%Y') ~ 2006,
                                      state == 'berlin' &
                                        date > as.Date('17.09.2006', '%d.%m.%Y') &
-                                       date <= as.Date('18.09.2011', '%d.%m.%Y') ~ 20011,
+                                       date <= as.Date('18.09.2011', '%d.%m.%Y') ~ 2011,
                                      state == 'berlin' &
                                        date > as.Date('18.09.2011', '%d.%m.%Y') &
                                        date <= as.Date('18.09.2016 ', '%d.%m.%Y') ~ 2016,
@@ -435,7 +459,42 @@ polls_election_long <- function(polls_state_list){
                                        date > as.Date('27.10.2019', '%d.%m.%Y') ~ 2021
     ))
   
-  return(polls_long)
+  return(polls_wide)
+  
+}
+
+
+# clean institute names
+clean_institute <- function(polls_lt){
+  
+  polls_lt_clean <- polls_lt %>% mutate(institute_clean = str_remove_all(institute, '\\s[*]|[*]') %>% 
+                                          tolower() %>% 
+                                          str_replace_all('\\s', '_'),
+                                        institute_clean = if_else(institute_clean == 'forschâ€™gr.wahlen' |
+                                                                    institute_clean == 'forschungs-gruppe_wahlen'|
+                                                                    institute_clean == 'forschungs-gruppewahlen'|
+                                                                    institute_clean == 'forschungsgruppewahlen' |
+                                                                    institute_clean == 'fgwtelefonfeld', 'fgw', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'infratest_burke' |
+                                                                    institute_clean == 'infratestburke'|
+                                                                    institute_clean == 'infratestdimap'|
+                                                                    institute_clean == 'infratestpolitik-forschung' |
+                                                                    institute_clean == 'infratestpolitikforschung' |
+                                                                    institute_clean == 'infratestsozialforschung'|
+                                                                    institute_clean == 'tns_forschung'|
+                                                                    institute_clean == 'tns_infratest'|
+                                                                    institute_clean == 'tnsinfratest'|
+                                                                    institute_clean == 'nfo_infratest', 'infratest',institute_clean),
+                                        institute_clean = if_else(institute_clean == 'gessphone_&_field', 'gess', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'ifmleipzig', 'ifm_leipzig', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'universitã¤tkiel', 'uni_kiel', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'universitã¤thamburg', 'uni_hamburg', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'polis', 'polis_sinus', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'polis+sinus', 'polis_sinus', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'mifmmã¼nchen', 'mifm_muenchen', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'inra', 'ipsos', institute_clean)
+                                        
+  )
   
 }
 
@@ -454,7 +513,7 @@ subset_res <- function(raw_poll){
   # remove last entry (duplicated)
   res_pos <- res_pos[-length(res_pos)]
   
-  sonstige_pos <- which(colnames(raw_poll) %in% c('Sonstige', 'Datum', 'FW',
+  sonstige_pos <- which(colnames(raw_poll) %in% c('Sonstige', 'Sonstige.1', 'Datum', 'FW',
                                                   'PIRATEN', 'NPD', 'SSW',
                                                   'Pro DMSchill', 'Offensive(Ex-Schill)'))
   
@@ -468,7 +527,27 @@ subset_res <- function(raw_poll){
 add_oth_res <- function(res) {
   
   # remove duplicated col
-  res <- res[!duplicated(as.list(res))]
+  res <- res[!duplicated(as.list(res)) | colnames(res) == 'GRÃœNE']
+  
+  if (!'LINKE' %in% colnames(res)) {
+    res$LINKE <- NA
+  }
+    
+  if (!'AfD' %in% colnames(res)) {
+    res$AfD <- NA
+  }
+  
+  res <- res %>% 
+    mutate(LINKE = if_else(str_detect(LINKE, '[[:digit:]]+\\,*[[:digit:]]*\\s[%][[:digit:]]+\\,*[[:digit:]]*\\s[%][*][*]') == T,
+                           str_replace_all(LINKE, ',', '.') %>% 
+                             str_extract_all('[[:digit:]]+\\.*[[:digit:]]*') %>% 
+                             lapply(function(x) as.numeric(x)) %>% 
+                             lapply(function(x) sum(x)) %>% 
+                             unlist(), 
+                           str_remove_all(LINKE, '[%]|[*][*]|â€“') %>% 
+                             str_replace_all(',', '.') %>% 
+                             as.numeric())) %>%  
+    suppressWarnings()
   
   # remove %
   res <- lapply(res, function(x) str_remove_all(str_replace_all(x,'[,]', '.'), 
@@ -477,7 +556,8 @@ add_oth_res <- function(res) {
   
   # conver voteshares to numeric
   res[-1] <- lapply(res[-1], function(x) as.numeric(x)) %>%  
-    as.data.frame()
+    as.data.frame() %>% 
+    suppressWarnings()
   
   # compute col sums
   res$oth <- 100 - rowSums(res[,2:length(res)], na.rm = T)
@@ -502,8 +582,8 @@ add_election_info <- function(res) {
   
 }
 
-# relabel parties  and reshape to long
-party_names_long <- function(res_state_list){
+# relabel parties 
+party_names <- function(res_state_list){
   
   # reshape each state
   res_state_long <- lapply(res_state_list, 
@@ -526,6 +606,10 @@ party_names_long <- function(res_state_list){
                               afd = 'AfD'
     ) )
   
-  return(res_long)
+  res_wide <- reshape2::dcast(res_long, 
+                              election_year + state + election_date ~ party, 
+                              value.var = 'voteshare')
+  
+  return(res_wide)
 }
 
