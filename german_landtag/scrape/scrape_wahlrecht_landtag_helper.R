@@ -86,7 +86,7 @@ subset_polls <- function(raw_poll){
                                lapply(function(x) as.numeric(x)) %>% 
                                lapply(function(x) sum(x)) %>% 
                                unlist(), 
-                             str_remove_all(support, '%|[,][?]') %>% 
+                             str_remove_all(support, '%|[,][?]|[*][*]|[*]') %>% 
                                str_replace_all(',', '.') %>% 
                                as.numeric),
            date = as.Date(date, '%d.%m.%Y'),
