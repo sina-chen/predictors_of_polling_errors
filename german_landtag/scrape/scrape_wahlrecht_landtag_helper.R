@@ -510,8 +510,10 @@ subset_res <- function(raw_poll){
                      str_detect(raw_poll[,1], 'BÃ¼rgerschaftswahl')
   )
   
-  # remove last entry (duplicated)
-  res_pos <- res_pos[-length(res_pos)]
+  # remove last entry (duplicated) except fro RP 2001
+  if (any(str_detect(raw_poll[res_pos[length(res_pos)],1], 'Landtagswahl am 25[.]03[.]2001')) == F) {
+    res_pos <- res_pos[-length(res_pos)]
+  }
   
   sonstige_pos <- which(colnames(raw_poll) %in% c('Sonstige', 'Sonstige.1', 'Datum', 'FW',
                                                   'PIRATEN', 'NPD', 'SSW',
