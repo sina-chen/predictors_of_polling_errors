@@ -365,6 +365,9 @@ add_election <- function(polls_state_list){
                                        date > as.Date('14.05.2017', '%d.%m.%Y') ~ 2022,
                                      # rheinland-pfalz,
                                      state == 'rheinland-pfalz' &
+                                       date <= as.Date('25.03.2001', '%d.%m.%Y') ~ 2001,
+                                     state == 'rheinland-pfalz' &
+                                       date > as.Date('25.03.2001', '%d.%m.%Y') &
                                        date <= as.Date('26.03.2006', '%d.%m.%Y') ~ 2006,
                                      state == 'rheinland-pfalz' &
                                        date > as.Date('26.03.2006', '%d.%m.%Y') &
