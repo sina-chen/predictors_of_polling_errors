@@ -495,10 +495,12 @@ clean_institute <- function(polls_lt){
                                         institute_clean = if_else(institute_clean == 'polis', 'polis_sinus', institute_clean),
                                         institute_clean = if_else(institute_clean == 'polis+sinus', 'polis_sinus', institute_clean),
                                         institute_clean = if_else(institute_clean == 'mifmmã¼nchen', 'mifm_muenchen', institute_clean),
-                                        institute_clean = if_else(institute_clean == 'inra', 'ipsos', institute_clean)
-                                        
+                                        institute_clean = if_else(institute_clean == 'inra', 'ipsos', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'amrdã¼sseldorf', 'amr_düsseldorf', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'customerresearch_42', 'customer_research_42', institute_clean),
+                                        institute_clean = if_else(institute_clean == 'konkretmarktforschung', 'konkret_marktforschung', institute_clean)
+
   )
-  
 }
 
 
