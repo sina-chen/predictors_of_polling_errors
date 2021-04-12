@@ -16,7 +16,7 @@ library(Metrics)
 
 #### Directory ####
 
-pres_wd <- '~/Documents/Uni/PollingError/Scraping/code_github/president/test'
+pres_wd <- 'your_wd'
 setwd(pres_wd)
 
 
