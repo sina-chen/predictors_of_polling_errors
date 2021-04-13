@@ -64,7 +64,6 @@ election_result <- rbind(election_result, election_result2020)
 data_poll <- merge(data_poll, election_result, 
                              by = c('election_year', 'state'), all.x = F)
 
-rm(election_result, election_result2020)
 
 # Scale poll to percentage & compute two-party vote share
 data_poll <- data_poll %>%
@@ -84,13 +83,15 @@ data_poll$resp_formated <- sapply(data_poll$respondents, resp)
 
 # Add turnout (source: Wikipedia)
 turnout <- readRDS('turnout.RDS')
-data_poll <- merge(data_poll, turnout, by = c('state', 'election_year'))
+data_poll <- merge(data_poll, turnout, by = c('state', 'election_year'), 
+                   all.x = T)
 
 # Electoral votes
 data_ev <- readRDS('ev2000_2016.RDS')
 
 # Merge
-data_poll <- merge(data_poll, data_ev, by = c('election_year', 'state'))
+data_poll <- merge(data_poll, data_ev, by = c('election_year', 'state'),
+                   all.x = T)
 
 # National convention dummy
 data_poll <- data_poll %>%
@@ -185,6 +186,7 @@ data_poll <- data_poll %>%
                            state == 'OH' & election_year == 2020 ~ 1)) %>%
   mutate_at(vars(swing), ~replace(., is.na(.), 0))
 
+rm(election_result, election_result2020, data_ev, turnout)
 
 #### Save ####
 
