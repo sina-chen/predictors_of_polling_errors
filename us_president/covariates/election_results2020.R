@@ -9,6 +9,7 @@
 #### Libraries ####
 
 library(rvest)
+library(tidyverse)
 
 
 #-------------------------------------------------------------------------------
@@ -58,7 +59,7 @@ res_2020 <- res2020_raw[-c(1, nrow(res2020_raw) -1, nrow(res2020_raw)),] %>%
                          `Minn.` = 'MN',    
                          `Miss.` = 'MS',   
                          `Mo.` = 'MO',
-                         `Mont.` = 'MZ',    
+                         `Mont.` = 'MT',    
                          `Neb. †` = 'NE',   
                          `Nev.[o]` = 'NV',  
                          `N.H.` = 'NH',     
