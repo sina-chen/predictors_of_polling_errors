@@ -1,14 +1,17 @@
-########################################################################################
+#-------------------------------------------------------------------------------
 # Add information on national conventions, swing states and electoral votes
 # Author: Sina Chen
 # Notes: 
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
 #### Libraries ####
 
 library(lubridate)
 library(dplyr)
+library(usdata)
+
+source('helper_func_pres.R')
 
 #### Directory ####
 
@@ -19,6 +22,9 @@ setwd("your working directory")
 # Polls
 
 data_poll <- readRDS('pres_polls2000_2020.RDS') 
+
+
+#-------------------------------------------------------------------------------
 
 #### Add variables ####
 
@@ -51,9 +57,14 @@ data_poll <- data_poll %>%
 
 # Add election results (source: Wikipedia)
 election_result <- readRDS('election_result.RDS')
+election_result2020 <- readRDS('election_result2020.RDS') %>% 
+  mutate(election_year = 2020)
+election_result <- rbind(election_result, election_result2020)
 
 data_poll <- merge(data_poll, election_result, 
-                             by = c('election_year', 'state'))
+                             by = c('election_year', 'state'), all.x = F)
+
+rm(election_result, election_result2020)
 
 # Scale poll to percentage & compute two-party vote share
 data_poll <- data_poll %>%
@@ -62,7 +73,7 @@ data_poll <- data_poll %>%
          refused = as.numeric(refused)/100,
          undecided = as.numeric(undecided)/100,
          third_party = as.numeric(third_party)/100,
-         other <- as.numeric(other)/100,
+         other = as.numeric(other)/100,
          rep_result2 = rep_result/(rep_result + dem_result),
          dem_result2 = dem_result/(rep_result + dem_result),
          rep_poll2 = rep_poll/(rep_poll + dem_poll),
@@ -176,5 +187,6 @@ data_poll <- data_poll %>%
 
 
 #### Save ####
-saveRDS(data_poll, 'data_pres_poll2000_2020.RDS')
+
+#saveRDS(data_poll, 'pres_polls2000_2020_covariates.RDS')
 
