@@ -1,6 +1,5 @@
 #-------------------------------------------------------------------------------
-# Fit German Bundestag election polls 1990 - 2017
-#
+# Fit German Bundestag election polls 2013 - 2017 with AfD
 # Author: Sina Chen
 #
 #-------------------------------------------------------------------------------
@@ -19,7 +18,7 @@ library(reshape2)
 #### Data ####
 
 # poll data
-polls <- readRDS('~/data/polls1990_2017.RDS')
+polls <- readRDS('~/data/polls2013_2017.RDS')
 
 
 #-------------------------------------------------------------------------------
@@ -28,14 +27,9 @@ polls <- readRDS('~/data/polls1990_2017.RDS')
 
 # subset time window
 polls <- polls %>% 
-  subset(institute != 'civey' & election == 1990 & date >= as.Date('1990-01-01', '%Y-%m-%d')|
-           institute != 'civey' & election == 1994 & date >= as.Date('1994-01-01', '%Y-%m-%d')|
-           institute != 'civey' & election == 1998 & date >= as.Date('1998-01-01', '%Y-%m-%d')|
-           institute != 'civey' & election == 2002 & date >= as.Date('2002-01-01', '%Y-%m-%d')|
-           institute != 'civey' & election == 2005 & date >= as.Date('2005-01-01', '%Y-%m-%d')|
-           institute != 'civey' & election == 2009 & date >= as.Date('2009-01-01', '%Y-%m-%d')|
-           institute != 'civey' & election == 2013 & date >= as.Date('2013-01-01', '%Y-%m-%d')|
-           institute != 'civey' & election == 2017 & date >= as.Date('2017-01-01', '%Y-%m-%d'))
+  subset(institute != 'civey' & election == 2013 & date >= as.Date('2013-01-01', '%Y-%m-%d')|
+           institute != 'civey' & election == 2017 & date >= as.Date('2017-01-01', '%Y-%m-%d')) %>% 
+  subset(is.na(support) == F)
 
 # define order of groups
 order_kr <- unique(sort(paste0(polls$party,':',polls$election)))
@@ -102,10 +96,10 @@ sapply(stan_dat, range)
 
 resStan <- stan(file = "~/fit_stan/stan_ml/ml_bundestag.stan", 
                 data = stan_dat,
-                chains = 8, iter = 5000,
-                control = list(adapt_delta = 0.95,  max_treedepth = 12)
+                chains = 4, iter = 10000,
+                control = list(adapt_delta = 0.95)
 ) 
 
 #launch_shinystan(resStan)
 
- saveRDS(resStan, '~/fit_stan/resStan_bundestag01_1990_2017_inst.RDS') # 138 divergencies
+ saveRDS(resStan, '~/fit_stan/resStan_bundestag01_2013_2017_inst.RDS') # 323 divergencies
