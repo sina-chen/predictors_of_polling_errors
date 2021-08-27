@@ -16,24 +16,24 @@ library(usdata)
 #### Data ####
 
 # 538 polling data
-data <- read_csv("~/data/538/senate_polls_all.csv", col_names = T)[-1,]
+data <- read_csv("senate_polls_all.csv", col_names = T)[-1,]
 
 # elections in which third party recieved at least 5%
-third_party <- read_excel("~/data/538/senate_third_party.xlsx")
+third_party <- read_excel("data/us_senate/538/senate_third_party.xlsx")
 
 # indicator whether 
 #   candidate was one of the 2 major candidates in the general election and
 #   whether there are more than one candidate from the same party
-general <- read.csv("~/data/538/candidates_general_fte.csv", sep = ";")
+general <- read.csv("data/us_senate/538/candidates_general_fte.csv", sep = ";")
 
 # race_gender (preliminary)
-race_gender <- readRDS("~/data/race_gender/race_gender_all.RDS")
+race_gender <- readRDS("data/us_senate/538/race_gender_all.RDS")
 
 # election results
-load("~/data/mit_senate_results_1976_2020.RData")
+load("data/us_senate/538/mit_senate_results_1976_2020.RData")
 
 # incumbents 
-incumbents <-read_delim("data/538/incumbents_senate1990_2020.csv", delim = ";")
+incumbents <-read_delim("data/us_senate/538/incumbents_senate1990_2020.csv", delim = ";")
 
 
 #-------------------------------------------------------------------------------
