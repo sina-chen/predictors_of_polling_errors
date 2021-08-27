@@ -1,0 +1,534 @@
+﻿cycle;state;incumbent
+1998;Alabama;Richard Shelby
+1998;Alaska;Frank Murkowski
+1998;Arizona;John McCain
+1998;Arkansas;Dale Bumpers
+1998;California;Barbara Boxer
+1998;Colorado;Ben Nighthorse Campbell
+1998;Connecticut;Chris Dodd
+1998;Florida;Bob Graham
+1998;Georgia;Paul Coverdell
+1998;Hawaii;Daniel Inouye
+1998;Idaho;Dirk Kempthorne
+1998;Illinois;Carol Moseley Braun
+1998;Indiana;Dan Coats
+1998;Iowa;Chuck Grassley
+1998;Kansas;Sam Brownback
+1998;Kentucky;Wendell Ford
+1998;Louisiana;John Breaux
+1998;Maryland;Barbara Mikulski
+1998;Missouri;Kit Bond
+1998;Nevada;Harry Reid
+1998;New Hampshire;Judd Gregg
+1998;New York;Al D'Amato
+1998;North Carolina;Lauch Faircloth
+1998;North Dakota;Byron Dorgan
+1998;Ohio;John Glenn
+1998;Oklahoma;Don Nickles
+1998;Oregon;Ron Wyden
+1998;Pennsylvania;Arlen Specter
+1998;South Carolina;Ernest Hollings
+1998;South Dakota;Tom Daschle
+1998;Utah;Bob Bennett
+1998;Vermont;Patrick Leahy
+1998;Washington;Patty Murray
+1998;Wisconsin;Russ Feingold
+2000;Arizona;Jon Kyl
+2000;California;Dianne Feinstein
+2000;Connecticut;Joe Lieberman
+2000;Delaware;William Roth
+2000;Florida;Connie Mack III
+2000;Hawaii;Daniel Akaka
+2000;Indiana;Richard Lugar
+2000;Maine;Olympia Snowe
+2000;Maryland;Paul Sarbanes
+2000;Massachusetts;Ted Kennedy
+2000;Michigan;Spencer Abraham
+2000;Minnesota;Rod Grams
+2000;Mississippi;Trent Lott
+2000;Missouri;John Ashcroft
+2000;Montana;Conrad Burns
+2000;Nebraska;Bob Kerrey
+2000;Nevada;Richard Bryan
+2000;New Jersey;Frank Lautenberg
+2000;New Mexico;Jeff Bingaman
+2000;New York;Daniel Patrick Moynihan
+2000;North Dakota;Kent Conrad
+2000;Ohio;Mike DeWine
+2000;Pennsylvania;Rick Santorum
+2000;Rhode Island;Lincoln Chafee
+2000;Tennessee;Bill Frist
+2000;Texas;Kay Bailey Hutchison
+2000;Utah;Orrin Hatch
+2000;Vermont;Jim Jeffords
+2000;Virginia;Chuck Robb
+2000;Washington;Slade Gorton
+2000;West Virginia;Robert Byrd
+2000;Wisconsin;Herb Kohl
+2000;Wyoming;Craig L. Thomas
+2002;Alabama;Jeff Sessions
+2002;Alaska;Ted Stevens
+2002;Arkansas;Tim Hutchinson
+2002;Colorado;Wayne Allard
+2002;Delaware;Joe Biden
+2002;Georgia;Max Cleland
+2002;Idaho;Larry Craig
+2002;Illinois;Dick Durbin
+2002;Iowa;Tom Harkin
+2002;Kansas;Pat Roberts
+2002;Kentucky;Mitch McConnell
+2002;Louisiana;Mary Landrieu
+2002;Maine;Susan Collins
+2002;Massachusetts;John Kerry
+2002;Michigan;Carl Levin
+2002;Minnesota;Dean Barkley
+2002;Mississippi;Thad Cochran
+2002;Montana;Max Baucus
+2002;Nebraska;Chuck Hagel
+2002;New Hampshire;Bob Smith
+2002;New Jersey;Robert Torricelli
+2002;New Mexico;Pete Domenici
+2002;North Carolina;Jesse Helms
+2002;Oklahoma;Jim Inhofe
+2002;Oregon;Gordon H. Smith
+2002;Rhode Island;Jack Reed
+2002;South Carolina;Strom Thurmond
+2002;South Dakota;Tim Johnson
+2002;Tennessee;Fred Thompson
+2002;Texas;Phil Gramm
+2002;Virginia;John Warner
+2002;West Virginia;Jay Rockefeller
+2002;Wyoming;Mike Enzi
+2004;Alabama;Richard Shelby
+2004;Alaska;Lisa Murkowski
+2004;Arizona;John McCain
+2004;Arkansas;Blanche Lincoln
+2004;California;Barbara Boxer
+2004;Colorado;Ben Nighthorse Campbell
+2004;Connecticut;Chris Dodd
+2004;Florida;Bob Graham
+2004;Georgia;Zell Miller
+2004;Hawaii;Daniel Inouye
+2004;Idaho;Mike Crapo
+2004;Illinois;Peter Fitzgerald
+2004;Indiana;Evan Bayh
+2004;Iowa;Chuck Grassley
+2004;Kansas;Sam Brownback
+2004;Kentucky;Jim Bunning
+2004;Louisiana;John Breaux
+2004;Maryland;Barbara Mikulski
+2004;Missouri;Kit Bond
+2004;Nevada;Harry Reid
+2004;New Hampshire;Judd Gregg
+2004;New York;Chuck Schumer
+2004;North Carolina;John Edwards
+2004;North Dakota;Byron Dorgan
+2004;Ohio;George Voinovich
+2004;Oklahoma;Don Nickles
+2004;Oregon;Ron Wyden
+2004;Pennsylvania;Arlen Specter
+2004;South Carolina;Fritz Hollings
+2004;South Dakota;Tom Daschle
+2004;Utah;Bob Bennett
+2004;Vermont;Patrick Leahy
+2004;Washington;Patty Murray
+2004;Wisconsin;Russ Feingold
+2006;Arizona;Jon Kyl
+2006;California;Dianne Feinstein
+2006;Connecticut;Joe Lieberman
+2006;Delaware;Tom Carper
+2006;Florida;Bill Nelson
+2006;Hawaii;Daniel Akaka
+2006;Indiana;Richard Lugar
+2006;Maine;Olympia Snowe
+2006;Maryland;Paul Sarbanes
+2006;Massachusetts;Ted Kennedy
+2006;Michigan;Debbie Stabenow
+2006;Minnesota;Mark Dayton
+2006;Mississippi;Trent Lott
+2006;Missouri;Jim Talent
+2006;Montana;Conrad Burns
+2006;Nebraska;Ben Nelson
+2006;Nevada;John Ensign
+2006;New Jersey;Bob Menendez
+2006;New Mexico;Jeff Bingaman
+2006;New York;Hillary Clinton
+2006;North Dakota;Kent Conrad
+2006;Ohio;Mike DeWine
+2006;Pennsylvania;Rick Santorum
+2006;Rhode Island;Lincoln Chafee
+2006;Tennessee;Bill Frist
+2006;Texas;Kay Bailey Hutchison
+2006;Utah;Orrin Hatch
+2006;Vermont;Jim Jeffords
+2006;Virginia;George Allen
+2006;Washington;Maria Cantwell
+2006;West Virginia;Robert Byrd
+2006;Wisconsin;Herb Kohl
+2006;Wyoming;Craig L. Thomas
+2008;Alabama;Jeff Sessions
+2008;Alaska;Ted Stevens
+2008;Arkansas;Mark Pryor
+2008;Colorado;Wayne Allard
+2008;Delaware;Joe Biden
+2008;Georgia;Saxby Chambliss
+2008;Idaho;Larry Craig
+2008;Illinois;Dick Durbin
+2008;Iowa;Tom Harkin
+2008;Kansas;Pat Roberts
+2008;Kentucky;Mitch McConnell
+2008;Louisiana;Mary Landrieu
+2008;Maine;Susan Collins
+2008;Massachusetts;John Kerry
+2008;Michigan;Carl Levin
+2008;Minnesota;Norm Coleman
+2008;Mississippi;Thad Cochran
+2008;Montana;Max Baucus
+2008;Nebraska;Chuck Hagel
+2008;New Hampshire;John E. Sununu
+2008;New Jersey;Frank Lautenberg
+2008;New Mexico;Pete Domenici
+2008;North Carolina;Elizabeth Dole
+2008;Oklahoma;Jim Inhofe
+2008;Oregon;Gordon H. Smith
+2008;Rhode Island;Jack Reed
+2008;South Carolina;Lindsey Graham
+2008;South Dakota;Tim Johnson
+2008;Tennessee;Lamar Alexander
+2008;Texas;John Cornyn
+2008;Virginia;John Warner
+2008;West Virginia;Jay Rockefeller
+2008;Wyoming;Mike Enzi
+2010;Alabama;Richard Shelby
+2010;Alaska;Lisa Murkowski
+2010;Arizona;John McCain
+2010;Arkansas;Blanche Lincoln
+2010;California;Barbara Boxer
+2010;Colorado;Michael Bennet
+2010;Connecticut;Chris Dodd
+2010;Florida;George LeMieux
+2010;Georgia;Johnny Isakson
+2010;Hawaii;Daniel Inouye
+2010;Idaho;Mike Crapo
+2010;Illinois;Roland Burris
+2010;Indiana;Evan Bayh
+2010;Iowa;Chuck Grassley
+2010;Kansas;Sam Brownback
+2010;Kentucky;Jim Bunning
+2010;Louisiana;David Vitter
+2010;Maryland;Barbara Mikulski
+2010;Missouri;Kit Bond
+2010;Nevada;Harry Reid
+2010;New Hampshire;Judd Gregg
+2010;New York;Chuck Schumer
+2010;North Carolina;Richard Burr
+2010;North Dakota;Byron Dorgan
+2010;Ohio;George Voinovich
+2010;Oklahoma;Tom Coburn
+2010;Oregon;Ron Wyden
+2010;Pennsylvania;Arlen Specter
+2010;South Carolina;Jim DeMint
+2010;South Dakota;John Thune
+2010;Utah;Bob Bennett
+2010;Vermont;Patrick Leahy
+2010;Washington;Patty Murray
+2010;Wisconsin;Russ Feingold
+2012;Arizona;Jon Kyl
+2012;California;Dianne Feinstein
+2012;Connecticut;Joe Lieberman
+2012;Delaware;Tom Carper
+2012;Florida;Bill Nelson
+2012;Hawaii;Daniel Akaka
+2012;Indiana;Richard Lugar
+2012;Maine;Olympia Snowe
+2012;Maryland;Ben Cardin
+2012;Massachusetts;Scott Brown
+2012;Michigan;Debbie Stabenow
+2012;Minnesota;Amy Klobuchar
+2012;Mississippi;Roger Wicker
+2012;Missouri;Claire McCaskill
+2012;Montana;Jon Tester
+2012;Nebraska;Ben Nelson
+2012;Nevada;Dean Heller
+2012;New Jersey;Bob Menendez
+2012;New Mexico;Jeff Bingaman
+2012;New York;Kirsten Gillibrand
+2012;North Dakota;Kent Conrad
+2012;Ohio;Sherrod Brown
+2012;Pennsylvania;Bob Casey Jr.
+2012;Rhode Island;Sheldon Whitehouse
+2012;Tennessee;Bob Corker
+2012;Texas;Kay Bailey Hutchison
+2012;Utah;Orrin Hatch
+2012;Vermont;Bernie Sanders
+2012;Virginia;Jim Webb
+2012;Washington;Maria Cantwell
+2012;West Virginia;Joe Manchin
+2012;Wisconsin;Herb Kohl
+2012;Wyoming;John Barrasso
+2014;Alabama;Jeff Sessions
+2014;Alaska;Mark Begich
+2014;Arkansas;Mark Pryor
+2014;Colorado;Mark Udall
+2014;Delaware;Chris Coons
+2014;Georgia;Saxby Chambliss
+2014;Idaho;Jim Risch
+2014;Illinois;Dick Durbin
+2014;Iowa;Tom Harkin
+2014;Kansas;Pat Roberts
+2014;Kentucky;Mitch McConnell
+2014;Louisiana;Mary Landrieu
+2014;Maine;Susan Collins
+2014;Massachusetts;Ed Markey
+2014;Michigan;Carl Levin
+2014;Minnesota;Al Franken
+2014;Mississippi;Thad Cochran
+2014;Montana;John Walsh
+2014;Nebraska;Mike Johanns
+2014;New Hampshire;Jeanne Shaheen
+2014;New Jersey;Cory Booker
+2014;New Mexico;Tom Udall
+2014;North Carolina;Kay Hagan
+2014;Oklahoma;Jim Inhofe
+2014;Oregon;Jeff Merkley
+2014;Rhode Island;Jack Reed
+2014;South Carolina;Lindsey Graham
+2014;South Dakota;Tim Johnson
+2014;Tennessee;Lamar Alexander
+2014;Texas;John Cornyn
+2014;Virginia;Mark Warner
+2014;West Virginia;Jay Rockefeller
+2014;Wyoming;Mike Enzi
+2016;Alabama;Richard Shelby
+2016;Alaska;Lisa Murkowski
+2016;Arizona;John McCain
+2016;Arkansas;John Boozman
+2016;California;Barbara Boxer
+2016;Colorado;Michael Bennet
+2016;Connecticut;Richard Blumenthal
+2016;Florida;Marco Rubio
+2016;Georgia;Johnny Isakson
+2016;Hawaii;Brian Schatz
+2016;Idaho;Mike Crapo
+2016;Illinois;Mark Kirk
+2016;Indiana;Dan Coats
+2016;Iowa;Chuck Grassley
+2016;Kansas;Jerry Moran
+2016;Kentucky;Rand Paul
+2016;Louisiana;David Vitter
+2016;Maryland;Barbara Mikulski
+2016;Missouri;Roy Blunt
+2016;Nevada;Harry Reid
+2016;New Hampshire;Kelly Ayotte
+2016;New York;Chuck Schumer
+2016;North Carolina;Richard Burr
+2016;North Dakota;John Hoeven
+2016;Ohio;Rob Portman
+2016;Oklahoma;James Lankford
+2016;Oregon;Ron Wyden
+2016;Pennsylvania;Pat Toomey
+2016;South Carolina;Tim Scott
+2016;South Dakota;John Thune
+2016;Utah;Mike Lee
+2016;Vermont;Patrick Leahy
+2016;Washington;Patty Murray
+2016;Wisconsin;Ron Johnson
+2018;Arizona;Jeff Flake
+2018;California;Dianne Feinstein
+2018;Connecticut;Chris Murphy
+2018;Delaware;Tom Carper
+2018;Florida;Bill Nelson
+2018;Hawaii;Mazie Hirono
+2018;Indiana;Joe Donnelly
+2018;Maine;Angus King
+2018;Maryland;Ben Cardin
+2018;Massachusetts;Elizabeth Warren
+2018;Michigan;Debbie Stabenow
+2018;Minnesota;Amy Klobuchar
+2018;Mississippi;Roger Wicker
+2018;Missouri;Claire McCaskill
+2018;Montana;Jon Tester
+2018;Nebraska;Deb Fischer
+2018;Nevada;Dean Heller
+2018;New Jersey;Bob Menendez
+2018;New Mexico;Martin Heinrich
+2018;New York;Kirsten Gillibrand
+2018;North Dakota;Heidi Heitkamp
+2018;Ohio;Sherrod Brown
+2018;Pennsylvania;Bob Casey Jr.
+2018;Rhode Island;Sheldon Whitehouse
+2018;Tennessee;Bob Corker
+2018;Texas;Ted Cruz
+2018;Utah;Orrin Hatch
+2018;Vermont;Bernie Sanders
+2018;Virginia;Tim Kaine
+2018;Washington;Maria Cantwell
+2018;West Virginia;Joe Manchin
+2018;Wisconsin;Tammy Baldwin
+2018;Wyoming;John Barrasso
+2020;Alabama;Doug Jones
+2020;Alaska;Dan Sullivan
+2020;Arkansas;Tom Cotton
+2020;Colorado;Cory Gardner
+2020;Delaware;Chris Coons
+2020;Georgia;David Perdue
+2020;Idaho;Jim Risch
+2020;Illinois;Dick Durbin
+2020;Iowa;Joni Ernst
+2020;Kansas;Pat Roberts
+2020;Kentucky;Mitch McConnell
+2020;Louisiana;Bill Cassidy
+2020;Maine;Susan Collins
+2020;Massachusetts;Ed Markey
+2020;Michigan;Gary Peters
+2020;Minnesota;Tina Smith
+2020;Mississippi;Cindy Hyde-Smith
+2020;Montana;Steve Daines
+2020;Nebraska;Ben Sasse
+2020;New Hampshire;Jeanne Shaheen
+2020;New Jersey;Cory Booker
+2020;New Mexico;Tom Udall
+2020;North Carolina;Thom Tillis
+2020;Oklahoma;Jim Inhofe
+2020;Oregon;Jeff Merkley
+2020;Rhode Island;Jack Reed
+2020;South Carolina;Lindsey Graham
+2020;South Dakota;Mike Rounds
+2020;Tennessee;Lamar Alexander
+2020;Texas;John Cornyn
+2020;Virginia;Mark Warner
+2020;West Virginia;Shelley Moore Capito
+2020;Wyoming;Mike Enzi
+1990;Alabama;Howell Heflin
+1990;Alaska;Ted Stevens
+1990;Arkansas;David Pryor
+1990;Colorado;William L. Armstrong
+1990;Delaware;Joe Biden
+1990;Georgia;Sam Nunn
+1990;Idaho;James A. McClure
+1990;Illinois;Paul Simon
+1990;Iowa;Tom Harkin
+1990;Kansas;Nancy Kassebaum
+1990;Kentucky;Mitch McConnell
+1990;Louisiana;J. Bennett Johnston
+1990;Maine;William Cohen
+1990;Massachusetts;John Kerry
+1990;Michigan;Carl Levin
+1990;Minnesota;Rudy Boschwitz
+1990;Mississippi;Thad Cochran
+1990;Montana;Max Baucus
+1990;Nebraska;J. James Exon
+1990;New Hampshire;Gordon J. Humphrey
+1990;New Jersey;Bill Bradley
+1990;New Mexico;Pete Domenici
+1990;North Carolina;Jesse Helms
+1990;Oklahoma;David Boren
+1990;Oregon;Mark Hatfield
+1990;Rhode Island;Claiborne Pell
+1990;South Carolina;Strom Thurmond
+1990;South Dakota;Larry Pressler
+1990;Tennessee;Al Gore
+1990;Texas;Phil Gramm
+1990;Virginia;John Warner
+1990;West Virginia;Jay Rockefeller
+1990;Wyoming;Alan Simpson
+1992;Alabama;Richard Shelby
+1992;Alaska;Frank Murkowski
+1992;Arizona;John McCain
+1992;Arkansas;Dale Bumpers
+1992;California;Alan Cranston
+1992;Colorado;Tim Wirth
+1992;Connecticut;Chris Dodd
+1992;Florida;Bob Graham
+1992;Georgia;Wyche Fowler
+1992;Hawaii;Daniel Inouye
+1992;Idaho;Steve Symms
+1992;Illinois;Alan J. Dixon
+1992;Indiana;Dan Coats
+1992;Iowa;Chuck Grassley
+1992;Kansas;Bob Dole
+1992;Kentucky;Wendell Ford
+1992;Louisiana;John Breaux
+1992;Maryland;Barbara Mikulski
+1992;Missouri;Kit Bond
+1992;Nevada;Harry Reid
+1992;New Hampshire;Warren Rudman
+1992;North Carolina;Terry Sanford
+1992;New York;Al D'Amato
+1992;North Dakota;Kent Conrad
+1992;Ohio;John Glenn
+1992;Oklahoma;Don Nickles
+1992;Oregon;Bob Packwood
+1992;Pennsylvania;Arlen Specter
+1992;South Carolina;Fritz Hollings
+1992;South Dakota;Tom Daschle
+1992;Utah;Jake Garn
+1992;Vermont;Patrick Leahy
+1992;Washington;Brock Adams
+1992;Wisconsin;Bob Kasten
+1994;Arizona;Dennis DeConcini
+1994;California;Dianne Feinstein
+1994;Connecticut;Joe Lieberman
+1994;Delaware;William Roth
+1994;Florida;Connie Mack III
+1994;Hawaii;Daniel Akaka
+1994;Indiana;Richard Lugar
+1994;Maine;George J. Mitchell
+1994;Maryland;Paul Sarbanes
+1994;Massachusetts;Ted Kennedy
+1994;Michigan;Donald W. Riegle Jr.
+1994;Minnesota;David Durenberger
+1994;Mississippi;Trent Lott
+1994;Missouri;John Danforth
+1994;Montana;Conrad Burns
+1994;Nebraska;Bob Kerrey
+1994;Nevada;Richard Bryan
+1994;New Jersey;Frank Lautenberg
+1994;New Mexico;Jeff Bingaman
+1994;New York;Daniel Patrick Moynihan
+1994;North Dakota;Kent Conrad
+1994;Ohio;Howard Metzenbaum
+1994;Pennsylvania;Harris Wofford
+1994;Rhode Island;John Chafee
+1994;Tennessee;Jim Sasser
+1994;Texas;Kay Bailey Hutchison
+1994;Utah;Orrin Hatch
+1994;Vermont;Jim Jeffords
+1994;Virginia;Chuck Robb
+1994;Washington;Slade Gorton
+1994;West Virginia;Robert Byrd
+1994;Wisconsin;Herb Kohl
+1994;Wyoming;Malcolm Wallop
+1996;Alabama;Howell Heflin
+1996;Alaska;Ted Stevens
+1996;Arkansas;David Pryor
+1996;Colorado;Hank Brown
+1996;Delaware;Joe Biden
+1996;Georgia;Sam Nunn
+1996;Idaho;Larry Craig
+1996;Illinois;Paul Simon
+1996;Iowa;Tom Harkin
+1996;Kansas;Nancy Kassebaum
+1996;Kentucky;Mitch McConnell
+1996;Louisiana;Bennett Johnston
+1996;Maine;William Cohen
+1996;Massachusetts;John Kerry
+1996;Michigan;Carl Levin
+1996;Minnesota;Paul Wellstone
+1996;Mississippi;Thad Cochran
+1996;Montana;Max Baucus
+1996;Nebraska;Jim Exon
+1996;New Hampshire;Bob Smith
+1996;New Jersey;Bill Bradley
+1996;New Mexico;Pete Domenici
+1996;North Carolina;Jesse Helms
+1996;Oklahoma;Jim Inhofe
+1996;Oregon;Mark Hatfield
+1996;Rhode Island;Claiborne Pell
+1996;South Carolina;Strom Thurmond
+1996;South Dakota;Larry Pressler
+1996;Tennessee;Fred Thompson
+1996;Texas;Phil Gramm
+1996;Virginia;John Warner
+1996;West Virginia;Jay Rockefeller
+1996;Wyoming;Alan K. Simpson
