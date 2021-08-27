@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# US 2020 presidential eelction results
+# US 2020 presidential election results
 #
 # Author: Sina Chen
 #
