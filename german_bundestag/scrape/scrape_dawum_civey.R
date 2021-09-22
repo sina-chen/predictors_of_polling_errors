@@ -6,30 +6,48 @@
 # Author: Sina Chen
 #-------------------------------------------------------------------------------
 
-#### Libraries ####
+# Libraries ---------------------------------------------------------------
 
-library(RCurl)
-library(XML)
+#library(RCurl)
+#library(XML)
 library(rvest)
 library(dplyr)
 library(stringr)
 library(reshape2)
+library(RSelenium)
 
 
 #-------------------------------------------------------------------------------
-#### Scrape ####
 
-# url
-url_civey <- getURL('https://dawum.de/Bundestag/Civey/')
+# Scrape html -------------------------------------------------------------
+
+# connect to remote server
+rd <- remoteDriver(remoteServerAddr = "localhost", port = 4444L, browserName = "firefox")
+rd$open()
+
+# navigate to web page
+rd$navigate("https://dawum.de/Bundestag/Civey/")
+
+# select all years
+option_all <- rd$findElement(using = 'xpath', value = '//*[@id="Chronik"]/header/form/div[1]/select/option[1]')
+option_all$clickElement()
+
+# scrape html
+civey_html <- rd$getPageSource()[[1]]
+
+#saveRDS(civey_html, "civey_html.RDS")
+
+
+# Process html ------------------------------------------------------------
 
 # get table body
-civey_body <- url_civey %>%  
+civey_body <- civey_html %>%  
   read_html() %>% 
   html_nodes('div.tbody')  %>% 
   html_children() 
 
 # get table head
-civey_head <- url_civey %>%  
+civey_head <- civey_html %>%  
   read_html() %>% 
   html_nodes('div.thead')  %>% 
   html_children() %>% 
@@ -45,7 +63,6 @@ names(civey) <- civey_head
 # rename
 civey <- civey %>% 
   rename(LINKE = 'Linke',
-         GRÜNE = 'GrÃne',
          date_raw = 'Datum')
 
 # add relevant columns for merging with wahlrecht.de polls
@@ -57,7 +74,7 @@ civey <- civey %>%
          sonst_parties = NA,
          year = NA)
 
-# remove rows wirth non poll information
+# remove rows with non poll information
 civey <- civey[-which(str_detect(civey$date_raw, 'Dat')),]
 
 # reshape to long format
