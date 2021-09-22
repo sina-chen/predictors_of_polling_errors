@@ -138,7 +138,6 @@ df_result <- add_results(df_clean, results) %>%
   relocate(election, date, exact_date, institute, sample_size, period, party, sonst_parties,  forecast, result)
 
 # add client
-
 df_client <- df_result %>% 
   mutate(client = case_when(institute == 'allensbach' ~ 'faz',
                             institute == 'emnid' & 

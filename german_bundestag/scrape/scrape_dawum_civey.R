@@ -37,6 +37,8 @@ civey_html <- rd$getPageSource()[[1]]
 
 #saveRDS(civey_html, "civey_html.RDS")
 
+rd$close()
+
 
 # Process html ------------------------------------------------------------
 
