@@ -22,7 +22,7 @@ library(RSelenium)
 # Scrape html -------------------------------------------------------------
 
 # connect to remote server
-rd <- remoteDriver(remoteServerAddr = "localhost", port = 4444L, browserName = "firefox")
+rd <- remoteDriver(remoteServerAddr = "localhost", port = 4445L, browserName = "firefox")
 rd$open()
 
 # navigate to web page
@@ -64,7 +64,8 @@ names(civey) <- civey_head
 
 # rename
 civey <- civey %>% 
-  rename(LINKE = 'Linke',
+  rename(GRÜNE = 'Grüne',
+         LINKE = 'Linke',
          date_raw = 'Datum')
 
 # add relevant columns for merging with wahlrecht.de polls
