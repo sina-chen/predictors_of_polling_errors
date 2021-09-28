@@ -1,0 +1,119 @@
+#-------------------------------------------------------------------------------
+# Variance and Bias in Multi-Party Election Polls: 
+#   Landtag election poll data preparation
+# 
+# Author: Sina Chen
+#
+#-------------------------------------------------------------------------------
+
+#### Libraries ####
+
+library(tidyverse) 
+
+
+#### Data #### 
+
+# poll data
+polls <- readRDS('data/landtag_polls_wide94_21.RDS')
+
+# result data
+results <- readRDS('data/landtag_voteshare_wide94_21.RDS')
+
+
+#-------------------------------------------------------------------------------
+
+#### Pre-processing #### 
+
+# Polls
+
+## add afd to other
+polls$oth_afd <- rowSums(polls[,c('afd', 'oth')], na.rm = T)
+polls <- polls %>% 
+  select(-c('afd', 'oth'))
+
+## reshape to long
+polls_long <- reshape2::melt(polls, id.vars = c('state', 'election_year',
+                                                'date', 'sample_size', 
+                                                'institute_clean', 'institute', 
+                                                'client'),
+                             variable.name = 'party', value.name = 'support')
+
+# impute missing sample size with institute mean sample size
+polls_long <- polls_long  %>% 
+  group_by(institute_clean) %>% 
+  mutate(sample_size = ifelse(is.na(sample_size),
+                              mean(sample_size, na.rm = TRUE), sample_size) %>%  
+           round())
+
+# impute sample size of polls without institute mean sample size with 1000
+polls_long <- polls_long %>% 
+  mutate(sample_size = if_else(is.na(sample_size) == T, 1000, sample_size))
+
+
+# Results
+
+## add afd to other
+results$oth_afd <- rowSums(results[,c('afd', 'oth')], na.rm = T)
+results <- results %>% 
+  select(-c('afd', 'oth'))
+
+## reshaoe to long
+res_long <- reshape2::melt(results, id.vars = c('state', 'election_year',
+                                                'election_date'),
+                           variable.name = 'party', value.name = 'voteshare')
+
+
+#### Merging #### 
+
+# merge results to polls and remove 
+  # polls on future election 
+  # without information on date
+  # with missing poll support
+  # elections in which "LINKE" did not participate (15 elections, 273 polls)
+polls_res <- merge(polls_long, res_long, by = c('election_year', 'state', 'party')) %>% 
+  subset(is.na(date) == F & is.na(support) == F & is.na(voteshare) == F &
+           !(state == 'baden-wuerttemberg' & election_year <= 2001) &
+           !(state == 'bayern' & election_year <= 2003) &
+           !(state == 'hamburg' & election_year <= 2004) &
+           !(state == 'hessen' & election_year <= 2003) &
+           !(state == 'nrw' & election_year <= 2000) &
+           !(state == 'schleswig-holstein' & election_year <= 2000))
+
+# compute days to election
+polls_res$days_to_election <- difftime(as.Date(polls_res$election_date, 
+                                               '%d.%m.%Y'),
+                                       as.Date(polls_res$date, '%Y-$m-%d')) %>% 
+  as.numeric() 
+
+# add party, party-state and party-state-year id
+order_pt_st <- unique(sort(paste0(polls_res$party,':',polls_res$state)))
+order_pt_st_el <- unique(sort(paste0(polls_res$party,':',polls_res$state,':', 
+                                     polls_res$election_year)))
+order_st_el <- unique(sort(paste0(polls_res$state,':',polls_res$election_year)))
+
+
+polls_res <- polls_res %>%  
+  mutate(party = factor(party, levels = c('cdu', 'fdp', 'gru', 'lin', 'oth_afd', 
+                                          'spd')),
+         state = factor(state, levels = c('baden-wuerttemberg', 'bayern', 
+                                          'berlin', 'brandenburg', 'bremen', 
+                                          'hamburg', 'hessen', 
+                                          'mecklenburg-vorpommern', 
+                                          'niedersachsen', 'nrw', 
+                                          'rheinland-pfalz', 'saarland', 
+                                          'sachsen', 'sachsen-anhalt', 
+                                          'schleswig-holstein', 'thueringen')),
+         pt_id = as.integer(party),
+         pt_st = factor(paste0(party,':',state), levels = order_pt_st),
+         pt_st_id = as.integer(pt_st),
+         pt_st_el = factor(paste0(party, ':', state, ':', election_year), 
+                           levels = order_pt_st_el, ),
+         pt_st_el_id = as.integer(pt_st_el),
+         st_el = factor(paste0(state,':',election_year), levels = order_st_el))
+
+rm(polls, polls_long, results, res_long, order_pt_st, order_pt_st_el, 
+   order_st_el)
+
+#### Save data ####
+
+#saveRDS(polls_res, 'data/polls_lt_1994_2021.RDS')
