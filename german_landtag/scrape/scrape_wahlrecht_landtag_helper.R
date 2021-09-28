@@ -378,6 +378,8 @@ add_election <- function(polls_state_list){
                                      state == 'rheinland-pfalz' &
                                        date > as.Date('13.03.2016', '%d.%m.%Y') &
                                        date <= as.Date('14.03.2021', '%d.%m.%Y') ~ 2021,
+                                     state == 'rheinland-pfalz' &
+                                       date > as.Date('14.03.2021', '%d.%m.%Y') ~ 2026,
                                      # saarland,
                                      state == 'saarland' &
                                        date <= as.Date('05.09.2004', '%d.%m.%Y') ~ 2004,
