@@ -509,14 +509,17 @@ clean_institute <- function(polls_lt){
 # subset polls 
 subset_res <- function(raw_poll){
   
-  # remove election results
+  # find election results
   res_pos <- which(str_detect(raw_poll[,1], 'Landtag') |
                      str_detect(raw_poll[,1], 'Abgeordnetenhauswahl')|
                      str_detect(raw_poll[,1], 'BÃ¼rgerschaftswahl')
   )
   
-  # remove last entry (duplicated) except fro RP 2001
-  if (any(str_detect(raw_poll[res_pos[length(res_pos)],1], 'Landtagswahl am 25[.]03[.]2001')) == F) {
+  # remove last entry (duplicated) except fro RP 2001 & BB 2019
+  if (any(str_detect(raw_poll[res_pos[length(res_pos)],1], 
+                     'Landtagswahl am 25[.]03[.]2001')) == F &
+      any(str_detect(raw_poll[res_pos[length(res_pos)],1], 
+                     'Landtagswahl am 01[.]09[.]2019')) == F) {
     res_pos <- res_pos[-length(res_pos)]
   }
   

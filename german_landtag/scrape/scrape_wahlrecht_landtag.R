@@ -42,7 +42,7 @@ lt_brandenburg_missing <- html_table(read_html('https://www.wahlrecht.de/umfrage
   
 # set names
 names(lt_raw) <- state_names
-lt_raw$brandenburg <- append(list(lt_brandenburg_missing), lt_raw$brandenburg)
+lt_raw$brandenburg <- append(list(as.data.frame(lt_brandenburg_missing)), lt_raw$brandenburg)
 
 
 #### Clean polls ####
@@ -88,5 +88,5 @@ res_lt_state <- add_state(res_lt_info)
 res_lt_name <- party_names(res_lt_state)
 
 # save results
-#saveRDS(polls_lt_inst, 'data/landtag_polls_wide.RDS')
-#saveRDS(res_lt_name, 'data/landtag_voteshare_wide.RDS')
+#saveRDS(polls_lt_inst, 'data/landtag_polls_wide94_21.RDS')
+#saveRDS(res_lt_name, 'data/landtag_voteshare_wide94_21.RDS')
