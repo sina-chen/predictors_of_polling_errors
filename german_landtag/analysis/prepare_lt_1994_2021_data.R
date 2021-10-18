@@ -170,7 +170,8 @@ polls_res <- merge(polls_long, res_long, by = c('election_year', 'state', 'party
            !(state == 'hamburg' & election_year <= 2004) &
            !(state == 'hessen' & election_year <= 2003) &
            !(state == 'nrw' & election_year <= 2000) &
-           !(state == 'schleswig-holstein' & election_year <= 2000))
+           !(state == 'schleswig-holstein' & election_year <= 2000) &
+           !(state == 'rheinland-pfalz' & election_year <= 2001))
 
 # compute days to election
 polls_res$days_to_election <- difftime(as.Date(polls_res$election_date, 
