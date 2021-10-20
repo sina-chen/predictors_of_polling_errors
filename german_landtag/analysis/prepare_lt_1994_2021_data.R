@@ -126,12 +126,12 @@ polls_afd_res$days_to_election <- difftime(as.Date(polls_afd_res$election_date,
   as.numeric() 
 
 # add party, party-state and party-state-year id
-order_pt_st <- unique(sort(paste0(polls_afd_res$party,':',
+order_ks <- unique(sort(paste0(polls_afd_res$party,':',
                                   polls_afd_res$state)))
-order_pt_st_el <- unique(sort(paste0(polls_afd_res$party,':',
+order_kr <- unique(sort(paste0(polls_afd_res$party,':',
                                      polls_afd_res$state,':', 
                                      polls_afd_res$election_year)))
-order_st_el <- unique(sort(paste0(polls_afd_res$state,':',
+order_r <- unique(sort(paste0(polls_afd_res$state,':',
                                   polls_afd_res$election_year)))
 
 polls_afd_res <- polls_afd_res %>%  
@@ -145,16 +145,17 @@ polls_afd_res <- polls_afd_res %>%
                                           'rheinland-pfalz', 'saarland', 
                                           'sachsen', 'sachsen-anhalt', 
                                           'schleswig-holstein', 'thueringen')),
-         pt_id = as.integer(party),
-         pt_st = factor(paste0(party,':',state), levels = order_pt_st),
-         pt_st_id = as.integer(pt_st),
-         pt_st_el = factor(paste0(party, ':', state, ':', election_year), 
-                           levels = order_pt_st_el, ),
-         pt_st_el_id = as.integer(pt_st_el),
-         st_el = factor(paste0(state,':',election_year), levels = order_st_el))
+         k_int = as.integer(party),
+         ks = factor(paste0(party,':',state), levels = order_ks),
+         ks_int = as.integer(ks),
+         kr = factor(paste0(party, ':', state, ':', election_year), 
+                           levels = order_kr, ),
+         kr_int = as.integer(kr),
+         r = factor(paste0(state,':',election_year), levels = order_r),
+         r_int = as.integer(r))
 
-rm(polls_afd, polls_afd_long, results, res_afd_long, order_pt_st, order_pt_st_el, 
-   order_st_el, with_afd)
+rm(polls_afd, polls_afd_long, results, res_afd_long, order_ks, order_kr, 
+   order_r, with_afd)
 
 
 # without AfD
@@ -167,6 +168,7 @@ polls_res <- merge(polls_long, res_long, by = c('election_year', 'state', 'party
   subset(is.na(support) == F & is.na(voteshare) == F &
            !(state == 'baden-wuerttemberg' & election_year <= 2001) &
            !(state == 'bayern' & election_year <= 2003) &
+           !(state == 'bremen' & election_year <= 1999) &
            !(state == 'hamburg' & election_year <= 2004) &
            !(state == 'hessen' & election_year <= 2003) &
            !(state == 'nrw' & election_year <= 2000) &
@@ -180,10 +182,10 @@ polls_res$days_to_election <- difftime(as.Date(polls_res$election_date,
   as.numeric() 
 
 # add party, party-state and party-state-year id
-order_pt_st <- unique(sort(paste0(polls_res$party,':',polls_res$state)))
-order_pt_st_el <- unique(sort(paste0(polls_res$party,':',polls_res$state,':', 
+order_ks <- unique(sort(paste0(polls_res$party,':',polls_res$state)))
+order_kr <- unique(sort(paste0(polls_res$party,':',polls_res$state,':', 
                                      polls_res$election_year)))
-order_st_el <- unique(sort(paste0(polls_res$state,':',polls_res$election_year)))
+order_r <- unique(sort(paste0(polls_res$state,':',polls_res$election_year)))
 
 
 polls_res <- polls_res %>%  
@@ -198,17 +200,18 @@ polls_res <- polls_res %>%
                                           'sachsen', 'sachsen-anhalt', 
                                           'schleswig-holstein', 'thueringen')),
          pt_id = as.integer(party),
-         pt_st = factor(paste0(party,':',state), levels = order_pt_st),
-         pt_st_id = as.integer(pt_st),
-         pt_st_el = factor(paste0(party, ':', state, ':', election_year), 
-                           levels = order_pt_st_el, ),
-         pt_st_el_id = as.integer(pt_st_el),
-         st_el = factor(paste0(state,':',election_year), levels = order_st_el))
+         ks = factor(paste0(party,':',state), levels = order_ks),
+         ks_int = as.integer(ks),
+         kr = factor(paste0(party, ':', state, ':', election_year), 
+                           levels = order_kr, ),
+         kr_int = as.integer(kr),
+         r = factor(paste0(state,':',election_year), levels = order_r),
+         r_int = as.integer(r))
 
-rm(polls, polls_long, res_long, order_pt_st, order_pt_st_el, 
-   order_st_el)
+rm(polls, polls_long, res_long, order_ks, order_kr, 
+   order_r)
 
 #### Save data ####
 
-#saveRDS(polls_res, 'data/polls_lt_1994_2021.RDS')
-#saveRDS(polls_afd_res, 'data/polls_lt_afd_1994_2021.RDS')
+# saveRDS(polls_res, 'data/polls_lt_1994_2021.RDS')
+# saveRDS(polls_afd_res, 'data/polls_lt_afd_1994_2021.RDS')
