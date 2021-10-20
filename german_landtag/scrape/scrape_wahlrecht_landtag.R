@@ -88,5 +88,5 @@ res_lt_state <- add_state(res_lt_info)
 res_lt_name <- party_names(res_lt_state)
 
 # save results
-#saveRDS(polls_lt_inst, 'data/landtag_polls_wide94_21.RDS')
-#saveRDS(res_lt_name, 'data/landtag_voteshare_wide94_21.RDS')
+# saveRDS(polls_lt_inst, 'data/landtag_polls_wide94_21.RDS')
+# saveRDS(res_lt_name, 'data/landtag_voteshare_wide94_21.RDS')

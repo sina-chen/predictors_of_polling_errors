@@ -254,6 +254,9 @@ add_election <- function(polls_state_list){
                                        date > as.Date('01.09.2019', '%d.%m.%Y') ~ 2024,
                                      # bremen
                                      state == 'bremen' &
+                                       date <= as.Date('06.06.1999', '%d.%m.%Y') ~ 1999,
+                                     state == 'bremen' &
+                                       date > as.Date('06.06.1999', '%d.%m.%Y') &
                                        date <= as.Date('25.05.2003 ', '%d.%m.%Y') ~ 2003,
                                      state == 'bremen' &
                                        date > as.Date('25.05.2003', '%d.%m.%Y') &
@@ -416,6 +419,9 @@ add_election <- function(polls_state_list){
                                        date > as.Date('01.09.2019', '%d.%m.%Y') ~ 2024,
                                      # sachsen-anhalt,
                                      state == 'sachsen-anhalt' &
+                                       date <= as.Date('26.04.1998', '%d.%m.%Y') ~ 1998,
+                                     state == 'sachsen-anhalt' &
+                                       date > as.Date('26.04.1998', '%d.%m.%Y') &
                                        date <= as.Date('21.04.2002', '%d.%m.%Y') ~ 2002,
                                      state == 'sachsen-anhalt' &
                                        date > as.Date('21.04.2002', '%d.%m.%Y') &
