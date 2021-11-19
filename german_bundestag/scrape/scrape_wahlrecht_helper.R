@@ -151,7 +151,7 @@ get_polls <- function(link, institute){
     sonstige_party <- sonstige_party %>% gather(sonst_parties, value, -id) %>%  # change to long format
       filter(value) %>%  # filter for value which are TRUE
       group_by(id) %>%
-      summarise(sonst_parties = list(sonst_parties)) # stire multiple smaller parties as list
+      summarise(sonst_parties = list(sonst_parties)) # store multiple smaller parties as list
     
     polls$id <-  seq(1:nrow(polls))
     
@@ -164,11 +164,23 @@ get_polls <- function(link, institute){
     
   }
   
+  # clean year
+  polls <- polls %>% 
+    mutate(year = if_else(is.na(str_detect(date_raw, '\\d{4}')) == F & year != str_extract(date_raw, '\\d{4}'),
+                          str_extract(date_raw, '\\d{4}'), year) %>% 
+             unlist())
+  
+  polls$poll_id <- seq(1:nrow(polls))
+  polls <- polls %>% 
+    mutate(poll_id = seq(1:nrow(polls)),
+           poll_id = paste0(year, institute, poll_id))
+  
   # reshape to long format
   polls_long <- polls %>% 
-    reshape2::melt(id.vars = c('date_raw', 'sample_size', 'period', 'institute', 'year', 'sonst_parties'),
-         value.name = 'forecast',
-         variable.name = 'party')
+    reshape2::melt(id.vars = c("date_raw", "sample_size", "period", "institute", 
+                               "year", "sonst_parties", "poll_id"),
+         value.name = "forecast",
+         variable.name = "party")
   
   return(polls_long)
   
