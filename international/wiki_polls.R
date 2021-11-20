@@ -1009,7 +1009,8 @@ israel_results_2009 %>%
   mutate(across(.cols = everything(), ~ str_squish(.x))) %>% 
   mutate(across(everything(), 
                 ~ str_remove_all(.x,  pattern = "\\[[\\s\\S]*\\]"))) %>%
-  mutate(across(!c(date), type.convert)) -> polls_israel_2009
+  mutate(across(!c(date), type.convert)) %>% 
+  mutate(date = ymd(date)) -> polls_israel_2009
 
 
 ### 
@@ -1219,6 +1220,13 @@ israel_results_2021 %>%
   filter(date <= as.Date("2021-03-19")) -> polls_israel_2021
 
 
+### bind_together
+
+final_israel <- vec_rbind(polls_israel_2009, polls_israel_2013, polls_israel_2015,
+          polls_israel_2019_april, polls_israel_2019_sept, polls_israel_2020,
+          polls_israel_2021) 
+
+rm(list = grep("^final", ls(), value = TRUE, invert = TRUE))
 
 
 # Italy -------------------------------------------------------------------
@@ -1378,7 +1386,8 @@ map(.x = italy_dfs_2013[-c(7,8)], .f = janitor::clean_names) %>%
     TRUE ~ date
   )) %>% 
   mutate(across(!c(date), type.convert)) %>% 
-  mutate(date = lubridate::dmy(date)) -> polls_italy_2013
+  mutate(date = lubridate::dmy(date)) %>% 
+  rename(others = other) -> polls_italy_2013
 
 
 
@@ -1431,10 +1440,16 @@ map(.x = italy_dfs_2018[c(1:6)], .f = janitor::clean_names) %>%
   )) %>% 
   mutate(samplesize = readr::parse_number(samplesize)) %>% 
   mutate(across(!c(date), type.convert)) %>% 
-  mutate(date = lubridate::dmy(date)) -> polls_italy_2019
+  mutate(date = lubridate::dmy(date)) %>% 
+  rename(sample_size = samplesize) -> polls_italy_2019
 
 
+### bind together
 
+final_italy <- vec_rbind(polls_italy_2006, polls_italy_2008, polls_italy_2013,
+                         polls_italy_2019)
+
+rm(list = grep("^final", ls(), value = TRUE, invert = TRUE))
 
 # New Zeeland -------------------------------------------------------------
 
@@ -1694,6 +1709,13 @@ nz_results_2020 %>%
 
 
 
+### bind together
+
+final_nz <- vec_rbind(polls_nz_1999, polls_nz_2002, polls_nz_2005, polls_nz_2008, 
+                      polls_nz_2011, polls_nz_2014, polls_nz_2017, polls_nz_2020)
+
+rm(list = grep("^final", ls(), value = TRUE, invert = TRUE))
+
 # Norway ------------------------------------------------------------------
 
 ### important: date variable is not coded as date because sometimes only month and
@@ -1743,7 +1765,8 @@ nw_results_2013 %>%
   separate(col = date, into = c("month", "year"), sep = " ") %>% 
   mutate(month = as.integer(factor(month, levels = month.name))) %>%
   unite(col = date, month, year, sep = "-") %>% 
-  mutate(across(!c(date), type.convert)) -> polls_nw_2013
+  mutate(across(!c(date), type.convert)) %>% 
+  rename(others = other) -> polls_nw_2013
 
 
 ### 2017
@@ -1771,7 +1794,8 @@ nw_results_2017 %>%
     TRUE ~ date
   )) %>% 
   mutate(across(!c(date), type.convert)) %>% 
-  mutate(date = lubridate::dmy(date)) -> polls_nw_2017
+  rename(sample_size = samplesize) %>% 
+  mutate(sample_size = parse_number(sample_size)) -> polls_nw_2017
 
 
 
@@ -1805,10 +1829,16 @@ nw_results_2021 %>%
   )) %>% 
   mutate(samplesize = str_remove(samplesize, ",")) %>% 
   mutate(samplesize = str_remove(samplesize, "\\.")) %>% 
+  mutate(h = str_replace(h, ",", "\\.")) %>% 
   mutate(across(!c(date), type.convert)) %>% 
-  mutate(date = lubridate::dmy(date)) -> polls_nw_2021
+  rename(sample_size = samplesize) -> polls_nw_2021
 
 
+### bind together
+
+final_norway <- vec_rbind(polls_nw_2009, polls_nw_2013, polls_nw_2017, polls_nw_2021) 
+
+rm(list = grep("^final", ls(), value = TRUE, invert = TRUE))
 
 
 # Poland ------------------------------------------------------------------
@@ -1927,6 +1957,12 @@ pl_results_2019 %>%
   mutate(sample_size = str_remove(sample_size, ",")) %>% 
   mutate(across(!c(date), type.convert)) -> polls_pl_2019
 
+### bind together
+
+final_poland <- vec_rbind(polls_pl_2011, polls_pl_2015, polls_pl_2019) 
+
+rm(list = grep("^final", ls(), value = TRUE, invert = TRUE))
+
 
 
 # South Korea -------------------------------------------------------------
@@ -2019,3 +2055,15 @@ sk_session_2020 %>%
 sk_results_2020 %>% 
   html_nodes("table") %>% 
   html_table()
+
+
+
+# write files to folder ---------------------------------------------------
+
+
+grep("final", ls(), value = TRUE) %>% 
+  as.list() %>% 
+  walk(~ write_csv(get(.), paste0("data/international/", ., ".csv")))
+
+
+
