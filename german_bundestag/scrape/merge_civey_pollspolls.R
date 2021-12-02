@@ -15,12 +15,11 @@ library(tidyverse)
 library(zoo)
 library(data.table)
 
-source('scrape/scrape_wahlrecht_helper.R')
 
 #### Data ####
 
-polls_raw <- readRDS('polls1998_2021_raw.RDS')
-civey_raw <- readRDS('civey_raw.RDS')
+polls_raw <- readRDS('data/polls1998_2021_raw.RDS')
+civey_raw <- readRDS('data/civey_raw.RDS')
 
 
 #-------------------------------------------------------------------------------
@@ -35,7 +34,7 @@ civey_processed <- civey_raw %>%
                               date > as.Date("2017-09-24", "%Y-%m-%d") &
                                 date <= as.Date("2021-09-26", "%Y-%m-%d")~ 2021),
          sample_size = 5000) %>% 
-  group_by(election) %>% 
+  group_by(election, party) %>% 
   mutate(poll_id = paste0(election, institute, seq(1:n()))) %>% 
   ungroup() 
 
