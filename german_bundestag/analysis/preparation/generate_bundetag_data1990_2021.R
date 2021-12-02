@@ -21,7 +21,7 @@ load("data/polls_comb_results.RData")
 load("data/ger_model_df.RData")
 
 # wahlrecht scrape
-bundestag_polls_1998_2021 <- readRDS("data/bundestag_polls_1998_2021.RDS")
+bundestag_polls_1998_2021 <- readRDS("data/btw_polls_1998_2021_civey.RDS")
 
 
 #-------------------------------------------------------------------------------
@@ -82,6 +82,8 @@ rm(polls_zs, polls_zs_wide, polls_zs_long, results_zs,
 
 ## Without AfD 2002 - 2021 ##
 
+bundestag_polls_1998_2021$forecast <- as.numeric(bundestag_polls_1998_2021$forecast)
+
 # subset polls from 2002 - 2021 and select relevant variables
 polls_wr <- bundestag_polls_1998_2021 %>% 
   subset(election >= 2002  &
@@ -110,7 +112,8 @@ levels(polls_wr$party) <-  list(cdu = "CDU/CSU",
 
 polls_wr_wide <- data.table::dcast(data = setDT(polls_wr), 
                           formula =  election + institute + date + 
-                            sample_size + poll_id ~ party,value.var = "support", 
+                            sample_size + poll_id ~ party, 
+                          value.var = "support", 
                           fun.aggregate = identity, fill = NA)
 
 polls_wr_wide$party_sum <- rowSums(polls_wr_wide[,c("cdu", "spd", "fdp", "gru", 
@@ -341,7 +344,7 @@ polls1990_2021_afd <- rbind(subset(polls1990_2021, election < 2013),
 #          sample_size = ifelse(is.na(sample_size),
 #                               mean(sample_size, na.rm = TRUE), sample_size))
 # 
-rm(polls_wr_res, polls_zs_res, polls_afd_wr_res, polls_client_res)
+rm(polls_wr_res, polls_zs_res, polls_afd_wr_res)
 
 
 #### Save results #####
