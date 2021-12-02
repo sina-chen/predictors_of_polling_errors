@@ -106,7 +106,7 @@ df_clean <- df_clean %>%
                         as.Date(as.yearmon(date_raw, '%b. %Y'), frac = 1), 
                         date ))
 
-# add election
+# add election and poll id
 df_clean <- df_clean %>% 
   mutate(election = case_when(date <= as.Date('27.09.1998', '%d.%m.%Y') |
                                 date_raw == 'Wahl 1998' ~ 1998,
@@ -144,4 +144,4 @@ df_result <- add_results(df_clean, results) %>%
            forecast, result)
 
 # save result
-#saveRDS(df_result, 'bundestag_polls_1998_2021.RDS')
+# saveRDS(df_result, 'polls1998_2021_raw.RDS')
