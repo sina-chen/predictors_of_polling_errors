@@ -179,6 +179,20 @@ add_election <- function(polls_state_list){
   polls_wide <- do.call(what = rbind, polls_state_wide) %>% 
     select(-'rowid(party)')
   
+  # adjust date
+  polls_wide <- polls_wide %>% 
+    mutate(date = case_when(date == as.Date("2010-10-18","%Y-%m-%d") & 
+                              sample_size == 2014 ~ as.Date("2001-12-21","%Y-%m-%d"),
+                            date == as.Date("2010-10-18","%Y-%m-%d") & 
+                              sample_size == 1004 ~ as.Date("2003-02-18","%Y-%m-%d"),
+                            date == as.Date("2010-10-18","%Y-%m-%d") & 
+                              sample_size == 1009 ~ as.Date("2004-20-03","%Y-%m-%d"),
+                            date == as.Date("2010-08-04","%Y-%m-%d") & 
+                              sample_size == 1010 ~ as.Date("2007-12-17","%Y-%m-%d"),
+                            date == as.Date("2010-08-04","%Y-%m-%d") & 
+                              sample_size == 1002 ~ as.Date("2008-12-17","%Y-%m-%d"),
+                            TRUE ~ date))
+  
   # add election year
   polls_wide <- polls_wide %>%
     mutate(election_year = case_when(state == 'baden-wuerttemberg' &
