@@ -11,9 +11,10 @@ This repository is structured as follows:
 
 - The [us_senate](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate) folder contains code for:
   - scraping US senate polls from 1998 to 2020 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/scrape) folder
-  - cleaning the scraped polls and merging additional covariates in the [covariates](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/covariates) folder
-  - a hierarchical bayesian model for analysing us senate polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/analysis) folder.
-  
+  - analysis of US Senate candidate characteristics cen be found in the [candidate_characteristics](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/candidate_characteristics) folder
+    - cleaning the scraped polls and merging additional covariates in the [covariates](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/candidate_characteristics/covariates) folder
+    - a hierarchical bayesian model for analysing us senate polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/analysis) folder.
+  -  analysis of Trumpists can be found in the [trumpist](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/trumpist) folder
 - The [german_bundestag](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag) folder contains code for:
   - scraping German Bundestag electiopn polls from 1994 to 2021 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
   - a hiearchical bayesian model for analysing German Bundestag polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/analysis) folder
