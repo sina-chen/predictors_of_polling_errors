@@ -15,11 +15,12 @@ This repository is structured as follows:
   - a hierarchical bayesian model for analysing us senate polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/us_senate/analysis) folder.
   
 - The [german_bundestag](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag) folder contains code for:
-  - scraping German Bundestag electiopn polls from 1998 to 2021 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
-  - a hiearchical bayesian model for analysing German bundestag polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/analysis) folder
+  - scraping German Bundestag electiopn polls from 1994 to 2021 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
+  - a hiearchical bayesian model for analysing German Bundestag polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/analysis) folder
 
 - The [german_landtag](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_landtag) folder contains code for:
   - scraping German Landtag election polls from 1994 to 2021 in the [scrape](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
+  - a hiearchical bayesian model for analysing German Landtag polls in the [analysis](https://github.com/SinaMaria412/predictors_of_polling_errors/tree/master/german_landtag/analysis) folder
 
   
 Detailed descriptions for all code files can be found in the respective folders. 
