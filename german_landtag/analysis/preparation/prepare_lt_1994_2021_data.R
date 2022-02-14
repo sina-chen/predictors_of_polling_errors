@@ -180,7 +180,7 @@ rm(polls_afd_long, results, res_afd_long, order_ks, order_kr,
 # merge results to polls and remove 
   # polls on future election 
   # with missing poll support
-  # elections in which "LINKE" did not participate (15 elections, 273 polls)
+  # elections in which "LINKE" did not participate (15 elections (BW 1996, BW 2001, BY 1994, BY 1998, BY 2003, HB 1999, HH 2001, HH 2004, HE 1995, HE 1999, HE 2003, NW 2000, SH 1996, SH 2000, RP 2001), 273 polls)
 polls_res <- merge(polls_long, res_long, by = c("election_year", "state", 
                                                 "party")) %>% 
   subset(is.na(support) == F & is.na(voteshare) == F &
