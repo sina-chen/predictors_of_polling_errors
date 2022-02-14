@@ -36,9 +36,7 @@ polls <- polls %>%
   group_by(poll_id) %>% 
   mutate(n_party = n()) %>% 
   ungroup() %>% 
-  subset(n_party == 6 #&
-           #days_to_election <= 365
-  ) %>% 
+  subset(n_party == 6) %>% 
   droplevels() %>% 
   mutate(poll_id_int = as.integer(as.factor(poll_id)),
          party = factor(party, levels = c("cdu", "fdp", "gru", "lin","spd",
@@ -78,8 +76,10 @@ B <- t(bs(poll_level$t_sc, knots = quantile(poll_level$t_sc,
           Boundary.knots = c(0,1)))
 
 # zero matrix for multivariate normal
-zero_r <- matrix(nrow = length(unique(polls$election)), 
-                 ncol = length(unique(polls$party)), 0)
+# zero_Kr <- matrix(nrow = length(unique(polls$r)), 
+#                  ncol = length(unique(polls$party)), 0)
+zero_r <- matrix(nrow = length(unique(polls$r)), 
+                 ncol = length(unique(polls$party))-1, 0)
 
 # Model input -------------------------------------------------------------
 
@@ -93,10 +93,12 @@ stan_dat <- list(
   n_B = nrow(B),                             # number of b-splines
   
   B = B,                                     # matrix of B-splines
+  n = poll_level$sample_size,                # sample size
   poll = polls$support/100,                  # poll support in percentage
   vote = election_party_level$voteshare/100, # election result in percentage
   
-  zero = zero_r,                             # vector of zeros mvn
+  zero_r = zero_r,                             # vector of zeros mvn
+  # zero_Kr = zero_Kr,                             # vector of zeros mvn
 
   kr_id = polls$kr_id,                       # party-election id
   r_id = poll_level$r_int,                   # election id for each poll
@@ -112,13 +114,12 @@ sapply(stan_dat, range)
 
 # Fit stan model ----------------------------------------------------------
 
-resStan <- stan(file = "~/fit_stan/stan_ml/ml_ltw_splines.stan", 
+resStan <- stan(file = "~/fit_stan/stan_ml/ml_ltw_splines_final.stan", 
                 data = stan_dat,
                 chains = 3, iter = 5000,
-                #warmup = 5000,
                 seed = 9421,
-                control = list(adapt_delta = 0.95, max_treedepth = 10)
+                control = list(adapt_delta = 0.95, max_treedepth = 12)
 ) 
 
 # launch_shinystan(resStan)
-saveRDS(resStan, '~/fit_stan/resStan_ltw__splines.RDS') # xx divergencies with delta 0.95 and treedepth 12
+saveRDS(resStan, '~/fit_stan/resStan_ltw_splines_final.RDS') # xx divergencies with delta 0.95 and treedepth 12
