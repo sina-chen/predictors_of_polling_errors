@@ -22,11 +22,14 @@ This repository is structured as follows:
     - data preparation in the [preparation](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/preparation) folder,
     - descriptive plots in the [desc](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/desc) folder,
     - fitting a hiearchical bayesian model for analysing German Bundestag polls [desc](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/fit_stan) folder,
-    - visulaizing resultsin the [results_vis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/results_vis) folder.
+    - visulaizing results in the [results_vis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/results_vis) folder.
     
 - The [german_landtag](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag) folder contains code for:
   - scraping German Landtag election polls from 1994 to 2021 in the [scrape](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
-  - a hiearchical bayesian model for analysing German Landtag polls in the [analysis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag/analysis) folder
+  - There are subfolders in the [analysis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag/analysis) folder for:
+    - data preparation in the [preparation](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag/analysis/preparation) folder,
+    - fitting a hiearchical bayesian model for analysing German Landtag polls [desc](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag/analysis/fit_stan) folder,
+    - visulaizing results in the [results_vis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag/analysis/results_vis) folder.
 
   
 Detailed descriptions for all code files can be found in the respective folders. 
