@@ -15,10 +15,15 @@ This repository is structured as follows:
     - cleaning the scraped polls and merging additional covariates in the [covariates](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/us_senate/candidate_characteristics/covariates) folder
     - a hierarchical bayesian model for analysing us senate polls in the [analysis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/us_senate/analysis) folder.
   -  analysis of Trumpists can be found in the [trumpists](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/us_senate/trumpists) folder
-- The [german_bundestag](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag) folder contains code for:
-  - scraping German Bundestag electiopn polls from 1994 to 2021 in the [scrape](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
-  - a hiearchical bayesian model for analysing German Bundestag polls in the [analysis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis) folder
 
+- The [german_bundestag](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag) folder contains code for:
+  - scraping German Bundestag electiopn polls from 1994 to 2021 in the [scrape](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder.
+  - There are subfolders in the [analysis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis) folder for:
+    - data preparation in the [preparation](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/preparation) folder,
+    - descriptive plots in the [desc](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/desc) folder,
+    - fitting a hiearchical bayesian model for analysing German Bundestag polls [desc](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/fit_stan) folder,
+    - visulaizing resultsin the [results_vis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/analysis/results_vis) folder.
+    
 - The [german_landtag](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag) folder contains code for:
   - scraping German Landtag election polls from 1994 to 2021 in the [scrape](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_bundestag/scrape) folder
   - a hiearchical bayesian model for analysing German Landtag polls in the [analysis](https://github.com/sina-chen/predictors_of_polling_errors/tree/master/german_landtag/analysis) folder
