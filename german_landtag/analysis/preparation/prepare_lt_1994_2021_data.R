@@ -15,10 +15,10 @@ library(tidyverse)
 # Data --------------------------------------------------------------------
 
 # poll data
-polls <- readRDS("data/landtag_polls_wide94_21.RDS")
+polls <- readRDS("data/german_landtag/landtag_polls_wide94_21.RDS")
 
 # result data
-results <- readRDS("data/landtag_voteshare_wide94_21.RDS")
+results <- readRDS("data/german_landtag/landtag_voteshare_wide94_21.RDS")
 
 
 #-------------------------------------------------------------------------------
@@ -232,5 +232,5 @@ rm(polls_long, res_long, order_ks, order_kr,
 
 # Save data ---------------------------------------------------------------
 
-# saveRDS(polls_res, "data/polls_lt_1994_2021.RDS")
+# saveRDS(polls_res, "data/german_landtag/polls_lt_1994_2021.RDS")
 # saveRDS(polls_afd_res, "data/polls_lt_afd_1994_2021.RDS")
