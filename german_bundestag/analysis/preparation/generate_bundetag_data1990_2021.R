@@ -17,11 +17,11 @@ library(data.table)
 #### Data ###
 
 # zweitstimme
-load("data/polls_comb_results.RData")
-load("data/ger_model_df.RData")
+load("data/german_bundestag/polls_comb_results.RData")
+load("data/german_bundestag/ger_model_df.RData")
 
 # wahlrecht scrape
-bundestag_polls_1998_2021 <- readRDS("data/btw_polls_1998_2021_civey.RDS")
+bundestag_polls_1998_2021 <- readRDS("data/german_bundestag/btw_polls_1998_2021_civey.RDS")
 
 
 #-------------------------------------------------------------------------------
