@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Generate final data frame for German Bundestag election polls
+# Generate final data frame for German Bundestag election poll analysis
 # 
 # Author: Peter Selb, John Körtner, Philipp Bosch, Sina Chen
 #
@@ -104,12 +104,6 @@ levels(polls_wr$party) <-  list(cdu = "CDU/CSU",
 
 
 # compute other support share
-
-# polls_wr$key <- duplicated(polls_wr[,c("election", "institute" ,"date", "sample_size", "party")])
-# polls_wr_wide <- reshape2::dcast(polls_wr, 
-#                        election + institute + date + sample_size ~ party, 
-#                        value.var = "support",)
-
 polls_wr_wide <- data.table::dcast(data = setDT(polls_wr), 
                           formula =  election + institute + date + 
                             sample_size + poll_id ~ party, 
@@ -143,118 +137,6 @@ polls_wr_res <- merge(polls_wr_long, results_wr_long,
                       by = c("election", "party"))
 
 rm(polls_wr, polls_wr_long, polls_wr_wide, results_wr_long, results_wr_wide)
-
-## With AfD ##
-
-# subset polls from 2013 - 2021 and select relevant variables
-polls_afd_wr <- bundestag_polls_1998_2021 %>% 
-  subset(election >= 2013 &
-           party %in% c("AfD", "CDU/CSU", "FDP", "GRÜNE", "LINKE", "SPD"),
-         # & exact_date == 1,
-         select = c("election", "party", "sample_size", "institute", "date", 
-                    "forecast", "result", "poll_id")) %>% 
-  rename(support = forecast,
-         voteshare = result) %>% 
-  droplevels()
-
-# adjust party names
-levels(polls_afd_wr$party) <-  list(afd = "AfD",
-                                    cdu = "CDU/CSU", 
-                                    spd = "SPD", 
-                                    gru = "GRÜNE",
-                                    fdp = "FDP", 
-                                    lin = "LINKE")
-
-# compute other support share
-polls_afd_wr_wide <- reshape2::dcast(polls_afd_wr, 
-                           election + institute + date + sample_size + poll_id ~ party, 
-                           value.var = "support")
-
-polls_afd_wr_wide$party_sum <- rowSums(polls_afd_wr_wide[,c("afd", "cdu", "spd", 
-                                                            "fdp", "gru", 
-                                                            "lin")], na.rm = T)
-polls_afd_wr_wide$oth <- 100 - polls_afd_wr_wide$party_sum
-
-# reshape to long 
-polls_afd_wr_long <- polls_afd_wr_wide %>% 
-  subset(select = -party_sum) %>% 
-  reshape2::melt(id.vars = c("election", "institute", "date", "sample_size", 
-                             "poll_id"), 
-       variable.name = "party", value.name = "support") 
-
-# compute other vote share
-results_afd_wr_wide <- select(polls_afd_wr, c("election", "party", "voteshare")) %>% 
-  unique %>% 
-  reshape2::dcast(election ~ party, value.var = "voteshare") %>% 
-  mutate(oth = 100 - (cdu + fdp + gru + lin + spd + afd))
-
-# reshape to long
-results_afd_wr_long <- reshape2::melt(results_afd_wr_wide, id.vars = "election",
-                            variable.name = "party", value.name = "voteshare")
-
-# add election result
-polls_afd_wr_res <- merge(polls_afd_wr_long, results_afd_wr_long,
-                          by = c("election", "party"))
-
-rm(polls_afd_wr, polls_afd_wr_long, polls_afd_wr_wide, results_afd_wr_long,
-   results_afd_wr_wide)
-
-
-# ## Polls with client from 1998 to 2017 ##
-# 
-# # subset polls from 1998 - 2017 and select relevant variables
-# polls_wr_client <- bundestag_polls_1998_2021 %>% 
-#   subset(election < 2021 &
-#            party %in% c("CDU/CSU", "FDP", "GRÜNE", "LINKE", "SPD") & 
-#            exact_date == 1,
-#          select = c("election", "party", "sample_size", "institute", "date", 
-#                     "forecast", "result", "client")) %>% 
-#   rename(support = forecast,
-#          voteshare = result) %>% 
-#   droplevels()
-# 
-# # adjst party names
-# levels(polls_wr_client$party) <-  list(cdu = "CDU/CSU", 
-#                                        spd = "SPD", 
-#                                        gru = "GRÜNE",
-#                                        fdp = "FDP", 
-#                                        lin = "LINKE")
-# 
-# polls_wr_client$key <- duplicated(polls_wr_client[,c("election", "institute" ,"date", "sample_size", "party")])
-# 
-# # compute other support share
-# polls_client_wide <- reshape2::dcast(polls_wr_client, 
-#                                  election + institute + date + sample_size + client + key ~ party, 
-#                                  value.var = "support")
-# 
-# polls_client_wide$party_sum <- rowSums(polls_client_wide[,c("cdu", "spd", "fdp", "gru", 
-#                                                     "lin")], na.rm = T)
-# polls_client_wide$oth <- 100 - polls_client_wide$party_sum
-# 
-# # reshape to long 
-# polls_client_long <- polls_client_wide %>% 
-#   subset(select = -party_sum) %>% 
-#   reshape2::melt(id.vars = c("election", "institute", "date", "sample_size", 
-#                              "client"), 
-#                  variable.name = "party", value.name = "support") %>% 
-#   subset(is.na(support) == F)
-# 
-# # compute other vote share
-# results_client_wide <- select(polls_wr_client, c("election", "party", "voteshare")) %>% 
-#   unique %>% 
-#   reshape2::dcast(election ~ party, value.var = "voteshare") %>% 
-#   mutate(oth = 100 - (cdu + fdp + gru + lin + spd))
-# 
-# # reshape to long
-# results_client_long <- reshape2::melt(results_client_wide, id.vars = "election", 
-#                                   variable.name = "party", value.name = "voteshare")
-# 
-# # add election result
-# polls_client_res <- merge(polls_client_long, results_client_long, 
-#                       by = c("election", "party"))
-# 
-# rm(polls_wr_client, polls_client_long, polls_client_wide, results_client_long, 
-#    results_client_wide, bundestag_polls_1998_2021)
 
 
 #-------------------------------------------------------------------------------
@@ -313,44 +195,12 @@ polls2013_2021 <- polls2013_2021  %>%
                               mean(sample_size, na.rm=TRUE), sample_size))
 
 
-### 1990 - 2021 with AfD ###
-
-polls1990_2021_afd <- rbind(subset(polls1990_2021, election < 2013), 
-                            polls2013_2021)
-
-
-# ### 1998 - 2017 with client ####
-# 
-# # compute days to election
-# polls1998_2017_client <- polls_client_res %>% 
-#   mutate(days_to_election = case_when(
-#     election == 1998 ~ difftime(as.Date("09/27/1998","%m/%d/%Y"), date, 
-#                                 units = "days"),
-#     election == 2002 ~ difftime(as.Date("09/22/2002","%m/%d/%Y"), date, 
-#                                 units = "days"),
-#     election == 2005 ~ difftime(as.Date("09/18/2005","%m/%d/%Y"), date, 
-#                                 units = "days"),
-#     election == 2009 ~ difftime(as.Date("09/27/2009","%m/%d/%Y"), date, 
-#                                 units = "days"),
-#     election == 2013 ~ difftime(as.Date("09/22/2013","%m/%d/%Y"), date, 
-#                                 units = "days"),
-#     election == 2017 ~ difftime(as.Date("09/24/2017","%m/%d/%Y"), date, 
-#                                 units = "days")))
-# 
-# # impute sample size
-# polls1998_2017_client <- polls1998_2017_client  %>% 
-#   group_by(institute) %>% 
-#   mutate(imp_sample_size = if_else(is.na(sample_size) == T, 1, 0),
-#          sample_size = ifelse(is.na(sample_size),
-#                               mean(sample_size, na.rm = TRUE), sample_size))
-# 
-rm(polls_wr_res, polls_zs_res, polls_afd_wr_res)
+rm(polls_wr_res, polls_zs_res)
 
 
 #### Save results #####
 
-saveRDS(polls1990_2021, "data/polls1990_2021.RDS")
-saveRDS(polls2013_2021, "data/polls2013_2021.RDS")
-saveRDS(polls1990_2021_afd, "data/polls1990_2021_afd.RDS")
-# saveRDS(polls1998_2017_client, "data/polls1998_2017_client.RDS")
+saveRDS(polls1990_2021, "data/german_bundestag/polls1990_2021.RDS")
+saveRDS(polls2013_2021, "data/german_bundestag/polls2013_2021.RDS")
+
 
