@@ -22,6 +22,7 @@ turnout <- readRDS("~/data/us/senate/senate_turnout1990_2020.RDS") # turnout
 covi <- read_excel("~/data/us/COVI Values 1996-2020old and new.xlsx") # covi score
 state_control <- readRDS("~/data/us/senate/us_senate_state_control.RDS") # state control
 grumbach <- read_csv("data/us/senate/grumbach_state_democracy_index.csv") # state democracy index
+pop_share <- readRDS("data/us/senate/pop1990_2020_race_share.RDS") # sub-population shares
 
 
 #-------------------------------------------------------------------------------
@@ -112,11 +113,6 @@ state_control <- state_control %>%
 polls <- merge(polls, state_control, by.x = c("state","state_abb", "cycle"), 
                by.y = c("state", "state_abb", "year"), all.x = T)
 
-state_control <- state_control %>% 
-  rename("prev_state_control" = state_control)
-
-polls <- merge(polls, state_control, by.x = c("state","state_abb", "cycle"), 
-               by.y = c("state", "state_abb", "prev_year"), all.x = T)
 
 rm(state_control)
 
@@ -127,15 +123,14 @@ grumbach <- grumbach %>%
 polls <- merge(polls, grumbach[,c("state", "year", "democracy_mcmc")], 
                by.x = c("state", "cycle"), by.y = c("state", "year"), all.x = T)
 
-grumbach <- grumbach %>% 
-  rename("prev_democracy" = "democracy_mcmc")
-
-polls <- merge(polls, grumbach[,c("state", "prev_year", "prev_democracy")], 
-               by.x = c("state", "cycle"), by.y = c("state", "prev_year"), 
-               all.x = T) 
-
 rm(grumbach)
 
+# sub-population shares
+polls <- merge(polls, 
+              pop_share[, c("state", "year", "black_share", "white_share", "white_hispanic_share")], 
+              by.x = c("cycle", "state_abb"), by.y = c("year", "state"))
+
+rm(pop_share)
 
 # Save data ---------------------------------------------------------------
 

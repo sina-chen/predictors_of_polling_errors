@@ -58,13 +58,13 @@ extract_senate <- function(txt_dir){
   
   ### Clean data ###
 
-  # Remove erronous patterns
+  # Remove erroneous patterns
   polls_clean <- lapply(polls_raw, function(x) 
     lapply(x, function(y) 
       as.data.frame(lapply(y, str_remove_all, pattern = '^[.]|^Â|\n'), 
                     stringsAsFactors=FALSE)))
   
-  # Set erronous patterns to NA
+  # Set erroneous patterns to NA
   polls_clean <- lapply(polls_raw, function(x) 
     lapply(x, function(y) 
       as.data.frame(lapply(y, str_replace_all, 
