@@ -18,6 +18,7 @@
   library(shinystan)
   library(RColorBrewer)
   library(ggpubr)
+  library(ggstance)
 }
 
 setnsims(10000)
@@ -25,8 +26,8 @@ setnsims(10000)
 
 # Data --------------------------------------------------------------------
 
-# polls
-polls <- readRDS("~/data/us/senate/us_senate_polls_context.RDS")
+# # polls
+# polls <- readRDS("~/data/us/senate/us_senate_polls_context.RDS")
 
 
 # # simulation results
@@ -58,7 +59,13 @@ plot_cycle <- function(year, margin = unit(c(-1.1, 0.5, 0.5, 0.5), "cm"),
       theme(axis.text = element_blank(),
             axis.title.y = element_text(angle = 0, vjust = 0.5, size = 16),
             plot.margin = margin) +
-      geom_vline(xintercept = 0)
+      geom_boxploth(data = cycle_data, inherit.aes = F, width = 2,
+                    aes(y = -2, x = mean_est)) +
+      # geom_segment(data = cycle_data, color = "darkgrey",
+      #              aes(x = mean_est, xend = mean_est, y = 0,
+      #                  yend = (1/sqrt((2*3.14*var_est)))*2.72^((-(mean_est-mean(mean_est))^2)/2*var_est))) +
+      geom_vline(xintercept = 0, linetype = "dashed") 
+    
   } else if (xaxis_labels == T){
     cycle_data <- plot_data %>% filter(cycle == year)
     plot <- ggplot() +
@@ -76,7 +83,12 @@ plot_cycle <- function(year, margin = unit(c(-1.1, 0.5, 0.5, 0.5), "cm"),
             axis.title.y = element_text(angle = 0, vjust = 0.5, size = 16),
             plot.margin = margin,
             axis.text.x = element_text(size = 12)) +
-      geom_vline(xintercept = 0)
+      geom_boxploth(data = cycle_data, inherit.aes = F, width = 2,
+                    aes(y = -2, x = mean_est)) +
+      # geom_segment(data = cycle_data, color = "darkgrey", 
+      #              aes(x = mean_est, xend = mean_est, y = 0,
+      #                  yend = (1/sqrt((2*3.14*var_est)))*2.72^((-(mean_est-mean(mean_est))^2)/2*var_est))) + # https://davidmlane.com/hyperstat/A25726.html
+      geom_vline(xintercept = 0, linetype = "dashed") 
   }
   
   
@@ -87,11 +99,11 @@ plot_cycle <- function(year, margin = unit(c(-1.1, 0.5, 0.5, 0.5), "cm"),
 
 # Preparation -------------------------------------------------------------
 
-# compute election groups and ids for election year and state
-polls <- polls %>%
-  mutate(state_year = paste0(state, cycle),
-         state_year_int = as.integer(as.factor(state_year)),
-         cycle = as.integer(cycle)) 
+# # compute election groups and ids for election year and state
+# polls <- polls %>%
+#   mutate(state_year = paste0(state, cycle),
+#          state_year_int = as.integer(as.factor(state_year)),
+#          cycle = as.integer(cycle)) 
 
 # # Election-level data
 # election_data <- polls %>%
@@ -117,10 +129,9 @@ polls <- polls %>%
 # b0_summary$state_year_int <- seq(1:length(unique(polls$state_year)))
 # b0_summary <- merge(b0_summary, election_data, by = "state_year_int")
 # b0_summary <- b0_summary %>%
-#   mutate(cycle_factor = as.factor(cycle),
-#          cf_dist = cf_score_rep - cf_score_dem)
+#   mutate(cycle_factor = as.factor(cycle))
 # rm(b0, resStan)
-
+# 
 # saveRDS(b0_summary, "~/results_vis/us_senate_predictable/bias_senate_empty.RDS")
 
 b0_summary <- readRDS("~/results_vis/us_senate_predictable/bias_senate_empty.RDS")
@@ -128,9 +139,18 @@ b0_summary <- readRDS("~/results_vis/us_senate_predictable/bias_senate_empty.RDS
 
 #### Election level election day variance ####
 
-# v0_r <- (p0_r*(1-p0_r))/election_data$n_avg + postrv$phi2
+# # election day variance
+# v0_i <- (p0_r*(1-p0_r))[polls$state_year_int]/polls$sample_size + postrv$phi2[polls$state_year_int]
+# 
+# # avg. election level election day variance
+# v0_r <- rv(length(unique(polls$state_year)))
+# 
+# for(i in 1:length(unique(polls$state_year))){
+#   v0_r[i] <- mean(v0_i[i == polls$state_year_int])
+# }
+# 
 # v0_r_summary <- summary(v0_r)
-# rm(v0_r, postrv, p0_r)
+# rm(v0_i, v0_r, postrv, p0_r)
 # 
 # saveRDS(v0_r_summary, "~/results_vis/us_senate_predictable/v0_senate_empty.RDS")
 
@@ -151,7 +171,7 @@ rm(b0_summary, v0_r_summary)
 
 # Plot --------------------------------------------------------------------
 
-# generate plots fpr each cycle
+# generate plots for each cycle
 plot1990 <- plot_cycle(1990, margin =  unit(c(0 , 0.5, 0.5, 0.5), "cm"))
 plot1992_2018 <- lapply(seq(1992, 2018, 2), plot_cycle) 
 plot2020 <- plot_cycle(2020, xaxis_labels = T)
@@ -169,6 +189,6 @@ density_estimates_senate <- ggarrange(plotlist = plots, ncol = 1,
                                      size = 18))
 
 # save plot
-ggsave(filename = '~/results_vis/us_senate_predictable/plots/density_estimates_senate.png', 
+ggsave(filename = '~/results_vis/us_senate_predictable/plots/density_estimates_senate_mean.png', 
        plot = density_estimates_senate, 
        width = 16, height = 18, bg='#ffffff')   
