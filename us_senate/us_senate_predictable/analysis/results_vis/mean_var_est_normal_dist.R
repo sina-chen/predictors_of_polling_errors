@@ -189,6 +189,6 @@ density_estimates_senate <- ggarrange(plotlist = plots, ncol = 1,
                                      size = 18))
 
 # save plot
-ggsave(filename = '~/results_vis/us_senate_predictable/plots/density_estimates_senate_mean.png', 
+ggsave(filename = '~/results_vis/us_senate_predictable/plots/b0_var_estimates_senate.png', 
        plot = density_estimates_senate, 
        width = 16, height = 18, bg='#ffffff')   
