@@ -1,31 +1,33 @@
-########################################################################################
+#-------------------------------------------------------------------------------
+#
 # Extract presidential polls from txt fies
 # Author: Sina Chen
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
-#### Libraries ####
+
+# Libraries ---------------------------------------------------------------
 
 library(dplyr)
 library(stringr)
 library(rvest)
 library(readr)
-library(openintro) # state abbreviations
+library(usdata) # state abbreviations
 library(Metrics)
 
-
-#### Directory ####
-
+# working directory
 pres_wd <- 'your_wd'
 setwd(pres_wd)
 
 
-#### Helper functions ####
+# Functions ---------------------------------------------------------------
 
 source('helper_func_pres.R')
 
+#-------------------------------------------------------------------------------
 
-#### Get list of polls by state form txt files ####
+
+# Get poll lists ----------------------------------------------------------
 
 # Directories with txt content for every year
 
@@ -48,8 +50,7 @@ source('helper_func_pres.R')
 }
 
 
-
-#### Extract presidential polls ####
+# Filter Pres. polls ------------------------------------------------------
 
 {
   # 2000
@@ -60,15 +61,18 @@ source('helper_func_pres.R')
                                          demC = 'AlGore|Al Gore|Gore|[(]D[)]', 
                                          thirdC = 'Nader|[(]L[)]|[(]I[)]|[(]G[)]', 
                                          year = 2000)
+  rm(dir_txt2000, poll_raw2000, polls2000, pres_polls_ls2000)
   
   # 2004
   polls2004 <- lapply(poll_raw2004, clean_split)
   pres_polls_ls2004 <- lapply(polls2004, rm_other)
-  pres_polls2004 <- convert_to_dataframe(pres_polls_ls2004, repC = 'Bush|[(]R[)]',
+  pres_polls2004 <- convert_to_dataframe(pres_polls_ls2004, 
+                                         repC = 'Bush|[(]R[)]',
                                          demC = 'Kerry|Dean|Lieb|Clark|Clinton|Gephardt|Democrat|Edwards|Demo- crat|Daschle|[(]D[)]', 
                                          thirdC = 'Nader|Third-party|[(]L[)]|[(]I[)]|[(]G[)]', 
                                          year = 2004)
- 
+  rm(dir_txt2004, poll_raw2004, polls2004, pres_polls_ls2004)
+  
   # 2008
   polls2008 <- lapply(poll_raw2008, clean_split)
   pres_polls_ls2008 <- lapply(polls2008, rm_other)
@@ -77,6 +81,8 @@ source('helper_func_pres.R')
                                          demC = 'Obama|Clinton|[(]D[)]|Democratic|Kerry|Democra|Edwards', 
                                          thirdC = 'Nader|Third-party|[(]L[)]|[(]I[)]|[(]G[)]', 
                                          year = 2008)
+  rm(dir_txt2008, poll_raw2008, polls2008, pres_polls_ls2008)
+
   # 2012
   polls2012 <- lapply(poll_raw2012, clean_split)
   pres_polls_ls2012 <- lapply(polls2012, rm_other)
@@ -85,7 +91,8 @@ source('helper_func_pres.R')
                                          demC = 'Obama|[(]D[)]|Democratic', 
                                          thirdC = 'Third-party|Johnson|Stein|[(]L[)]|[(]I[)]|[(]G[)]', 
                                          year = 2012)
-
+  rm(dir_txt2012, poll_raw2012, polls2012, pres_polls_ls2012)
+  
   # 2016
   polls2016 <- lapply(poll_raw2016, clean_split)
   pres_polls_ls2016 <- lapply(polls2016, rm_other)
@@ -94,6 +101,8 @@ source('helper_func_pres.R')
                                          demC = 'Clinton|[(]D[)]|Democratic', 
                                          thirdC = 'Third-party|[(]L[)]|[(]I[)]|[(]G[)]', 
                                          year = 2016)
+  rm(dir_txt2016, poll_raw2016, polls2016, pres_polls_ls2016)
+
   # 2020
   polls2020 <- lapply(poll_raw2020, clean_split)
   pres_polls_ls2020 <- lapply(polls2020, rm_other)
@@ -102,10 +111,11 @@ source('helper_func_pres.R')
                                          demC = 'Biden|[(]D[)]|Democratic', 
                                          thirdC = 'Third-party|[(]L[)]|[(]I[)]|[(]G[)]', 
                                          year = 2020)
+  rm(dir_txt2020, poll_raw2020, polls2020, pres_polls_ls2020)
   
 }
 
-# Combine election years
+# combine election years
 pres_polls2000_2020 <- rbind(pres_polls2000, 
                             pres_polls2004, 
                             pres_polls2008, 
@@ -116,9 +126,9 @@ pres_polls2000_2020 <- rbind(pres_polls2000,
 
 
 
-# Set missing unformation on sample size to NA
+# set missing information on sample size to NA
 pres_polls2000_2020$n <- na_if(pres_polls2000_2020$n, '-')
 
-# Save data
+# save data
 saveRDS(pres_polls2000_2020, 'pres_polls2000_2020.RDS')
 

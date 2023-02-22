@@ -38,13 +38,12 @@ handle <- getCurlHandle(cookiejar="",
                         verbose = TRUE,
                         httpheader=list(
                           from = "your_mail_address",
-                          'user-agent' = str_c(R.version$version.string,
+                          "user-agent" = str_c(R.version$version.string,
                                               ", ", R.version$platform)
                         ) )
 
 
 # Functions ---------------------------------------------------------------
-
 
 # Get list of states by year
 
@@ -108,7 +107,3 @@ length(list.files("year2008/html/")) # 31
 length(list.files("year2012/html/")) # 23
 length(list.files("year2016/html/")) # 12 
 length(list.files("year2020/html/")) # 7 
-
-
-
-

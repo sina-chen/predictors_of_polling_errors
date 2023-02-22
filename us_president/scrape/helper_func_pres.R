@@ -1,11 +1,13 @@
-########################################################################################
+#-------------------------------------------------------------------------------
+#
 # Helper functions to extract presidential polls
 # Author: Sina Chen
 # Notes: 
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
-### Get  txt content ###
+
+#### Get  txt content ###
 
 read_pres <- function(txt_dir){
   
@@ -365,6 +367,7 @@ rm_resp <- function(dt){
 
 # Combine all clean & split functions
 clean_split <- function(list_states){
+  if(length(which(sapply(list_states, nrow)==1)) != 0) {list_states <- list_states[-which(sapply(list_states, nrow)==1)]}
   states_clean <-  lapply(list_states, clean)
   state_general <- lapply(states_clean, split_general) %>% 
     unlist(recursive = F)
@@ -606,7 +609,7 @@ reshape_to_row <- function(dt, repC, demC, thirdC, year){
   
   if(length(pos_pct) < 1){
     row_pct <- dt[3,]
-    row_pct[which(str_detect(dt[3,], ''))] <- '%'
+    row_pct[which(!is.na(dt[3,]))] <- '%'
     dt <- rbind(dt[1:3,], row_pct, dt[4:nrow(dt),]) 
     pos_pct <- which(grepl('%',dt[,3]))
   }

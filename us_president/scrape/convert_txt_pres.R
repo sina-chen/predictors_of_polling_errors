@@ -1,11 +1,13 @@
-########################################################################################
-# Process script: Convert html to txt for presidential polls from 2000 to 2016 
+#-------------------------------------------------------------------------------
+#
+# Process script: Convert html to txt for presidential polls from 2000 to 2020 
 # Author: Sina Chen
 # Source: www.pollingreport.com 
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
-#### Libraries ####
+
+# Libraries ---------------------------------------------------------------
 
 library(XML)
 library(stringr)
@@ -16,13 +18,15 @@ library(readr)
 library(tidyr)
 library(tibble)
 
-#### Directory ####
+# working directory
+scr_dir <- "your_wd"
 
-scr_dir <- 'your_wd'
+#-------------------------------------------------------------------------------
 
-#### 2000 ####
 
-# Read html
+# 2000 --------------------------------------------------------------------
+
+# read html
 setwd(paste0(scr_dir,'/year2000/html'))
 files2000 <- dir(paste0(scr_dir,'/year2000/html'))
 states2000 <- sapply(files2000, htmlParse)
@@ -78,7 +82,7 @@ states2000 <- sapply(files2000, htmlParse)
   pres_tables_wy <- xpathSApply(doc = states2000$`48.html`, path ="//table[@dir='ltr']//child::table[not(position()<=2) and not(preceding-sibling::table/tr/td/hr)]")
 }
 
-# Convert to txt (rvest not applicable to lists and document class = externalptr)
+# convert to txt (rvest not applicable to lists and document class = externalptr)
 dir.create(paste0(scr_dir,'/year2000/txt/'), recursive = T)
 setwd(paste0(scr_dir,'/year2000/txt'))
 
@@ -232,9 +236,10 @@ setwd(paste0(scr_dir,'/year2000/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2004 ####
 
-# Read html
+# 2004 --------------------------------------------------------------------
+
+# read html
 setwd(paste0(scr_dir,'/year2004/html'))
 files2004 <- dir(paste0(scr_dir,'/year2004/html'))
 states2004 <- sapply(files2004, htmlParse)
@@ -294,7 +299,7 @@ states2004 <- sapply(files2004, htmlParse)
   pres_tables_wi <- xpathSApply(doc = states2004$`50.html`, path ="//table[@dir='ltr']//child::table[not(position()<=2) and not(preceding-sibling::table/tr/td/hr) and not(.//hr)]")
 }
 
-# Convert to txt (rvest not applicable to lists and document class = externalptr)
+# convert to txt (rvest not applicable to lists and document class = externalptr)
 dir.create(paste0(scr_dir,'/year2004/txt/'), recursive = T)
 setwd(paste0(scr_dir,'/year2004/txt'))
 
@@ -453,9 +458,10 @@ setwd(paste0(scr_dir,'/year2004/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2008 ####
 
-# Read html
+# 2008 --------------------------------------------------------------------
+
+# read html
 setwd(paste0(scr_dir,'/year2008/html'))
 files2008 <- dir(paste0(scr_dir,'/year2008/html'))
 states2008 <- sapply(files2008, htmlParse)
@@ -513,7 +519,7 @@ states2008 <- sapply(files2008, htmlParse)
   pres_tables_wy <- xpathSApply(doc = states2008$`31.html`, path ="//table[@dir='ltr']//child::table[not(position()<=36) and not(position()>42)]")
 }
 
-# Convert to txt (rvest not applicable to lists and document class = externalptr)
+# convert to txt (rvest not applicable to lists and document class = externalptr)
 dir.create(paste0(scr_dir,'/year2008/txt/'), recursive = T)
 setwd(paste0(scr_dir,'/year2008/txt'))
 
@@ -673,9 +679,10 @@ setwd(paste0(scr_dir,'/year2008/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2012 ####
 
-# Read html
+# 2012 --------------------------------------------------------------------
+
+# read html
 setwd(paste0(scr_dir,'/year2012/html'))
 files2012 <- dir(paste0(scr_dir,'/year2012/html'))
 states2012 <- sapply(files2012, htmlParse)
@@ -731,7 +738,7 @@ states2012 <- sapply(files2012, htmlParse)
   pres_tables_wi <- xpathSApply(doc = states2012$`23.html`, path ="//table[@dir='ltr']//child::table[not(position()<=8) and not(position()>27)]")
 }
 
-# Convert to txt (rvest not applicable to lists and document class = externalptr)
+# convert to txt (rvest not applicable to lists and document class = externalptr)
 dir.create(paste0(scr_dir,'/year2012/txt/'), recursive = T)
 setwd(paste0(scr_dir,'/year2012/txt'))
 
@@ -885,9 +892,9 @@ setwd(paste0(scr_dir,'/year2012/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2016 ####
+# 2016 --------------------------------------------------------------------
 
-# Read html
+# read html
 setwd(paste0(scr_dir,'/year2016/html'))
 files2016 <- dir(paste0(scr_dir,'/year2016/html'))
 states2016 <- sapply(files2016, htmlParse)
@@ -941,7 +948,7 @@ states2016 <- sapply(files2016, htmlParse)
   pres_tables_wy <- xpathSApply(doc = states2016$`12.html`, path ="//table[@dir='ltr']//child::table[not(position()<=74) and not(position()>76)]")
 }
 
-# Convert to txt (rvest not applicable to lists and document class = externalptr)
+# convert to txt (rvest not applicable to lists and document class = externalptr)
 dir.create(paste0(scr_dir,'/year2016/txt/'), recursive = T)
 setwd(paste0(scr_dir,'/year2016/txt'))
 
@@ -1086,17 +1093,15 @@ setwd(paste0(scr_dir,'/year2016/txt'))
   sink()
 }
 
-
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2020 ####
+# 2020 --------------------------------------------------------------------
 
-# Read html
+# read html
 setwd(paste0(scr_dir,'/year2020/html'))
 files2020 <- dir(paste0(scr_dir,'/year2020/html'))
 states2020 <- sapply(files2020, htmlParse)
-
 
 {
   pres_tables_al <- xpathSApply(doc = states2020$`1.html`, path ="//table[@dir='ltr']//child::table[not(position()<=5) and not(position()>10)]")
@@ -1147,11 +1152,9 @@ states2020 <- sapply(files2020, htmlParse)
 
 }
 
-# Convert to txt (rvest not applicable to lists and document class = externalptr)
-
+# convert to txt (rvest not applicable to lists and document class = externalptr)
 dir.create(paste0(scr_dir,'/year2020/txt/'), recursive = T)
 setwd(paste0(scr_dir,'/year2020/txt'))
-
 
 {
   sink("Alabama2020.txt")
