@@ -1,11 +1,14 @@
-########################################################################################
+#-------------------------------------------------------------------------------
+#
 # Download script: Presidential election polls from 2000 to 2016
 # Author: Sina Chen
 # Source: pollingreport.com 
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
-#### Libraries ####
+
+# Libraries ---------------------------------------------------------------
+
 
 library(RCurl)
 library(XML)
@@ -14,14 +17,18 @@ library(stringi)
 library(pryr)
 library(tidyverse)
 
-#### Directory ####
+
+
+# Preparation -------------------------------------------------------------
+
+# working directory
 setwd('your_working_directory')
 
-#### Preparation ####
+# username & password
+usr_pwd <- read_file('usr_pwd.txt')
 
 # debug gatherer
 debuginfo <- debugGatherer()
-usr_pwd <- read_file('usr_pwd.txt')
 
 # curl handle + identification
 handle <- getCurlHandle(cookiejar="",
@@ -36,7 +43,8 @@ handle <- getCurlHandle(cookiejar="",
                         ) )
 
 
-#### Helper functions ####
+# Functions ---------------------------------------------------------------
+
 
 # Get list of states by year
 
@@ -53,10 +61,10 @@ get_state_urls <- function(year){
   return(links_comp)
 }
 
-# Dowload and write polls for each state and year
+# Download and write polls for each state and year
 
 dl_polls <-function(url_list, write_dir){
-  dir.create(write_dir, recursive = T)
+  if(!file.exists(write_dir)){dir.create(write_dir, recursive = T)}
   urls <- lapply(url_list, getURL, userpwd = usr_pwd,
                  followlocation=TRUE, curl=handle)
   i <- 1
@@ -68,12 +76,12 @@ dl_polls <-function(url_list, write_dir){
   )
 }
 
+#-------------------------------------------------------------------------------
 
 
-#### Download & write ####
+# Download & write --------------------------------------------------------
 
-# Get url lists for each year
-
+# get url lists for each year
 {
   urllist2000 <- get_state_urls(2000)
   urllist2004 <- get_state_urls(2004)
@@ -83,8 +91,7 @@ dl_polls <-function(url_list, write_dir){
   urllist2020 <- get_state_urls(2020)  
 }
 
-# Download & write (need to create yearxxxx in working directory beforehand)
-
+# download & write
 {
   dl_polls(urllist2000, 'year2000/html/')
   dl_polls(urllist2004, 'year2004/html/')
@@ -94,9 +101,7 @@ dl_polls <-function(url_list, write_dir){
   dl_polls(urllist2020, 'year2020/html/')
 }
 
-
-# Making sure all states are downloaded
-
+# check
 length(list.files("year2000/html/")) # 48
 length(list.files("year2004/html/")) # 50
 length(list.files("year2008/html/")) # 31
