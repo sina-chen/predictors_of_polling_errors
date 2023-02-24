@@ -1,5 +1,5 @@
-################################################################################
-# Helper functions scraping polls for the German Bundestagswahl 1998 to 2020
+#-------------------------------------------------------------------------------
+# Helper functions scraping polls for the German Bundestagswahl 1998 to 2021
 #
 # Source code: https://github.com/simonmunzert/gerpol-forecasting-2013-election-polls 
 # Author: Peter Selb and Simon Munzert
@@ -7,7 +7,7 @@
 # Source polls: wahlrecht.de
 #
 # Modified: Sina Chen
-################################################################################
+#-------------------------------------------------------------------------------
 
 #### Get all polls conducted by one institute #### ####
 
@@ -37,20 +37,22 @@ get_institute_polls <- function(institute){
 
 get_polls <- function(link, institute){
   
-  url.year <- getURL(link)
+  tables <- link %>%  
+    read_html() %>% 
+    html_table(header = T)  
   
   # get table with polls
-  polls <- url.year %>%  
-    htmltab(which = 2, rm_nodata_cols = F) %>% 
-    suppressWarnings()
+  polls <- tables[[2]]
   
-  keep <- apply(polls[2:(length(polls) - 3)], 1,
-                function(x) length(unique(x[!is.na(x)])) != 1) 
+  keep1 <- apply(polls[1:(length(polls))], 1,
+                 function(x) length(unique(x[!is.na(x)])) != 1) 
+  keep2 <- sapply(1:nrow(polls), function(x) all(polls[x,] == colnames(polls)))
   
-  polls <- polls[which(keep == T),]
+  polls <- polls[which(keep1 == T & keep2 == F),]
   
   # remove empty columns
   polls <- polls[!apply(polls, 2, function(x) all(is.na(x)) | all(x==""))]
+  polls <- polls[-which((colnames(polls)==""))]
   
   # assign name to date column
   colnames(polls)[1] <- 'date_raw'

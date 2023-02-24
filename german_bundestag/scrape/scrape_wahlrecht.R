@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Scraping the 1998 to 2020 German Bundestag Election Polls
+# Scraping the 1998 to 2021 German Bundestag Election Polls
 #
 # Source: https://github.com/simonmunzert/gerpol-forecasting-2013-election-polls 
 # Author: Peter Selb and Simon Munzert
@@ -13,11 +13,9 @@ library(RCurl)
 library(XML)
 library(stringr)
 library(foreign)
-library(dplyr)
 library(reshape2)
 library(rvest)
 library(tidyverse)
-library(htmltab)
 library(zoo)
 library(data.table)
 
