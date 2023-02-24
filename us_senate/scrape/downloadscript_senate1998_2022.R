@@ -1,18 +1,15 @@
-########################################################################################
-# Download script: Senat Polls  from 1998 to 2018 
+#-------------------------------------------------------------------------------
+#
+# Download script: Senat Polls  from 1998 to 2022
 # Author: Sina Chen
 # Source: www.pollingreport.com 
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
-#### Libraries ####
+# Libraries ---------------------------------------------------------------
 
 library(xml2)
 library(rvest)
-library(dplyr)
-library(readr)
-library(tidyr)
-library(tibble)
 library(functional)
 library(RCurl)
 library(XML)
@@ -21,8 +18,7 @@ library(stringi)
 library(pryr)
 library(tidyverse)
 
-
-#### Directory ####
+# working directory
 setwd('your working directory')
 
 
@@ -47,10 +43,10 @@ handle <- getCurlHandle(cookiejar="",
 
 
 
-#### Helper functions ####
 
-# Get list of states by year
+# Functions ---------------------------------------------------------------
 
+# get list of states by year
 get_state_urls <- function(year){
   if(year != 1998){
     url <- paste0('https://www.pollingreport.us/sub/',year,'.htm')
@@ -69,14 +65,10 @@ get_state_urls <- function(year){
     links_year <- links[which(unlist(lapply(links,function(x) str_detect(x,'\\d+|index|issues|Harris|pollingreport', negate = T))))]
     links_comp <- as.list(stri_c("https://www.pollingreport.us/sub/",links_year))
     return(links_comp)
-    
   }
-  
 }
 
-
-# Dowload and write polls for each state and year
-
+# download and write polls for each state and year
 dl_polls <-function(url_list,write_dir){
   dir.create(write_dir, recursive = T)
   urls <- lapply(url_list,getURL,userpwd = usr_pwd,followlocation=TRUE,curl=handle)
@@ -90,10 +82,11 @@ dl_polls <-function(url_list,write_dir){
 }
 
 
-#### Download & write ####
+#-------------------------------------------------------------------------------
 
-# Get url lists for each year
+# Download & write --------------------------------------------------------
 
+# get url lists for each year
 {
   urllist1998 <- get_state_urls(1998)
   urllist2000 <- get_state_urls(2000)
@@ -112,10 +105,10 @@ dl_polls <-function(url_list,write_dir){
   urllist2016 <- get_state_urls(2016)  
   urllist2018 <- get_state_urls(2018)
   urllist2020 <- get_state_urls(2020)
+  urllist2022 <- get_state_urls(2022)
 }
 
-# Download & write 
-
+# download & write 
 {
   dl_polls(urllist1998,'year1998/html/')
   dl_polls(urllist2000,'year2000/html/')
@@ -129,10 +122,11 @@ dl_polls <-function(url_list,write_dir){
   dl_polls(urllist2016,'year2016/html/') 
   dl_polls(urllist2018,'year2018/html/') 
   dl_polls(urllist2020,'year2020/html/') 
+  dl_polls(urllist2022,'year2022/html/') 
 }
 
 
-# Making sure all states are downloaded
+# making sure all states are downloaded
 
 length(list.files("year1998/html/")) # 6
 length(list.files("year2000/html/")) # 48
@@ -146,5 +140,6 @@ length(list.files("year2014/html/")) # 14
 length(list.files("year2016/html/")) # 12 
 length(list.files("year2018/html/")) # 5  
 length(list.files("year2020/html/")) # 7  
+length(list.files("year2022/html/")) # 7  
 
 

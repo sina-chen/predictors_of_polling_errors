@@ -1,22 +1,24 @@
-########################################################################################
-# Helper functions to extract senate polls 1998 - 2018
+#-------------------------------------------------------------------------------
+#
+# Helper functions to extract senate polls 1998 - 2022
 # Author: Sina Chen
 # Notes: 
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
-### Cleaning & Splitting ###
 
-# Clean
+# Cleaning & splitting ----------------------------------------------------
+
+# clean
 clean <- function(dt){
-  dt<- as.data.frame(lapply(dt, gsub, pattern = '\n|\\s+|:', replacement = ' '), 
+  dt <- as.data.frame(lapply(dt, gsub, pattern = '\n|\\s+|:', replacement = ' '), 
                      stringsAsFactors=FALSE)
-  dt<- as.data.frame(lapply(dt, gsub, pattern = '^[.]|Â|[?]-|Ã\u0082|Ã|¢', 
+  dt <- as.data.frame(lapply(dt, gsub, pattern = '^[.]|Â|[?]-|Ã\u0082|Ã|¢', 
                             replacement=''), stringsAsFactors = FALSE)
   dt[is.na(dt)] <- ''
   
-  if( grepl('General Election Trial Heat', dt[3,1]) == T & 
-      grepl('General Election Trial Heat',dt[4,1]) == T) {
+  if(str_detect(dt[3,1], 'General Election Trial Heat') == T & 
+     str_detect(dt[4,1], 'General Election Trial Heat') == T) {
     dt <- dt[-3,]
   }
   
@@ -31,10 +33,10 @@ clean <- function(dt){
 }
 
 
-# Split several polls in one data frame
+# split multiple polls in one data frame
 split_polls <- function(dt){
   
-  # split based on first column enries
+  # split based on first column entries
   split <- which(dt[,1] != '')
   if(isTRUE(split[2] == 2 & split[3] == 3)) {
     split <- split[-3]
@@ -74,16 +76,11 @@ split_voter <- function(dt){
     dt <- dt[,-2]
   }
   
-  split <- which(grepl('Among registered voters', dt[-c(1:5),2]) |
-                    grepl('All registered voters',dt[-c(1:5),2])|
-                    grepl('Among active voters',dt[-c(1:5),2])|
-                    grepl('Among White Voters Only',dt[-c(1:5),2])|
-                    grepl('Without leaners',dt[-c(1:5),2])) + 5
+  split <- which(str_detect(dt[-c(1:5),2], 'Among registered voters|All registered voters|Among active voters|Among White Voters Only|Without leaners')) + 5
 
   split <- c(6, split, nrow(dt) + 1)
   
-  if(any(grepl('Among registered voters',dt[-c(1:5),2])) == T | 
-     any(grepl('Likely voters',dt[-c(1:5),2])) == T) {
+  if(any(str_detect(dt[-c(1:5),2],'Among registered voters|Likely voters')) == T) {
     split <- 0
   }
 
@@ -98,16 +95,16 @@ split_voter <- function(dt){
       split_data <- dt[(split[i]):(split[i + 1] - 1),]
       split_data <- rbind(head_tbl, split_data)
       
-      if(grepl('Among registered voters', split_data[6,2]) == T) {
+      if(str_detect(split_data[6,2], 'Among registered voters') == T) {
         split_data[1,1] <- paste0(split_data[1,1], split_data[6,2])
         split_data <- split_data[-6,]
       }
       
-      if(any(grepl('Among White Voters Only',split_data[,2])) == T) {
+      if(any(str_detect(split_data[,2], 'Among White Voters Only')) == T) {
         split_data[1,1] <- paste(split_data[1,1], 'Among White Voters Only')
       }
       
-      if(any(grepl('Without leaners', split_data[,2])) == T) {
+      if(any(str_detect(split_data[,2], 'Without leaners')) == T) {
         split_data[1,1] <- paste(split_data[1,1], 'Without leaners')
       }
       list_dt[i] <- list(split_data)
@@ -133,9 +130,9 @@ split_voter <- function(dt){
 
 split_pct <- function(dt){
   
-  # split based on %
+  # split based on % sign
   
-  split <- which(grepl('%', dt[-c(1:3),3])) + 3
+  split <- which(str_detect(dt[-c(1:3),3],'%')) + 3
   split[length(split) + 1] <- nrow(dt) + 2
   
   if(length(split) > 2) {
@@ -177,7 +174,7 @@ split_cand <- function(dt){
   splitRep <- which(grepl('[(]R[)]', dt[-c(1:4),2])) + 4
   splitRep[length(splitRep)+1] <- nrow(dt) + 1
   
-  split_und <-  which(grepl('Undecided', dt[-c(1:2),2])) + 2
+  split_und <-  which(str_detect(dt[-c(1:2),2],'Undecided')) + 2
   split_und <- c((which(dt[,1] != '')[2]), split_und)
   
   if(length(splitDem) > 2 & length(splitRep) < 3) {
@@ -199,8 +196,13 @@ split_cand <- function(dt){
     for(i in 1:(length(split_und) - 1)) {
       split_data <- dt[(split_und[i] + 1):(split_und[i + 1]),]
       split_data <- rbind(head_tbl,split_data)
+      pos_pct <- which(str_detect(split_data[-c(1:2),3],'%'))
+      if(length(pos_pct > 2)){
+        split_data <- split_data[-pos_pct[1],]}
+      
       list_split[i] <- list(split_data)
     }
+    
       
   } else {
     list_split <- list(dt)
@@ -548,8 +550,8 @@ reshape_to_row <- function(dt, repC, demC,
   candidates <- paste0(repC,'|',demC)
   details <- poll_details(dt)
   
-  if(identical(c(dt[3,]), c(dt[4,])) == T){
-    dt <- dt[-4,]
+  if(identical(c(dt[2,]), c(dt[3,]))|identical(c(dt[3,]), c(dt[4,])) == T){
+    dt <- dt[-3,]
   }
   
   if (any(grepl('%',dt)) == F & grepl(candidates,dt[2,3]) == T & 
@@ -571,14 +573,14 @@ reshape_to_row <- function(dt, repC, demC,
     filter_all(any_vars(!is.na(.))) 
   dt <- dt %>% mutate_at(vars(names(dt)), na_if, 'n/a') %>% 
     filter_all(any_vars(!is.na(.))) 
-  pos_pct <- which(grepl('^%$',dt[-(1:2),3])) + 2
+  pos_pct <- which(str_detect(dt[-(1),3], '^%$')) + 1
+  if(length(pos_pct) == 2){pos_pct <- pos_pct[2]}
   dt_final <- data.frame()
-  
- #print(details$pf)
-  
+
   # candidate names in row
-  if(any(grepl(candidates, dt[-c(1:(pos_pct-1)),2])) == F){
-    #print('row')
+
+  if(any(str_detect(dt[-c(1:2),2], candidates), na.rm = T)==F){
+    # print('row')
     for(i in (pos_pct+1):nrow(dt)) { 
       
       rep <- 0
@@ -652,7 +654,10 @@ reshape_to_row <- function(dt, repC, demC,
         }
       }
       
-      if(grepl('RV|LV|AV|2nd|Adults|Likely voters|Definite voters|With undecideds|Probable voters|registered voters|Registered voters|leaners|Unleaned',dt[i,2]) == T){
+      if(str_detect(
+        dt[i,2],
+        'RV|LV|AV|2nd|Adults|Likely voters|Definite voters|With undecideds|Probable voters|registered voters|Registered voters|leaners|Unleaned'
+        ) == T){
         resp <- paste(unlist(str_extract_all(dt[i,2],'Adults|[A-Z]+|with leaners|with leaners|without leaners|With leaners|Unleaned')),collapse=" ")
         date <- convert_date(dt[1,1], year = year)
 
@@ -701,10 +706,9 @@ reshape_to_row <- function(dt, repC, demC,
     return(dt_final)
   } 
   
-  #### Candidate names in col ####
+  # candidate names in col
   
-    if(any(grepl(candidates,dt[-c(1:pos_pct),2])) == T) {
-    #print('col')
+  if(any(str_detect(dt[-c(1:2),2], candidates), na.rm = T) == T) {
     col_filled <- which(is.na(dt[3,]))
 
     if(length(col_filled) < 3 & isTRUE(dt[5,4] != '') & 
@@ -816,22 +820,15 @@ reshape_to_row <- function(dt, repC, demC,
         }
       }
       
-      if(grepl('RV|LV|AV|2nd|Adults|active', dt[2,k]) == T) {
+      if(isTRUE(str_detect(dt[2,k], 'RV|LV|AV|2nd|Adults|active'))) {
         resp <- paste(unlist(str_extract_all(dt[2,k], 'Adults|[A-Z]+|with leaners|without leaners|')), collapse=" ")
         date <- convert_date(dt[1,1], year = year)
-      } else if(grepl('General Election Trial Heat', dt[pos_pct - 1, k]) == T |
-         grepl('ALL', dt[pos_pct - 1, k]) == T |
-         is.na(dt[pos_pct-1,k]) == T|
-         grepl('vote', dt[pos_pct-1,k]) == T |
-         grepl('^$', dt[pos_pct-1,k]) == T |
-         grepl('State- wide', dt[pos_pct - 1, k]) == T |
-         grepl('Trial Heat', dt[pos_pct - 1,k]) == T |
-         grepl('Undecideds Allocated', dt[pos_pct - 1, k]) == T |
-         grepl('Reg. Voters',dt[pos_pct - 1, k]) == T) {
+      } else if(str_detect(dt[pos_pct - 1, k], 'General Election Trial Heat|ALL|vote|^$|State- wide|Trial Heat|Undecideds Allocated|Reg. Voters') == T |
+         is.na(dt[pos_pct-1,k]) == T) {
         date <- convert_date(dt[1,1], year = year)
       } else {
         date <- convert_date(dt[pos_pct-1,k], year = year)
-        if(any(grepl('[?]', date)) == T) {
+        if(any(str_detect(date, '[?]')) == T) {
           date <- convert_date(dt[1,1], year = year)
         }
       }

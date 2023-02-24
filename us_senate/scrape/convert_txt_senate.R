@@ -1,26 +1,29 @@
-########################################################################################
-# Process script: Convert html to txt for senate polls from 1998 to 2018 
+#-------------------------------------------------------------------------------
+#
+# Process script: Convert html to txt for senate polls from 1998 to 2022 
 # Author: Sina Chen
 # Source: www.pollingreport.com 
 #
-########################################################################################
+#-------------------------------------------------------------------------------
 
-#### Libraries ####
+
+# Libraries ---------------------------------------------------------------
 
 library(XML)
 library(stringr)
 library(xml2)
 library(rvest)
-library(dplyr)
-library(readr)
-library(tidyr)
+library(tidyverse)
 library(tibble)
 
-#### Directory ####
-
+# working directory
 scr_dir <- 'your working directory'
 
-#### 1998 ####
+
+#-------------------------------------------------------------------------------
+
+
+# 1998 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year1998/html'))
@@ -62,7 +65,7 @@ setwd(paste0(scr_dir,'/year1998/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2000 ####
+# 2000 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2000/html'))
@@ -122,6 +125,8 @@ states2000 <- sapply(files2000, htmlParse)
 }
 
 # write txt
+
+if(file.exists(paste0(scr_dir,'/year2000/txt')) == F){dir.create(paste0(scr_dir,'/year2000/txt'))} 
 setwd(paste0(scr_dir,'/year2000/txt'))
 
 {
@@ -274,7 +279,8 @@ setwd(paste0(scr_dir,'/year2000/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2002 ####
+
+# 2002 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2002/html'))
@@ -333,6 +339,7 @@ states2002 <- sapply(files2002, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2002/txt')) == F){dir.create(paste0(scr_dir,'/year2002/txt'))} 
 setwd(paste0(scr_dir,'/year2002/txt'))
 
 {
@@ -482,7 +489,7 @@ setwd(paste0(scr_dir,'/year2002/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2004 ####
+# 2004 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2004/html'))
@@ -544,6 +551,7 @@ states2004 <- sapply(files2004, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2004/txt')) == F){dir.create(paste0(scr_dir,'/year2004/txt'))} 
 setwd(paste0(scr_dir,'/year2004/txt'))
 
 {
@@ -702,7 +710,8 @@ setwd(paste0(scr_dir,'/year2004/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2006 ####
+
+# 2006 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2006/html'))
@@ -741,8 +750,8 @@ states2006 <- sapply(files2006, htmlParse)
   pres_tables_wi_wy <- xpathSApply(doc = states2006$`28.html`, path ="//table[@dir='ltr']//child::table")
 }
 
-
 # write txt
+if(file.exists(paste0(scr_dir,'/year2006/txt')) == F){dir.create(paste0(scr_dir,'/year2006/txt'))} 
 setwd(paste0(scr_dir,'/year2006/txt'))
 
 {
@@ -835,7 +844,7 @@ setwd(paste0(scr_dir,'/year2006/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2008 ####
+# 2008 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2008/html'))
@@ -878,6 +887,7 @@ states2008 <- sapply(files2008, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2008/txt')) == F){dir.create(paste0(scr_dir,'/year2008/txt'))} 
 setwd(paste0(scr_dir,'/year2008/txt'))
 
 {
@@ -982,7 +992,8 @@ setwd(paste0(scr_dir,'/year2008/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2010 ####
+
+# 2010 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2010/html'))
@@ -1017,6 +1028,7 @@ states2010 <- sapply(files2010, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2010/txt')) == F){dir.create(paste0(scr_dir,'/year2010/txt'))} 
 setwd(paste0(scr_dir,'/year2010/txt'))
 
 {
@@ -1094,7 +1106,7 @@ setwd(paste0(scr_dir,'/year2010/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2012 ####
+# 2012 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2012/html'))
@@ -1129,6 +1141,7 @@ states2012 <- sapply(files2012, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2012/txt')) == F){dir.create(paste0(scr_dir,'/year2012/txt'))} 
 setwd(paste0(scr_dir,'/year2012/txt'))
 
 {
@@ -1205,7 +1218,8 @@ setwd(paste0(scr_dir,'/year2012/txt'))
 
 rm(list=ls(pattern="^pres_"))
 
-#### 2014 ####
+
+# 2014 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2014/html'))
@@ -1231,6 +1245,7 @@ states2014 <- sapply(files2014, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2014/txt')) == F){dir.create(paste0(scr_dir,'/year2014/txt'))} 
 setwd(paste0(scr_dir,'/year2014/txt'))
 
 {
@@ -1281,7 +1296,8 @@ setwd(paste0(scr_dir,'/year2014/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2016 ####
+
+# 2016 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2016/html'))
@@ -1305,6 +1321,7 @@ states2016 <- sapply(files2016, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2016/txt')) == F){dir.create(paste0(scr_dir,'/year2016/txt'))} 
 setwd(paste0(scr_dir,'/year2016/txt'))
 
 {
@@ -1349,7 +1366,7 @@ setwd(paste0(scr_dir,'/year2016/txt'))
 rm(list=ls(pattern="^pres_"))
 
 
-#### 2018 ####
+# 2018 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2018/html'))
@@ -1366,6 +1383,7 @@ states2018 <- sapply(files2018, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2018/txt')) == F){dir.create(paste0(scr_dir,'/year2018/txt'))} 
 setwd(paste0(scr_dir,'/year2018/txt'))
 
 {
@@ -1388,7 +1406,8 @@ setwd(paste0(scr_dir,'/year2018/txt'))
 
 rm(list=ls(pattern="^pres_"))
 
-#### 2020 ####
+
+# 2020 --------------------------------------------------------------------
 
 # read html
 setwd(paste0(scr_dir,'/year2020/html'))
@@ -1407,6 +1426,7 @@ states2020 <- sapply(files2020, htmlParse)
 }
 
 # write txt
+if(file.exists(paste0(scr_dir,'/year2020/txt')) == F){dir.create(paste0(scr_dir,'/year2020/txt'))} 
 setwd(paste0(scr_dir,'/year2020/txt'))
 
 {
@@ -1430,6 +1450,55 @@ setwd(paste0(scr_dir,'/year2020/txt'))
   sink()
   sink("Washington_Wyoming2020.txt")
   print(pres_tables_wa_wy)
+  sink()
+}
+
+rm(list=ls(pattern="^pres_"))
+
+
+# 2022 --------------------------------------------------------------------
+
+# read html
+setwd(paste0(scr_dir,'/year2022/html'))
+
+files2022 <- dir(paste0(scr_dir,'/year2022/html'))
+states2022 <- sapply(files2022, htmlParse)
+
+{
+  pres_tables_al_ar <- xpathSApply(doc = states2022$`1.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_ca_fl <- xpathSApply(doc = states2022$`2.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_ga_ky <- xpathSApply(doc = states2022$`3.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_la_ms <- xpathSApply(doc = states2022$`4.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_nv_nc <- xpathSApply(doc = states2022$`5.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_oh_sc <- xpathSApply(doc = states2022$`6.html`, path ="//table[@dir='ltr']//child::table")
+  pres_tables_tn_wy <- xpathSApply(doc = states2022$`7.html`, path ="//table[@dir='ltr']//child::table")
+}
+
+# write txt
+if(file.exists(paste0(scr_dir,'/year2022/txt')) == F){dir.create(paste0(scr_dir,'/year2022/txt'))} 
+setwd(paste0(scr_dir,'/year2022/txt'))
+
+{
+  sink("Alabama_Arkansas2022.txt")
+  print(pres_tables_al_ar)
+  sink()
+  sink("California_Florida2022.txt")
+  print(pres_tables_ca_fl)
+  sink()
+  sink("Georgia_Kentucky2022.txt")
+  print(pres_tables_ga_ky)
+  sink()
+  sink("Louisiana_Mississippi2022.txt")
+  print(pres_tables_la_ms)
+  sink()
+  sink("Nevada_NorthCarolina2022.txt")
+  print(pres_tables_nv_nc)
+  sink()
+  sink("Ohio_SouthCarolina2022.txt")
+  print(pres_tables_oh_sc)
+  sink()
+  sink("Tennessee_Wyoming2022.txt")
+  print(pres_tables_tn_wy)
   sink()
 }
 
