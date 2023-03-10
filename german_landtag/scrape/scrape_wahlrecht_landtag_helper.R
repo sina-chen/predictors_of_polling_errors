@@ -22,9 +22,11 @@ get_raw_lt <- function(bl) {
     html_table(fill = T) %>% length()
   
   # extract html tables
-  bl_raw <- lapply(2:n_tables, function(x) bl_html %>% 
-                     htmltab(which = x, rm_nodata_cols = T)) %>% 
-    suppressWarnings()
+  bl_raw <- bl_html %>%  
+    read_html() %>% 
+    html_table(header = T)
+
+  bl_raw <- bl_raw[-1]           
   
   return(bl_raw)  
   
@@ -33,31 +35,36 @@ get_raw_lt <- function(bl) {
 # subset polls 
 subset_polls <- function(raw_poll){
   
+  # remove NA columns
+  raw_poll <- raw_poll[colSums(!is.na(raw_poll)) > 1 & 
+                         colSums(!raw_poll== "", na.rm = T) > 1]
+  
+  # remove rows with unnecessary info
+  raw_poll <- raw_poll[which(sapply(1:nrow(raw_poll), function(x) 
+    length(unique(unlist(raw_poll[x,])))) > 1),]  
+  
   # remove election results
-  res_pos <- which(str_detect(raw_poll[,1], 'Landtag') |
-                     str_detect(raw_poll[,1], 'Abgeordnetenhauswahl')|
-                     str_detect(raw_poll[,1], 'BÃ¼rgerschaftswahl')|
-                     str_detect(raw_poll[,3], 'Nachwahl')|
-                     str_detect(raw_poll[,3], 'Werte')|
-                     str_detect(raw_poll[,5], 'â€“')|
-                     str_detect(raw_poll[,5], '[?]') |
-                     str_detect(raw_poll[,6], '[?]') |
-                     str_detect(raw_poll[,7], '[?]') |
-                     is.na(raw_poll[,5]) == T |
-                     is.na(raw_poll[,6]) == T |
-                     is.na(raw_poll[,7]) == T |
-                     is.na(raw_poll[,8]) == T
+  res_pos <- which(str_detect(unlist(raw_poll[,1]), 'Landtag|Abgeordnetenhauswahl|BÃ¼rgerschaftswahl') |
+                     str_detect(unlist(raw_poll[,3]), 'Nachwahl|Werte')|
+                     str_detect(unlist(raw_poll[,5]), 'â€“|[?]')|
+                     str_detect(unlist(raw_poll[,6]), '[?]') |
+                     str_detect(unlist(raw_poll[,7]), '[?]') |
+                     is.na(unlist(raw_poll[,5])) == T |
+                     is.na(unlist(raw_poll[,6])) == T |
+                     is.na(unlist(raw_poll[,7])) == T |
+                     is.na(unlist(raw_poll[,8])) == T
                     )
   
   sonstige_pos <- which(colnames(raw_poll) %in% c('Sonstige', 'Sonstige.1', 'FW',
                                                   'PIRATEN', 'NPD', 'SSW',
                                                   'Pro DMSchill', 'Offensive(Ex-Schill)'))
   
-  polls <- raw_poll[- res_pos, -sonstige_pos] 
+  polls <- raw_poll[-res_pos, -sonstige_pos] 
   
   # remove duplicated columns
-  polls <- polls[!duplicated(as.list(polls))]
-  
+  polls <- polls[!(duplicated(as.list(polls))) & 
+                   colSums(!polls== "", na.rm = T) > 1]
+
   # rename columns
   if(any(str_detect(colnames(polls), 'Quelle')) == T) {
     polls <- polls %>% 
@@ -532,9 +539,9 @@ clean_institute <- function(polls_lt){
 subset_res <- function(raw_poll){
   
   # find election results
-  res_pos <- which(str_detect(raw_poll[,1], 'Landtag') |
-                     str_detect(raw_poll[,1], 'Abgeordnetenhauswahl')|
-                     str_detect(raw_poll[,1], 'BÃ¼rgerschaftswahl')
+  res_pos <- which(str_detect(unlist(raw_poll[,1]), 'Landtag') |
+                     str_detect(unlist(raw_poll[,1]), 'Abgeordnetenhauswahl')|
+                     str_detect(unlist(raw_poll[,1]), 'BÃ¼rgerschaftswahl')
   )
   
   # remove last entry (duplicated) except fro RP 2001 & BB 2019
@@ -550,6 +557,10 @@ subset_res <- function(raw_poll){
                                                   'Pro DMSchill', 'Offensive(Ex-Schill)'))
   
   res <- raw_poll[res_pos,-sonstige_pos] 
+  
+  # remove NA & empty columns
+  res <- res[colSums(!is.na(res)) > 0 & 
+               colSums(!res== "", na.rm = T) > 0]
 
   return(res)
   
@@ -559,8 +570,8 @@ subset_res <- function(raw_poll){
 add_oth_res <- function(res) {
   
   # remove duplicated col
-  res <- res[!duplicated(as.list(res)) | colnames(res) == 'GRÃœNE']
-  
+  res <- res[!duplicated(colnames(res))] #| colnames(res) == 'GRÃœNE']
+
   if (!'LINKE' %in% colnames(res)) {
     res$LINKE <- NA
   }
@@ -635,8 +646,13 @@ party_names <- function(res_state_list){
                               gru = 'GRÜNE',
                               fdp = 'FDP',
                               lin = 'LINKE',
-                              afd = 'AfD'
-    ) )
+                              afd = 'AfD')
+    )
+
+  rownames(res_long) <- NULL  
+  
+  # remove duplicated rows
+  res_long <- res_long[!duplicated(res_long),]
   
   res_wide <- reshape2::dcast(res_long, 
                               election_year + state + election_date ~ party, 

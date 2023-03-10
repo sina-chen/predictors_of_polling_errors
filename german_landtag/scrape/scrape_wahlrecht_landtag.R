@@ -10,7 +10,6 @@
 
 library(RCurl)
 library(XML)
-library(htmltab)
 library(rvest)
 library(dplyr)
 library(stringr)
