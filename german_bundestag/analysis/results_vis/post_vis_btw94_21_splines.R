@@ -22,15 +22,15 @@ library(ggrepel)
 # Data --------------------------------------------------------------------
 
 # poll data
-polls <- readRDS('~/data/germany/bundestag/polls1990_2021.RDS')
+polls <- readRDS('~/data/polls1990_2021.RDS')
 
 # # stan fit obj.
-# resStan <- readRDS("~/fit_stan/btw/resStan_btw_redundant_splines_final.RDS")
+# resStan <- readRDS("~/fit_stan/resStan_btw_redundant_splines_final.RDS")
 
 
 # Functions ---------------------------------------------------------------
 
-# source("~/results_vis/helper_res_vis_btw_splines.R")
+source("~/results_vis/helper_res_vis_btw_splines.R")
 
 
 #-------------------------------------------------------------------------------
@@ -100,14 +100,14 @@ institute_party_level <- polls %>%
   group_by(institute, party, l_id, kl, kl_id) %>%  
   summarise()
 
-# # create b-splines design matrix
-# B <- t(bs(poll_level$t_sc, knots = quantile(poll_level$t_sc,
-#                                             probs= seq(0.1,0.9,0.1)),
-#           degree = 3,
-#           Boundary.knots = c(0,1)))
-# 
+# create b-splines design matrix
+B <- t(bs(poll_level$t_sc, knots = quantile(poll_level$t_sc,
+                                            probs= seq(0.1,0.9,0.1)),
+          degree = 3,
+          Boundary.knots = c(0,1)))
+
 # generate random variable of estimated parameters
-# postrv <- as.rv(resStan)
+postrv <- as.rv(resStan)
 
 
 # # Posterior estimation ----------------------------------------------------
@@ -126,9 +126,8 @@ institute_party_level <- polls %>%
 # 
 # rm(bias0_i)
 # 
-# # splines
 # splines <- get_splines(par = postrv$beta, b_splines = B, polls = polls)
-
+# 
 # # institute level bias by party
 # bias_l_i <- estimate_institute_bias(polls = polls,
 #                                     postrv = postrv,
@@ -193,8 +192,8 @@ institute_party_level <- polls %>%
 # 
 # # design effect
 # deff_kr <- var_kr/srs_var_kr
-# 
-# 
+
+
 # saveRDS(b0_kr, "~/results_vis/b0_kr_btw94_21.RDS")
 # saveRDS(b_kl, "~/results_vis/b_kl_btw94_21.RDS")
 # saveRDS(p_summary, "~/results_vis/p_summary_btw94_21.RDS")
@@ -207,15 +206,15 @@ institute_party_level <- polls %>%
 
 # Bias and variance summaries ---------------------------------------------
 
-# load quantities of interest
-p_summary <- readRDS( "p_summary_btw94_21.RDS")
-b0_kr <- readRDS( "b0_kr_btw94_21.RDS")
-b_kl <- readRDS( "b_kl_btw94_21.RDS")
-srs_var_kr <- readRDS( "srs_var_kr_btw94_21.RDS")
-srs_se_kr <- readRDS( "srs_se_kr_btw94_21.RDS")
-var_kr <- readRDS( "var_kr_btw94_21.RDS")
-se_kr <- readRDS( "se_kr_btw94_21.RDS")
-deff_kr <- readRDS( "deff_kr_btw94_21.RDS")
+# leoad quantities of interest
+p_summary <- readRDS( "~/results_vis/p_summary_btw94_21.RDS")
+b0_kr <- readRDS( "~/results_vis/b0_kr_btw94_21.RDS")
+b_kl <- readRDS( "~/results_vis/b_kl_btw94_21.RDS")
+srs_var_kr <- readRDS( "~/results_vis/srs_var_kr_btw94_21.RDS")
+srs_se_kr <- readRDS( "~/results_vis/srs_se_kr_btw94_21.RDS")
+var_kr <- readRDS( "~/results_vis/var_kr_btw94_21.RDS")
+se_kr <- readRDS( "~/results_vis/se_kr_btw94_21.RDS")
+deff_kr <- readRDS( "~/results_vis/deff_kr_btw94_21.RDS")
 
 # adjust party names 
 p_summary <- p_summary  %>% 
@@ -310,7 +309,7 @@ se_summary <- merge(se_summary, election_party_level, by = 'kr_id') %>%
 
 # average absolute election level bias
 mean(abs(b0_kr))
-mean(deff_kr)
+
 
 # average abs. bias on election day by party
 mab0_k <- b0_kr_summary %>%
@@ -324,19 +323,6 @@ mab0_k <- b0_kr_summary %>%
 
 colnames(mab0_k) <- mab0_k[1,]
 mab0_k <- mab0_k[-1,]
-
-# average rel. abs. bias on election day by party
-mrab0_k <- b0_kr_summary %>%
-  group_by(party) %>% 
-  summarise(error = format(round(mean(abs(mean)*100/voteshare),3), nsmall = 2),
-            sd = format(round(mean(sd*100/voteshare),3), nsmall = 2),
-            mu_b0 = paste0(error,' (', sd,')')) %>% 
-  select(party, mu_b0) %>% 
-  t() %>% 
-  data.frame()
-
-colnames(mrab0_k) <- mrab0_k[1,]
-mrab0_k <- mrab0_k[-1,]
 
 # average election level srs variance by party
 msrs_k <- srs_var_summary %>%
@@ -378,12 +364,11 @@ colnames(mdeff_k) <- mdeff_k[1,]
 mdeff_k <- mdeff_k[-1,]
 
 # Merge errors
-error <- rbind(mab0_k, mrab0_k,  msrs_k, mvar_k, mdeff_k)
+error <- rbind(mab0_k, msrs_k, mvar_k, mdeff_k)
 rownames(error) <- c('Absolute election day bias',
-                     'Absolute election day relbias',
                      'SRS variance',
                      'Total variance',
-                     'Variance ratio')
+                     'Design effect')
 
 xtable(error)
 
@@ -393,25 +378,18 @@ xtable(error)
 
 # election level bias on election day
 b0_kr_plot <- ggplot(b0_kr_summary, aes(x)) + 
-  geom_segment(aes(y = party, yend = party, x = `2.5%`, xend = `97.5%`), size = 0.3) + 
+  geom_segment(aes(y = party, yend = party, x = `2.5%`, xend = `97.5%`)) + 
   geom_segment(aes(y = party, yend = party, x = `25%`, xend = `75%`), 
-               size = 0.6) +
-  geom_vline(xintercept = 0, linetype = "dotted", size = 0.2) +
+               size = 1.5) +
+  geom_vline(xintercept = 0, linetype = "dotted") +
   labs(x = '\n Election-day bias', y = 'Party') + 
   scale_y_discrete(limits = rev(levels(as.factor(b0_kr_summary$party)))) + 
   theme_bw()  + 
-  theme(text = element_text(size = 6), 
-        axis.text.x = element_text(size = 6),
-        axis.title=element_text(size=6), 
-        axis.text.y = element_text(size = 6),
-        axis.ticks = element_line(size = 0.2),
-        axis.ticks.length = unit(0.05, "cm"),
-        plot.margin = unit(c(0.5,0.5,0.5,0.5),"cm"),
-        panel.border = element_rect(size = 0.2),
-        strip.background = element_rect(size = 0.2),
-        panel.grid.major = element_line(size = 0.2),
-        strip.text.x = element_text(margin = margin(0.05,0,0.05,0, "cm"))) +
-  facet_wrap(~ election, ncol = 4)  +
+  theme(text = element_text(size = 14), axis.text.x = element_text(size = 14),
+        axis.title=element_text(size=14), 
+        axis.text.y = element_text(size = 14),
+        plot.margin = unit(c(0.5,0.5,0.5,0.5),"cm")) +
+  facet_wrap(~ election, ncol = 2)  +
   scale_x_continuous(labels=label_percent(accuracy = 1), 
                      breaks = seq(-0.05, 0.1, 0.05),
                      limits = c(-0.06, 0.1))
@@ -419,36 +397,29 @@ b0_kr_plot <- ggplot(b0_kr_summary, aes(x)) +
 ggsave(filename = 'btw94_21_redundant_splines_election_day_bias.png', 
        plot = b0_kr_plot, 
        path = '~/results_vis/plots',
-       width = 11, height = 6, units = "cm", dpi = 600)
+       width = 10, height = 10)
 
 # party-institute level bias
 b_kl_plot <- ggplot(b_kl_summary, aes(x)) + 
-  geom_segment(aes(y = party, yend = party, x = `2.5%`, xend = `97.5%`), 
-               size = 0.3) + 
+  geom_segment(aes(y = party, yend = party, x = `2.5%`, xend = `97.5%`)) + 
   geom_segment(aes(y = party, yend = party, x = `25%`, xend = `75%`), 
-               size = 0.6) +
-  geom_vline(xintercept = 0, linetype = "dotted", size = 0.2) +
+               size = 1.5) +
+  geom_vline(xintercept = 0, linetype = "dotted") +
   labs(x = '\n Party-institute effect', y = 'Party') + 
   scale_y_discrete(limits = rev(levels(as.factor(b_kl_summary$party)))) + 
   theme_bw()  + 
-  theme(text = element_text(size = 6), 
-        axis.text = element_text(size = 6),
-        axis.title=element_text(size=6),
-        axis.ticks = element_line(size = 0.2),
-        axis.ticks.length = unit(0.05, "cm"),
-        panel.border = element_rect(size = 0.2),
-        strip.background = element_rect(size = 0.2),
-        panel.grid.major = element_line(size = 0.2),
-        strip.text.x = element_text(margin = margin(0.05,0,0.05,0, "cm"))) +
+  theme(text = element_text(size = 14), 
+        axis.text = element_text(size = 14),
+        axis.title=element_text(size=14)) +
   facet_wrap(~ institute, ncol = 3) +
   scale_x_continuous(labels=label_percent(accuracy = 0.1), 
-                     breaks = seq(-0.05, 0.1, 0.05),
-                     limits = c(-0.06, 0.11))
+                     breaks = seq(-0.05, 0.05, 0.05),
+                     limits = c(-0.055, 0.055))
 
-ggsave(filename = 'btw94_21_redundant_splines_institute_bias.png', 
+ggsave(filename = 'btw94_21_redudant_splines_institute_bias.png', 
        plot = b_kl_plot, 
        path = '~/results_vis/plots',
-       width = 11, height = 7, units = "cm", dpi = 600)
+       width = 12, height = 8)
 
 
 # total vs. SRS sd 
@@ -458,26 +429,18 @@ tot_srs_plot <- ggplot(tot_srs_se, aes(x = party, y = mean,
                                         color = se_type, fill = se_type,
                                         linetype = se_type)) +
   geom_bar(stat = 'identity', width = 0.8, 
-           position = 'identity', alpha = 0.5, size = 0.2) +
-  facet_wrap(~election, ncol = 4) +
+           position = 'identity', alpha = 0.5) +
+  facet_wrap(~election, ncol = 2) +
   theme_bw()+
   scale_y_continuous(labels=label_percent(accuracy = 0.1)) + 
   theme(legend.position = 'bottom', 
-        legend.text = element_text(size=6), 
-        legend.title = element_text(size=6),
-        legend.margin=margin(t=-8),
-        legend.key.size = unit(0.5,"line"),
-        text = element_text(size = 6), 
-        axis.text.x = element_text(size = 6, angle = 45, hjust = 1), 
-        axis.text.y = element_text(size = 6),
-        axis.title=element_text(size=6),
-        axis.ticks = element_line(size = 0.2),
-        axis.ticks.length = unit(0.05, "cm"),
-        panel.border = element_rect(size = 0.2),
-        strip.text = element_text(size = 6),
-        strip.background = element_rect(size = 0.2),
-        panel.grid.major = element_line(size = 0.2),
-        strip.text.x = element_text(margin = margin(0.05,0,0.05,0, "cm"))) +
+        legend.text = element_text(size=14), 
+        legend.title = element_text(size=14),
+        text = element_text(size = 14), 
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1), 
+        axis.text.y = element_text(size = 14),
+        axis.title=element_text(size=14),
+        strip.text = element_text(size = 14)) +
   labs(x = 'Party', y = '') +
   scale_color_manual(name = '', values = c('black', NA)) +
   scale_fill_manual(name = '', values = c("white", "darkgrey")) +
@@ -486,20 +449,19 @@ tot_srs_plot <- ggplot(tot_srs_se, aes(x = party, y = mean,
 ggsave(filename = 'btw94_21_redundant_splines_tot_srs_se.png', 
        plot = tot_srs_plot, 
        path = '~/results_vis/plots',
-       width = 11, height = 6.5, units = "cm", dpi = 600)
+       width = 8, height = 10)
 
 # mean estimates 
 btw94_21_estimate <- ggplot(p_summary, aes(x=as.numeric(days_to_election), 
                             y = mean, 
                             color = party)) +
-  geom_line(size = 0.3) +
-  facet_wrap(~ election, ncol = 4) +
+  geom_line() +
+  facet_wrap(~ election, ncol = 2) +
   scale_x_reverse() +
   theme_bw() +
-  geom_point(aes(y = support/100, color = party), size = 0.4, alpha = 0.2,
-             stroke = 0) +
+  geom_point(aes(y = support/100, color = party), size = 0.7, alpha = 0.2) +
   geom_hline(aes(yintercept = voteshare/100, 
-                 color = party), linetype = "dashed", size = 0.3) +
+                 color = party), linetype = "dashed") +
   scale_color_manual(values = c('CDU/CSU' = '#000000', 
                                 'SPD' = '#E3000F', 
                                 'GRUENE' = '#46962b', 
@@ -509,25 +471,17 @@ btw94_21_estimate <- ggplot(p_summary, aes(x=as.numeric(days_to_election),
                      name = 'Party') +
   labs(x = "Days to election", y = "Average mean prediction")  + 
   theme(legend.position = 'bottom', 
-        legend.text = element_text(size = 6), 
-        legend.title = element_text(size = 6),
-        legend.key.height = unit(0.3, "cm"),
-        legend.margin=margin(t=-8),
-        axis.text.x = element_text(size = 6, angle = 45, hjust = 1), 
-        axis.text.y = element_text(size = 6),
-        axis.title = element_text(size = 6),
-        axis.ticks = element_line(size = 0.2),
-        axis.ticks.length = unit(0.05, "cm"),
-        panel.border = element_rect(size = 0.2),
-        strip.text = element_text(size = 6),
-        strip.background = element_rect(size = 0.2),
-        panel.grid.major = element_line(size = 0.2),
-        strip.text.x = element_text(margin = margin(0.05,0,0.05,0, "cm"))) 
+        legend.text = element_text(size = 14), 
+        legend.title = element_text(size = 14),
+        axis.text.x = element_text(size = 12, angle = 45, hjust = 1), 
+        axis.text.y = element_text(size = 12),
+        axis.title=element_text(size = 14),
+        strip.text = element_text(size = 14)) 
 
 ggsave(filename = "btw94_21_redundant_splines_estimate.png", 
        plot = btw94_21_estimate, 
        path = '~/results_vis/plots',
-       width = 11, height = 7, units = "cm", dpi = 600) 
+       width = 10, height = 12) 
 
 # mean estimate: gray scale
 label_gray <- p_summary %>% 
@@ -539,15 +493,15 @@ btw94_21_estimate_gray <- ggplot(p_summary, aes(x=as.numeric(days_to_election),
                                                 y = mean, 
                                                 color = party)) +
   geom_line(size = 0.3) +
-  facet_wrap(~ election, ncol = 4) +
-  scale_x_reverse(limits = c(1500,-550), breaks = c(1500, 1000, 500, 0), 
+  facet_wrap(~ election, ncol = 2) +
+  scale_x_reverse(limits = c(1500,-400), breaks = c(1500, 1000, 500, 0), 
                   labels = c("1500", "1000", "500", "0")) +
   theme_bw() +
   geom_point(aes(y = support/100, color = party), size = 0.4, alpha = 0.2,
              stroke = 0) +
   geom_segment(aes(y = voteshare/100, yend = voteshare/100, 
                    x = 1500, xend = 0,
-                 color = party), linetype = "dashed", size = 0.2) +
+                   color = party), linetype = "dashed", size = 0.2) +
   labs(x = "Days to election", y = "Average mean prediction")  + 
   theme(legend.position = 'none', 
         axis.text.x = element_text(size = 6, angle = 45, hjust = 1), 
@@ -560,49 +514,47 @@ btw94_21_estimate_gray <- ggplot(p_summary, aes(x=as.numeric(days_to_election),
         strip.background = element_rect(size = 0.2),
         panel.grid.major = element_line(size = 0.2),
         strip.text.x = element_text(margin = margin(0.05,0,0.05,0, "cm"))
-        ) +
-  ylim(0, 0.5) +
+  ) +
+  ylim(0, 0.55) +
   scale_color_grey(name = "Party") +
-  geom_text_repel(data = label_gray, aes(label =  gsub("^.*$", " ", party)), # This will force the correct position of the link's right end.
-                  segment.curvature = -0.2,
+  geom_text_repel(data = label_gray, aes(label =  gsub("^.*$", "  ", party)), # correct position of the link's right end.
+                  segment.curvature = 0.7,
                   segment.square = TRUE,
                   segment.color = 'grey',
                   segment.linetype = 1,
-                  box.padding = 0.05,
-                  nudge_x = 300,
-                  nudge_y = 0.01,
+                  box.padding = 0.01,
+                  nudge_x = 150,
+                  nudge_y = 0.05,
                   direction="y",
-                  xlim =c(1500, -150),
+                  xlim =c(1500, -100),
                   max.overlaps = 20,
                   ylim =c(0, 0.5),
                   min.segment.length = unit(0, 'lines'),
                   hjust = 0,
                   segment.size = 0.2,
-                  size = 1,
-                  show.legend = F
-  ) +
+                  size = 2,
+                  show.legend = F,
+                  force = 0.1) +
   geom_text_repel(data = label_gray,
                   aes(label = paste0("", party)),
                   segment.alpha = 0,
-                  segment.curvature = -0.8,
+                  segment.curvature = 1,
                   segment.square = TRUE,
-                  box.padding = 0.05,
-                  nudge_x = 300,
-                  nudge_y = 0.01,
+                  box.padding = 0.025,
+                  nudge_x = 150,
+                  nudge_y = 0.025,
                   direction="y",
                   na.rm = TRUE,
-                  xlim = c(1500, -150),
+                  xlim = c(1500, -100),
                   ylim =c(0, 0.5),
                   min.segment.length = unit(0, 'lines'),
                   hjust = 0, 
-                  size = 1,
-                  show.legend = F) 
+                  size = 1.5,
+                  show.legend = F,
+                  force = 0.1) 
 
 ggsave(filename = "btw94_21_redundant_splines_estimate_gray.png", 
        plot = btw94_21_estimate_gray, 
        path = '~/results_vis/plots',
-       width = 16, height = 7, units = "cm", dpi = 600) 
-
-
-
-
+       width = 12, height = 14, units = "cm", dpi = 600) 
+ 
